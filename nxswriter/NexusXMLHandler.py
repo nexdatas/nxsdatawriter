@@ -28,11 +28,13 @@ from .Element import Element
 from .FElement import FElement
 from .EGroup import EGroup
 from .EField import EField
+from .EVirtualField import EVirtualField, EVirtualLayout, EVirtualPart
 from .EAttribute import EAttribute
 from .EStrategy import EStrategy
 from .ELink import ELink
 from .H5Elements import (
-    EDoc, ESymbol, EDimensions, EDim, EFile, EFilter)
+    EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
+    ESelection)
 from .DataSourceFactory import DataSourceFactory
 from .ThreadPool import ThreadPool
 from .InnerXMLParser import InnerXMLHandler
@@ -121,7 +123,10 @@ class NexusXMLHandler(sax.ContentHandler):
             'symbols': Element, 'symbol': ESymbol,
             'dimensions': EDimensions, 'dim': EDim,
             'enumeration': Element, 'item': Element,
-            'strategy': EStrategy, 'filter': EFilter
+            'strategy': EStrategy, 'filter': EFilter,
+            'virtual_field': EVirtualField, 'layout': EVirtualLayout,
+            'slab': ESlab, 'slice': ESlice, 'selection': ESelection,
+            'part': EVirtualPart,
         }
 
         #: (:obj:`list` <:obj:`dict` <:obj:`str`, :obj:`str` > >) \

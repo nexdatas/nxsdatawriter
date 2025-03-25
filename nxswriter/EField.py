@@ -81,8 +81,6 @@ class EField(FElementWithAttr):
         self.shuffle = True
         #: (:obj:`bool`) grew flag
         self.__grew = True
-        #: (:obj:`str`) data format
-        self.__format = ''
 
     def __isgrowing(self):
         """ checks if it is growing in extra dimension
