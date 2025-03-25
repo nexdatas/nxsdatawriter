@@ -33,7 +33,10 @@ from nxswriter.ELink import ELink
 from nxswriter.EStrategy import EStrategy
 from nxswriter.FElement import FElement
 from nxswriter.H5Elements import (
-    EDoc, ESymbol, EDimensions, EDim, EFile, EFilter)
+    EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
+    ESelection)
+from nxswriter.EVirtualField import (
+    EVirtualField, EVirtualLayout, EVirtualPart)
 from nxswriter.DataSourceFactory import DataSourceFactory
 from nxswriter.Errors import UnsupportedTagError
 from nxswriter.FetchNameHandler import TNObject
@@ -562,13 +565,15 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
             nh.withXMLinput, {'datasource': DataSourceFactory, 'doc': EDoc})
         self.assertEqual(
             nh.elementClass, {
-                'group': EGroup, 'field': EField, 'attribute': EAttribute,
-                'link': ELink,
+                'group': EGroup, 'field': EField,
+                'attribute': EAttribute, 'link': ELink,
                 'symbols': Element, 'symbol': ESymbol,
-                'dimensions': EDimensions,
-                'dim': EDim, 'enumeration': Element, 'item': Element,
-                'strategy': EStrategy,
-                'filter': EFilter
+                'dimensions': EDimensions, 'dim': EDim,
+                'enumeration': Element, 'item': Element,
+                'strategy': EStrategy, 'filter': EFilter,
+                'virtual_field': EVirtualField, 'layout': EVirtualLayout,
+                'slab': ESlab, 'slice': ESlice, 'selection': ESelection,
+                'part': EVirtualPart,
             })
         self.assertEqual(nh.transparentTags, ['definition'])
         self.assertEqual(nh.close(), None)
