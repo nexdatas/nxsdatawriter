@@ -379,6 +379,8 @@ class EVirtualField(FElementWithAttr):
                 if isinstance(ky, list) and len(ky) > 0 and len(ky) < 4:
                     tkey.append(slice(*ky))
                 else:
+                    if ky is None:
+                        ky = Ellipsis
                     tkey.append(ky)
             return tkey
         return key
