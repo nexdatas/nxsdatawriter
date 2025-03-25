@@ -419,8 +419,11 @@ class EVirtualField(FElementWithAttr):
             filename = ""
             edtype = part["dtype"] \
                 if "dtype" in part else self.__dtype
-            eshape = part["shape"] \
-                if "shape" in part else [1, *self.__shape[1:]]
+            if "shape" in part:
+                eshape = part["shape"]
+            else:
+                eshape = list(self.__shape)
+                eshape[0] = 1
             fieldpath = part["fieldpath"] \
                 if "fieldpath" in part else "/data"
             filename = part["filename"] if "filename" in part else None
