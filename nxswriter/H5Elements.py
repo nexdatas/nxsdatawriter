@@ -197,7 +197,7 @@ class EDim(Element):
 
 class ESlab(Element):
 
-    """ dim tag element
+    """ slab tag element
     """
 
     def __init__(self, attrs, last, streams=None):
@@ -264,6 +264,77 @@ class ESlab(Element):
                     slab = json.loads(str(dh.cast("string")))
                     if isinstance(slab, list):
                         self._beforeLast().selection[self.__index] = slab[:4]
+
+
+class ESlice(Element):
+
+    """ dim tag element
+    """
+
+    def __init__(self, attrs, last, streams=None):
+        """ constructor
+
+        :param attrs: dictionary of the tag attributes
+        :type attrs: :obj:`dict` <:obj:`str`, :obj:`str`>
+        :param last: the last element from the stack
+        :type last: :class:`nxswriter.Element.Element`
+        :param streams: tango-like steamset class
+        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
+        """
+        Element.__init__(self, "slice", attrs, last, streams=streams)
+        if ("index" in attrs.keys()):
+            added = False
+            start = None
+            stop = None
+            step = None
+            if "start" in attrs.keys() and attrs["start"]:
+                try:
+                    start = int(attrs["start"])
+                    added = True
+                except Exception:
+                    pass
+            if "stop" in attrs.keys() and attrs["stop"]:
+                try:
+                    stop = int(attrs["stop"])
+                    added = True
+                except Exception:
+                    pass
+            if "step" in attrs.keys() and attrs["step"]:
+                try:
+                    step = int(attrs["step"])
+                    added = True
+                except Exception:
+                    pass
+            if added:
+                self._beforeLast().selection[attrs["index"]] = slice(
+                    start, stop, step)
+        #: (:obj:`str`) index attribute
+        self.__index = None
+        #: (:class:`nxswriter.DataSources.DataSource`) data source
+        self.source = None
+        #: (:obj:`list` <:obj:`str`>) tag content
+        self.content = []
+        if "index" in attrs.keys():
+            self.__index = attrs["index"]
+
+    def store(self, xml=None, globalJSON=None):
+        """ stores the tag content
+
+        :param xml: xml setting
+        :type xml: :obj: `str`
+        :param globalJSON: global JSON string
+        :type globalJSON: \
+        :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
+        """
+        if self.__index is not None and self.source:
+            dt = self.source.getData()
+            if dt and isinstance(dt, dict):
+                dh = DataHolder(streams=self._streams, **dt)
+                if dh:
+                    lslice = json.loads(str(dh.cast("string")))
+                    if isinstance(lslice, list):
+                        self._beforeLast().selection[self.__index] = slice(
+                            *lslice)
 
 
 class EFilter(Element):
