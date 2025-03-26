@@ -59,8 +59,6 @@ class EVirtualMap(Element):
         self.selection = {}
         #: (:obj:`list` <:obj:`str`>) tag content
         self.content = []
-        # (:obj:`int`) part index counting from 1
-        self.__index = 0
         #: (:class:`nxswriter.DataSources.DataSource`) data source
         self.source = None
         #: (:obj:`str`) strategy, i.e. INIT, STEP, FINAL
@@ -68,45 +66,8 @@ class EVirtualMap(Element):
         #: (:obj:`str`) trigger for asynchronous writting
         self.trigger = None
         self.error = ""
-
-    def store(self, xml=None, globalJSON=None):
-        """ stores the tag content
-
-        :param xml: xml setting
-        :type xml: :obj: `str`
-        :param globalJSON: global JSON string
-        :type globalJSON: \
-        :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
-        """
-        part = {}
-
-        part["shape"] = self.__getShape()
-        part["key"] = self.__getKey()
-        target = None
-        filename = None
-        fieldpath = None
-        if "target" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                target = self._tagAttrs["target"]
-            else:
-                target = self._tagAttrs["target"].encode()
-            if target:
-                part["target"] = target
-        if "filename" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                filename = self._tagAttrs["filename"]
-            else:
-                filename = self._tagAttrs["filename"].encode()
-            if filename:
-                part["filename"] = filename
-        if "fieldpath" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                fieldpath = self._tagAttrs["fieldpath"]
-            else:
-                fieldpath = self._tagAttrs["fieldpath"].encode()
-            if fieldpath:
-                part["fieldpath"] = fieldpath
-        self.__index = self.last.appendPart(part)
+        # virtual layout map
+        self.__vmap = {}
 
     def __getShape(self):
         """ provides shape
@@ -156,6 +117,47 @@ class EVirtualMap(Element):
             pass
         return key
 
+    def store(self, xml=None, globalJSON=None):
+        """ stores the tag content
+
+        :param xml: xml setting
+        :type xml: :obj: `str`
+        :param globalJSON: global JSON string
+        :type globalJSON: \
+        :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
+        """
+
+        self.__vmap["shape"] = self.__getShape()
+        self.__vmap["key"] = self.__getKey()
+        target = None
+        filename = None
+        fieldpath = None
+        if "name" in self._tagAttrs.keys():
+            self.__name = self._tagAttrs["name"]
+        if "target" in self._tagAttrs.keys():
+            if sys.version_info > (3,):
+                target = self._tagAttrs["target"]
+            else:
+                target = self._tagAttrs["target"].encode()
+            if target:
+                self.__vmap["target"] = target
+        if "filename" in self._tagAttrs.keys():
+            if sys.version_info > (3,):
+                filename = self._tagAttrs["filename"]
+            else:
+                filename = self._tagAttrs["filename"].encode()
+            if filename:
+                self.__vmap["filename"] = filename
+        if "fieldpath" in self._tagAttrs.keys():
+            if sys.version_info > (3,):
+                fieldpath = self._tagAttrs["fieldpath"]
+            else:
+                fieldpath = self._tagAttrs["fieldpath"].encode()
+            if fieldpath:
+                self.__vmap["fieldpath"] = fieldpath
+        if not self.source:
+            self.last.appendVmap(self.__vmap)
+
     def run(self):
         """ runner
 
@@ -167,7 +169,7 @@ class EVirtualMap(Element):
                 if dt and isinstance(dt, dict):
                     dh = DataHolder(streams=self._streams, **dt)
                     val = dh.cast("string")
-                    self.last.appendPart(val)
+                    self.last.appendVmap(val, self.__vmap)
 
         except Exception:
             info = sys.exc_info()
@@ -220,11 +222,14 @@ class EVirtualField(FElementWithAttr):
         self.strategy = 'FINAL'
         #: (:obj:`str`) trigger for asynchronous writing
         self.trigger = None
+        #: (:obj:`str`) field data type
         self.__dtype = ""
+        #: (:obj:`str`) field name
         self.__name = ""
+        #: (:obj:`list` <:obj:`int` >) shape
         self.__shape = []
-        #: (:obj:`list`) part list
-        self.parts = []
+        #: (:obj:`list` <:obj:`dict` >) vmap list
+        self.__vmaps = []
 
     def __typeAndName(self):
         """ provides type and name of the field
@@ -301,7 +306,7 @@ class EVirtualField(FElementWithAttr):
             lval = val.split("\n")
             for el in lval:
                 if el.strip():
-                    self.parts.append({"target": el.strip()})
+                    self.__vmaps.append({"target": el.strip()})
         return self.strategy, self.trigger
 
     def store(self, xml=None, globalJSON=None):
@@ -320,13 +325,6 @@ class EVirtualField(FElementWithAttr):
         self.__dtype, self.__name = self.__typeAndName()
         # shape
         self.__shape = self.__getShape()
-        #: stored H5 file object (defined in base class)
-        # self.h5Object = self.__createObject(
-        # self.__dtype, self.__name, self.__shape)
-        # create attributes
-        # self.__setAttributes()
-
-        # return strategy or fill the value in
         return self.__setStrategy(self.__name)
 
     def __cureKeys(self, key):
@@ -355,7 +353,15 @@ class EVirtualField(FElementWithAttr):
             return tkey
         return key
 
-    def appendPart(self, values):
+    def appendVmap(self, values, base=None):
+        """ append virtual map items
+
+        :param values: a list of map items to append
+        :type values:  :obj:`str`  or :obj:`list`< :obj:`str` >
+                        or  :obj:`list`< :obj:`dict` >
+        :param base: base map item to append
+        :type base: :obj:`dict`
+        """
         try:
             if isinstance(values, str):
                 values = json.loads(values)
@@ -376,31 +382,38 @@ class EVirtualField(FElementWithAttr):
                 except Exception:
                     values.append(str(vl).strip())
         for vl in values:
-            if isinstance(vl, dict):
-                self.parts.append(dict(vl))
+            if isinstance(base, dict):
+                fval = dict(base)
             else:
-                self.parts.append({"target": vl.strip()})
-        return len(self.parts)
+                fval = {}
+            if isinstance(vl, dict):
+                fval.update(vl)
+            else:
+                fval.update({"target": vl.strip()})
+            self.__vmaps.append(fval)
+        return len(self.__vmaps)
 
     def __createVDS(self):
+        """ create the virtual field object
+        """
         vlf = FileWriter.virtual_field_layout(
             self.__shape, self.__dtype)
         counter = 0
-        for part in self.parts:
+        for vmap in self.__vmaps:
             fieldpath = ""
             filename = ""
-            edtype = part["dtype"] \
-                if "dtype" in part else self.__dtype
-            if "shape" in part:
-                eshape = part["shape"]
+            edtype = vmap["dtype"] \
+                if "dtype" in vmap else self.__dtype
+            if "shape" in vmap:
+                eshape = vmap["shape"]
             else:
                 eshape = list(self.__shape)
                 eshape[0] = 1
-            fieldpath = part["fieldpath"] \
-                if "fieldpath" in part else "/data"
-            filename = part["filename"] if "filename" in part else None
-            if "target" in part:
-                target = part["target"]
+            fieldpath = vmap["fieldpath"] \
+                if "fieldpath" in vmap else "/data"
+            filename = vmap["filename"] if "filename" in vmap else None
+            if "target" in vmap:
+                target = vmap["target"]
                 if target.startswith("h5file:/"):
                     target = target[8:]
                 if ":/" in target:
@@ -412,11 +425,11 @@ class EVirtualField(FElementWithAttr):
 
             ef = FileWriter.target_field_view(
                 filename, fieldpath, eshape, edtype)
-            sourceshape = part["sourceshape"] \
-                if "sourceshape" in part else None
-            sourcekey = part["sourcekey"] \
-                if "sourcekey" in part else None
-            key = part["key"] if "key" in part else counter
+            sourceshape = vmap["sourceshape"] \
+                if "sourceshape" in vmap else None
+            sourcekey = vmap["sourcekey"] \
+                if "sourcekey" in vmap else None
+            key = vmap["key"] if "key" in vmap else counter
             key = self.__cureKeys(key)
             sourcekey = self.__cureKeys(sourcekey)
             if eshape:
@@ -438,8 +451,8 @@ class EVirtualField(FElementWithAttr):
                 if dt and isinstance(dt, dict):
                     dh = DataHolder(streams=self._streams, **dt)
                     val = dh.cast("string")
-                    self.appendPart(val)
-            if self.parts and self.__shape and self.__dtype and self.__name:
+                    self.appendVmap(val)
+            if self.__vmaps and self.__shape and self.__dtype and self.__name:
                 self.__createVDS()
                 self.__setAttributes()
         except Exception:

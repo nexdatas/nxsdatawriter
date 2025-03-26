@@ -268,7 +268,7 @@ class ESlab(Element):
 
 class ESlice(Element):
 
-    """ dim tag element
+    """ slice tag element
     """
 
     def __init__(self, attrs, last, streams=None):
