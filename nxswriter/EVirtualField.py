@@ -33,7 +33,7 @@ from .Errors import (XMLSettingSyntaxError)
 from nxstools import filewriter as FileWriter
 
 
-class EVirtualPart(Element):
+class EVirtualMap(Element):
 
     """ layout map tag element
     """
@@ -48,7 +48,7 @@ class EVirtualPart(Element):
         :param streams: tango-like steamset class
         :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
         """
-        Element.__init__(self, "part", attrs, last, streams=streams)
+        Element.__init__(self, "map", attrs, last, streams=streams)
         #: (:obj:`str`) rank of the field
         self.rank = "0"
         #: (:obj:`dict` <:obj:`str`, :obj:`str`>) \
@@ -61,6 +61,13 @@ class EVirtualPart(Element):
         self.content = []
         # (:obj:`int`) part index counting from 1
         self.__index = 0
+        #: (:class:`nxswriter.DataSources.DataSource`) data source
+        self.source = None
+        #: (:obj:`str`) strategy, i.e. INIT, STEP, FINAL
+        self.strategy = 'STEP'
+        #: (:obj:`str`) trigger for asynchronous writting
+        self.trigger = None
+        self.error = ""
 
     def store(self, xml=None, globalJSON=None):
         """ stores the tag content
@@ -148,43 +155,6 @@ class EVirtualPart(Element):
         except XMLSettingSyntaxError:
             pass
         return key
-
-
-class EVirtualLayout(Element):
-
-    """ layout map tag element
-    """
-
-    def __init__(self, attrs, last, streams=None):
-        """ constructor
-
-        :param attrs: dictionary of the tag attributes
-        :type attrs: :obj:`dict` <:obj:`str`, :obj:`str`>
-        :param last: the last element from the stack
-        :type last: :class:`nxswriter.Element.Element`
-        :param streams: tango-like steamset class
-        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
-        """
-        Element.__init__(self, "map", attrs, last, streams=streams)
-        #: (:class:`nxswriter.DataSources.DataSource`) data source
-        self.source = None
-        #: (:obj:`list` <:obj:`str`>) tag content
-        self.content = []
-        #: (:obj:`str`) strategy, i.e. INIT, STEP, FINAL
-        self.strategy = 'STEP'
-        #: (:obj:`str`) trigger for asynchronous writting
-        self.trigger = None
-        self.error = ""
-
-    def store(self, xml=None, globalJSON=None):
-        """ stores the tag content
-
-        :param xml: xml setting
-        :type xml: :obj: `str`
-        :param globalJSON: global JSON string
-        :type globalJSON: \
-        :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
-        """
 
     def run(self):
         """ runner
