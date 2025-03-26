@@ -571,7 +571,7 @@ class NexusXMLHandlerH5CppTest(unittest.TestCase):
                 'dimensions': EDimensions, 'dim': EDim,
                 'enumeration': Element, 'item': Element,
                 'strategy': EStrategy, 'filter': EFilter,
-                'virtual_field': EVirtualField, 'map': EVirtualDataMap,
+                'vds': EVirtualField, 'map': EVirtualDataMap,
                 'slab': ESlab, 'slice': ESlice, 'selection': ESelection,
             })
         self.assertEqual(nh.transparentTags, ['definition'])

@@ -211,7 +211,7 @@ class EVirtualField(FElementWithAttr):
         :param reloadmode: reload mode
         :type reloadmode: :obj:`bool`
         """
-        FElementWithAttr.__init__(self, "field", attrs, last, streams=streams,
+        FElementWithAttr.__init__(self, "vds", attrs, last, streams=streams,
                                   reloadmode=reloadmode)
         #: (:obj:`str`) rank of the field
         self.rank = "0"
