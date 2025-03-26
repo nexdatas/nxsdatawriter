@@ -35,7 +35,7 @@ from nxswriter.FElement import FElement
 from nxswriter.H5Elements import (
     EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
     ESelection)
-from nxswriter.EVirtualField import EVirtualField, EVirtualMap
+from nxswriter.EVirtualField import EVirtualField, EVirtualDataMap
 from nxswriter.DataSourceFactory import DataSourceFactory
 from nxswriter.Errors import UnsupportedTagError
 from nxswriter.FetchNameHandler import TNObject
@@ -570,7 +570,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
                 'dimensions': EDimensions, 'dim': EDim,
                 'enumeration': Element, 'item': Element,
                 'strategy': EStrategy, 'filter': EFilter,
-                'virtual_field': EVirtualField, 'map': EVirtualMap,
+                'virtual_field': EVirtualField, 'map': EVirtualDataMap,
                 'slab': ESlab, 'slice': ESlice, 'selection': ESelection,
             })
         self.assertEqual(nh.transparentTags, ['definition'])

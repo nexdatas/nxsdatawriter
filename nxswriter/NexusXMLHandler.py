@@ -28,7 +28,7 @@ from .Element import Element
 from .FElement import FElement
 from .EGroup import EGroup
 from .EField import EField
-from .EVirtualField import EVirtualField, EVirtualMap
+from .EVirtualField import EVirtualField, EVirtualDataMap
 from .EAttribute import EAttribute
 from .EStrategy import EStrategy
 from .ELink import ELink
@@ -124,7 +124,7 @@ class NexusXMLHandler(sax.ContentHandler):
             'dimensions': EDimensions, 'dim': EDim,
             'enumeration': Element, 'item': Element,
             'strategy': EStrategy, 'filter': EFilter,
-            'virtual_field': EVirtualField, 'map': EVirtualMap,
+            'virtual_field': EVirtualField, 'map': EVirtualDataMap,
             'slab': ESlab, 'slice': ESlice, 'selection': ESelection,
         }
 

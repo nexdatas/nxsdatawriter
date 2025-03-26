@@ -33,7 +33,7 @@ from .Errors import (XMLSettingSyntaxError)
 from nxstools import filewriter as FileWriter
 
 
-class EVirtualMap(Element):
+class EVirtualDataMap(Element):
 
     """ layout map tag element
     """
