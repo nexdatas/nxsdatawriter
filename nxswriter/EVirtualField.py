@@ -449,6 +449,7 @@ class EVirtualField(FElementWithAttr):
                 counter += eshape[0]
             else:
                 counter += 1
+            # print("KEY", key, sourcekey, sourceshape)
             vlf.add(key, ef, sourcekey, sourceshape)
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, vlf)
@@ -465,6 +466,10 @@ class EVirtualField(FElementWithAttr):
                     dh = DataHolder(streams=self._streams, **dt)
                     val = dh.cast("string")
                     self.appendVmap(val)
+            # print("VMAPS", self.__vmaps)
+            # print("SHaPE", self.__shape)
+            # print("TYPE", self.__dtype)
+            # print("NAME", self.__name)
             if self.__vmaps and self.__shape and self.__dtype and self.__name:
                 self.__createVDS()
                 self.__setAttributes()
