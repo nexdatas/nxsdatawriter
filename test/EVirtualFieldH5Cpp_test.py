@@ -23,6 +23,7 @@ import unittest
 import os
 import sys
 import struct
+import numpy as np
 
 # try:
 #     from TstDataSource import TstDataSource
@@ -77,6 +78,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._vattrs = {"name": "test_virtual_field", "type": "NX_INT"}
         self._dmattrs1 = {"rank": 1}
         self._diattrs1 = {"index": "1", "value": "1"}
+        self._diattrs2 = {"index": "1", "value": "3"}
 
         self._gname = "testGroup"
         self._gtype = "NXentry"
@@ -199,7 +201,11 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
             self._fname, overwrite=True).root()
         eFile = EFile({}, None, self._nxFile)
         fi = EField(self._fattrs, eFile)
-        fi.content = ["1 "]
+        dm1 = EDimensions(self._dmattrs1, fi)
+        di1 = EDim(self._diattrs2, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        fi.content = ["1 2 3"]
         fi.store()
         self._nxFile2 = FileWriter.create_file(
             self._fname2, overwrite=True).root()
@@ -210,7 +216,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         vf = EVirtualField(self._vattrs, gr)
 
         dm1 = EDimensions(self._dmattrs1, vf)
-        di1 = EDim(self._diattrs1, dm1)
+        di1 = EDim(self._diattrs2, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
 
@@ -221,7 +227,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
         vm1 = EVirtualDataMap(vmattrs1, vf)
         dm1 = EDimensions(self._dmattrs1, vm1)
-        di1 = EDim(self._diattrs1, dm1)
+        di1 = EDim(self._diattrs2, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         self.assertEqual(vm1.store(""), None)
@@ -229,7 +235,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(vf.run(), None)
 
         rv = gr.h5Object.open("test_virtual_field")
-        self.assertEqual(rv.read(), fi.h5Object.read())
+        self.assertTrue((rv.read() == fi.h5Object.read()).all())
+        self.assertTrue(
+            (np.array([1, 2, 3]) == fi.h5Object.read()).all())
 
         self._nxFile.close()
         self._nxFile2.close()
