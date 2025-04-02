@@ -120,6 +120,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
     def test_default_constructor(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
+        if not H5CppWriter.is_vds_supported():
+            print("Skip the test: VDS not supported")
+            return
         self._fname = '%s/%s%s.h5' % (
             os.getcwd(), self.__class__.__name__, fun)
         self._nxFile = FileWriter.create_file(
@@ -148,6 +151,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
     def test_createVDS_default(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
+        if not H5CppWriter.is_vds_supported():
+            print("Skip the test: VDS not supported")
+            return
         self._fname = '%s/%s%s.h5' % (
             os.getcwd(), self.__class__.__name__, fun)
         self._nxFile = FileWriter.create_file(
