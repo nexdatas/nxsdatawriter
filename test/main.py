@@ -86,6 +86,7 @@ if H5PY_AVAILABLE:
     import FElementWithAttrH5PY_test
     import EStrategyH5PY_test
     import EFieldH5PY_test
+    import EVirtualFieldH5PY_test
     import EFieldReshapeH5PY_test
     import EGroupH5PY_test
     import EAttributeH5PY_test
@@ -108,6 +109,7 @@ if H5CPP_AVAILABLE:
     import FElementWithAttrH5Cpp_test
     import EStrategyH5Cpp_test
     import EFieldH5Cpp_test
+    import EVirtualFieldH5Cpp_test
     import EFieldReshapeH5Cpp_test
     import EGroupH5Cpp_test
     import EAttributeH5Cpp_test
@@ -352,6 +354,9 @@ def main():
             unittest.defaultTestLoader.loadTestsFromModule(EFieldH5PY_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
+                EVirtualFieldH5PY_test))
+        suite.addTests(
+            unittest.defaultTestLoader.loadTestsFromModule(
                 EFieldReshapeH5PY_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(EGroupH5PY_test))
@@ -405,6 +410,9 @@ def main():
                 FElementWithAttrH5Cpp_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(EFieldH5Cpp_test))
+        suite.addTests(
+            unittest.defaultTestLoader.loadTestsFromModule(
+                EVirtualFieldH5Cpp_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
                 EFieldReshapeH5Cpp_test))

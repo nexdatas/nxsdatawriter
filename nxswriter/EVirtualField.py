@@ -330,7 +330,10 @@ class EVirtualField(FElementWithAttr):
     def __cureKeys(self, key):
         tkey = []
         if isinstance(key, list):
-            sk = list(set([len(ky) for ky in key]))
+            try:
+                sk = list(set([len(ky) for ky in key]))
+            except Exception:
+                sk = []
             if len(sk) == 1 and sk[0] == 4:
                 offset = []
                 block = []
@@ -348,9 +351,10 @@ class EVirtualField(FElementWithAttr):
                     tkey.append(slice(*ky))
                 else:
                     if ky is None:
-                        ky = Ellipsis
+                        ky = slice(None)
                     tkey.append(ky)
-            return tkey
+
+            return tuple(tkey)
         return key
 
     def appendVmap(self, values, base=None):
@@ -422,7 +426,6 @@ class EVirtualField(FElementWithAttr):
                     filename, fieldpath = target.split("::")
                 else:
                     fieldpath = target
-
             ef = FileWriter.target_field_view(
                 filename, fieldpath, eshape, edtype)
             sourceshape = vmap["sourceshape"] \
