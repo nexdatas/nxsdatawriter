@@ -431,11 +431,9 @@ class EVirtualField(FElementWithAttr):
                 par = obj.parent
                 if par is None:
                     break
-                if hasattr(par, "filename"):
-                    filename = par.filename
-                    break
-                elif hasattr(par, "root") and hasattr(par, "name"):
+                if hasattr(par, "root") and hasattr(par, "name"):
                     filename = par.name
+                    break
                 else:
                     obj = par
             ef = FileWriter.target_field_view(
