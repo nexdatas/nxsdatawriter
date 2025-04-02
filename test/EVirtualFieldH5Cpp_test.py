@@ -173,10 +173,53 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(dm1.store(""), None)
 
         vmattrs1 = {"name": "map1",
-                    # "target": "/testField",
                     "target":
                     "EVirtualFieldH5CppTesttest_createVDS_default.h5:"
                     "/testField"
+                    }
+        vm1 = EVirtualDataMap(vmattrs1, vf)
+        dm1 = EDimensions(self._dmattrs1, vm1)
+        di1 = EDim(self._diattrs1, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        self.assertEqual(vm1.store(""), None)
+        self.assertEqual(vf.store(""), ('FINAL', None))
+        self.assertEqual(vf.run(), None)
+
+        rv = gr.h5Object.open("test_virtual_field")
+        self.assertEqual(rv.read(), fi.h5Object.read())
+
+        self._nxFile.close()
+        os.remove(self._fname)
+
+    # default constructor test
+    # \brief It tests default settings
+    def test_createVDS_default2(self):
+        fun = sys._getframe().f_code.co_name
+        print("Run: %s.%s() " % (self.__class__.__name__, fun))
+        if not H5CppWriter.is_vds_supported():
+            print("Skip the test: VDS not supported")
+            return
+        self._fname = '%s/%s%s.h5' % (
+            os.getcwd(), self.__class__.__name__, fun)
+        self._nxFile = FileWriter.create_file(
+            self._fname, overwrite=True).root()
+        eFile = EFile({}, None, self._nxFile)
+        fi = EField(self._fattrs, eFile)
+        fi.content = ["1 "]
+        fi.store()
+        gr = EGroup(self._gattrs, eFile)
+        gr.store()
+
+        vf = EVirtualField(self._vattrs, gr)
+
+        dm1 = EDimensions(self._dmattrs1, vf)
+        di1 = EDim(self._diattrs1, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+
+        vmattrs1 = {"name": "map1",
+                    "target": "/testField",
                     }
         vm1 = EVirtualDataMap(vmattrs1, vf)
         dm1 = EDimensions(self._dmattrs1, vm1)

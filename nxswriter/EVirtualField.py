@@ -426,6 +426,18 @@ class EVirtualField(FElementWithAttr):
                     filename, fieldpath = target.split("::")
                 else:
                     fieldpath = target
+            obj = self._lastObject()
+            while filename is None:
+                par = obj.parent
+                if par is None:
+                    break
+                if hasattr(par, "filename"):
+                    filename = par.filename
+                    break
+                elif hasattr(par, "root") and hasattr(par, "name"):
+                    filename = par.name
+                else:
+                    obj = par
             ef = FileWriter.target_field_view(
                 filename, fieldpath, eshape, edtype)
             sourceshape = vmap["sourceshape"] \
