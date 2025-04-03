@@ -43,6 +43,7 @@ from nxswriter.H5Elements import EDim
 from nxswriter.H5Elements import EDimensions
 from nxswriter.H5Elements import ESelection
 from nxswriter.H5Elements import ESlice
+from nxswriter.H5Elements import ESlab
 from nxswriter.EGroup import EGroup
 from nxswriter.Element import Element
 from nxswriter.H5Elements import EFile
@@ -89,7 +90,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._slattrs1 = {"index": "1", "start": "0", "stop": "1"}
         self._slattrs2 = {"index": "1", "start": "1", "stop": "2"}
         self._slattrs3 = {"index": "1", "start": "2", "stop": "3"}
-        self._slattrs4 = {"index": "2"}
+        self._slattrs3b = {"index": "1", "offset": "2", "block": "1"}
+        self._slattrs3c = {"index": "2", "offset": "0", "block": "4"}
+        self._slattrs4 = {"index": "2", "start": "0", "stop": "4"}
 
         self._gname = "testGroup"
         self._gtype = "NXentry"
@@ -232,9 +235,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(dm1.store(""), None)
 
         vmattrs1 = {"name": "map1",
-                    "target":
-                    "EVirtualFieldH5CppTesttest_createVDS_default2.h5:"
-                    "/testField"
+                    "target": "%s:/testField" % self._fname
                     }
         vm1 = EVirtualDataMap(vmattrs1, vf)
         dm1 = EDimensions(self._dmattrs1, vm1)
@@ -311,35 +312,22 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(dm1.store(""), None)
 
         vmattrs1 = {"name": "map1",
-                    "target":
-                    "EVirtualFieldH5CppTesttest_createVDS_three.h5:"
-                    "/testField"
+                    "target": "%s:/testField" % self._fname
                     }
         vmattrs2 = {"name": "map2",
-                    "target":
-                    "EVirtualFieldH5CppTesttest_createVDS_three.h5:"
-                    "/testField2"
+                    "target": "%s:/testField2" % self._fname
                     }
         vmattrs3 = {"name": "map3",
-                    "target":
-                    "EVirtualFieldH5CppTesttest_createVDS_three.h5:"
-                    "/testField3"
+                    "target": "%s:/testField3" % self._fname
                     }
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
 
+        vm1 = EVirtualDataMap(vmattrs1, vf)
         se1 = ESelection(self._dmattrs3, vm1)
         sl1 = ESlice(self._slattrs1, se1)
         sl2 = ESlice(self._slattrs4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
-
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs2, vf)
@@ -349,31 +337,19 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
-
         se1 = ESelection(self._dmattrs3, vm1)
         sl1 = ESlice(self._slattrs2, se1)
-        sl2 = ESlice(self._slattrs4, se1)
         self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
-
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs3, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
         se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs3, se1)
-        sl2 = ESlice(self._slattrs4, se1)
+        sl1 = ESlab(self._slattrs3b, se1)
+        sl2 = ESlab(self._slattrs3c, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
-
         self.assertEqual(vm1.store(""), None)
 
         self.assertEqual(vf.store(""), ('FINAL', None))

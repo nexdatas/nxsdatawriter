@@ -344,7 +344,7 @@ class EVirtualField(FElementWithAttr):
                     offset.append(off)
                     block.append(bl)
                     count.append(cnt)
-                    stride.append(str)
+                    stride.append(std)
                 return FileWriter.FTHyperslab(offset, block, count, stride)
             for ky in key:
                 if isinstance(ky, list) and len(ky) > 0 and len(ky) < 4:
@@ -397,6 +397,21 @@ class EVirtualField(FElementWithAttr):
             self.__vmaps.append(fval)
         return len(self.__vmaps)
 
+    def __findShape(self, key, eshape=None):
+        if isinstance(key, FileWriter.FTHyperslab):
+            eshape = [bl * key.count[hi]
+                      for hi, bl in enumerate(key.block)]
+        if isinstance(key, tuple):
+            eshape = []
+            for ky in key:
+                if isinstance(ky, slice) and ky.stop > 0:
+                    start = ky.start if ky.start is not None else 0
+                    step = ky.step if ky.step is not None else 1
+                    eshape.append((ky.stop - start) // step)
+                else:
+                    eshape.append(1)
+        return eshape
+
     def __createVDS(self):
         """ create the virtual field object
         """
@@ -436,8 +451,6 @@ class EVirtualField(FElementWithAttr):
                     break
                 else:
                     obj = par
-            ef = FileWriter.target_field_view(
-                filename, fieldpath, eshape, edtype)
             sourceshape = vmap["sourceshape"] \
                 if "sourceshape" in vmap else None
             sourcekey = vmap["sourcekey"] \
@@ -445,11 +458,18 @@ class EVirtualField(FElementWithAttr):
             key = vmap["key"] if "key" in vmap else counter
             key = self.__cureKeys(key)
             sourcekey = self.__cureKeys(sourcekey)
+            if not any(eshape):
+                eshape = self.__findShape(key, eshape)
+            ef = FileWriter.target_field_view(
+                filename, fieldpath, eshape, edtype)
             if eshape:
                 counter += eshape[0]
             else:
                 counter += 1
-            # print("KEY", key, sourcekey, sourceshape)
+            #   print("KEY", key, sourcekey, sourceshape)
+            if sourcekey is not None and (sourceshape is None
+                                          or not any(sourceshape)):
+                sourceshape = self.__findShape(sourcekey, sourceshape)
             vlf.add(key, ef, sourcekey, sourceshape)
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, vlf)

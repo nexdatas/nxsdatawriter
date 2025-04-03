@@ -20,34 +20,13 @@
 # unittests for field Tags running Tango Server
 #
 import unittest
-import os
-import sys
 import struct
-import numpy as np
 
 # try:
 #     from TstDataSource import TstDataSource
 # except Exception:
 #     from .TstDataSource import TstDataSource
 
-try:
-    from Checkers import Checker
-except Exception:
-    from .Checkers import Checker
-
-from nxswriter.FElement import FElement
-# from nxswriter.ELink import ELink
-from nxswriter.EField import EField
-from nxswriter.EVirtualField import EVirtualField, EVirtualDataMap
-from nxswriter.H5Elements import EDim
-from nxswriter.H5Elements import EDimensions
-from nxswriter.H5Elements import ESelection
-from nxswriter.H5Elements import ESlice
-from nxswriter.EGroup import EGroup
-from nxswriter.Element import Element
-from nxswriter.H5Elements import EFile
-# from nxswriter.Errors import XMLSettingSyntaxError
-# from nxswriter.FetchNameHandler import TNObject
 
 from nxstools import filewriter as FileWriter
 from nxstools import h5pywriter as H5PYWriter
@@ -59,48 +38,22 @@ from nxstools import h5pywriter as H5PYWriter
 IS64BIT = (struct.calcsize("P") == 8)
 
 
+try:
+    import EVirtualFieldH5Cpp_test
+except Exception:
+    from . import EVirtualFieldH5Cpp_test
+
+
 # test fixture
-class EVirtualFieldH5PYTest(unittest.TestCase):
+class EVirtualFieldH5PYTest(EVirtualFieldH5Cpp_test.EVirtualFieldH5CppTest):
 
     # constructor
     # \param methodName name of the test method
 
     def __init__(self, methodName):
-        unittest.TestCase.__init__(self, methodName)
-
-        self._fname = "test.h5"
-        self._fname2 = "test2.h5"
-        self._nxFile = None
-        self._eFile = None
-
-        self._tfname = "field"
-        self._tfname = "group"
-        self._fattrs = {"name": "testField", "units": "m", "type": "NX_INT"}
-        self._fattrs2 = {"name": "testField2", "units": "m", "type": "NX_INT"}
-        self._fattrs3 = {"name": "testField3", "units": "m", "type": "NX_INT"}
-        self._gattrs = {"name": "testGroup", "type": "NXentry"}
-        self._vattrs = {"name": "test_virtual_field", "type": "NX_INT"}
-        self._dmattrs1 = {"rank": 1}
-        self._diattrs1 = {"index": "1", "value": "1"}
-        self._diattrs2 = {"index": "1", "value": "3"}
-        self._diattrs3a = {"index": "1", "value": "4"}
-        self._diattrs3b = {"index": "2", "value": "4"}
-        self._dmattrs3 = {"rank": 2}
-        self._slattrs1 = {"index": "1", "start": "0", "stop": "1"}
-        self._slattrs2 = {"index": "1", "start": "1", "stop": "2"}
-        self._slattrs3 = {"index": "1", "start": "2", "stop": "3"}
-        self._slattrs4 = {"index": "2"}
-
-        self._gname = "testGroup"
-        self._gtype = "NXentry"
-        self._fdname = "testField"
-        self._fdtype = "int64"
-
-        self._bint = "int64" if IS64BIT else "int32"
-        self._buint = "uint64" if IS64BIT else "uint32"
-        self._bfloat = "float64" if IS64BIT else "float32"
-
-        self._sc = Checker(self)
+        EVirtualFieldH5Cpp_test.EVirtualFieldH5CppTest.__init__(
+            self, methodName)
+        #  unittest.TestCase.__init__(self, methodName)
 
     # test starter
     # \brief Common set up
@@ -109,288 +62,6 @@ class EVirtualFieldH5PYTest(unittest.TestCase):
         FileWriter.writer = H5PYWriter
         print("\nsetting up...")
         print("CHECKER SEED = %s" % self._sc.seed)
-
-    # test closer
-    # \brief Common tear down
-    def tearDown(self):
-        print("tearing down ...")
-
-    # Exception tester
-    # \param exception expected exception
-    # \param method called method
-    # \param args list with method arguments
-    # \param kwargs dictionary with method arguments
-    def myAssertRaise(self, exception, method, *args, **kwargs):
-        try:
-            error = False
-            method(*args, **kwargs)
-        except Exception:
-            error = True
-        self.assertEqual(error, True)
-
-    # default constructor test
-    # \brief It tests default settings
-    def test_default_constructor(self):
-        fun = sys._getframe().f_code.co_name
-        print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not H5PYWriter.is_vds_supported():
-            print("Skip the test: VDS not supported")
-            return
-        self._fname = '%s/%s%s.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._nxFile = FileWriter.create_file(
-            self._fname, overwrite=True).root()
-        eFile = EFile({}, None, self._nxFile)
-        li = EVirtualField({}, eFile)
-        self.assertTrue(isinstance(li, Element))
-        self.assertTrue(isinstance(li, FElement))
-        self.assertEqual(li.tagName, "vds")
-        self.assertEqual(li.content, [])
-
-        self.assertEqual(li.h5Object, None)
-
-        self._nxFile.close()
-        os.remove(self._fname)
-
-    # default constructor test
-    # \brief It tests default settings
-    def test_createVDS_default(self):
-        fun = sys._getframe().f_code.co_name
-        print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not H5PYWriter.is_vds_supported():
-            print("Skip the test: VDS not supported")
-            return
-        self._fname = '%s/%s%s.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._nxFile = FileWriter.create_file(
-            self._fname, overwrite=True).root()
-        eFile = EFile({}, None, self._nxFile)
-        fi = EField(self._fattrs, eFile)
-        fi.content = ["1 "]
-        fi.store()
-        gr = EGroup(self._gattrs, eFile)
-        gr.store()
-
-        vf = EVirtualField(self._vattrs, gr)
-
-        dm1 = EDimensions(self._dmattrs1, vf)
-        di1 = EDim(self._diattrs1, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        vmattrs1 = {"name": "map1",
-                    "target": "/testField",
-                    }
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs1, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-        self.assertEqual(vf.store(""), ('FINAL', None))
-        self.assertEqual(vf.run(), None)
-
-        rv = gr.h5Object.open("test_virtual_field")
-        self.assertEqual(rv.read(), fi.h5Object.read())
-
-        self._nxFile.close()
-        os.remove(self._fname)
-
-    # default constructor test
-    # \brief It tests default settings
-    def test_createVDS_default2(self):
-        fun = sys._getframe().f_code.co_name
-        print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not H5PYWriter.is_vds_supported():
-            print("Skip the test: VDS not supported")
-            return
-        self._fname = '%s/%s%s.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._fname2 = '%s/%s%s_b.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._nxFile = FileWriter.create_file(
-            self._fname, overwrite=True).root()
-        eFile = EFile({}, None, self._nxFile)
-        fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi)
-        di1 = EDim(self._diattrs2, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi.content = ["1 2 3"]
-        fi.store()
-        self._nxFile2 = FileWriter.create_file(
-            self._fname2, overwrite=True).root()
-        eFile2 = EFile({}, None, self._nxFile2)
-        gr = EGroup(self._gattrs, eFile2)
-        gr.store()
-
-        vf = EVirtualField(self._vattrs, gr)
-
-        dm1 = EDimensions(self._dmattrs1, vf)
-        di1 = EDim(self._diattrs2, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        vmattrs1 = {"name": "map1",
-                    "target":
-                    "EVirtualFieldH5PYTesttest_createVDS_default2.h5:"
-                    "/testField"
-                    }
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs1, vm1)
-        di1 = EDim(self._diattrs2, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-        self.assertEqual(vf.store(""), ('FINAL', None))
-        self.assertEqual(vf.run(), None)
-
-        rv = gr.h5Object.open("test_virtual_field")
-        self.assertTrue((rv.read() == fi.h5Object.read()).all())
-        self.assertTrue(
-            (np.array([1, 2, 3]) == fi.h5Object.read()).all())
-
-        self._nxFile.close()
-        self._nxFile2.close()
-        os.remove(self._fname)
-        os.remove(self._fname2)
-
-    # default constructor test
-    # \brief It tests default settings
-    def test_createVDS_three(self):
-        fun = sys._getframe().f_code.co_name
-        print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not FileWriter.writer.is_vds_supported():
-            print("Skip the test: VDS not supported")
-            return
-        self._fname = '%s/%s%s.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._fname2 = '%s/%s%s_b.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._nxFile = FileWriter.create_file(
-            self._fname, overwrite=True).root()
-        eFile = EFile({}, None, self._nxFile)
-
-        fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi)
-        di1 = EDim(self._diattrs3a, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi.content = ["1 2 3 4"]
-        fi.store()
-
-        fi2 = EField(self._fattrs2, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi2)
-        di1 = EDim(self._diattrs3a, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi2.content = ["11 12 13 14"]
-        fi2.store()
-
-        fi3 = EField(self._fattrs3, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi3)
-        di1 = EDim(self._diattrs3a, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi3.content = ["21 22 23 24"]
-        fi3.store()
-
-        self._nxFile2 = FileWriter.create_file(
-            self._fname2, overwrite=True).root()
-        eFile2 = EFile({}, None, self._nxFile2)
-        gr = EGroup(self._gattrs, eFile2)
-        gr.store()
-
-        vf = EVirtualField(self._vattrs, gr)
-
-        dm1 = EDimensions(self._dmattrs3, vf)
-        di1 = EDim(self._diattrs2, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        vmattrs1 = {"name": "map1",
-                    "target":
-                    "EVirtualFieldH5PYTesttest_createVDS_three.h5:"
-                    "/testField"
-                    }
-        vmattrs2 = {"name": "map2",
-                    "target":
-                    "EVirtualFieldH5PYTesttest_createVDS_three.h5:"
-                    "/testField2"
-                    }
-        vmattrs3 = {"name": "map3",
-                    "target":
-                    "EVirtualFieldH5PYTesttest_createVDS_three.h5:"
-                    "/testField3"
-                    }
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs1, se1)
-        sl2 = ESlice(self._slattrs4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs2, se1)
-        sl2 = ESlice(self._slattrs4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs3, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs3, se1)
-        sl2 = ESlice(self._slattrs4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        self.assertEqual(vf.store(""), ('FINAL', None))
-        self.assertEqual(vf.run(), None)
-        print(vf.error)
-
-        rv = gr.h5Object.open("test_virtual_field")
-        # self.assertTrue((rv.read() == fi.h5Object.read()).all())
-        self.assertTrue(
-            (np.array([[1, 2, 3, 4],
-                       [11, 12, 13, 14],
-                       [21, 22, 23, 24]]) == rv.read()).all())
-
-        self._nxFile.close()
-        self._nxFile2.close()
-        os.remove(self._fname)
-        os.remove(self._fname2)
 
 
 if __name__ == '__main__':
