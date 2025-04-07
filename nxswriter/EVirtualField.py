@@ -204,7 +204,7 @@ class EVirtualDataMap(Element):
             pass
         return key
 
-    def __getSourcecShape(self):
+    def __getSourceShape(self):
         """ provides source shape
 
         :returns: object shape
