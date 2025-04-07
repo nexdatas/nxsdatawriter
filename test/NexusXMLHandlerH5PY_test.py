@@ -35,7 +35,8 @@ from nxswriter.FElement import FElement
 from nxswriter.H5Elements import (
     EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
     ESelection)
-from nxswriter.EVirtualField import EVirtualField, EVirtualDataMap
+from nxswriter.EVirtualField import (
+    EVirtualField, EVirtualDataMap, EVirtualSourceView)
 from nxswriter.DataSourceFactory import DataSourceFactory
 from nxswriter.Errors import UnsupportedTagError
 from nxswriter.FetchNameHandler import TNObject
