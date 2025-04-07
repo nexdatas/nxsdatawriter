@@ -115,6 +115,16 @@ class EField(FElementWithAttr):
 
             raise XMLSettingSyntaxError("Field without a name")
 
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.lengths[index] = value
+
     def __getShape(self):
         """ provides shape
 

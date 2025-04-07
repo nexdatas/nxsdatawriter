@@ -33,6 +33,46 @@ from .Errors import (XMLSettingSyntaxError)
 from nxstools import filewriter as FileWriter
 
 
+class EVirtualSourceView(Element):
+
+    """ virtual source view tag element
+    """
+
+    def __init__(self, attrs, last, streams=None):
+        """ constructor
+
+        :param attrs: dictionary of the tag attributes
+        :type attrs: :obj:`dict` <:obj:`str`, :obj:`str`>
+        :param last: the last element from the stack
+        :type last: :class:`nxswriter.Element.Element`
+        :param streams: tango-like steamset class
+        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
+        """
+        Element.__init__(self, "sourceview", attrs, last, streams=streams)
+        #: (:obj:`list` <:obj:`str`>) tag content
+        self.content = []
+
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.last.setSourceLength(index, value)
+
+    def setSelection(self, index, value):
+        """ sets selection dict element
+
+        :param index: selection index
+        :type index: :obj:`int`
+        :param value: selection value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.last.setSourceSelection(index, value)
+
+
 class EVirtualDataMap(Element):
 
     """ layout map tag element
@@ -57,6 +97,13 @@ class EVirtualDataMap(Element):
         #: (:obj:`dict` <:obj:`str`, :obj:`str`>) \
         #:        selection of the field, i.e. {index: slice or hyperslab}
         self.selection = {}
+        #: (:obj:`dict` <:obj:`str`, :obj:`str`>) \
+        #:        shape of the source field, i.e. {index: length}
+        self.srclengths = {}
+        #: (:obj:`dict` <:obj:`str`, :obj:`str`>) \
+        #:        source selection of the field,
+        #:        i.e. {index: slice or hyperslab}
+        self.srcselection = {}
         #: (:obj:`list` <:obj:`str`>) tag content
         self.content = []
         #: (:class:`nxswriter.DataSources.DataSource`) data source
@@ -68,6 +115,46 @@ class EVirtualDataMap(Element):
         self.error = ""
         # virtual layout map
         self.__vmap = {}
+
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.lengths[index] = value
+
+    def setSelection(self, index, value):
+        """ sets selection dict element
+
+        :param index: selection index
+        :type index: :obj:`int`
+        :param value: selection value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.selection[index] = value
+
+    def setSourceLength(self, index, value):
+        """ sets source lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.srclengths[index] = value
+
+    def setSourceSelection(self, index, value):
+        """ sets source selection dict element
+
+        :param index: selection index
+        :type index: :obj:`int`
+        :param value: selection value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.srcselection[index] = value
 
     def __getShape(self):
         """ provides shape
@@ -117,6 +204,54 @@ class EVirtualDataMap(Element):
             pass
         return key
 
+    def __getSourcecShape(self):
+        """ provides source shape
+
+        :returns: object shape
+        :rtype: :obj:`list` <:obj:`int` >
+        """
+        shape = []
+        try:
+            if int(self.rank) > 0:
+                for i in range(int(self.rank)):
+                    si = str(i + 1)
+                    if self.srclengths and si in self.srclengths.keys() \
+                       and self.srclengths[si] is not None:
+                        if int(self.srclengths[si]) > 0:
+                            shape.append(int(self.srclengths[si]))
+                    else:
+                        raise XMLSettingSyntaxError(
+                            "Dimensions not defined")
+                if len(shape) < int(self.rank):
+                    raise XMLSettingSyntaxError(
+                        "Too small dimension number")
+        except XMLSettingSyntaxError:
+            if self.rank and int(self.rank) >= 0:
+                shape = [0] * (int(self.rank))
+            else:
+                shape = [0]
+        return shape or None
+
+    def __getSourceKey(self):
+        """ provides source key
+
+        :returns: object key
+        :rtype: :obj:`list` <:obj:`int` >
+        """
+        key = []
+        try:
+            if int(self.rank) > 0:
+                for i in range(int(self.rank)):
+                    si = str(i + 1)
+                    if self.srcselection and si in self.srcselection.keys() \
+                       and self.srcselection[si] is not None:
+                        key.append(self.srcselection[si])
+                    else:
+                        key.append(None)
+        except XMLSettingSyntaxError:
+            pass
+        return key or None
+
     def store(self, xml=None, globalJSON=None):
         """ stores the tag content
 
@@ -129,6 +264,12 @@ class EVirtualDataMap(Element):
 
         self.__vmap["shape"] = self.__getShape()
         self.__vmap["key"] = self.__getKey()
+        srcshape = self.__getSourceShape()
+        if srcshape is not None:
+            self.__vmap["sourceshape"] = srcshape
+        srckey = self.__getSourceKey()
+        if srckey is not None:
+            self.__vmap["sourcekey"] = srckey
         target = None
         filename = None
         fieldpath = None
@@ -230,6 +371,16 @@ class EVirtualField(FElementWithAttr):
         self.__shape = []
         #: (:obj:`list` <:obj:`dict` >) vmap list
         self.__vmaps = []
+
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.lengths[index] = value
 
     def __typeAndName(self):
         """ provides type and name of the field

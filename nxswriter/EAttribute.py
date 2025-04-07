@@ -57,6 +57,16 @@ class EAttribute(FElement):
         #: (:obj:`str`) trigger for asynchronous writting
         self.trigger = None
 
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.lengths[index] = value
+
     def store(self, xml=None, globalJSON=None):
         """ stores the tag content
 

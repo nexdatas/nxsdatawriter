@@ -167,7 +167,7 @@ class EDim(Element):
         """
         Element.__init__(self, "dim", attrs, last, streams=streams)
         if ("index" in attrs.keys()) and ("value" in attrs.keys()):
-            self._beforeLast().lengths[attrs["index"]] = attrs["value"]
+            self._beforeLast().setLength(attrs["index"], attrs["value"])
         #: (:obj:`str`) index attribute
         self.__index = None
         #: (:class:`nxswriter.DataSources.DataSource`) data source
@@ -191,8 +191,8 @@ class EDim(Element):
             if dt and isinstance(dt, dict):
                 dh = DataHolder(streams=self._streams, **dt)
                 if dh:
-                    self._beforeLast().lengths[self.__index] = str(
-                        dh.cast("string"))
+                    self._beforeLast().setLength(self.__index,
+                                                 str(dh.cast("string")))
 
 
 class ESlab(Element):
@@ -236,8 +236,8 @@ class ESlab(Element):
                     stride = int(attrs["stride"])
                 except Exception:
                     pass
-            self._beforeLast().selection[attrs["index"]] = \
-                [offset, block, count, stride]
+            self._beforeLast().setSelection(
+                attrs["index"], [offset, block, count, stride])
         #: (:obj:`str`) index attribute
         self.__index = None
         #: (:class:`nxswriter.DataSources.DataSource`) data source
@@ -263,7 +263,7 @@ class ESlab(Element):
                 if dh:
                     slab = json.loads(str(dh.cast("string")))
                     if isinstance(slab, list):
-                        self._beforeLast().selection[self.__index] = slab[:4]
+                        self._beforeLast().setSelection(self.__index, slab[:4])
 
 
 class ESlice(Element):
@@ -306,8 +306,8 @@ class ESlice(Element):
                 except Exception:
                     pass
             if added:
-                self._beforeLast().selection[attrs["index"]] = slice(
-                    start, stop, step)
+                self._beforeLast().setSelection(
+                    attrs["index"], slice(start, stop, step))
         #: (:obj:`str`) index attribute
         self.__index = None
         #: (:class:`nxswriter.DataSources.DataSource`) data source
@@ -333,8 +333,8 @@ class ESlice(Element):
                 if dh:
                     lslice = json.loads(str(dh.cast("string")))
                     if isinstance(lslice, list):
-                        self._beforeLast().selection[self.__index] = slice(
-                            *lslice)
+                        self._beforeLast().setSelection(
+                            self.__index, slice(*lslice))
 
 
 class EFilter(Element):
