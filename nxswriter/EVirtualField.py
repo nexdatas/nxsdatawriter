@@ -52,6 +52,14 @@ class EVirtualSourceView(Element):
         #: (:obj:`list` <:obj:`str`>) tag content
         self.content = []
 
+    def setRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.last.setSourceRank(rank)
+
     def setLength(self, index, value):
         """ sets lengths dict element
 
@@ -91,6 +99,8 @@ class EVirtualDataMap(Element):
         Element.__init__(self, "map", attrs, last, streams=streams)
         #: (:obj:`str`) rank of the field
         self.rank = "0"
+        #: (:obj:`str`) rank of the source field view
+        self.srcrank = "0"
         #: (:obj:`dict` <:obj:`str`, :obj:`str`>) \
         #:        shape of the field, i.e. {index: length}
         self.lengths = {}
@@ -125,6 +135,22 @@ class EVirtualDataMap(Element):
         :type value: :obj:`int` or :obj:`str`
         """
         self.lengths[index] = value
+
+    def setRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.rank = rank
+
+    def setSourceRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.srcrank = rank
 
     def setSelection(self, index, value):
         """ sets selection dict element
@@ -212,8 +238,8 @@ class EVirtualDataMap(Element):
         """
         shape = []
         try:
-            if int(self.rank) > 0:
-                for i in range(int(self.rank)):
+            if int(self.srcrank) > 0:
+                for i in range(int(self.srcrank)):
                     si = str(i + 1)
                     if self.srclengths and si in self.srclengths.keys() \
                        and self.srclengths[si] is not None:
@@ -222,12 +248,12 @@ class EVirtualDataMap(Element):
                     else:
                         raise XMLSettingSyntaxError(
                             "Dimensions not defined")
-                if len(shape) < int(self.rank):
+                if len(shape) < int(self.srcrank):
                     raise XMLSettingSyntaxError(
                         "Too small dimension number")
         except XMLSettingSyntaxError:
-            if self.rank and int(self.rank) >= 0:
-                shape = [0] * (int(self.rank))
+            if self.srcrank and int(self.srcrank) >= 0:
+                shape = [0] * (int(self.srcrank))
             else:
                 shape = [0]
         return shape or None
@@ -240,8 +266,8 @@ class EVirtualDataMap(Element):
         """
         key = []
         try:
-            if int(self.rank) > 0:
-                for i in range(int(self.rank)):
+            if int(self.srcrank) > 0:
+                for i in range(int(self.srcrank)):
                     si = str(i + 1)
                     if self.srcselection and si in self.srcselection.keys() \
                        and self.srcselection[si] is not None:
@@ -371,6 +397,14 @@ class EVirtualField(FElementWithAttr):
         self.__shape = []
         #: (:obj:`list` <:obj:`dict` >) vmap list
         self.__vmaps = []
+
+    def setRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.rank = rank
 
     def setLength(self, index, value):
         """ sets lengths dict element
@@ -617,7 +651,7 @@ class EVirtualField(FElementWithAttr):
                 counter += eshape[0]
             else:
                 counter += 1
-            #   print("KEY", key, sourcekey, sourceshape)
+            # print("KEY", key, sourcekey, sourceshape)
             if sourcekey is not None and (sourceshape is None
                                           or not any(sourceshape)):
                 sourceshape = self.__findShape(sourcekey, sourceshape)

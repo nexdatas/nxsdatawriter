@@ -57,6 +57,14 @@ class EAttribute(FElement):
         #: (:obj:`str`) trigger for asynchronous writting
         self.trigger = None
 
+    def setRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.rank = rank
+
     def setLength(self, index, value):
         """ sets lengths dict element
 

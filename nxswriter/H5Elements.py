@@ -127,7 +127,7 @@ class EDimensions(Element):
         """
         Element.__init__(self, "dimensions", attrs, last, streams=streams)
         if "rank" in attrs.keys():
-            self.last.rank = attrs["rank"]
+            self.last.setRank(attrs["rank"])
 
 
 class ESelection(Element):
@@ -147,7 +147,7 @@ class ESelection(Element):
         """
         Element.__init__(self, "selection", attrs, last, streams=streams)
         if "rank" in attrs.keys():
-            self.last.rank = attrs["rank"]
+            self.last.setRank(attrs["rank"])
 
 
 class EDim(Element):

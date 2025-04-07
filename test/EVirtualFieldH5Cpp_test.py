@@ -361,7 +361,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         self.assertEqual(vf.store(""), ('FINAL', None))
         self.assertEqual(vf.run(), None)
-        print(vf.error)
+        if vf.error:
+            print(vf.error)
 
         rv = gr.h5Object.open("test_virtual_field")
         # self.assertTrue((rv.read() == fi.h5Object.read()).all())
@@ -479,7 +480,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         self.assertEqual(vf.store(""), ('FINAL', None))
         self.assertEqual(vf.run(), None)
-        print(vf.error)
+        if vf.error:
+            print(vf.error)
 
         rv = gr.h5Object.open("test_virtual_field")
         self.assertTrue(
@@ -599,7 +601,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         self.assertEqual(vf.store(""), ('FINAL', None))
         self.assertEqual(vf.run(), None)
-        print(vf.error)
+        if vf.error:
+            print(vf.error)
 
         rv = gr.h5Object.open("test_virtual_field")
         self.assertTrue(
