@@ -135,7 +135,7 @@ class NexusXMLHandler(sax.ContentHandler):
 
         #: (:obj:`dict` <:obj:`str`, :obj:`type` > ) \
         #: map of tag names to related classes
-        self.withAttr = ['group', 'field']
+        self.withAttr = ['group', 'field', 'vds']
 
         #: (:obj:`list` <:obj:`str`>) transparent tags
         self.transparentTags = ['definition']
