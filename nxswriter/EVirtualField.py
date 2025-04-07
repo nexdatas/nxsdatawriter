@@ -651,10 +651,7 @@ class EVirtualField(FElementWithAttr):
                 counter += eshape[0]
             else:
                 counter += 1
-            # print("KEY", key, sourcekey, sourceshape)
-            if sourcekey is not None and (sourceshape is None
-                                          or not any(sourceshape)):
-                sourceshape = self.__findShape(sourcekey, sourceshape)
+            #    print("KEY", key, sourcekey, sourceshape, eshape)
             vlf.add(key, ef, sourcekey, sourceshape)
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, vlf)

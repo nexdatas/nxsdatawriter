@@ -38,7 +38,8 @@ except Exception:
 from nxswriter.FElement import FElement
 # from nxswriter.ELink import ELink
 from nxswriter.EField import EField
-from nxswriter.EVirtualField import EVirtualField, EVirtualDataMap
+from nxswriter.EVirtualField import (
+    EVirtualField, EVirtualDataMap, EVirtualSourceView)
 from nxswriter.H5Elements import EDim
 from nxswriter.H5Elements import EDimensions
 from nxswriter.H5Elements import ESelection
@@ -73,6 +74,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._fname2 = "test2.h5"
         self._nxFile = None
         self._eFile = None
+        self._unlimited = 18446744073709551615
 
         self._tfname = "field"
         self._tfname = "group"
@@ -81,25 +83,33 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._fattrs3 = {"name": "testField3", "units": "m", "type": "NX_INT"}
         self._gattrs = {"name": "testGroup", "type": "NXentry"}
         self._vattrs = {"name": "test_virtual_field", "type": "NX_INT"}
-        self._dmattrs1 = {"rank": 1}
-        self._dmattrs3 = {"rank": 2}
-        self._diattrs1 = {"index": "1", "value": "1"}
-        self._diattrs2 = {"index": "1", "value": "3"}
-        self._diattrs3a = {"index": "1", "value": "4"}
-        self._diattrs3b = {"index": "2", "value": "4"}
-        self._diattrs4 = {"index": "1", "value": "2"}
-        self._diattrs5 = {"index": "2", "value": "4"}
-        self._diattrs6 = {"index": "1", "value": "6"}
-        self._slattrs1 = {"index": "1", "start": "0", "stop": "1"}
-        self._slattrs2 = {"index": "1", "start": "1", "stop": "2"}
-        self._slattrs3 = {"index": "1", "start": "2", "stop": "3"}
-        self._slattrs3b = {"index": "1", "offset": "2", "block": "1"}
-        self._slattrs3c = {"index": "2", "offset": "0", "block": "4"}
-        self._slattrs3d = {"index": "1", "offset": "4", "block": "2"}
-        self._slattrs4 = {"index": "2", "start": "0", "stop": "4"}
-        self._slattrs5 = {"index": "1", "start": "0", "stop": "2"}
-        self._slattrs6 = {"index": "1", "start": "2", "stop": "4"}
-        self._slattrs7 = {"index": "1", "start": "4", "stop": "6"}
+        self._dmrank1 = {"rank": 1}
+        self._dmrank2 = {"rank": 2}
+        self._di1vl1 = {"index": "1", "value": "1"}
+        self._di1vl2 = {"index": "1", "value": "2"}
+        self._di1vl3 = {"index": "1", "value": "3"}
+        self._di1vl4 = {"index": "1", "value": "4"}
+        self._di1vl6 = {"index": "1", "value": "6"}
+        self._di2vl4 = {"index": "2", "value": "4"}
+        self._di2vl12 = {"index": "2", "value": "12"}
+        self._sl1_n_u = {"index": "1",  "stop": "%s" % self._unlimited}
+        self._sl1_n_n = {"index": "1"}
+        self._sl2_n_n = {"index": "2"}
+        self._sl1_0_1 = {"index": "1", "start": "0", "stop": "1"}
+        self._sl1_0_2 = {"index": "1", "start": "0", "stop": "2"}
+        self._sl1_1_2 = {"index": "1", "start": "1", "stop": "2"}
+        self._sl1_2_3 = {"index": "1", "start": "2", "stop": "3"}
+        self._sl1_2_4 = {"index": "1", "start": "2", "stop": "4"}
+        self._sl1_4_6 = {"index": "1", "start": "4", "stop": "6"}
+        self._sl2_0_4 = {"index": "2", "start": "0", "stop": "4"}
+        self._sl2_4_8 = {"index": "2", "start": "4", "stop": "8"}
+        self._sh1o0bu = {"index": "1", "offset": "0",
+                         "block": "%s" % self._unlimited}
+        self._sh1o0b2 = {"index": "1", "offset": "0", "block": "2"}
+        self._sh1o2b1 = {"index": "1", "offset": "2", "block": "1"}
+        self._sh1o4b2 = {"index": "1", "offset": "4", "block": "2"}
+        self._sh2o0b4 = {"index": "2", "offset": "0", "block": "4"}
+        self._sh2o8b4 = {"index": "2", "offset": "8", "block": "4"}
 
         self._gname = "testGroup"
         self._gtype = "NXentry"
@@ -117,6 +127,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
     def setUp(self):
         # file handle
         FileWriter.writer = H5CppWriter
+        self._unlimited = FileWriter.writer.unlimited()
         print("\nsetting up...")
         print("CHECKER SEED = %s" % self._sc.seed)
 
@@ -183,8 +194,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         vf = EVirtualField(self._vattrs, gr)
 
-        dm1 = EDimensions(self._dmattrs1, vf)
-        di1 = EDim(self._diattrs1, dm1)
+        dm1 = EDimensions(self._dmrank1, vf)
+        di1 = EDim(self._di1vl1, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
 
@@ -192,8 +203,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     "target": "/testField",
                     }
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs1, vm1)
-        di1 = EDim(self._diattrs1, dm1)
+        dm1 = EDimensions(self._dmrank1, vm1)
+        di1 = EDim(self._di1vl1, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         self.assertEqual(vm1.store(""), None)
@@ -222,8 +233,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
             self._fname, overwrite=True).root()
         eFile = EFile({}, None, self._nxFile)
         fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi)
-        di1 = EDim(self._diattrs2, dm1)
+        dm1 = EDimensions(self._dmrank1, fi)
+        di1 = EDim(self._di1vl3, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         fi.content = ["1 2 3"]
@@ -236,8 +247,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         vf = EVirtualField(self._vattrs, gr)
 
-        dm1 = EDimensions(self._dmattrs1, vf)
-        di1 = EDim(self._diattrs2, dm1)
+        dm1 = EDimensions(self._dmrank1, vf)
+        di1 = EDim(self._di1vl3, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
 
@@ -245,8 +256,8 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     "target": "%s:/testField" % self._fname
                     }
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmattrs1, vm1)
-        di1 = EDim(self._diattrs2, dm1)
+        dm1 = EDimensions(self._dmrank1, vm1)
+        di1 = EDim(self._di1vl3, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         self.assertEqual(vm1.store(""), None)
@@ -280,24 +291,24 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         eFile = EFile({}, None, self._nxFile)
 
         fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi)
-        di1 = EDim(self._diattrs3a, dm1)
+        dm1 = EDimensions(self._dmrank1, fi)
+        di1 = EDim(self._di1vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         fi.content = ["1 2 3 4"]
         fi.store()
 
         fi2 = EField(self._fattrs2, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi2)
-        di1 = EDim(self._diattrs3a, dm1)
+        dm1 = EDimensions(self._dmrank1, fi2)
+        di1 = EDim(self._di1vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         fi2.content = ["11 12 13 14"]
         fi2.store()
 
         fi3 = EField(self._fattrs3, eFile)
-        dm1 = EDimensions(self._dmattrs1, fi3)
-        di1 = EDim(self._diattrs3a, dm1)
+        dm1 = EDimensions(self._dmrank1, fi3)
+        di1 = EDim(self._di1vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(dm1.store(""), None)
         fi3.content = ["21 22 23 24"]
@@ -311,9 +322,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         vf = EVirtualField(self._vattrs, gr)
 
-        dm1 = EDimensions(self._dmattrs3, vf)
-        di1 = EDim(self._diattrs2, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
+        dm1 = EDimensions(self._dmrank2, vf)
+        di1 = EDim(self._di1vl3, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -329,31 +340,31 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
 
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs1, se1)
-        sl2 = ESlice(self._slattrs4, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_0_1, se1)
+        sl2 = ESlice(self._sl2_0_4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs1, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl1, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs2, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_1_2, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlab(self._slattrs3b, se1)
-        sl2 = ESlab(self._slattrs3c, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlab(self._sh1o2b1, se1)
+        sl2 = ESlab(self._sh2o0b4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
@@ -378,7 +389,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
     # default constructor test
     # \brief It tests default settings
-    def test_createVDS_modules(self):
+    def test_createVDS_append(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
         if not FileWriter.writer.is_vds_supported():
@@ -393,9 +404,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         eFile = EFile({}, None, self._nxFile)
 
         fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -403,9 +414,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         fi.store()
 
         fi2 = EField(self._fattrs2, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi2)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi2)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -413,9 +424,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         fi2.store()
 
         fi3 = EField(self._fattrs3, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi3)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi3)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -430,9 +441,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         vf = EVirtualField(self._vattrs, gr)
 
-        dm1 = EDimensions(self._dmattrs3, vf)
-        di1 = EDim(self._diattrs6, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, vf)
+        di1 = EDim(self._di1vl6, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -448,31 +459,31 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
 
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs5, se1)
-        sl2 = ESlice(self._slattrs4, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_0_2, se1)
+        sl2 = ESlice(self._sl2_0_4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs6, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_2_4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlab(self._slattrs3d, se1)
-        sl2 = ESlab(self._slattrs3c, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlab(self._sh1o4b2, se1)
+        sl2 = ESlab(self._sh2o0b4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
@@ -499,7 +510,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
     # default constructor test
     # \brief It tests default settings
-    def ttest_createVDS_unlimited(self):
+    def test_createVDS_modules(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
         if not FileWriter.writer.is_vds_supported():
@@ -514,9 +525,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         eFile = EFile({}, None, self._nxFile)
 
         fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -524,9 +535,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         fi.store()
 
         fi2 = EField(self._fattrs2, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi2)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi2)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -534,9 +545,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         fi2.store()
 
         fi3 = EField(self._fattrs3, eFile)
-        dm1 = EDimensions(self._dmattrs3, fi3)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, fi3)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -551,9 +562,9 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         vf = EVirtualField(self._vattrs, gr)
 
-        dm1 = EDimensions(self._dmattrs3, vf)
-        di1 = EDim(self._diattrs6, dm1)
-        di2 = EDim(self._diattrs5, dm1)
+        dm1 = EDimensions(self._dmrank2, vf)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl12, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
@@ -569,31 +580,31 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
 
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs5, se1)
-        sl2 = ESlice(self._slattrs4, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_0_2, se1)
+        sl2 = ESlice(self._sl2_0_4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmattrs3, vm1)
-        di1 = EDim(self._diattrs4, dm1)
-        di2 = EDim(self._diattrs3b, dm1)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
         self.assertEqual(di1.store(""), None)
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlice(self._slattrs6, se1)
-        self.assertEqual(sl1.store(""), None)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl2 = ESlice(self._sl2_4_8, se1)
+        self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmattrs3, vm1)
-        sl1 = ESlab(self._slattrs3d, se1)
-        sl2 = ESlab(self._slattrs3c, se1)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlab(self._sh1o0b2, se1)
+        sl2 = ESlab(self._sh2o8b4, se1)
         self.assertEqual(sl1.store(""), None)
         self.assertEqual(sl2.store(""), None)
         self.assertEqual(se1.store(""), None)
@@ -606,17 +617,170 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
         rv = gr.h5Object.open("test_virtual_field")
         self.assertTrue(
-            (np.array([[1, 2, 3, 4],
-                       [5, 6, 7, 8],
-                       [11, 12, 13, 14],
-                       [15, 16, 17, 18],
-                       [21, 22, 23, 24],
-                       [25, 26, 27, 28]]) == rv.read()).all())
+            (np.array(
+                [[1, 2, 3, 4, 11, 12, 13, 14, 21, 22, 23, 24],
+                 [5, 6, 7, 8, 15, 16, 17, 18, 25, 26, 27, 28]])
+             == rv.read()).all())
 
         self._nxFile.close()
         self._nxFile2.close()
         os.remove(self._fname)
         os.remove(self._fname2)
+        print()
+
+    # default constructor test
+    # \brief It tests default settings
+    def test_createVDS_modules_unlimited(self):
+        fun = sys._getframe().f_code.co_name
+        print("Run: %s.%s() " % (self.__class__.__name__, fun))
+        if not FileWriter.writer.is_vds_supported():
+            print("Skip the test: VDS not supported")
+            return
+        self._fname = '%s/%s%s.h5' % (
+            os.getcwd(), self.__class__.__name__, fun)
+        self._fname2 = '%s/%s%s_b.h5' % (
+            os.getcwd(), self.__class__.__name__, fun)
+        self._nxFile = FileWriter.create_file(
+            self._fname, overwrite=True).root()
+        eFile = EFile({}, None, self._nxFile)
+
+        fi = EField(self._fattrs, eFile)
+        dm1 = EDimensions(self._dmrank2, fi)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        fi.content = ["1 2 3 4\n 5 6 7 8"]
+        fi.store()
+
+        fi2 = EField(self._fattrs2, eFile)
+        dm1 = EDimensions(self._dmrank2, fi2)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        fi2.content = ["11 12 13 14\n 15 16 17 18"]
+        fi2.store()
+
+        fi3 = EField(self._fattrs3, eFile)
+        dm1 = EDimensions(self._dmrank2, fi3)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        fi3.content = ["21 22 23 24\n 25 26 27 28"]
+        fi3.store()
+
+        self._nxFile2 = FileWriter.create_file(
+            self._fname2, overwrite=True).root()
+        eFile2 = EFile({}, None, self._nxFile2)
+        gr = EGroup(self._gattrs, eFile2)
+        gr.store()
+
+        vf = EVirtualField(self._vattrs, gr)
+
+        dm1 = EDimensions(self._dmrank2, vf)
+        # di1 = EDim(self._di1vl2, dm1)
+        di1 = EDim(self._di1vl1, dm1)
+        di2 = EDim(self._di2vl12, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+
+        vmattrs1 = {"name": "map1",
+                    "target": "%s:/testField" % self._fname
+                    }
+        vmattrs2 = {"name": "map2",
+                    "target": "%s:/testField2" % self._fname
+                    }
+        vmattrs3 = {"name": "map3",
+                    "target": "%s:/testField3" % self._fname
+                    }
+
+        vm1 = EVirtualDataMap(vmattrs1, vf)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_n_u, se1)
+        sl2 = ESlice(self._sl2_0_4, se1)
+        self.assertEqual(sl1.store(""), None)
+        self.assertEqual(sl2.store(""), None)
+        self.assertEqual(se1.store(""), None)
+
+        sv1 = EVirtualSourceView({}, vm1)
+        vse1 = ESelection(self._dmrank2, sv1)
+        vsl1 = ESlice(self._sl1_n_u, vse1)
+        vsl2 = ESlice(self._sl2_n_n, vse1)
+        self.assertEqual(vsl1.store(""), None)
+        self.assertEqual(vsl2.store(""), None)
+        self.assertEqual(vse1.store(""), None)
+        self.assertEqual(sv1.store(""), None)
+
+        self.assertEqual(vm1.store(""), None)
+
+        vm1 = EVirtualDataMap(vmattrs2, vf)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
+        se1 = ESelection(self._dmrank2, vm1)
+        sl1 = ESlice(self._sl1_n_u, se1)
+        sl2 = ESlice(self._sl2_4_8, se1)
+        self.assertEqual(sl2.store(""), None)
+        self.assertEqual(se1.store(""), None)
+
+        sv1 = EVirtualSourceView({}, vm1)
+        vse1 = ESelection(self._dmrank2, sv1)
+        vsl1 = ESlice(self._sl1_n_u, vse1)
+        vsl2 = ESlice(self._sl2_n_n, vse1)
+        self.assertEqual(vsl1.store(""), None)
+        self.assertEqual(vsl2.store(""), None)
+        self.assertEqual(vse1.store(""), None)
+        self.assertEqual(sv1.store(""), None)
+
+        self.assertEqual(vm1.store(""), None)
+
+        vm1 = EVirtualDataMap(vmattrs3, vf)
+        se1 = ESelection(self._dmrank2, vm1)
+        # sl1 = ESlab(self._sh1o0b2, se1)
+        sl1 = ESlab(self._sh1o0bu, se1)
+        sl2 = ESlab(self._sh2o8b4, se1)
+        self.assertEqual(sl1.store(""), None)
+        self.assertEqual(sl2.store(""), None)
+        self.assertEqual(se1.store(""), None)
+
+        sv1 = EVirtualSourceView({}, vm1)
+        vse1 = ESelection(self._dmrank2, sv1)
+        vsl1 = ESlice(self._sl1_n_u, vse1)
+        vsl2 = ESlice(self._sl2_n_n, vse1)
+        self.assertEqual(vsl1.store(""), None)
+        self.assertEqual(vsl2.store(""), None)
+        self.assertEqual(vse1.store(""), None)
+        self.assertEqual(sv1.store(""), None)
+
+        self.assertEqual(vm1.store(""), None)
+
+        self.assertEqual(vf.store(""), ('FINAL', None))
+        self.assertEqual(vf.run(), None)
+        if vf.error:
+            print(vf.error)
+
+        rv = gr.h5Object.open("test_virtual_field")
+        # print("rEAD", rv.read())
+        self.assertTrue(
+            (np.array(
+                [[1, 2, 3, 4, 11, 12, 13, 14, 21, 22, 23, 24],
+                 [5, 6, 7, 8, 15, 16, 17, 18, 25, 26, 27, 28]])
+             == rv.read()).all())
+
+        self._nxFile.close()
+        self._nxFile2.close()
+        os.remove(self._fname)
+        os.remove(self._fname2)
+        print()
 
 
 if __name__ == '__main__':
