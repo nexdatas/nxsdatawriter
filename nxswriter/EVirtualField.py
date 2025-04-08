@@ -288,8 +288,12 @@ class EVirtualDataMap(Element):
         :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
         """
 
-        self.__vmap["shape"] = self.__getShape()
-        self.__vmap["key"] = self.__getKey()
+        shape = self.__getShape()
+        if shape:
+            self.__vmap["shape"] = shape
+        key = self.__getKey()
+        if key:
+            self.__vmap["key"] = key
         srcshape = self.__getSourceShape()
         if srcshape is not None:
             self.__vmap["sourceshape"] = srcshape
@@ -324,6 +328,9 @@ class EVirtualDataMap(Element):
                 self.__vmap["fieldpath"] = fieldpath
         if not self.source:
             self.last.appendVmap(self.__vmap)
+        if self.source:
+            if self.source.isValid():
+                return self.strategy, self.trigger
 
     def run(self):
         """ runner
@@ -551,6 +558,8 @@ class EVirtualField(FElementWithAttr):
         :param base: base map item to append
         :type base: :obj:`dict`
         """
+        if hasattr(values, "shape") and values.shape == tuple():
+            values = str(values)
         try:
             if isinstance(values, str):
                 values = json.loads(values)
@@ -630,10 +639,10 @@ class EVirtualField(FElementWithAttr):
                 target = vmap["target"]
                 if target.startswith("h5file:/"):
                     target = target[8:]
-                if ":/" in target:
-                    filename, fieldpath = target.split(":/")
-                elif "::" in target:
+                if "::" in target:
                     filename, fieldpath = target.split("::")
+                elif ":/" in target:
+                    filename, fieldpath = target.split(":/")
                 else:
                     fieldpath = target
             obj = self._lastObject()

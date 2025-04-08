@@ -1,5 +1,6 @@
 2025-03-28 Jan Kotanski <jankotan@gmail.com>
 	* add support for vds (#180)
+	* recommends nxstools 4.22.1
 	* tagged as 3.14.0
 
 2025-01-13 Jan Kotanski <jankotan@gmail.com>
