@@ -701,6 +701,12 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
 
         vm1 = EVirtualDataMap(vmattrs1, vf)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
         se1 = ESelection(self._dmrank2, vm1)
         sl1 = ESlice(self._sl1_n_u, se1)
         sl2 = ESlice(self._sl2_0_4, se1)
@@ -744,6 +750,12 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(vm1.store(""), None)
 
         vm1 = EVirtualDataMap(vmattrs3, vf)
+        dm1 = EDimensions(self._dmrank2, vm1)
+        di1 = EDim(self._di1vl2, dm1)
+        di2 = EDim(self._di2vl4, dm1)
+        self.assertEqual(di1.store(""), None)
+        self.assertEqual(di2.store(""), None)
+        self.assertEqual(dm1.store(""), None)
         se1 = ESelection(self._dmrank2, vm1)
         # sl1 = ESlab(self._sh1o0b2, se1)
         sl1 = ESlab(self._sh1o0bu, se1)
