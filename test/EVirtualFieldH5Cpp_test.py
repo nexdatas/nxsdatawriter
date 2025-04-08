@@ -1364,7 +1364,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                 },
                 {
                     "target": "%s:/testField2" % self._fname,
-                    "shape": [2, 4], "key":[[2, 4], None]
+                    "shape": [2, 4], "key": [[2, 4], None]
                 },
                 {
                     "target": "%s:/testField3" % self._fname,
