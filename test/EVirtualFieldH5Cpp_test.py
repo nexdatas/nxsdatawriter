@@ -628,7 +628,6 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._nxFile2.close()
         os.remove(self._fname)
         os.remove(self._fname2)
-        print()
 
     # default constructor test
     # \brief It tests default settings
@@ -1259,27 +1258,22 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         vm1.strategy = 'STEP'
 
         self.assertEqual(vm1.store(""), ('STEP', None))
-
         self.assertEqual(vf.store(""), ('FINAL', None))
+
         ds.value = {"rank": 0, "value": json.dumps(
-            {"target": "%s:/testField" % self._fname}),
-                    "tangoDType": "DevString", "shape": []}        
-        vm1.source = ds
+            {"target": "h5file:/%s::/testField" % self._fname}),
+                    "tangoDType": "DevString", "shape": []}
         self.assertEqual(vm1.run(), None)
         ds.value = {"rank": 0, "value": json.dumps(
             {"target": "%s:/testField2" % self._fname}),
-                    "tangoDType": "DevString", "shape": []}        
-        vm1.source = ds
+                    "tangoDType": "DevString", "shape": []}
         self.assertEqual(vm1.run(), None)
         ds.value = {"rank": 0, "value": json.dumps(
             {"target": "%s:/testField3" % self._fname}),
-                    "tangoDType": "DevString", "shape": []}        
-        vm1.source = ds
+                    "tangoDType": "DevString", "shape": []}
+
         self.assertEqual(vm1.run(), None)
-
-
         self.assertEqual(vf.run(), None)
-        
 
         if vf.error:
             print(vf.error)
@@ -1298,7 +1292,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
     # default constructor test
     # \brief It tests default settings
-    def ttest_createVDS_append(self):
+    def test_createVDS_append_datasource(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
         if not FileWriter.writer.is_vds_supported():
@@ -1357,48 +1351,31 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
 
-        vmattrs1 = {"name": "map1",
-                    "target": "%s:/testField" % self._fname
-                    }
-        vmattrs2 = {"name": "map2",
-                    "target": "%s:/testField2" % self._fname
-                    }
-        vmattrs3 = {"name": "map3",
-                    "target": "%s:/testField3" % self._fname
-                    }
-
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_0_2, se1)
-        sl2 = ESlice(self._sl2_0_4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmrank2, vm1)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_2_4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlab(self._sh1o4b2, se1)
-        sl2 = ESlab(self._sh2o0b4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
+        ds = TstDataSource()
+        vf.source = ds
 
         self.assertEqual(vf.store(""), ('FINAL', None))
+
+        mjson = json.dumps(
+            [
+                {
+                    "target": "%s:/testField" % self._fname,
+                    "key": [[0, 2], [0, 4]]
+                },
+                {
+                    "target": "%s:/testField2" % self._fname,
+                    "shape": [2, 4], "key":[[2, 4], None]
+                },
+                {
+                    "target": "%s:/testField3" % self._fname,
+                    "key": [[4, 2, 1, 1], [0, 4, 1, 1]]
+                },
+             ]
+        )
+
+        ds.value = {"rank": 0, "value": mjson,
+                    "tangoDType": "DevString", "shape": []}
+
         self.assertEqual(vf.run(), None)
         if vf.error:
             print(vf.error)
@@ -1419,7 +1396,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
 
     # default constructor test
     # \brief It tests default settings
-    def ttest_createVDS_modules(self):
+    def test_createVDS_modules_datasource(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
         if not FileWriter.writer.is_vds_supported():
@@ -1478,48 +1455,34 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self.assertEqual(di2.store(""), None)
         self.assertEqual(dm1.store(""), None)
 
-        vmattrs1 = {"name": "map1",
-                    "target": "%s:/testField" % self._fname
-                    }
-        vmattrs2 = {"name": "map2",
-                    "target": "%s:/testField2" % self._fname
-                    }
-        vmattrs3 = {"name": "map3",
-                    "target": "%s:/testField3" % self._fname
-                    }
+        vm1 = EVirtualDataMap({}, vf)
 
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_0_2, se1)
-        sl2 = ESlice(self._sl2_0_4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
+        ds = TstDataSource()
+        mjson = json.dumps([
+            {
+                "target": "%s://testField" % self._fname,
+                "key": [[0, 2], [0, 4]],
+            },
+            {
+                "target": "%s://testField2" % self._fname,
+                "shape": [2, 4],
+                "key": [None, [4, 8]],
+            },
+            {
+                "target": "%s://testField3" % self._fname,
+                "key": [[0, 2, 1, 1], [8, 4, 1, 1]],
+            },
+        ])
+        ds.value = {"rank": 0, "value": mjson,
+                    "tangoDType": "DevString", "shape": []}
+        vm1.source = ds
+        vm1.strategy = 'INIT'
 
-        vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmrank2, vm1)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl2 = ESlice(self._sl2_4_8, se1)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlab(self._sh1o0b2, se1)
-        sl2 = ESlab(self._sh2o8b4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-        self.assertEqual(vm1.store(""), None)
-
+        self.assertEqual(vm1.store(""), ('INIT', None))
         self.assertEqual(vf.store(""), ('FINAL', None))
+
+        self.assertEqual(vm1.run(), None)
+
         self.assertEqual(vf.run(), None)
         if vf.error:
             print(vf.error)
@@ -1535,11 +1498,10 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
         self._nxFile2.close()
         os.remove(self._fname)
         os.remove(self._fname2)
-        print()
 
     # default constructor test
     # \brief It tests default settings
-    def ttest_createVDS_modules_unlimited(self):
+    def test_createVDS_modules_unlimited_datasource(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
         if not FileWriter.writer.is_unlimited_vds_supported():
@@ -1610,229 +1572,52 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
                     }
 
         vm1 = EVirtualDataMap(vmattrs1, vf)
-        dm1 = EDimensions(self._dmrank2, vm1)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_n_u, se1)
-        sl2 = ESlice(self._sl2_0_4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
+        ds1 = TstDataSource()
+        vm1.source = ds1
+        vm1.strategy = 'INIT'
+        self.assertEqual(vm1.store(""), ('INIT', None))
 
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
+        vm2 = EVirtualDataMap(vmattrs2, vf)
+        ds2 = TstDataSource()
+        vm2.source = ds2
+        vm2.strategy = 'INIT'
+        self.assertEqual(vm2.store(""), ('INIT', None))
 
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs2, vf)
-        dm1 = EDimensions(self._dmrank2, vm1)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_n_u, se1)
-        sl2 = ESlice(self._sl2_4_8, se1)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs3, vf)
-        dm1 = EDimensions(self._dmrank2, vm1)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        se1 = ESelection(self._dmrank2, vm1)
-        # sl1 = ESlab(self._sh1o0b2, se1)
-        sl1 = ESlab(self._sh1o0bu, se1)
-        sl2 = ESlab(self._sh2o8b4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
+        vm3 = EVirtualDataMap(vmattrs3, vf)
+        ds3 = TstDataSource()
+        vm3.source = ds3
+        vm3.strategy = 'INIT'
+        self.assertEqual(vm3.store(""), ('INIT', None))
 
         self.assertEqual(vf.store(""), ('FINAL', None))
+
+        mjson = json.dumps({
+            "key": [[None, self._unlimited], [0, 4]],
+            "sourcekey": [[None, self._unlimited], [None, None]],
+        })
+        ds1.value = {"rank": 0, "value": mjson,
+                     "tangoDType": "DevString", "shape": []}
+
+        mjson = json.dumps({
+            "key": [[None, self._unlimited], [4, 8]],
+            "sourcekey": [[None, self._unlimited], [None, None]],
+        })
+        ds2.value = {"rank": 0, "value": mjson,
+                     "tangoDType": "DevString", "shape": []}
+
+        mjson = json.dumps({
+            "key": [[0, self._unlimited, 1, 1], [8, 4, 1, 1]],
+            "sourcekey": [[None, self._unlimited], [None, None]],
+        })
+        ds3.value = {"rank": 0, "value": mjson,
+                     "tangoDType": "DevString", "shape": []}
+
+        self.assertEqual(vm1.run(), None)
+        self.assertEqual(vm2.run(), None)
+        self.assertEqual(vm3.run(), None)
+
         self.assertEqual(vf.run(), None)
-        if vf.error:
-            print(vf.error)
 
-        rv = gr.h5Object.open("test_virtual_field")
-        # print("rEAD", rv.read())
-        self.assertTrue(
-            (np.array(
-                [[1, 2, 3, 4, 11, 12, 13, 14, 21, 22, 23, 24],
-                 [5, 6, 7, 8, 15, 16, 17, 18, 25, 26, 27, 28]])
-             == rv.read()).all())
-
-        self._nxFile.close()
-        self._nxFile2.close()
-        os.remove(self._fname)
-        os.remove(self._fname2)
-
-    # default constructor test
-    # \brief It tests default settings
-    def ttest_createVDS_modules_unlimited_min(self):
-        fun = sys._getframe().f_code.co_name
-        print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not FileWriter.writer.is_unlimited_vds_supported():
-            print("Skip the test: VDS unlimited not supported")
-            return
-        self._fname = '%s/%s%s.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._fname2 = '%s/%s%s_b.h5' % (
-            os.getcwd(), self.__class__.__name__, fun)
-        self._nxFile = FileWriter.create_file(
-            self._fname, overwrite=True).root()
-        eFile = EFile({}, None, self._nxFile)
-
-        fi = EField(self._fattrs, eFile)
-        dm1 = EDimensions(self._dmrank2, fi)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi.content = ["1 2 3 4\n 5 6 7 8"]
-        fi.store()
-
-        fi2 = EField(self._fattrs2, eFile)
-        dm1 = EDimensions(self._dmrank2, fi2)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi2.content = ["11 12 13 14\n 15 16 17 18"]
-        fi2.store()
-
-        fi3 = EField(self._fattrs3, eFile)
-        dm1 = EDimensions(self._dmrank2, fi3)
-        di1 = EDim(self._di1vl2, dm1)
-        di2 = EDim(self._di2vl4, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-        fi3.content = ["21 22 23 24\n 25 26 27 28"]
-        fi3.store()
-
-        self._nxFile2 = FileWriter.create_file(
-            self._fname2, overwrite=True).root()
-        eFile2 = EFile({}, None, self._nxFile2)
-        gr = EGroup(self._gattrs, eFile2)
-        gr.store()
-
-        vf = EVirtualField(self._vattrs, gr)
-
-        dm1 = EDimensions(self._dmrank2, vf)
-        # di1 = EDim(self._di1vl2, dm1)
-        di1 = EDim(self._di1vl1, dm1)
-        di2 = EDim(self._di2vl12, dm1)
-        self.assertEqual(di1.store(""), None)
-        self.assertEqual(di2.store(""), None)
-        self.assertEqual(dm1.store(""), None)
-
-        vmattrs1 = {"name": "map1",
-                    "target": "%s:/testField" % self._fname
-                    }
-        vmattrs2 = {"name": "map2",
-                    "target": "%s:/testField2" % self._fname
-                    }
-        vmattrs3 = {"name": "map3",
-                    "target": "%s:/testField3" % self._fname
-                    }
-
-        vm1 = EVirtualDataMap(vmattrs1, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_n_u, se1)
-        sl2 = ESlice(self._sl2_0_4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs2, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        sl1 = ESlice(self._sl1_n_u, se1)
-        sl2 = ESlice(self._sl2_4_8, se1)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        vm1 = EVirtualDataMap(vmattrs3, vf)
-        se1 = ESelection(self._dmrank2, vm1)
-        # sl1 = ESlab(self._sh1o0b2, se1)
-        sl1 = ESlab(self._sh1o0bu, se1)
-        sl2 = ESlab(self._sh2o8b4, se1)
-        self.assertEqual(sl1.store(""), None)
-        self.assertEqual(sl2.store(""), None)
-        self.assertEqual(se1.store(""), None)
-
-        sv1 = EVirtualSourceView({}, vm1)
-        vse1 = ESelection(self._dmrank2, sv1)
-        vsl1 = ESlice(self._sl1_n_u, vse1)
-        vsl2 = ESlice(self._sl2_n_n, vse1)
-        self.assertEqual(vsl1.store(""), None)
-        self.assertEqual(vsl2.store(""), None)
-        self.assertEqual(vse1.store(""), None)
-        self.assertEqual(sv1.store(""), None)
-
-        self.assertEqual(vm1.store(""), None)
-
-        self.assertEqual(vf.store(""), ('FINAL', None))
-        self.assertEqual(vf.run(), None)
         if vf.error:
             print(vf.error)
 

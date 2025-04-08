@@ -627,11 +627,15 @@ class EVirtualField(FElementWithAttr):
             filename = ""
             edtype = vmap["dtype"] \
                 if "dtype" in vmap else self.__dtype
+            key = vmap["key"] if "key" in vmap else counter
+            key = self.__cureKeys(key)
             if "shape" in vmap:
                 eshape = vmap["shape"]
-            else:
+            elif isinstance(key, int):
                 eshape = list(self.__shape)
                 eshape[0] = 1
+            else:
+                eshape = [0] * len(self.__shape)
             fieldpath = vmap["fieldpath"] \
                 if "fieldpath" in vmap else "/data"
             filename = vmap["filename"] if "filename" in vmap else None
@@ -659,8 +663,6 @@ class EVirtualField(FElementWithAttr):
                 if "sourceshape" in vmap else None
             sourcekey = vmap["sourcekey"] \
                 if "sourcekey" in vmap else None
-            key = vmap["key"] if "key" in vmap else counter
-            key = self.__cureKeys(key)
             sourcekey = self.__cureKeys(sourcekey)
             if not any(eshape):
                 eshape = self.__findShape(key, eshape, unlimited=False)
@@ -670,7 +672,7 @@ class EVirtualField(FElementWithAttr):
                 counter += eshape[0]
             else:
                 counter += 1
-            #    print("KEY", key, sourcekey, sourceshape, eshape)
+            # print("KEY", key, sourcekey, sourceshape, eshape)
             vlf.add(key, ef, sourcekey, sourceshape)
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, vlf)
