@@ -582,14 +582,24 @@ class EVirtualField(FElementWithAttr):
             self.__vmaps.append(fval)
         return len(self.__vmaps)
 
-    def __findShape(self, key, eshape=None):
+    def __findShape(self, key, eshape=None, unlimited=True):
         if isinstance(key, FileWriter.FTHyperslab):
-            eshape = [bl * key.count[hi]
-                      for hi, bl in enumerate(key.block)]
+            if not unlimited:
+                count = [(ct if ct != FileWriter.writer.unlimited() else 1)
+                         for ct in key.count]
+
+                block = [(ct if ct != FileWriter.writer.unlimited() else 1)
+                         for ct in key.block]
+            else:
+                count = key.count
+                block = key.block
+            eshape = [bl * count[hi] for hi, bl in enumerate(block)]
         if isinstance(key, tuple):
             eshape = []
             for ky in key:
-                if isinstance(ky, slice) and ky.stop > 0:
+                if not unlimited and ky.stop == FileWriter.writer.unlimited():
+                    eshape.append(1)
+                elif isinstance(ky, slice) and ky.stop > 0:
                     start = ky.start if ky.start is not None else 0
                     step = ky.step if ky.step is not None else 1
                     eshape.append((ky.stop - start) // step)
@@ -644,7 +654,7 @@ class EVirtualField(FElementWithAttr):
             key = self.__cureKeys(key)
             sourcekey = self.__cureKeys(sourcekey)
             if not any(eshape):
-                eshape = self.__findShape(key, eshape)
+                eshape = self.__findShape(key, eshape, unlimited=False)
             ef = FileWriter.target_field_view(
                 filename, fieldpath, eshape, edtype)
             if eshape:
