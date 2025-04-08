@@ -633,7 +633,7 @@ class EVirtualFieldH5CppTest(unittest.TestCase):
     def test_createVDS_modules_unlimited(self):
         fun = sys._getframe().f_code.co_name
         print("Run: %s.%s() " % (self.__class__.__name__, fun))
-        if not FileWriter.writer.is_vds_supported():
+        if not FileWriter.writer.is_unlimited_vds_supported():
             print("Skip the test: VDS not supported")
             return
         self._fname = '%s/%s%s.h5' % (
