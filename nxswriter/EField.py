@@ -81,8 +81,6 @@ class EField(FElementWithAttr):
         self.shuffle = True
         #: (:obj:`bool`) grew flag
         self.__grew = True
-        #: (:obj:`str`) data format
-        self.__format = ''
 
     def __isgrowing(self):
         """ checks if it is growing in extra dimension
@@ -116,6 +114,24 @@ class EField(FElementWithAttr):
                     std=False)
 
             raise XMLSettingSyntaxError("Field without a name")
+
+    def setRank(self, rank):
+        """ sets dimension rank
+
+        :param index: dimension rank
+        :type index: :obj:`src`
+        """
+        self.rank = rank
+
+    def setLength(self, index, value):
+        """ sets lengths dict element
+
+        :param index: length index
+        :type index: :obj:`int`
+        :param value: length value
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.lengths[index] = value
 
     def __getShape(self):
         """ provides shape

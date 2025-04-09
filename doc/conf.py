@@ -430,7 +430,7 @@ intersphinx_mapping = {
     'https://nexdatas.github.io/nxstools/':None,
     'https://nexdatas.github.io/nxsconfigserver/':None,
     'https://docs.python.org/2.7/': None,
-    'https://docs.python.org/3.5/': None,
+    'https://docs.python.org/3.12/': None,
     'https://docs.scipy.org/doc/scipy/': None,
     'https://numpy.org/doc/stable': None,
     'https://pytango.readthedocs.io/en/stable/': None,
