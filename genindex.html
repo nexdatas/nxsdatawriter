@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; NXSDataWriter 3.13.0 documentation</title>
+    <title>Index &#8212; NXSDataWriter 3.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.14</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -244,10 +244,10 @@
 </li>
       <li><a href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseFile">CloseFile() (nxswriter.NXSWriter.NXSDataWriter method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.closeFile">closeFile() (nxswriter.TangoDataWriter.TangoDataWriter method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass.cmd_list">cmd_list (nxswriter.NXSWriter.NXSDataWriterClass attribute)</a>
 </li>
       <li><a href="nxswriter.html#nxswriter.NXSWriter.CommandThread.command">command (nxswriter.NXSWriter.CommandThread attribute)</a>
@@ -266,6 +266,10 @@
 
       <ul>
         <li><a href="nxswriter.html#nxswriter.H5Elements.EDim.content">(nxswriter.H5Elements.EDim attribute)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlab.content">(nxswriter.H5Elements.ESlab attribute)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlice.content">(nxswriter.H5Elements.ESlice attribute)</a>
 </li>
       </ul></li>
       <li><a href="nxswriter.html#nxswriter.Types.NTP.convert">convert (nxswriter.Types.NTP attribute)</a>
@@ -396,14 +400,14 @@
 </li>
       <li><a href="nxswriter.html#nxswriter.ELink.ELink">ELink (class in nxswriter.ELink)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nxswriter.html#nxswriter.DataHolder.DataHolder.encoding">encoding (nxswriter.DataHolder.DataHolder attribute)</a>
 
       <ul>
         <li><a href="nxswriter.html#nxswriter.TangoSource.TgMember.encoding">(nxswriter.TangoSource.TgMember attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.endElement">endElement() (nxswriter.FetchNameHandler.FetchNameHandler method)</a>
 
       <ul>
@@ -419,6 +423,12 @@
       <li><a href="nxswriter.html#nxswriter.StreamSet.StreamSet.error">error() (nxswriter.StreamSet.StreamSet method)</a>
 </li>
       <li><a href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.errors">errors (nxswriter.NXSWriter.NXSDataWriter attribute)</a>
+</li>
+      <li><a href="nxswriter.html#nxswriter.H5Elements.ESelection">ESelection (class in nxswriter.H5Elements)</a>
+</li>
+      <li><a href="nxswriter.html#nxswriter.H5Elements.ESlab">ESlab (class in nxswriter.H5Elements)</a>
+</li>
+      <li><a href="nxswriter.html#nxswriter.H5Elements.ESlice">ESlice (class in nxswriter.H5Elements)</a>
 </li>
       <li><a href="nxswriter.html#nxswriter.NXSWriter.CommandThread.estate">estate (nxswriter.NXSWriter.CommandThread attribute)</a>
 </li>
@@ -1165,10 +1175,22 @@
         <li><a href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.setJSON">(nxswriter.ThreadPool.ThreadPool method)</a>
 </li>
       </ul></li>
+      <li><a href="nxswriter.html#nxswriter.EAttribute.EAttribute.setLength">setLength() (nxswriter.EAttribute.EAttribute method)</a>
+
+      <ul>
+        <li><a href="nxswriter.html#nxswriter.EField.EField.setLength">(nxswriter.EField.EField method)</a>
+</li>
+      </ul></li>
       <li><a href="nxswriter.html#nxswriter.TangoSource.TgDevice.setMember">setMember() (nxswriter.TangoSource.TgDevice method)</a>
 </li>
       <li><a href="nxswriter.html#nxswriter.FElement.FElement.setMessage">setMessage() (nxswriter.FElement.FElement method)</a>
 </li>
+      <li><a href="nxswriter.html#nxswriter.EAttribute.EAttribute.setRank">setRank() (nxswriter.EAttribute.EAttribute method)</a>
+
+      <ul>
+        <li><a href="nxswriter.html#nxswriter.EField.EField.setRank">(nxswriter.EField.EField method)</a>
+</li>
+      </ul></li>
       <li><a href="nxswriter.html#nxswriter.ClientSource.ClientSource.setup">setup() (nxswriter.ClientSource.ClientSource method)</a>
 
       <ul>
@@ -1203,6 +1225,10 @@
 
       <ul>
         <li><a href="nxswriter.html#nxswriter.H5Elements.EDim.source">(nxswriter.H5Elements.EDim attribute)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlab.source">(nxswriter.H5Elements.ESlab attribute)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlice.source">(nxswriter.H5Elements.ESlice attribute)</a>
 </li>
       </ul></li>
       <li><a href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.startElement">startElement() (nxswriter.FetchNameHandler.FetchNameHandler method)</a>
@@ -1239,6 +1265,10 @@
         <li><a href="nxswriter.html#nxswriter.H5Elements.EDim.store">(nxswriter.H5Elements.EDim method)</a>
 </li>
         <li><a href="nxswriter.html#nxswriter.H5Elements.EDoc.store">(nxswriter.H5Elements.EDoc method)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlab.store">(nxswriter.H5Elements.ESlab method)</a>
+</li>
+        <li><a href="nxswriter.html#nxswriter.H5Elements.ESlice.store">(nxswriter.H5Elements.ESlice method)</a>
 </li>
         <li><a href="nxswriter.html#nxswriter.H5Elements.ESymbol.store">(nxswriter.H5Elements.ESymbol method)</a>
 </li>

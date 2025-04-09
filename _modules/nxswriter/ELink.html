@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.ELink &#8212; NXSDataWriter 3.10.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <title>nxswriter.ELink &#8212; NXSDataWriter 3.14.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -35,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.14</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -161,11 +163,11 @@
 
 <div class="viewcode-block" id="ELink"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.ELink.ELink">[docs]</a><span class="k">class</span> <span class="nc">ELink</span><span class="p">(</span><span class="n">FElement</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; link H5 tag element</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; link H5 tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
 
 <span class="sd">        :param attrs: dictionary of the tag attributes</span>
 <span class="sd">        :type attrs: :obj:`dict` &lt;:obj:`str`, :obj:`str`&gt;</span>
@@ -187,7 +189,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="ELink.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.ELink.ELink.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; stores the tag content</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
 <span class="sd">        :type xml: :obj:`str`</span>
@@ -204,7 +206,7 @@
                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span></div>
 
 <div class="viewcode-block" id="ELink.run"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.ELink.ELink.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; runner</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; runner</span>
 
 <span class="sd">        :brief: During its thread run it fetches the data from the source</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -237,7 +239,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Link::run() - </span><span class="si">%s</span><span class="s2">  &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="ELink.createLink"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.ELink.ELink.createLink">[docs]</a>    <span class="k">def</span> <span class="nf">createLink</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupTypes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates the link the H5 file</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates the link the H5 file</span>
 
 <span class="sd">        :param groupTypes: dictionary with type:name group pairs</span>
 <span class="sd">        :type groupTypes: :obj:`dict` &lt;:obj:`str` ,  :obj:`str` &gt;</span>
@@ -279,7 +281,7 @@
             <span class="k">raise</span> <span class="n">XMLSettingSyntaxError</span><span class="p">(</span><span class="s2">&quot;No name or type&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__setTarget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;sets the link target</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;sets the link target</span>
 
 <span class="sd">        :param target: NeXus target path</span>
 <span class="sd">        :type target: :obj: `str`</span>
@@ -308,7 +310,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">__target</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__typesToNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">groupTypes</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; converts types to Names using groupTypes dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; converts types to Names using groupTypes dictionary</span>
 
 <span class="sd">        :param text: original directory</span>
 <span class="sd">        :type text: :obj: `str`</span>
@@ -374,7 +376,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>

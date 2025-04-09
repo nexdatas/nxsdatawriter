@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Welcome to NXSDataWriter’s documentation! &#8212; NXSDataWriter 3.13.0 documentation</title>
+    <title>Welcome to NXSDataWriter’s documentation! &#8212; NXSDataWriter 3.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="#">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.14</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -486,6 +486,8 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.name"><code class="docutils literal notranslate"><span class="pre">EAttribute.name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.rank"><code class="docutils literal notranslate"><span class="pre">EAttribute.rank</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.run"><code class="docutils literal notranslate"><span class="pre">EAttribute.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.setLength"><code class="docutils literal notranslate"><span class="pre">EAttribute.setLength()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.setRank"><code class="docutils literal notranslate"><span class="pre">EAttribute.setRank()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.store"><code class="docutils literal notranslate"><span class="pre">EAttribute.store()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.strategy"><code class="docutils literal notranslate"><span class="pre">EAttribute.strategy</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.trigger"><code class="docutils literal notranslate"><span class="pre">EAttribute.trigger</span></code></a></li>
@@ -505,6 +507,8 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rank"><code class="docutils literal notranslate"><span class="pre">EField.rank</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rate"><code class="docutils literal notranslate"><span class="pre">EField.rate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.run"><code class="docutils literal notranslate"><span class="pre">EField.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setLength"><code class="docutils literal notranslate"><span class="pre">EField.setLength()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setRank"><code class="docutils literal notranslate"><span class="pre">EField.setRank()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.shuffle"><code class="docutils literal notranslate"><span class="pre">EField.shuffle</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.store"><code class="docutils literal notranslate"><span class="pre">EField.store()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.strategy"><code class="docutils literal notranslate"><span class="pre">EField.strategy</span></code></a></li>
@@ -620,6 +624,19 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EFile"><code class="docutils literal notranslate"><span class="pre">EFile</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EFilter"><code class="docutils literal notranslate"><span class="pre">EFilter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESelection"><code class="docutils literal notranslate"><span class="pre">ESelection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab"><code class="docutils literal notranslate"><span class="pre">ESlab</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.content"><code class="docutils literal notranslate"><span class="pre">ESlab.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.source"><code class="docutils literal notranslate"><span class="pre">ESlab.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.store"><code class="docutils literal notranslate"><span class="pre">ESlab.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice"><code class="docutils literal notranslate"><span class="pre">ESlice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.content"><code class="docutils literal notranslate"><span class="pre">ESlice.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.source"><code class="docutils literal notranslate"><span class="pre">ESlice.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.store"><code class="docutils literal notranslate"><span class="pre">ESlice.store()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol"><code class="docutils literal notranslate"><span class="pre">ESymbol</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol.store"><code class="docutils literal notranslate"><span class="pre">ESymbol.store()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol.symbols"><code class="docutils literal notranslate"><span class="pre">ESymbol.symbols</span></code></a></li>

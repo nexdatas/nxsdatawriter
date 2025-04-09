@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.EField &#8212; NXSDataWriter 3.10.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <title>nxswriter.EField &#8212; NXSDataWriter 3.14.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -35,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.14</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -163,12 +165,12 @@
 
 <div class="viewcode-block" id="EField"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField">[docs]</a><span class="k">class</span> <span class="nc">EField</span><span class="p">(</span><span class="n">FElementWithAttr</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; field H5 tag element</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; field H5 tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">reloadmode</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
 
 <span class="sd">        :param attrs: dictionary of the tag attributes</span>
 <span class="sd">        :type attrs: :obj:`dict` &lt;:obj:`str`, :obj:`str`&gt;</span>
@@ -211,11 +213,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="c1">#: (:obj:`bool`) grew flag</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__grew</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="c1">#: (:obj:`str`) data format</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__format</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
     <span class="k">def</span> <span class="nf">__isgrowing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks if it is growing in extra dimension</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks if it is growing in extra dimension</span>
 <span class="sd">        :brief: It checks if it is growing in extra dimension</span>
 <span class="sd">                and setup internal variables</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -228,7 +228,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">grows</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__typeAndName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides type and name of the field</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides type and name of the field</span>
 
 <span class="sd">        :returns: (type, name) tuple</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -247,8 +247,26 @@
 
             <span class="k">raise</span> <span class="n">XMLSettingSyntaxError</span><span class="p">(</span><span class="s2">&quot;Field without a name&quot;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="EField.setRank"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.setRank">[docs]</a>    <span class="k">def</span> <span class="nf">setRank</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets dimension rank</span>
+
+<span class="sd">        :param index: dimension rank</span>
+<span class="sd">        :type index: :obj:`src`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span></div>
+
+<div class="viewcode-block" id="EField.setLength"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.setLength">[docs]</a>    <span class="k">def</span> <span class="nf">setLength</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets lengths dict element</span>
+
+<span class="sd">        :param index: length index</span>
+<span class="sd">        :type index: :obj:`int`</span>
+<span class="sd">        :param value: length value</span>
+<span class="sd">        :type value: :obj:`int` or :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lengths</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
     <span class="k">def</span> <span class="nf">__getShape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides shape</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides shape</span>
 
 <span class="sd">        :returns: object shape</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`int` &gt;</span>
@@ -268,7 +286,7 @@
             <span class="k">return</span> <span class="n">shape</span>
 
     <span class="k">def</span> <span class="nf">__createObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates H5 object</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates H5 object</span>
 
 <span class="sd">        :param dtype: object type</span>
 <span class="sd">        :type dtype: :obj:`str`</span>
@@ -381,7 +399,7 @@
         <span class="k">return</span> <span class="n">f</span>
 
     <span class="k">def</span> <span class="nf">__setAttributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates attributes</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates attributes</span>
 
 <span class="sd">        :brief: It creates attributes in h5Object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -401,7 +419,7 @@
                     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postrun</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__setStrategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides strategy or fill the value in</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides strategy or fill the value in</span>
 
 <span class="sd">        :param name: object name</span>
 <span class="sd">        :returns: strategy or strategy,trigger it trigger defined</span>
@@ -430,7 +448,7 @@
                         <span class="s2">&quot;Warning: Invalid datasource for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="EField.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; stores the tag content</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
 <span class="sd">        :type xml: :obj:`str`</span>
@@ -456,7 +474,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__setStrategy</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__writeData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes non-growing data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes non-growing data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -475,7 +493,7 @@
                             <span class="s2">&quot; not supported by pniio&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__writeScalarGrowingData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes growing scalar data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes growing scalar data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -498,7 +516,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
 
     <span class="k">def</span> <span class="nf">__writeSpectrumGrowingData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes growing spectrum data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes growing spectrum data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -552,7 +570,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
 
     <span class="k">def</span> <span class="nf">__writeImageGrowingData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes growing image data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes growing image data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -599,7 +617,7 @@
                           <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
 
     <span class="k">def</span> <span class="nf">__writeVertexGrowingData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes growing vertex data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes growing vertex data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -633,7 +651,7 @@
                 <span class="s2">&quot;Vertex growing data with grows&gt;1 not supported&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__writeGrowingData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">holder</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; writes growing data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; writes growing data</span>
 
 <span class="sd">        :param holder: data holder</span>
 <span class="sd">        :type holder: :class:`nxswriter.DataHolder.DataHolder`</span>
@@ -658,7 +676,7 @@
                 <span class="nb">str</span><span class="p">(</span><span class="n">holder</span><span class="o">.</span><span class="n">format</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">__grow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; grows the h5 field</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; grows the h5 field</span>
 
 <span class="sd">        :brief: Ir runs the grow command of h5Object with grows-1 parameter</span>
 
@@ -673,7 +691,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">grow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__growshape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reshapes h5 object</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reshapes h5 object</span>
 
 <span class="sd">        :param shape: required shape</span>
 <span class="sd">        :type shape: :obj:`list` &lt;:obj:`int` &gt;</span>
@@ -696,7 +714,7 @@
                         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <div class="viewcode-block" id="EField.run"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; runner</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; runner</span>
 
 <span class="sd">        :brief: During its thread run it fetches the data from the source</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -747,7 +765,7 @@
                             <span class="s2">&quot;EField::run() - </span><span class="si">%s</span><span class="s2">  &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
 
     <span class="k">def</span> <span class="nf">__fillMax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fills object with maximum value</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fills object with maximum value</span>
 
 <span class="sd">        :brief: It fills object or an extend part of object by default value</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -804,7 +822,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__writeGrowingData</span><span class="p">(</span><span class="n">dh</span><span class="p">)</span>
 
 <div class="viewcode-block" id="EField.markFailed"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.markFailed">[docs]</a>    <span class="k">def</span> <span class="nf">markFailed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; marks the field as failed</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; marks the field as failed</span>
 
 <span class="sd">        :brief: It marks the field as failed</span>
 <span class="sd">        :param error: error string</span>
@@ -851,7 +869,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>
