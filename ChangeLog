@@ -1,5 +1,10 @@
 2025-03-28 Jan Kotanski <jankotan@gmail.com>
-	* add support for vds (#180)
+	* make fixes for numpy2  (#179)
+	* recommends nxstools 4.23.0
+	* tagged as 3.15.0
+
+2025-03-28 Jan Kotanski <jankotan@gmail.com>
+	* add support for vds (#176)
 	* recommends nxstools 4.22.1
 	* tagged as 3.14.0
 

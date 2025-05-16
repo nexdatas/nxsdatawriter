@@ -37,6 +37,18 @@ else:
     bytes = str
 
 
+try:
+    _npver = numpy.version.version.split(".")
+    NPMAJOR = int(_npver[0])
+    if NPMAJOR > 1:
+	npstring = numpy.bytes_
+    else:
+	npstring = numpy.string_
+except Exception:
+    NPMAJOR = 1
+    npstring = numpy.string_
+
+
 # checks for scalar attributes
 class Checker(object):
 
@@ -237,7 +249,7 @@ class Checker(object):
                     self._tc.assertEqual(values, value)
             else:
                 self._tc.assertEqual(values, value)
-        if not isinstance(cnt[...], numpy.string_) and \
+        if not isinstance(cnt[...], npstring) and \
            self._isNumeric(cnt[...]) and \
            not (isinstance(cnt[...], numpy.ndarray) and
                 (str(cnt[...].dtype).startswith("|S"))):
