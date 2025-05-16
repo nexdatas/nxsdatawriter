@@ -27,6 +27,18 @@ if sys.version_info > (3,):
     long = int
 
 
+try:
+    _npver = numpy.version.version.split(".")
+    NPMAJOR = int(_npver[0])
+    if NPMAJOR > 1:
+        npstring = numpy.bytes_
+    else:
+        npstring = numpy.string_
+except Exception:
+    NPMAJOR = 1
+    npstring = numpy.string_
+
+
 def nptype(dtype):
     """ converts to numpy types
 
@@ -159,7 +171,7 @@ class NTP(object):
             except IndexError:
                 if hasattr(array, "shape") and len(array.shape) == 0:
                     rank = 0
-                    if type(array) in [numpy.string_, numpy.str_]:
+                    if type(array) in [npstring, numpy.str_]:
                         pythonDType = "str"
                     elif hasattr(array, "dtype"):
                         pythonDType = str(array.dtype)
@@ -170,7 +182,7 @@ class NTP(object):
                     shape.append(len(array))
 
         else:
-            if type(array) in [numpy.string_, numpy.str_]:
+            if type(array) in [npstring, numpy.str_]:
                 pythonDType = "str"
             elif hasattr(array, "dtype"):
                 pythonDType = str(array.dtype)

@@ -64,7 +64,7 @@ Extract sources and run
 Debian packages
 """""""""""""""
 
-Debian `bookworm`, `bullseye`, `buster`  or Ubuntu `oracular`,  `noble`, `jammy`  packages can be found in the HDRI repository.
+Debian `bookworm`, `bullseye`, `buster`  or Ubuntu `plucky`,  `noble`, `jammy`  packages can be found in the HDRI repository.
 
 To install the debian packages, add the PGP repository key
 
