@@ -31,9 +31,9 @@ try:
     _npver = numpy.version.version.split(".")
     NPMAJOR = int(_npver[0])
     if NPMAJOR > 1:
-	npstring = numpy.bytes_
+        npstring = numpy.bytes_
     else:
-	npstring = numpy.string_
+        npstring = numpy.string_
 except Exception:
     NPMAJOR = 1
     npstring = numpy.string_
