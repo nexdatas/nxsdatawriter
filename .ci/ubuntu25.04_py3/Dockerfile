@@ -33,7 +33,7 @@ ENV PKG_CONFIG_PATH=/home/tango/lib/pkgconfig
 # ENV HDF5_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/hdf5/serial/plugins
 
 # # install nxstools for numpy >= 2
-RUN /bin/sh -c 'git clone -b issue_771 https://github.com/nexdatas/nxstools nxstools; cd nxstools; python3 setup.py install'
+# RUN /bin/sh -c 'git clone -b issue_771 https://github.com/nexdatas/nxstools nxstools; cd nxstools; python3 setup.py install'
 
 
 ENV MYSQL_HOST=localhost
