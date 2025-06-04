@@ -175,8 +175,10 @@ class DATAARRAYdecoder(object):
         self.__value = None
         #: ([:obj:`str`, :obj:`str`]) header and image data
         self.__data = None
-        #: (:obj:`str`) struct header format
-        self.__headerFormat = '<IHHIIHHHHHHHHIIIIIIII'
+        #: (:obj:`str`) struct header format ver < 4
+        self.__headerFormat123 = '<IHHIIHHHHHHHHIIIIIIII'
+        #: (:obj:`str`) struct header format ver >=4
+        self.__headerFormat = '<IHHIIHHHHHHHHIIIIIIQQII'
         #: (:obj:`dict` <:obj:`str`, :obj:`any` > ) header data
         self.__header = {}
         #: (:obj:`dict` <:obj:`int`, :obj:`str` > ) format modes
@@ -200,7 +202,7 @@ class DATAARRAYdecoder(object):
         """
         self.__data = data
         self.format = data[0]
-        self._loadHeader(data[1][:struct.calcsize(self.__headerFormat)])
+        self._loadHeader(data[1])
         self.__value = None
 
     def _loadHeader(self, headerData):
@@ -209,7 +211,15 @@ class DATAARRAYdecoder(object):
         :param headerData: buffer with header data
         :type headerData: :obj:`str`
         """
-        hdr = struct.unpack(self.__headerFormat, headerData)
+        try:
+            hData = headerData[:struct.calcsize(self.__headerFormat)]
+            hdr = struct.unpack(self.__headerFormat, hData)
+            if hdr[1] < 4:
+                hData = headerData[:struct.calcsize(self.__headerFormat123)]
+                hdr = struct.unpack(self.__headerFormat123, hData)
+        except Exception:
+            hData = headerData[:struct.calcsize(self.__headerFormat123)]
+            hdr = struct.unpack(self.__headerFormat123, hData)
         self.__header = {}
         self.__header['magic'] = hdr[0]
         self.__header['headerVersion'] = hdr[1]
@@ -261,7 +271,12 @@ class DATAARRAYdecoder(object):
         if not self.__header or not self.__data:
             return
         if self.__value is None:
-            image = self.__data[1][struct.calcsize(self.__headerFormat):]
+            if 'headerVersion' in self.__header and \
+               self.__header['headerVersion'] >= 4:
+                image = self.__data[1][struct.calcsize(self.__headerFormat):]
+            else:
+                image = self.__data[1][
+                    struct.calcsize(self.__headerFormat123):]
             dformat = self.__formatID[self.__header['imageMode']]
             fSize = struct.calcsize(dformat)
             self.__value = numpy.array(

@@ -1,4 +1,8 @@
 2025-03-28 Jan Kotanski <jankotan@gmail.com>
+	* add support for DATA_ARRAY v4 (#182)
+	* tagged as 3.16.0
+
+2025-03-28 Jan Kotanski <jankotan@gmail.com>
 	* make fixes for numpy2  (#179)
 	* recommends nxstools 4.23.0
 	* tagged as 3.15.0

@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "NXSWRITER" "1" "Jan 13, 2025" "3.13" "NXSDataWriter"
+.TH "NXSWRITER" "1" "Jun 04, 2025" "3.16" "NXSDataWriter"
 .SH NAME
 nxswriter \- nxswriter Documentation
 .sp
@@ -1250,6 +1250,31 @@ During its thread run it fetches the data from the source
 .UNINDENT
 .INDENT 7.0
 .TP
+.B setLength(index, value)
+sets lengths dict element
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP (\fI\%int\fP) \-\- length index
+.IP \(bu 2
+\fBvalue\fP (\fI\%int\fP or \fI\%str\fP) \-\- length value
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B setRank(rank)
+sets dimension rank
+.INDENT 7.0
+.TP
+.B Parameters
+\fBindex\fP (\fBsrc\fP) \-\- dimension rank
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
 .B store(xml=None, globalJSON=None)
 stores the tag content
 .INDENT 7.0
@@ -1366,6 +1391,31 @@ runner
 .TP
 .B Brief
 During its thread run it fetches the data from the source
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B setLength(index, value)
+sets lengths dict element
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP (\fI\%int\fP) \-\- length index
+.IP \(bu 2
+\fBvalue\fP (\fI\%int\fP or \fI\%str\fP) \-\- length value
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B setRank(rank)
+sets dimension rank
+.INDENT 7.0
+.TP
+.B Parameters
+\fBindex\fP (\fBsrc\fP) \-\- dimension rank
 .UNINDENT
 .UNINDENT
 .INDENT 7.0
@@ -2140,6 +2190,119 @@ constructor
 \fBlast\fP (\fI\%nxswriter.Element.Element\fP) \-\- the last element from the stack
 .IP \(bu 2
 \fBstreams\fP (\fBStreamSet\fP or \fI\%tango.LatestDeviceImpl\fP) \-\- tango\-like steamset class
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B class  nxswriter.H5Elements.ESelection(attrs, last, streams=None)
+Bases: \fI\%Element\fP
+.sp
+selection tag element
+.sp
+constructor
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBattrs\fP (\fI\%dict\fP <\fI\%str\fP, \fI\%str\fP>) \-\- dictionary of the tag attributes
+.IP \(bu 2
+\fBlast\fP (\fI\%nxswriter.Element.Element\fP) \-\- the last element from the stack
+.IP \(bu 2
+\fBstreams\fP (\fBStreamSet\fP or \fI\%tango.LatestDeviceImpl\fP) \-\- tango\-like steamset class
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B class  nxswriter.H5Elements.ESlab(attrs, last, streams=None)
+Bases: \fI\%Element\fP
+.sp
+slab tag element
+.sp
+constructor
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBattrs\fP (\fI\%dict\fP <\fI\%str\fP, \fI\%str\fP>) \-\- dictionary of the tag attributes
+.IP \(bu 2
+\fBlast\fP (\fI\%nxswriter.Element.Element\fP) \-\- the last element from the stack
+.IP \(bu 2
+\fBstreams\fP (\fBStreamSet\fP or \fI\%tango.LatestDeviceImpl\fP) \-\- tango\-like steamset class
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B content
+(\fI\%list\fP <\fI\%str\fP>) tag content
+.UNINDENT
+.INDENT 7.0
+.TP
+.B source
+(\fI\%nxswriter.DataSources.DataSource\fP) data source
+.UNINDENT
+.INDENT 7.0
+.TP
+.B store(xml=None, globalJSON=None)
+stores the tag content
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBxml\fP \-\- xml setting
+.IP \(bu 2
+\fBglobalJSON\fP (:     \fI\%dict\fP <\fI\%str\fP, \fI\%dict\fP <\fI\%str\fP, any>>) \-\- global JSON string
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B class  nxswriter.H5Elements.ESlice(attrs, last, streams=None)
+Bases: \fI\%Element\fP
+.sp
+slice tag element
+.sp
+constructor
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBattrs\fP (\fI\%dict\fP <\fI\%str\fP, \fI\%str\fP>) \-\- dictionary of the tag attributes
+.IP \(bu 2
+\fBlast\fP (\fI\%nxswriter.Element.Element\fP) \-\- the last element from the stack
+.IP \(bu 2
+\fBstreams\fP (\fBStreamSet\fP or \fI\%tango.LatestDeviceImpl\fP) \-\- tango\-like steamset class
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B content
+(\fI\%list\fP <\fI\%str\fP>) tag content
+.UNINDENT
+.INDENT 7.0
+.TP
+.B source
+(\fI\%nxswriter.DataSources.DataSource\fP) data source
+.UNINDENT
+.INDENT 7.0
+.TP
+.B store(xml=None, globalJSON=None)
+stores the tag content
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.IP \(bu 2
+\fBxml\fP \-\- xml setting
+.IP \(bu 2
+\fBglobalJSON\fP (:     \fI\%dict\fP <\fI\%str\fP, \fI\%dict\fP <\fI\%str\fP, any>>) \-\- global JSON string
+.UNINDENT
 .UNINDENT
 .UNINDENT
 .UNINDENT
