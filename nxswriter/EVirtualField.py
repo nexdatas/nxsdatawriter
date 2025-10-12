@@ -404,6 +404,9 @@ class EVirtualField(FElementWithAttr):
         self.__shape = []
         #: (:obj:`list` <:obj:`dict` >) vmap list
         self.__vmaps = []
+        #: (:class:`H5CppVirtualFieldLayout`) or
+        #:   (:class:`H5PYVirtualFieldLayout`) virtual field layout
+        self.__vlf = None
 
     def setRank(self, rank):
         """ sets dimension rank
@@ -517,6 +520,8 @@ class EVirtualField(FElementWithAttr):
         self.__dtype, self.__name = self.__typeAndName()
         # shape
         self.__shape = self.__getShape()
+        self.__vlf = FileWriter.virtual_field_layout(
+            self.__shape, self.__dtype)
         return self.__setStrategy(self.__name)
 
     def __cureKeys(self, key):
@@ -619,8 +624,13 @@ class EVirtualField(FElementWithAttr):
     def __createVDS(self):
         """ create the virtual field object
         """
-        vlf = FileWriter.virtual_field_layout(
-            self.__shape, self.__dtype)
+        self.__add_target_field_views()
+        self.h5Object = self._lastObject().create_virtual_field(
+            self.__name, self.__vlf)
+
+    def __add_target_field_views(self):
+        """ add target fields views to virtual field layout
+        """
         counter = 0
         for vmap in self.__vmaps:
             fieldpath = ""
@@ -673,9 +683,7 @@ class EVirtualField(FElementWithAttr):
             else:
                 counter += 1
             # print("KEY", key, sourcekey, sourceshape, eshape)
-            vlf.add(key, ef, sourcekey, sourceshape)
-        self.h5Object = self._lastObject().create_virtual_field(
-            self.__name, vlf)
+            self.__vlf.add(key, ef, sourcekey, sourceshape)
 
     def run(self):
         """ runner
