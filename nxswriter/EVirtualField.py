@@ -348,9 +348,9 @@ class EVirtualDataMap(Element):
         except Exception:
             info = sys.exc_info()
             import traceback
-            message = self.setMessage(
-                str(info[1].__str__()) + "\n " + (" ").join(
-                    traceback.format_tb(sys.exc_info()[2])))
+            message = ("Datasource not found: " +
+                       str(info[1].__str__()) + "\n " + (" ").join(
+                           traceback.format_tb(sys.exc_info()[2])))
             # message = self.setMessage(  sys.exc_info()[1].__str__()  )
             del info
             #: notification of error in the run method (defined in base class)
@@ -402,6 +402,8 @@ class EVirtualField(FElementWithAttr):
         self.__name = ""
         #: (:obj:`list` <:obj:`int` >) shape
         self.__shape = []
+        #: (:obj:`list` <:obj:`dict` >) vmap list
+        self.__vmaps = []
         #: (:class:`H5CppVirtualFieldLayout`) or
         #:   (:class:`H5PYVirtualFieldLayout`) virtual field layout
         self.__vlf = None
@@ -499,7 +501,10 @@ class EVirtualField(FElementWithAttr):
             lval = val.split("\n")
             for el in lval:
                 if el.strip():
-                    self.__vlf.append({"target": el.strip()})
+                    if self.__vlf is not None:
+                        self.__vlf.append_vmap({"target": el.strip()})
+                    else:
+                        self.__vmaps.append({"target": el.strip()})
         return self.strategy, self.trigger
 
     def store(self, xml=None, globalJSON=None):
@@ -520,6 +525,9 @@ class EVirtualField(FElementWithAttr):
         self.__shape = self.__getShape()
         self.__vlf = FileWriter.virtual_field_layout(
             self.__shape, self.__dtype)
+        for vmap in self.__vmaps:
+            self.__vlf.append_vmap(vmap)
+        self.__vmaps = []
         return self.__setStrategy(self.__name)
 
     def appendVmap(self, values, base=None):
@@ -561,13 +569,18 @@ class EVirtualField(FElementWithAttr):
                 fval.update(vl)
             else:
                 fval.update({"target": vl.strip()})
-            self.__vlf.append(fval)
-        return len(self.__vlf)
+            if self.__vlf is not None:
+                self.__vlf.append_vmap(fval)
+            else:
+                self.__vmaps.append(fval)
+        if self.__vlf is not None:
+            return len(self.__vlf)
+        return len(self.__vmaps)
 
     def __createVDS(self):
         """ create the virtual field object
         """
-        self.__vlf.process_target_field_views()
+        self.__vlf.process_target_field_views(self._lastObject())
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, self.__vlf)
 
@@ -587,16 +600,16 @@ class EVirtualField(FElementWithAttr):
             # print("SHaPE", self.__shape)
             # print("TYPE", self.__dtype)
             # print("NAME", self.__name)
-            if self.__vlf and len(self.__vlf) and self.__shape \
+            if self.__vlf is not None and len(self.__vlf) and self.__shape \
                     and self.__dtype and self.__name:
                 self.__createVDS()
                 self.__setAttributes()
         except Exception:
             info = sys.exc_info()
             import traceback
-            message = self.setMessage(
-                str(info[1].__str__()) + "\n " + (" ").join(
-                    traceback.format_tb(sys.exc_info()[2])))
+            message = ("Datasource not found: " +
+                       str(info[1].__str__()) + "\n " + (" ").join(
+                           traceback.format_tb(sys.exc_info()[2])))
             # message = self.setMessage(  sys.exc_info()[1].__str__()  )
             del info
             #: notification of error in the run method (defined in base class)
