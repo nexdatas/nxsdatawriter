@@ -1,6 +1,6 @@
 2025-10-13 Jan Kotanski <jankotan@gmail.com>
 	* move the virtual map list to h5rediswriter (#188)
-	* recommends nxstools 4.28.0
+	* recommends nxstools 4.28.1
 	* tagged as 3.17.0
 
 2025-03-28 Jan Kotanski <jankotan@gmail.com>

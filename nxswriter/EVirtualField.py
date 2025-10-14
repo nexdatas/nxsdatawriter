@@ -343,7 +343,8 @@ class EVirtualDataMap(Element):
                 if dt and isinstance(dt, dict):
                     dh = DataHolder(streams=self._streams, **dt)
                     val = dh.cast("string")
-                    self.last.appendVmap(val, self.__vmap)
+                    self.last.appendVmap(val, self.__vmap,
+                                         self.strategy)
 
         except Exception:
             info = sys.exc_info()
@@ -406,7 +407,7 @@ class EVirtualField(FElementWithAttr):
         self.__vmaps = []
         #: (:class:`H5CppVirtualFieldLayout`) or
         #:   (:class:`H5PYVirtualFieldLayout`) virtual field layout
-        self.__vlf = None
+        self.__vfl = None
 
     def setRank(self, rank):
         """ sets dimension rank
@@ -501,8 +502,8 @@ class EVirtualField(FElementWithAttr):
             lval = val.split("\n")
             for el in lval:
                 if el.strip():
-                    if self.__vlf is not None:
-                        self.__vlf.append_vmap({"target": el.strip()})
+                    if self.__vfl is not None:
+                        self.__vfl.append_vmap({"target": el.strip()})
                     else:
                         self.__vmaps.append({"target": el.strip()})
         return self.strategy, self.trigger
@@ -523,14 +524,14 @@ class EVirtualField(FElementWithAttr):
         self.__dtype, self.__name = self.__typeAndName()
         # shape
         self.__shape = self.__getShape()
-        self.__vlf = FileWriter.virtual_field_layout(
+        self.__vfl = FileWriter.virtual_field_layout(
             self.__shape, self.__dtype)
         for vmap in self.__vmaps:
-            self.__vlf.append_vmap(vmap)
+            self.__vfl.append_vmap(vmap)
         self.__vmaps = []
         return self.__setStrategy(self.__name)
 
-    def appendVmap(self, values, base=None):
+    def appendVmap(self, values, base=None, strategy=None):
         """ append virtual map items
 
         :param values: a list of map items to append
@@ -569,20 +570,20 @@ class EVirtualField(FElementWithAttr):
                 fval.update(vl)
             else:
                 fval.update({"target": vl.strip()})
-            if self.__vlf is not None:
-                self.__vlf.append_vmap(fval)
+            if self.__vfl is not None:
+                self.__vfl.append_vmap(fval, strategy)
             else:
                 self.__vmaps.append(fval)
-        if self.__vlf is not None:
-            return len(self.__vlf)
+        if self.__vfl is not None:
+            return len(self.__vfl)
         return len(self.__vmaps)
 
     def __createVDS(self):
         """ create the virtual field object
         """
-        self.__vlf.process_target_field_views(self._lastObject())
+        self.__vfl.process_target_field_views(self._lastObject())
         self.h5Object = self._lastObject().create_virtual_field(
-            self.__name, self.__vlf)
+            self.__name, self.__vfl)
 
     def run(self):
         """ runner
@@ -600,7 +601,7 @@ class EVirtualField(FElementWithAttr):
             # print("SHaPE", self.__shape)
             # print("TYPE", self.__dtype)
             # print("NAME", self.__name)
-            if self.__vlf is not None and len(self.__vlf) and self.__shape \
+            if self.__vfl is not None and len(self.__vfl) and self.__shape \
                     and self.__dtype and self.__name:
                 self.__createVDS()
                 self.__setAttributes()
