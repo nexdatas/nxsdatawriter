@@ -343,14 +343,15 @@ class EVirtualDataMap(Element):
                 if dt and isinstance(dt, dict):
                     dh = DataHolder(streams=self._streams, **dt)
                     val = dh.cast("string")
-                    self.last.appendVmap(val, self.__vmap)
+                    self.last.appendVmap(val, self.__vmap,
+                                         self.strategy)
 
         except Exception:
             info = sys.exc_info()
             import traceback
-            message = self.setMessage(
-                str(info[1].__str__()) + "\n " + (" ").join(
-                    traceback.format_tb(sys.exc_info()[2])))
+            message = ("Datasource not found: " +
+                       str(info[1].__str__()) + "\n " + (" ").join(
+                           traceback.format_tb(sys.exc_info()[2])))
             # message = self.setMessage(  sys.exc_info()[1].__str__()  )
             del info
             #: notification of error in the run method (defined in base class)
@@ -404,6 +405,9 @@ class EVirtualField(FElementWithAttr):
         self.__shape = []
         #: (:obj:`list` <:obj:`dict` >) vmap list
         self.__vmaps = []
+        #: (:class:`H5CppVirtualFieldLayout`) or
+        #:   (:class:`H5PYVirtualFieldLayout`) virtual field layout
+        self.__vfl = None
 
     def setRank(self, rank):
         """ sets dimension rank
@@ -498,7 +502,10 @@ class EVirtualField(FElementWithAttr):
             lval = val.split("\n")
             for el in lval:
                 if el.strip():
-                    self.__vmaps.append({"target": el.strip()})
+                    if self.__vfl is not None:
+                        self.__vfl.append_vmap({"target": el.strip()})
+                    else:
+                        self.__vmaps.append({"target": el.strip()})
         return self.strategy, self.trigger
 
     def store(self, xml=None, globalJSON=None):
@@ -517,39 +524,14 @@ class EVirtualField(FElementWithAttr):
         self.__dtype, self.__name = self.__typeAndName()
         # shape
         self.__shape = self.__getShape()
+        self.__vfl = FileWriter.virtual_field_layout(
+            self.__shape, self.__dtype)
+        for vmap in self.__vmaps:
+            self.__vfl.append_vmap(vmap)
+        self.__vmaps = []
         return self.__setStrategy(self.__name)
 
-    def __cureKeys(self, key):
-        tkey = []
-        if isinstance(key, list):
-            try:
-                sk = list(set([len(ky) for ky in key]))
-            except Exception:
-                sk = []
-            if len(sk) == 1 and sk[0] == 4:
-                offset = []
-                block = []
-                count = []
-                stride = []
-                for ky in key:
-                    off, bl, cnt, std = ky
-                    offset.append(off)
-                    block.append(bl)
-                    count.append(cnt)
-                    stride.append(std)
-                return FileWriter.FTHyperslab(offset, block, count, stride)
-            for ky in key:
-                if isinstance(ky, list) and len(ky) > 0 and len(ky) < 4:
-                    tkey.append(slice(*ky))
-                else:
-                    if ky is None:
-                        ky = slice(None)
-                    tkey.append(ky)
-
-            return tuple(tkey)
-        return key
-
-    def appendVmap(self, values, base=None):
+    def appendVmap(self, values, base=None, strategy=None):
         """ append virtual map items
 
         :param values: a list of map items to append
@@ -588,94 +570,20 @@ class EVirtualField(FElementWithAttr):
                 fval.update(vl)
             else:
                 fval.update({"target": vl.strip()})
-            self.__vmaps.append(fval)
-        return len(self.__vmaps)
-
-    def __findShape(self, key, eshape=None, unlimited=True):
-        if isinstance(key, FileWriter.FTHyperslab):
-            if not unlimited:
-                count = [(ct if ct != FileWriter.writer.unlimited() else 1)
-                         for ct in key.count]
-
-                block = [(ct if ct != FileWriter.writer.unlimited() else 1)
-                         for ct in key.block]
+            if self.__vfl is not None:
+                self.__vfl.append_vmap(fval, strategy)
             else:
-                count = key.count
-                block = key.block
-            eshape = [bl * count[hi] for hi, bl in enumerate(block)]
-        if isinstance(key, tuple):
-            eshape = []
-            for ky in key:
-                if not unlimited and ky.stop == FileWriter.writer.unlimited():
-                    eshape.append(1)
-                elif isinstance(ky, slice) and ky.stop > 0:
-                    start = ky.start if ky.start is not None else 0
-                    step = ky.step if ky.step is not None else 1
-                    eshape.append((ky.stop - start) // step)
-                else:
-                    eshape.append(1)
-        return eshape
+                self.__vmaps.append(fval)
+        if self.__vfl is not None:
+            return len(self.__vfl)
+        return len(self.__vmaps)
 
     def __createVDS(self):
         """ create the virtual field object
         """
-        vlf = FileWriter.virtual_field_layout(
-            self.__shape, self.__dtype)
-        counter = 0
-        for vmap in self.__vmaps:
-            fieldpath = ""
-            filename = ""
-            edtype = vmap["dtype"] \
-                if "dtype" in vmap else self.__dtype
-            key = vmap["key"] if "key" in vmap else counter
-            key = self.__cureKeys(key)
-            if "shape" in vmap:
-                eshape = vmap["shape"]
-            elif isinstance(key, int):
-                eshape = list(self.__shape)
-                eshape[0] = 1
-            else:
-                eshape = [0] * len(self.__shape)
-            fieldpath = vmap["fieldpath"] \
-                if "fieldpath" in vmap else "/data"
-            filename = vmap["filename"] if "filename" in vmap else None
-            if "target" in vmap:
-                target = vmap["target"]
-                if target.startswith("h5file:/"):
-                    target = target[8:]
-                if "::" in target:
-                    filename, fieldpath = target.split("::")
-                elif ":/" in target:
-                    filename, fieldpath = target.split(":/")
-                else:
-                    fieldpath = target
-            obj = self._lastObject()
-            while filename is None:
-                par = obj.parent
-                if par is None:
-                    break
-                if hasattr(par, "root") and hasattr(par, "name"):
-                    filename = par.name
-                    break
-                else:
-                    obj = par
-            sourceshape = vmap["sourceshape"] \
-                if "sourceshape" in vmap else None
-            sourcekey = vmap["sourcekey"] \
-                if "sourcekey" in vmap else None
-            sourcekey = self.__cureKeys(sourcekey)
-            if not any(eshape):
-                eshape = self.__findShape(key, eshape, unlimited=False)
-            ef = FileWriter.target_field_view(
-                filename, fieldpath, eshape, edtype)
-            if eshape:
-                counter += eshape[0]
-            else:
-                counter += 1
-            # print("KEY", key, sourcekey, sourceshape, eshape)
-            vlf.add(key, ef, sourcekey, sourceshape)
+        self.__vfl.process_target_field_views(self._lastObject())
         self.h5Object = self._lastObject().create_virtual_field(
-            self.__name, vlf)
+            self.__name, self.__vfl)
 
     def run(self):
         """ runner
@@ -693,15 +601,16 @@ class EVirtualField(FElementWithAttr):
             # print("SHaPE", self.__shape)
             # print("TYPE", self.__dtype)
             # print("NAME", self.__name)
-            if self.__vmaps and self.__shape and self.__dtype and self.__name:
+            if self.__vfl is not None and len(self.__vfl) and self.__shape \
+                    and self.__dtype and self.__name:
                 self.__createVDS()
                 self.__setAttributes()
         except Exception:
             info = sys.exc_info()
             import traceback
-            message = self.setMessage(
-                str(info[1].__str__()) + "\n " + (" ").join(
-                    traceback.format_tb(sys.exc_info()[2])))
+            message = ("Datasource not found: " +
+                       str(info[1].__str__()) + "\n " + (" ").join(
+                           traceback.format_tb(sys.exc_info()[2])))
             # message = self.setMessage(  sys.exc_info()[1].__str__()  )
             del info
             #: notification of error in the run method (defined in base class)
