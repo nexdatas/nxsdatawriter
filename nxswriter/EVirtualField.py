@@ -26,7 +26,7 @@ import json
 
 from .DataHolder import DataHolder
 from .Element import Element
-from .FElement import FElementWithAttr
+from .FElement import FElementWithAttr, FElement
 from .Types import NTP
 from .Errors import (XMLSettingSyntaxError)
 
@@ -81,7 +81,7 @@ class EVirtualSourceView(Element):
         self.last.setSourceSelection(index, value)
 
 
-class EVirtualDataMap(Element):
+class EVirtualDataMap(FElement):
 
     """ layout map tag element
     """
@@ -96,7 +96,7 @@ class EVirtualDataMap(Element):
         :param streams: tango-like steamset class
         :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
         """
-        Element.__init__(self, "map", attrs, last, streams=streams)
+        FElement.__init__(self, "map", attrs, last, streams=streams)
         #: (:obj:`str`) rank of the field
         self.rank = "0"
         #: (:obj:`str`) rank of the source field view

@@ -1,3 +1,7 @@
+2025-10-20 Jan Kotanski <jankotan@gmail.com>
+	* make  EVirtualDataMap of FElement type (#192)
+	* tagged as 3.17.1
+
 2025-10-13 Jan Kotanski <jankotan@gmail.com>
 	* move the virtual map list to h5rediswriter (#188)
 	* recommends nxstools 4.28.1
