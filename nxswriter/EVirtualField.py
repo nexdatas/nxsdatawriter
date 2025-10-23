@@ -525,7 +525,7 @@ class EVirtualField(FElementWithAttr):
         # shape
         self.__shape = self.__getShape()
         self.__vfl = FileWriter.virtual_field_layout(
-            self.__shape, self.__dtype)
+            self.__shape, self.__dtype, parent=self._lastObject())
         for vmap in self.__vmaps:
             self.__vfl.append_vmap(vmap)
         self.__vmaps = []
@@ -581,7 +581,7 @@ class EVirtualField(FElementWithAttr):
     def __createVDS(self):
         """ create the virtual field object
         """
-        self.__vfl.process_target_field_views(self._lastObject())
+        self.__vfl.process_target_field_views()
         self.h5Object = self._lastObject().create_virtual_field(
             self.__name, self.__vfl)
 
