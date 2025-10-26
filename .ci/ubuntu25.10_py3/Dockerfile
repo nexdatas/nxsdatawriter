@@ -10,7 +10,7 @@ RUN cd /etc/apt/sources.list.d && wget http://repos.pni-hdri.de/questing-pni-hdr
     && useradd -ms /bin/bash tango
 
 
-RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get install -y   python3-pninexus  bitshuffle-serial-links hdf5-filter-plugin  liblog4j1.2-java python3-tz python3-setuptools  python3-h5py git
+RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get install -y   python3-pninexus  bitshuffle hdf5-filter-plugin  liblog4j1.2-java python3-tz python3-setuptools  python3-h5py git
 
 RUN  /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "mariadb-server mysql-server/root_password password rootpw"' \
      && /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "mariadb-server mysql-server/root_password_again password rootpw"' \
