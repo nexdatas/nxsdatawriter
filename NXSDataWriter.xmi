@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<pogoDsl:PogoSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pogoDsl="http://www.esrf.fr/tango/pogo/PogoDsl">
-  <classes name="NXSDataWriter" pogoRevision="9.7">
-    <description description="NXSDataWriter is a Tango server which allows to store NeXuS Data in H5 files.&#xA;&#xA;The server provides storing data from other Tango devices,&#xA;various databases as well as passed by a user client via JSON strings.&#xA;&#xA;Source code: https://github.com/nexdatas/nxsdatawriter&#xA;Project Web page: https://nexdatas.github.io/nxsdatawriter&#xA;NexDaTaS Web page: https://nexdatas.github.io" title="NeXus Data Writer" sourcePath="/home/jkotan/ndts/nexdatas.writer" language="Python" filestogenerate="XMI   file,Code files,Protected Regions,html Pages" license="GPL" hasMandatoryProperty="false" hasConcreteProperty="true" hasAbstractCommand="false" hasAbstractAttribute="false" descriptionHtmlExists="false">
+<pogoDsl:PogoSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pogoDsl="http://tango.org/pogo/PogoDsl">
+  <classes name="NXSDataWriter" pogoRevision="9.9">
+    <description description="NXSDataWriter is a Tango server which allows to store NeXuS Data in H5 files.&#xA;&#xA;The server provides storing data from other Tango devices,&#xA;various databases as well as passed by a user client via JSON strings.&#xA;&#xA;Source code: https://github.com/nexdatas/nxsdatawriter&#xA;Project Web page: https://nexdatas.github.io/nxsdatawriter&#xA;NexDaTaS Web page: https://nexdatas.github.io" title="NeXus Data Writer" sourcePath="/home/jkotan/ndts/nexdatas.writer" language="Python" filestogenerate="XMI   file,Protected Regions,html Pages" license="GPL" hasMandatoryProperty="false" hasConcreteProperty="true" hasAbstractCommand="false" hasAbstractAttribute="false" descriptionHtmlExists="false">
       <inheritances classname="Device_Impl" sourcePath=""/>
       <identification contact="at desy.de - jan.kotanski" author="jan.kotanski" emailDomain="desy.de" classFamily="Acquisition" siteSpecific="" platform="All Platforms" bus="Not Applicable" manufacturer="DESY" reference=""/>
     </description>
@@ -10,7 +10,7 @@
       <status abstract="false" inherited="false" concrete="true" concreteHere="true"/>
       <DefaultPropValue>100</DefaultPropValue>
     </deviceProperties>
-    <deviceProperties name="Writer" description="writer module: `pni` or `h5py` or `h5cpp`">
+    <deviceProperties name="Writer" description="writer module: `h5cpp` or `h5py` or `h5redis`">
       <type xsi:type="pogoDsl:StringType"/>
       <status abstract="false" inherited="false" concrete="true" concreteHere="true"/>
     </deviceProperties>
