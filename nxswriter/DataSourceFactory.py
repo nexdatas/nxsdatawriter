@@ -59,6 +59,7 @@ class DataSourceFactory(Element):
         :param attrs: dictionary with the tag attributes
         :type attrs: :obj:`dict` <:obj:`str`, :obj:`str`>
         """
+        name = None
         if "type" in attrs.keys():
             if self.__dsPool and self.__dsPool.hasDataSource(attrs["type"]):
                 name = attrs["name"] if "name" in attrs.keys() else None
@@ -88,6 +89,7 @@ class DataSourceFactory(Element):
                 if self._streams else (lambda: None)
             self.last.source = DataSource(
                 streams=StreamSet(streams))
+        return name
 
     def store(self, xml=None, globalJSON=None):
         """ sets the datasource form xml string
@@ -98,7 +100,7 @@ class DataSourceFactory(Element):
         :type globalJSON: \
         :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
         """
-        self.__createDSource(self._tagAttrs)
+        dsname = self.__createDSource(self._tagAttrs)
         jxml = "".join(xml)
         self.last.source.setup(jxml)
         if hasattr(self.last.source, "setJSON") and globalJSON:
@@ -107,6 +109,8 @@ class DataSourceFactory(Element):
             self.last.source.setDataSources(self.__dsPool)
         if self.last and hasattr(self.last, "tagAttributes"):
             self.last.tagAttributes["nexdatas_source"] = ("NX_CHAR", jxml)
+        if self.last and hasattr(self.last, "tagAttributes"):
+            self.last.tagAttributes["nexdatas_dsname"] = ("NX_CHAR", dsname)
 
     def setDecoders(self, decoders):
         """ sets the used decoders

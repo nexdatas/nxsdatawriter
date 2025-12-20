@@ -1022,7 +1022,7 @@ class NexusXMLHandlerH5CppTest(unittest.TestCase):
         self.assertEqual(el.close(), None)
 
         self._nxFile.close()
-        os.remove(self._fname)
+        # os.remove(self._fname)
 
     # constructor test
     # \brief It tests default settings
