@@ -100,7 +100,7 @@ class DataSourceFactory(Element):
         :type globalJSON: \
         :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
         """
-        dsname = self.__createDSource(self._tagAttrs)
+        dsname = self.__createDSource(self._tagAttrs) or ""
         jxml = "".join(xml)
         self.last.source.setup(jxml)
         if hasattr(self.last.source, "setJSON") and globalJSON:
@@ -109,7 +109,7 @@ class DataSourceFactory(Element):
             self.last.source.setDataSources(self.__dsPool)
         if self.last and hasattr(self.last, "tagAttributes"):
             self.last.tagAttributes["nexdatas_source"] = ("NX_CHAR", jxml)
-        if self.last and hasattr(self.last, "tagAttributes") and dsname:
+        if self.last and hasattr(self.last, "tagAttributes"):
             self.last.tagAttributes["nexdatas_dsname"] = ("NX_CHAR", dsname)
 
     def setDecoders(self, decoders):

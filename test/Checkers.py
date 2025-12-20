@@ -393,7 +393,8 @@ class Checker(object):
                          attrs=None):
 
         atts = {"type": nxtype, "units": "m",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
         cnt = det.open(name)
@@ -475,7 +476,8 @@ class Checker(object):
                                attrs=None):
 
         atts = {"type": nxtype, "units": "m",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
         cnt = det.open(name)
@@ -512,6 +514,7 @@ class Checker(object):
         else:
             self._tc.assertEqual(values, cnt.read())
 
+        print(cnt.attributes.names(), atts.keys())
         self._tc.assertEqual(len(cnt.attributes), len(atts))
         for a in atts:
             at = cnt.attributes[a]
@@ -540,7 +543,8 @@ class Checker(object):
                                      attrs=None):
 
         atts = {"type": nxtype, "units": "m",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
         cnt = det.open(name)
@@ -764,7 +768,8 @@ class Checker(object):
     def checkSpectrumField(self, det, name, dtype, nxtype, values, error=0,
                            grows=0, attrs=None):
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -823,7 +828,8 @@ class Checker(object):
                                  error=0, grows=0, attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -923,7 +929,8 @@ class Checker(object):
                                  attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -970,7 +977,8 @@ class Checker(object):
                                        values, attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -1013,7 +1021,8 @@ class Checker(object):
                         error=0, grows=0, attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -1080,7 +1089,8 @@ class Checker(object):
                               grows=0, attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -1181,7 +1191,8 @@ class Checker(object):
                               attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 
@@ -1231,7 +1242,8 @@ class Checker(object):
                                     attrs=None):
 
         atts = {"type": nxtype, "units": "",
-                "nexdatas_source": None, "nexdatas_strategy": None}
+                "nexdatas_source": None, "nexdatas_strategy": None,
+                "nexdatas_dsname": None}
         if attrs is not None:
             atts = attrs
 

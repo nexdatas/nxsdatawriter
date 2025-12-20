@@ -323,6 +323,7 @@ class ClientFieldTagWriterH5CppTest(unittest.TestCase):
              for i in range(len(self._counter))],
             attrs={
                 "type": "NX_UINT64", "units": "m", "nexdatas_source": None,
+                "nexdatas_dsname": None,
                 "nexdatas_strategy": "STEP",
                 "nexdatas_canfail": "FAILED",
                 "nexdatas_canfail_error": None})
@@ -334,6 +335,7 @@ class ClientFieldTagWriterH5CppTest(unittest.TestCase):
             det, "final32_canfail", "int32", "NX_INT32", numpy.iinfo(
                 getattr(numpy, 'int32')).max,
             attrs={"type": "NX_INT32", "units": "m", "nexdatas_source": None,
+                   "nexdatas_dsname": None,
                    "nexdatas_strategy": "FINAL", "nexdatas_canfail": "FAILED",
                    "nexdatas_canfail_error": None})
         self._sc.checkSingleScalarField(
@@ -341,6 +343,7 @@ class ClientFieldTagWriterH5CppTest(unittest.TestCase):
             numpy.iinfo(getattr(numpy, 'int64')).max,
             attrs={"type": "NX_INT64", "units": "m", "nexdatas_source": None,
                    "nexdatas_strategy": "INIT", "nexdatas_canfail": "FAILED",
+                   "nexdatas_dsname": None,
                    "nexdatas_canfail_error": None})
         self._sc.checkPostScalarField(
             det, "postrun_counter32", "int32", "NX_INT32",
