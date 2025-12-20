@@ -100,7 +100,7 @@ class DataSourceFactory(Element):
         :type globalJSON: \
         :     :obj:`dict` <:obj:`str`, :obj:`dict` <:obj:`str`, any>>
         """
-        dsname = self.__createDSource(self._tagAttrs)
+        dsname = self.__createDSource(self._tagAttrs) or ""
         jxml = "".join(xml)
         self.last.source.setup(jxml)
         if hasattr(self.last.source, "setJSON") and globalJSON:
