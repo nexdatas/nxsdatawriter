@@ -25,6 +25,18 @@ from lxml.etree import XMLParser
 from .DataSources import DataSource
 from .Errors import DataSourceSetupError
 
+try:
+    try:
+        import tango
+    except Exception:
+        import PyTango as tango
+    #: (:obj:`str`) global variable if tango module installed
+    PYTANGO_AVAILABLE = True
+except ImportError as e:
+    PYTANGO_AVAILABLE = False
+    sys.stdout.write("PYTANGO not available: %s" % e)
+    sys.stdout.flush()
+
 
 class ClientSource(DataSource):
 
@@ -106,4 +118,13 @@ class ClientSource(DataSource):
         names = [self.name]
         if self.name:
             names.append(self.name.lower())
+        if PYTANGO_AVAILABLE and "/" in self.name and \
+           not self.name.startswith("tango://"):
+            if ":" in self.name:
+                names.append("tango://%s" % (self.name.lower()))
+            else:
+                db = tango.Database()
+                names.append("tango://%s:%s/%s" %
+                             (db.get_db_host().split(".")[0],
+                              db.get_db_port(), self.name.lower()))
         return self._getJSONData(names, self.__globalJSON, self.__localJSON)
