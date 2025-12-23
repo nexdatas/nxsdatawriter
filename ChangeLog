@@ -1,3 +1,7 @@
+2025-12-22 Jan Kotanski <jankotan@gmail.com>
+	* add support sardana tango client (#201)
+	* tagged as 3.18.0
+
 2025-10-23 Jan Kotanski <jankotan@gmail.com>
 	* create virtual field layout with the parent object (#195)
 	* recommends nxstools 4.29.0
