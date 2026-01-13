@@ -1,3 +1,7 @@
+2026-01-13 Jan Kotanski <jankotan@gmail.com>
+	* check openEntry total runtime (#204)
+	* tagged as 3.18.1
+
 2025-12-22 Jan Kotanski <jankotan@gmail.com>
 	* add support sardana tango client (#201)
 	* tagged as 3.18.0

@@ -491,12 +491,17 @@ class TangoDataWriter(object):
         :brief: It parse the XML settings, creates thread pools
                 and runs the INIT pool.
         """
+        tt0 = time.time()
+        if self._streams:
+            self._streams.debug("openEntry: INIT")
         if self.xmlsettings:
             # flag for INIT mode
             self.__datasources.counter = -1
             self.__datasources.nxroot = self.__nxRoot
             errorHandler = sax.ErrorHandler()
             parser = sax.make_parser()
+            if self._streams:
+                self._streams.debug("openEntry: Create NexusXMLHnadler")
             handler = NexusXMLHandler(
                 self.__nxPath[-1] if self.__nxPath else self.__eFile,
                 self.__datasources,
@@ -517,6 +522,8 @@ class TangoDataWriter(object):
                 else:
                     inpsrc.setByteStream(StringIO(self.xmlsettings))
 
+            if self._streams:
+                self._streams.debug("openEntry: Parse NexusXMLHnadler")
             parser.parse(inpsrc)
 
             self.__initPool = handler.initPool
@@ -540,10 +547,18 @@ class TangoDataWriter(object):
                 self.__triggerPools[pool].maxRuntime = \
                     self.maxElementRuntime
 
+            if self._streams:
+                self._streams.debug("openEntry: SET JSON")
             self.__initPool.setJSON(json.loads(self.jsonrecord))
+            if self._streams:
+                self._streams.debug("openEntry: RUN INIT")
+            tt1 = time.time()
             if not self.skipacquisition:
                 self.__initPool.runAndWait()
                 self.__initPool.checkErrors()
+            tt2 = time.time()
+            if self._streams:
+                self._streams.debug("openEntry: ADD LOGS")
             self.skipacquisition = False
             if self.addingLogs:
                 self.__entryCounter += 1
@@ -554,6 +569,9 @@ class TangoDataWriter(object):
                     "string")
                 lfield.write(self.xmlsettings)
                 lfield.close()
+            tt3 = time.time()
+            if self._streams:
+                self._streams.debug("openEntry: FLUSH")
             if self.__nxFile and hasattr(self.__nxFile, "flush"):
                 self.__nxFile.flush()
             if self.stepsperfile > 0:
@@ -562,9 +580,34 @@ class TangoDataWriter(object):
                 self.__nextfile()
             elif "swmr" in self.__pars.keys() and self.__pars["swmr"]:
                 self.__nxFile.reopen(readonly=False, **self.__pars)
+            tt4 = time.time()
+        else:
+            tt4 = time.time()
+            tt1 = tt4
+            tt2 = tt4
+            tt3 = tt4
+        if self._streams:
+            self._streams.debug("openEntry: PREPARE")
         if self.__nxFile and hasattr(self.__nxFile, "prepare"):
             # print("START")
             self.__nxFile.prepare()
+        tt5 = time.time()
+        if self._streams:
+            dt = tt5 - tt0
+            dt1 = tt1 - tt0
+            dt2 = tt2 - tt1
+            dt3 = tt3 - tt2
+            dt4 = tt4 - tt3
+            dt5 = tt5 - tt4
+            message = "openEntry: END TotalTime = %ss, " \
+                "ParseXMLTime=%ss, INITRunTime=%ss, " \
+                "AddLogsTime=%ss, FlushTime=%ss, " \
+                "PrepateTime=%ss" % (dt, dt1, dt2, dt3, dt4, dt5)
+            if dt and self.maxRecordRuntime and \
+                    dt > self.maxRecordRuntime:
+                self._streams.warn(message)
+            else:
+                self._streams.debug(message)
 
     def __nextfile(self):
         self.__nxFile.close()
