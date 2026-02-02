@@ -1,3 +1,7 @@
+2026-01-29 Jan Kotanski <jankotan@gmail.com>
+	* add support for rediswriter (#206)
+	* tagged as 3.19.0
+
 2026-01-13 Jan Kotanski <jankotan@gmail.com>
 	* check openEntry total runtime (#204)
 	* tagged as 3.18.1

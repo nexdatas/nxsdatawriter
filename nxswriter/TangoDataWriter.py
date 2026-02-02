@@ -65,7 +65,15 @@ try:
     WRITERS["h5redis"] = H5RedisWriter
 except Exception:
     pass
-DEFAULTWRITERS = ["h5cpp", "h5py", "h5redis"]
+
+try:
+    from nxstools import rediswriter as RedisWriter
+    WRITERS["redis"] = RedisWriter
+except Exception:
+    pass
+
+
+DEFAULTWRITERS = ["h5cpp", "h5py", "h5redis", "redis"]
 
 
 #: (:obj:`bool`) tango bug #213 flag related to EncodedAttributes in python3
