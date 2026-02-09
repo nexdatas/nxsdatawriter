@@ -578,7 +578,8 @@ class TangoDataWriter(object):
                 ns = lfield.attributes.create("nexdatas_strategy", "string")
                 ns.write("CONFIG")
                 ns = lfield.attributes.create("nexdatas_source", "string")
-                ns.write('<datasource name="nxsdatawriter_xmlsettings" type="" />')
+                ns.write(
+                    '<datasource name="nxsdatawriter_xmlsettings" type="" />')
                 lfield[...] = self.xmlsettings
                 lfield.close()
             tt3 = time.time()
