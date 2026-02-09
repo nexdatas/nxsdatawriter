@@ -1,3 +1,7 @@
+2026-02-09 Jan Kotanski <jankotan@gmail.com>
+	* store strategy and datasource name of attributes in writer modules (#210)
+	* tagged as 3.20.0
+
 2026-01-29 Jan Kotanski <jankotan@gmail.com>
 	* add support for rediswriter (#206)
 	* tagged as 3.19.0

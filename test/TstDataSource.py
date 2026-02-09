@@ -41,6 +41,8 @@ class TstDataSource(DataSource):
         self.valid = True
         # returned Data
         self.value = None
+        # datasource name
+        self._name = None
         # the current  static JSON object
         self.globalJSON = None
         # the current  dynamic JSON object
