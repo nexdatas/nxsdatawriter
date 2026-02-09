@@ -156,11 +156,10 @@ class EAttribute(FElement):
                         if self.source and self.source.isValid() and \
                                 hasattr(self.source, "_name") and \
                                 self.source._name:
-                            # if hasattr(self.h5Object, "_dsname"):
-                            #     self.h5Object._dsname = self.source._name
-                            # if hasattr(self.h5Object, "_strategy"):
-                            #     self.h5Object._strategy = self.strategy
-                            pass
+                            if hasattr(self.h5Object, "_dsname"):
+                                self.h5Object._dsname = self.source._name
+                            if hasattr(self.h5Object, "_strategy"):
+                                self.h5Object._strategy = self.strategy
                         self.h5Object[...] = dh.cast(self.h5Object.dtype)
 
         except Exception:
