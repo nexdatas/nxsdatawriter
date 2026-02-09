@@ -575,7 +575,11 @@ class TangoDataWriter(object):
                 lfield = self.__logGroup.create_field(
                     "nexus__entry__%s_xml" % str(self.__entryCounter),
                     "string")
-                lfield.write(self.xmlsettings)
+                ns = lfield.attributes.create("nexdatas_strategy", "string")
+                ns.write("CONFIG")
+                ns = lfield.attributes.create("nexdatas_source", "string")
+                ns.write('<datasource name="nxsdatawriter_xmlsettings" type="" />')
+                lfield[...] = self.xmlsettings
                 lfield.close()
             tt3 = time.time()
             if self._streams:
