@@ -78,7 +78,7 @@ class UTF8decoder(object):
             return
         if not self.__value:
             if isinstance(self.__data[1], unicode):
-                self.__value = bytes(self.__data[1], 'utf8')
+                self.__value = bytes(self.__data[1], 'utf-8')
             else:
                 self.__value = bytes(self.__data[1])
         return self.__value
