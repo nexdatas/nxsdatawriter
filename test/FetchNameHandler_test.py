@@ -38,7 +38,7 @@ def tobytes(x):
     :rtype: :obj:``bytes
     """
     if sys.version_info > (3,):
-        return bytes(x, "utf8")
+        return bytes(x, "utf-8")
     else:
         return bytes(x)
 
