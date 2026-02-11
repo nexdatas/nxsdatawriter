@@ -195,7 +195,7 @@ class FElement(Element):
                 if sys.version_info > (3,):
                     val = ("".join(self.content)).strip()
                 else:
-                    val = ("".join(self.content)).strip().encode("utf8")
+                    val = ("".join(self.content)).strip().encode("utf-8")
                 found = False
                 if checkData and self.source and self.source.isValid():
                     data = self.source.getData()
@@ -500,7 +500,7 @@ class FElementWithAttr(FElement):
                         try:
                             vl = self._tagAttrs[key].strip().encode()
                         except Exception:
-                            vl = self._tagAttrs[key].strip().encode("utf8")
+                            vl = self._tagAttrs[key].strip().encode("utf-8")
                         self.h5Object.attributes.create(
                             ekey, "string", overwrite=True)[...] = vl
 
