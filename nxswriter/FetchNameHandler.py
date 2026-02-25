@@ -135,7 +135,8 @@ class FetchNameHandler(sax.ContentHandler):
             self.__current = TNObject(tname.strip(), ttype.strip(),
                                       self.__current)
             self.__stack.append(name)
-        elif name == "attribute" and self.__stack[-1] == "group":
+        elif name == "attribute" and (
+                not self.__stack or self.__stack[-1] == "group"):
             self.__content = []
             self.__attribute = True
             if "name" in attrs.keys() and attrs["name"] in ["name", "type"]:
@@ -147,7 +148,8 @@ class FetchNameHandler(sax.ContentHandler):
         :param content: partial content of the tag
         :type content: :obj:`str`
        """
-        if self.__attribute and self.__stack[-1] == "group":
+        if self.__attribute and (
+                not self.__stack or self.__stack[-1] == "group"):
             self.__content.append(content)
 
     def endElement(self, name):
@@ -172,7 +174,8 @@ class FetchNameHandler(sax.ContentHandler):
             self.__current = self.__current.parent()
             self.__stack.pop()
 
-        if name == "attribute" and self.__stack[-1] == "group":
+        if name == "attribute" and (
+                not self.__stack or self.__stack[-1] == "group"):
             if self.__attrName:
                 content = ("".join(self.__content)).strip()
                 if content:

@@ -22,11 +22,11 @@
 import json
 
 from .Element import Element
-from .FElement import FElement
+from .FElement import FElement, FElementWithAttr
 from .DataHolder import DataHolder
 
 
-class EFile(FElement):
+class EFile(FElementWithAttr):
 
     """ file H5 element
     """
@@ -43,7 +43,7 @@ class EFile(FElement):
         :param streams: tango-like steamset class
         :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
         """
-        FElement.__init__(self, "file", attrs, last, h5fileObject,
+        FElementWithAttr.__init__(self, "file", attrs, last, h5fileObject,
                           streams=streams)
 
 
