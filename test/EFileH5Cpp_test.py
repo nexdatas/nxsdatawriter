@@ -25,7 +25,7 @@ import sys
 import struct
 
 
-from nxswriter.H5Elements import FElement
+from nxswriter.FElement import FElement, FElementWithAttr
 from nxswriter.Element import Element
 from nxswriter.H5Elements import EFile
 
@@ -91,6 +91,7 @@ class EFileH5CppTest(unittest.TestCase):
         el = EFile({}, None, None)
         self.assertTrue(isinstance(el, Element))
         self.assertTrue(isinstance(el, FElement))
+        self.assertTrue(isinstance(el, FElementWithAttr))
         self.assertEqual(el.tagName, 'file')
         self.assertEqual(el.content, [])
         self.assertEqual(el.doc, "")

@@ -1,3 +1,7 @@
+2026-02-25 Jan Kotanski <jankotan@gmail.com>
+	* add support for nxroot attributes (#217)
+	* tagged as 3.22.0
+
 2026-02-10 Jan Kotanski <jankotan@gmail.com>
 	* add support utf-8 encoding (#214)
 	* tagged as 3.21.0
