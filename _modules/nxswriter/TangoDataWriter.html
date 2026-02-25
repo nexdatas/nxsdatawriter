@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.TangoDataWriter &#8212; NXSDataWriter 3.13.0 documentation</title>
+    <title>nxswriter.TangoDataWriter &#8212; NXSDataWriter 3.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -197,7 +197,15 @@
     <span class="n">WRITERS</span><span class="p">[</span><span class="s2">&quot;h5redis&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">H5RedisWriter</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="k">pass</span>
-<span class="n">DEFAULTWRITERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;h5cpp&quot;</span><span class="p">,</span> <span class="s2">&quot;h5py&quot;</span><span class="p">,</span> <span class="s2">&quot;h5redis&quot;</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">nxstools</span> <span class="kn">import</span> <span class="n">rediswriter</span> <span class="k">as</span> <span class="n">RedisWriter</span>
+    <span class="n">WRITERS</span><span class="p">[</span><span class="s2">&quot;redis&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RedisWriter</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="n">DEFAULTWRITERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;h5cpp&quot;</span><span class="p">,</span> <span class="s2">&quot;h5py&quot;</span><span class="p">,</span> <span class="s2">&quot;h5redis&quot;</span><span class="p">,</span> <span class="s2">&quot;redis&quot;</span><span class="p">]</span>
 
 
 <span class="c1">#: (:obj:`bool`) tango bug #213 flag related to EncodedAttributes in python3</span>
@@ -623,12 +631,17 @@
 <span class="sd">        :brief: It parse the XML settings, creates thread pools</span>
 <span class="sd">                and runs the INIT pool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tt0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: INIT&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmlsettings</span><span class="p">:</span>
             <span class="c1"># flag for INIT mode</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__datasources</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__datasources</span><span class="o">.</span><span class="n">nxroot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nxRoot</span>
             <span class="n">errorHandler</span> <span class="o">=</span> <span class="n">sax</span><span class="o">.</span><span class="n">ErrorHandler</span><span class="p">()</span>
             <span class="n">parser</span> <span class="o">=</span> <span class="n">sax</span><span class="o">.</span><span class="n">make_parser</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: Create NexusXMLHnadler&quot;</span><span class="p">)</span>
             <span class="n">handler</span> <span class="o">=</span> <span class="n">NexusXMLHandler</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__nxPath</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nxPath</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eFile</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__datasources</span><span class="p">,</span>
@@ -649,6 +662,8 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">inpsrc</span><span class="o">.</span><span class="n">setByteStream</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmlsettings</span><span class="p">))</span>
 
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: Parse NexusXMLHnadler&quot;</span><span class="p">)</span>
             <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">inpsrc</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">__initPool</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="n">initPool</span>
@@ -672,10 +687,18 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">__triggerPools</span><span class="p">[</span><span class="n">pool</span><span class="p">]</span><span class="o">.</span><span class="n">maxRuntime</span> <span class="o">=</span> \
                     <span class="bp">self</span><span class="o">.</span><span class="n">maxElementRuntime</span>
 
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: SET JSON&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__initPool</span><span class="o">.</span><span class="n">setJSON</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jsonrecord</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: RUN INIT&quot;</span><span class="p">)</span>
+            <span class="n">tt1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">skipacquisition</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__initPool</span><span class="o">.</span><span class="n">runAndWait</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__initPool</span><span class="o">.</span><span class="n">checkErrors</span><span class="p">()</span>
+            <span class="n">tt2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: ADD LOGS&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">skipacquisition</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">addingLogs</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__entryCounter</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -684,8 +707,16 @@
                 <span class="n">lfield</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__logGroup</span><span class="o">.</span><span class="n">create_field</span><span class="p">(</span>
                     <span class="s2">&quot;nexus__entry__</span><span class="si">%s</span><span class="s2">_xml&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__entryCounter</span><span class="p">),</span>
                     <span class="s2">&quot;string&quot;</span><span class="p">)</span>
-                <span class="n">lfield</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmlsettings</span><span class="p">)</span>
+                <span class="n">ns</span> <span class="o">=</span> <span class="n">lfield</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;nexdatas_strategy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span>
+                <span class="n">ns</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;CONFIG&quot;</span><span class="p">)</span>
+                <span class="n">ns</span> <span class="o">=</span> <span class="n">lfield</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;nexdatas_source&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span>
+                <span class="n">ns</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="s1">&#39;&lt;datasource name=&quot;nxsdatawriter_xmlsettings&quot; type=&quot;&quot; /&gt;&#39;</span><span class="p">)</span>
+                <span class="n">lfield</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmlsettings</span>
                 <span class="n">lfield</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">tt3</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: FLUSH&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="p">,</span> <span class="s2">&quot;flush&quot;</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stepsperfile</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -694,9 +725,34 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">__nextfile</span><span class="p">()</span>
             <span class="k">elif</span> <span class="s2">&quot;swmr&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pars</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pars</span><span class="p">[</span><span class="s2">&quot;swmr&quot;</span><span class="p">]:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="o">.</span><span class="n">reopen</span><span class="p">(</span><span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">__pars</span><span class="p">)</span>
+            <span class="n">tt4</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tt4</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">tt1</span> <span class="o">=</span> <span class="n">tt4</span>
+            <span class="n">tt2</span> <span class="o">=</span> <span class="n">tt4</span>
+            <span class="n">tt3</span> <span class="o">=</span> <span class="n">tt4</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;openEntry: PREPARE&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="p">,</span> <span class="s2">&quot;prepare&quot;</span><span class="p">):</span>
             <span class="c1"># print(&quot;START&quot;)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+        <span class="n">tt5</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">tt5</span> <span class="o">-</span> <span class="n">tt0</span>
+            <span class="n">dt1</span> <span class="o">=</span> <span class="n">tt1</span> <span class="o">-</span> <span class="n">tt0</span>
+            <span class="n">dt2</span> <span class="o">=</span> <span class="n">tt2</span> <span class="o">-</span> <span class="n">tt1</span>
+            <span class="n">dt3</span> <span class="o">=</span> <span class="n">tt3</span> <span class="o">-</span> <span class="n">tt2</span>
+            <span class="n">dt4</span> <span class="o">=</span> <span class="n">tt4</span> <span class="o">-</span> <span class="n">tt3</span>
+            <span class="n">dt5</span> <span class="o">=</span> <span class="n">tt5</span> <span class="o">-</span> <span class="n">tt4</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;openEntry: END TotalTime = </span><span class="si">%s</span><span class="s2">s, &quot;</span> \
+                <span class="s2">&quot;ParseXMLTime=</span><span class="si">%s</span><span class="s2">s, INITRunTime=</span><span class="si">%s</span><span class="s2">s, &quot;</span> \
+                <span class="s2">&quot;AddLogsTime=</span><span class="si">%s</span><span class="s2">s, FlushTime=</span><span class="si">%s</span><span class="s2">s, &quot;</span> \
+                <span class="s2">&quot;PrepateTime=</span><span class="si">%s</span><span class="s2">s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt1</span><span class="p">,</span> <span class="n">dt2</span><span class="p">,</span> <span class="n">dt3</span><span class="p">,</span> <span class="n">dt4</span><span class="p">,</span> <span class="n">dt5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dt</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxRecordRuntime</span> <span class="ow">and</span> \
+                    <span class="n">dt</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxRecordRuntime</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__nextfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__nxFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>

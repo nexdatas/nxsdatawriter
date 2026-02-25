@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.EAttribute &#8212; NXSDataWriter 3.14.0 documentation</title>
+    <title>nxswriter.EAttribute &#8212; NXSDataWriter 3.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.14</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -285,6 +285,13 @@
                                     <span class="n">NTP</span><span class="o">.</span><span class="n">nTnp</span><span class="p">[</span>
                                         <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">tagAttributes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span>
                                     <span class="n">vl</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">isValid</span><span class="p">()</span> <span class="ow">and</span> \
+                                <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;_name&quot;</span><span class="p">)</span> <span class="ow">and</span> \
+                                <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="p">,</span> <span class="s2">&quot;_dsname&quot;</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">_dsname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">_name</span>
+                            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="p">,</span> <span class="s2">&quot;_strategy&quot;</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
