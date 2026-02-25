@@ -22,7 +22,7 @@
 import json
 
 from .Element import Element
-from .FElement import FElement, FElementWithAttr
+from .FElement import FElementWithAttr
 from .DataHolder import DataHolder
 
 
@@ -44,7 +44,7 @@ class EFile(FElementWithAttr):
         :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
         """
         FElementWithAttr.__init__(self, "file", attrs, last, h5fileObject,
-                          streams=streams)
+                                  streams=streams)
 
 
 class EDoc(Element):
