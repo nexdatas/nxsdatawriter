@@ -17,8 +17,8 @@
       </group>
     </group>
     <group type="NXdata" name="data">
-      <link target="/NXentry/NXinstrument/NXdetector/limaccds" name="data">
-        <doc>Link to limaccds in /NXentry/NXinstrument/NXdetector</doc>
+      <link target="/NXentry/instrument:NXinstrument/NXdetector/limaccds" name="data">
+        <doc>Link to limaccds in /NXentry/instrument:NXinstrument/NXdetector</doc>
       </link>
     </group>
   </group>
