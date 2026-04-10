@@ -1,3 +1,7 @@
+2026-04-10 Jan Kotanski <jankotan@gmail.com>
+	* set fieldname in virutal field layout (#220)
+	* tagged as 3.23.0
+
 2026-02-25 Jan Kotanski <jankotan@gmail.com>
 	* add support for nxroot attributes (#217)
 	* tagged as 3.22.0

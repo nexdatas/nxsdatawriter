@@ -526,6 +526,8 @@ class EVirtualField(FElementWithAttr):
         self.__shape = self.__getShape()
         self.__vfl = FileWriter.virtual_field_layout(
             self.__shape, self.__dtype, parent=self._lastObject())
+        if hasattr(self.__vfl, "fieldname"):
+            self.__vfl.fieldname = self.__name
         for vmap in self.__vmaps:
             self.__vfl.append_vmap(vmap)
         self.__vmaps = []
