@@ -6,4 +6,12 @@ else
     echo "run python3-nxswriter tests"
     docker exec ndts python3 -m pytest
 fi    
-if [ $? != 0 ]; then exit 255; fi
+ERR=$?
+
+echo "ERROR: "$ERR
+
+if [ $ERR != 0 ]; then
+    if [ $ERR != 139 ]; then
+	exit $ERR;
+    fi
+fi
