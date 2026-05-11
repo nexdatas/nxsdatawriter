@@ -6,4 +6,4 @@ else
     echo "run python3-nxswriter tests"
     docker exec ndts python3 -m pytest
 fi    
-if [ "$?" != "0" ]; then exit 255; fi
+if [ $? != 0 ]; then exit 255; fi
