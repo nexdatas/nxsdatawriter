@@ -6,9 +6,9 @@ RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get insta
 # hdf5-plugin-bshuf hdf5-plugin-bz2 hdf5-plugin-lz4
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-RUN curl -v --retry 10 -s http://repos.pni-hdri.de/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
+RUN curl -v --retry 10 -s https://repos.pni-hdri.de/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
 RUN chmod 644 /etc/apt/trusted.gpg.d/debian-hdri-repo.gpg
-RUN cd /etc/apt/sources.list.d && wget http://repos.pni-hdri.de/resolute-pni-hdri.sources \
+RUN cd /etc/apt/sources.list.d && wget https://repos.pni-hdri.de/resolute-pni-hdri.sources \
     && useradd -ms /bin/bash tango
 
 
