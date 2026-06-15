@@ -3,11 +3,13 @@ FROM ubuntu:22.04
 # MAINTAINER DESY, Jan Kotanski <jankotan@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get purge curl wget
+RUN apt-get -qq update && apt-get -qq -y dist-upgrade
 
 # add the HDRI repository
 RUN apt-get -qq update && apt-get -qq install -y software-properties-common curl wget
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-RUN curl -s http://repos.pni-hdri.de/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
+RUN curl -v --retry 10 -s http://repos.pni-hdri.de/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
 RUN chmod 644 /etc/apt/trusted.gpg.d/debian-hdri-repo.gpg
 RUN add-apt-repository "deb http://repos.pni-hdri.de/apt/ubuntu jammy main" -y
 
