@@ -27,7 +27,7 @@ from .Release import __version__
 #: (:class:`threading.Lock`) global lock
 globallock = threading.Lock()
 
-__all__ = ["__version__", "run", "globallock"]
+__all__ = ["__version__", "run", "globallock", "main"]
 
 
 def run(argv):
@@ -55,3 +55,8 @@ def run(argv):
         print('-------> Received a DevFailed exception: %s' % e)
     except Exception as e:
         print('-------> An unforeseen exception occured.... %s' % e)
+
+
+def main():
+    import sys
+    run(sys.argv)
