@@ -41,8 +41,8 @@ from nxstools import h5pywriter as H5PYWriter
 try:
     import MySQLdb
 except Exception:
-    import pymysql
-    pymysql.install_as_MySQLdb()
+    import pymysql as MySQLdb
+    MySQLdb.install_as_MySQLdb()
 
 
 # if 64-bit machione

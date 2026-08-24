@@ -36,8 +36,8 @@ try:
     try:
         import MySQLdb
     except Exception:
-        import pymysql
-        pymysql.install_as_MySQLdb()
+        import pymysql as MySQLdb
+        MySQLdb.install_as_MySQLdb()
     DB_AVAILABLE.append("MYSQL")
 except ImportError:
     pass
