@@ -126,9 +126,10 @@ SETUPDATA = dict(
     install_requires=install_requires,
     entry_points={
         'console_scripts':
-        'NXSDataWriter = nxswriter:main'
-        'console_scripts':
-        'nxsfromxml = nxswriter.NXSFromXML:main'
+        [
+            'NXSDataWriter = nxswriter:main',
+            'nxsfromxml = nxswriter.NXSFromXML:main'
+        ]
     },
     cmdclass={
         # 'test': TestCommand,
