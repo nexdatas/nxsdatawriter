@@ -1,4 +1,0 @@
-#!/usr/bin/env python
-from nxswriter import NXSFromXML
-
-NXSFromXML.main()

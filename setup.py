@@ -126,8 +126,10 @@ SETUPDATA = dict(
     install_requires=install_requires,
     entry_points={
         'console_scripts':
-        'NXSDataWriter = nxswriter:main'},
-    scripts=['nxsfromxml'],
+        'NXSDataWriter = nxswriter:main'
+        'console_scripts':
+        'nxsfromxml = nxswriter.NXSFromXML:main'
+    },
     cmdclass={
         # 'test': TestCommand,
         'build_sphinx': BuildDoc
