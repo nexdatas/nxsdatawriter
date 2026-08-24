@@ -31,8 +31,8 @@ try:
     try:
         import MySQLdb
     except Exception:
-        import pymysql
-        pymysql.install_as_MySQLdb()
+        import pymysql as MySQLdb
+        MySQLdb.install_as_MySQLdb()
     # connection arguments to MYSQL DB
     args = {}
     args["db"] = 'tango'
@@ -46,8 +46,8 @@ except Exception:
         try:
             import MySQLdb
         except Exception:
-            import pymysql
-            pymysql.install_as_MySQLdb()
+            import pymysql as MySQLdb
+            MySQLdb.install_as_MySQLdb()
         import MySQLdb
         from os.path import expanduser
         home = expanduser("~")

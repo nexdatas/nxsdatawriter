@@ -1,4 +1,8 @@
 2026-04-10 Jan Kotanski <jankotan@gmail.com>
+	* fix support for pymysql (#227)
+	* tagged as 3.23.1
+
+2026-04-10 Jan Kotanski <jankotan@gmail.com>
 	* set fieldname in virutal field layout (#220)
 	* tagged as 3.23.0
 
