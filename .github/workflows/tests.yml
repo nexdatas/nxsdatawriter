@@ -53,6 +53,7 @@ jobs:
              docker  exec ndts /bin/bash -c "cp doc/index.html doc/_config.yml build"
              docker  exec ndts /bin/bash -c "mkdir -p ./build/doc_html && cp -r doc_html/* ./build/doc_html/"
              docker  exec ndts /bin/bash -c "git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'"
+             docker  exec --user root ndts /bin/bash -c "rm -rf  *.h5"
              docker  exec ndts /bin/bash -c "git fetch && git checkout gh-pages && git pull"
              docker  exec ndts /bin/bash -c "mkdir -p ./latest && shopt -u dotglob && rm -rf ./latest/*"
              docker  exec ndts /bin/bash -c "mkdir -p ./latest/doc_html"
@@ -73,6 +74,7 @@ jobs:
              echo Version: ${{ steps.extract_docver.outputs.docver }}
              docker  exec ndts /bin/bash -c "mkdir -p ./build/doc_html && cp -r doc_html/* ./build/doc_html/"
              docker  exec ndts /bin/bash -c "git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'"
+             docker  exec --user root ndts /bin/bash -c "rm -rf  *.h5"
              docker  exec ndts /bin/bash -c "git fetch && git checkout gh-pages && git pull"
              docker  exec ndts /bin/bash -c "mkdir -p ./${{ steps.extract_docver.outputs.docver }}/doc_html/"
              docker  exec ndts /bin/bash -c "shopt -u dotglob && rm -rf ./${{ steps.extract_docver.outputs.docver }}/* "
@@ -80,6 +82,7 @@ jobs:
              docker  exec ndts /bin/bash -c "mkdir -p ./${{ steps.extract_docver.outputs.docver }}/doc_html"
              docker  exec ndts /bin/bash -c "mv -f build/doc_html/* ./${{ steps.extract_docver.outputs.docver }}/doc_html/"
              docker  exec --user root ndts /bin/bash -c "rm -rf build test nxswriter  dist  nxswriter.egg-info  testresult.txt *.h5"
+             docker  exec --user root ndts /bin/bash -c "rm -rf  *.h5"
 
       - name: Deploy documentation
         if: (github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/docs_'))  &&  matrix.os == 'debian13'
