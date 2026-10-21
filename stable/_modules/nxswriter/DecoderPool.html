@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.DecoderPool &#8212; NXSDataWriter 3.22.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <title>nxswriter.DecoderPool &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
@@ -36,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.DecoderPool</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -159,7 +171,9 @@
     <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>
 
 
-<div class="viewcode-block" id="UTF8decoder"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder">[docs]</a><span class="k">class</span> <span class="nc">UTF8decoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="UTF8decoder">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder">[docs]</a>
+<span class="k">class</span> <span class="nc">UTF8decoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; UTF8 decoder</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -181,7 +195,9 @@
         <span class="c1">#: ([:obj:`str`, :obj:`str`]) header and image data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="UTF8decoder.load"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="UTF8decoder.load">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.load">[docs]</a>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; loads encoded data</span>
 
 <span class="sd">        :param data: encoded data</span>
@@ -192,7 +208,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span></div>
 
-<div class="viewcode-block" id="UTF8decoder.shape"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.shape">[docs]</a>    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UTF8decoder.shape">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.shape">[docs]</a>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the data shape</span>
 
 <span class="sd">        :returns: the data shape i.e. `[1, 0]`</span>
@@ -200,7 +219,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="UTF8decoder.decode"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UTF8decoder.decode">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UTF8decoder.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the decoded data</span>
 
 <span class="sd">        :returns: the decoded data if data was loaded</span>
@@ -213,10 +235,14 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="UINT32decoder"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder">[docs]</a><span class="k">class</span> <span class="nc">UINT32decoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UINT32decoder">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder">[docs]</a>
+<span class="k">class</span> <span class="nc">UINT32decoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; INT decoder</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -238,7 +264,9 @@
         <span class="c1">#: ([:obj:`str`, :obj:`str`]) header and image data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="UINT32decoder.load"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="UINT32decoder.load">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.load">[docs]</a>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; loads encoded data</span>
 
 <span class="sd">        :param data: encoded data</span>
@@ -253,7 +281,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;uint32&quot;</span></div>
 
-<div class="viewcode-block" id="UINT32decoder.shape"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.shape">[docs]</a>    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UINT32decoder.shape">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.shape">[docs]</a>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the data shape</span>
 
 <span class="sd">        :returns: the data shape if data was loaded</span>
@@ -262,7 +293,10 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="UINT32decoder.decode"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UINT32decoder.decode">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.UINT32decoder.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the decoded data</span>
 
 <span class="sd">        :returns: the decoded data if data was loaded</span>
@@ -283,10 +317,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
                 <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">4</span><span class="p">),</span> <span class="n">data</span><span class="p">),</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="DATAARRAYdecoder"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder">[docs]</a><span class="k">class</span> <span class="nc">DATAARRAYdecoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DATAARRAYdecoder">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder">[docs]</a>
+<span class="k">class</span> <span class="nc">DATAARRAYdecoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; DATA ARRAY LIMA decoder</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -326,7 +364,9 @@
             <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span>
         <span class="p">}</span>
 
-<div class="viewcode-block" id="DATAARRAYdecoder.load"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="DATAARRAYdecoder.load">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.load">[docs]</a>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;  loads encoded data</span>
 
 <span class="sd">        :param data: encoded data</span>
@@ -336,6 +376,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_loadHeader</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span></div>
+
 
     <span class="k">def</span> <span class="nf">_loadHeader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headerData</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; loads the image header</span>
@@ -369,10 +410,15 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dtypeID</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;imageMode&#39;</span><span class="p">]]</span>
 
-<div class="viewcode-block" id="DATAARRAYdecoder.frameNumber"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.frameNumber">[docs]</a>    <span class="k">def</span> <span class="nf">frameNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DATAARRAYdecoder.frameNumber">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.frameNumber">[docs]</a>
+    <span class="k">def</span> <span class="nf">frameNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; no data &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="DATAARRAYdecoder.shape"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.shape">[docs]</a>    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DATAARRAYdecoder.shape">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.shape">[docs]</a>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the data shape</span>
 
 <span class="sd">        :returns: the data shape if data was loaded</span>
@@ -383,7 +429,10 @@
                 <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
                  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;dim&#39;</span><span class="p">])]))</span></div>
 
-<div class="viewcode-block" id="DATAARRAYdecoder.steps"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.steps">[docs]</a>    <span class="k">def</span> <span class="nf">steps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DATAARRAYdecoder.steps">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.steps">[docs]</a>
+    <span class="k">def</span> <span class="nf">steps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the data steps</span>
 
 <span class="sd">        :returns: the data steps if data was loaded</span>
@@ -394,7 +443,10 @@
                 <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
                  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;dim&#39;</span><span class="p">])]))</span></div>
 
-<div class="viewcode-block" id="DATAARRAYdecoder.decode"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DATAARRAYdecoder.decode">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the decoded data</span>
 
 <span class="sd">        :returns: the decoded data if data was loaded</span>
@@ -422,10 +474,14 @@
                 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">byteswap</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="VDEOdecoder"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder">[docs]</a><span class="k">class</span> <span class="nc">VDEOdecoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="VDEOdecoder">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder">[docs]</a>
+<span class="k">class</span> <span class="nc">VDEOdecoder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; VIDEO IMAGE LIMA decoder</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -455,7 +511,9 @@
         <span class="c1">#: (:obj:`dict` &lt;:obj:`int`, :obj:`str` &gt; ) dtype modes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__dtypeID</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;uint8&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;uint16&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;uint32&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;uint64&#39;</span><span class="p">}</span>
 
-<div class="viewcode-block" id="VDEOdecoder.load"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="VDEOdecoder.load">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.load">[docs]</a>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;  loads encoded data</span>
 
 <span class="sd">        :param data: encoded data</span>
@@ -465,6 +523,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_loadHeader</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__headerFormat</span><span class="p">)])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span></div>
+
 
     <span class="k">def</span> <span class="nf">_loadHeader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headerData</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; loads the image header</span>
@@ -486,7 +545,9 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dtypeID</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;imageMode&#39;</span><span class="p">]]</span>
 
-<div class="viewcode-block" id="VDEOdecoder.shape"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.shape">[docs]</a>    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="VDEOdecoder.shape">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.shape">[docs]</a>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the data shape</span>
 
 <span class="sd">        :returns: the data shape if data was loaded</span>
@@ -495,7 +556,10 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__header</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]]</span></div>
 
-<div class="viewcode-block" id="VDEOdecoder.decode"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="VDEOdecoder.decode">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the decoded data</span>
 
 <span class="sd">        :returns: the decoded data if data was loaded</span>
@@ -518,10 +582,14 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">byteswap</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">byteswap</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="DecoderPool"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool">[docs]</a><span class="k">class</span> <span class="nc">DecoderPool</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DecoderPool">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool">[docs]</a>
+<span class="k">class</span> <span class="nc">DecoderPool</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Decoder pool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -545,7 +613,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__createDecoders</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">appendUserDecoders</span><span class="p">(</span><span class="n">configJSON</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DecoderPool.appendUserDecoders"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.appendUserDecoders">[docs]</a>    <span class="k">def</span> <span class="nf">appendUserDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configJSON</span><span class="p">):</span>
+<div class="viewcode-block" id="DecoderPool.appendUserDecoders">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.appendUserDecoders">[docs]</a>
+    <span class="k">def</span> <span class="nf">appendUserDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configJSON</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; loads user decoders</span>
 
 <span class="sd">        :param configJSON: string with decoders</span>
@@ -565,6 +635,7 @@
                                      <span class="nb">locals</span><span class="p">(),</span> <span class="n">pkl</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">pkl</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dk</span><span class="p">)</span></div>
 
+
     <span class="k">def</span> <span class="nf">__createDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; creates know decoders</span>
 
@@ -573,7 +644,9 @@
         <span class="k">for</span> <span class="n">dk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__knowDecoders</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="p">[</span><span class="n">dk</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__knowDecoders</span><span class="p">[</span><span class="n">dk</span><span class="p">]()</span>
 
-<div class="viewcode-block" id="DecoderPool.hasDecoder"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.hasDecoder">[docs]</a>    <span class="k">def</span> <span class="nf">hasDecoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">):</span>
+<div class="viewcode-block" id="DecoderPool.hasDecoder">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.hasDecoder">[docs]</a>
+    <span class="k">def</span> <span class="nf">hasDecoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; checks it the decoder is registered</span>
 
 <span class="sd">        :param decoder: the given decoder</span>
@@ -583,7 +656,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">decoder</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="DecoderPool.get"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DecoderPool.get">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; checks it the decoder is registered</span>
 
 <span class="sd">        :param decoder: the given decoder</span>
@@ -594,7 +670,10 @@
         <span class="k">if</span> <span class="n">decoder</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="p">[</span><span class="n">decoder</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="DecoderPool.pop"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DecoderPool.pop">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.pop">[docs]</a>
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; adds additional decoder</span>
 
 <span class="sd">        :param name: name of the adding decoder</span>
@@ -602,7 +681,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DecoderPool.append"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DecoderPool.append">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DecoderPool.DecoderPool.append">[docs]</a>
+    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; adds additional decoder</span>
 
 <span class="sd">        :param name: name of the adding decoder</span>
@@ -623,7 +705,9 @@
                 <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="k">return</span>
-        <span class="k">return</span> <span class="n">name</span></div></div>
+        <span class="k">return</span> <span class="n">name</span></div>
+</div>
+
 </pre></div>
 
     </div>
@@ -640,7 +724,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

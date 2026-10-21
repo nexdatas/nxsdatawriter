@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.DataSourceFactory &#8212; NXSDataWriter 3.22.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <title>nxswriter.DataSourceFactory &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
@@ -36,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.DataSourceFactory</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -158,7 +170,9 @@
 <span class="kn">from</span> <span class="nn">.DataSources</span> <span class="kn">import</span> <span class="n">DataSource</span>
 
 
-<div class="viewcode-block" id="DataSourceFactory"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory">[docs]</a><span class="k">class</span> <span class="nc">DataSourceFactory</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+<div class="viewcode-block" id="DataSourceFactory">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory">[docs]</a>
+<span class="k">class</span> <span class="nc">DataSourceFactory</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Data source creator</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -177,13 +191,16 @@
         <span class="c1">#: (:class:`nxswriter.DataSourcePool.DataSourcePool`) datasource pool</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__dsPool</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="DataSourceFactory.setDataSources"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">setDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">):</span>
+<div class="viewcode-block" id="DataSourceFactory.setDataSources">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDataSources">[docs]</a>
+    <span class="k">def</span> <span class="nf">setDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the used datasources</span>
 
 <span class="sd">        :param datasources: pool to be set</span>
 <span class="sd">        :type datasources: :class:`nxswriter.DataSourcePool.DataSourcePool`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__dsPool</span> <span class="o">=</span> <span class="n">datasources</span></div>
+
 
     <span class="k">def</span> <span class="nf">__createDSource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; creates data source</span>
@@ -221,7 +238,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">DataSource</span><span class="p">(</span>
                 <span class="n">streams</span><span class="o">=</span><span class="n">StreamSet</span><span class="p">(</span><span class="n">streams</span><span class="p">))</span>
 
-<div class="viewcode-block" id="DataSourceFactory.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="DataSourceFactory.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the datasource form xml string</span>
 
 <span class="sd">        :param xml: input parameter</span>
@@ -240,7 +259,10 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s2">&quot;tagAttributes&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">tagAttributes</span><span class="p">[</span><span class="s2">&quot;nexdatas_source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;NX_CHAR&quot;</span><span class="p">,</span> <span class="n">jxml</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DataSourceFactory.setDecoders"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDecoders">[docs]</a>    <span class="k">def</span> <span class="nf">setDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DataSourceFactory.setDecoders">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDecoders">[docs]</a>
+    <span class="k">def</span> <span class="nf">setDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the used decoders</span>
 
 <span class="sd">        :param decoders: pool to be set</span>
@@ -248,7 +270,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">isValid</span><span class="p">()</span> \
                 <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;setDecoders&quot;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">setDecoders</span><span class="p">(</span><span class="n">decoders</span><span class="p">)</span></div></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">setDecoders</span><span class="p">(</span><span class="n">decoders</span><span class="p">)</span></div>
+</div>
+
 </pre></div>
 
     </div>
@@ -265,7 +289,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

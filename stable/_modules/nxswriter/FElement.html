@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.FElement &#8212; NXSDataWriter 3.22.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <title>nxswriter.FElement &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
@@ -36,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.FElement</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -160,7 +172,9 @@
 <span class="kn">from</span> <span class="nn">.Errors</span> <span class="kn">import</span> <span class="p">(</span><span class="n">XMLSettingSyntaxError</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="FElement"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement">[docs]</a><span class="k">class</span> <span class="nc">FElement</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+<div class="viewcode-block" id="FElement">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement">[docs]</a>
+<span class="k">class</span> <span class="nc">FElement</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; NeXuS runnable tag element</span>
 <span class="sd">    tag element corresponding to one of H5 objects</span>
@@ -194,13 +208,16 @@
         <span class="c1">#: (:obj:`bool`) scalar type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scalar</span> <span class="o">=</span> <span class="kc">False</span>
 
-<div class="viewcode-block" id="FElement.run"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FElement.run">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; runner</span>
 
 <span class="sd">        :brief: During its thread run it fetches the data from the source</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">getData</span><span class="p">()</span></div>
+
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_reshape</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dsShape</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">extends</span><span class="p">,</span> <span class="n">extraD</span><span class="p">,</span> <span class="n">exDim</span><span class="p">):</span>
@@ -358,7 +375,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_scalar</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="n">shape</span>
 
-<div class="viewcode-block" id="FElement.setMessage"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement.setMessage">[docs]</a>    <span class="k">def</span> <span class="nf">setMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exceptionMessage</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="FElement.setMessage">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElement.setMessage">[docs]</a>
+    <span class="k">def</span> <span class="nf">setMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exceptionMessage</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; creates the error message</span>
 
 <span class="sd">        :param exceptionMessage: additional message of exception</span>
@@ -379,10 +398,14 @@
 
         <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Data for </span><span class="si">%s</span><span class="s2"> not found. DATASOURCE:</span><span class="si">%s</span><span class="s2">&quot;</span>
                    <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dsource</span><span class="p">),</span> <span class="n">exceptionMessage</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">message</span></div></div>
+        <span class="k">return</span> <span class="n">message</span></div>
+</div>
 
 
-<div class="viewcode-block" id="FElementWithAttr"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElementWithAttr">[docs]</a><span class="k">class</span> <span class="nc">FElementWithAttr</span><span class="p">(</span><span class="n">FElement</span><span class="p">):</span>
+
+<div class="viewcode-block" id="FElementWithAttr">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElementWithAttr">[docs]</a>
+<span class="k">class</span> <span class="nc">FElementWithAttr</span><span class="p">(</span><span class="n">FElement</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; NeXuS runnable tag element with attributes</span>
 <span class="sd">        tag element corresponding to one of H5 objects with attributes</span>
@@ -636,7 +659,9 @@
                         <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
                             <span class="n">ekey</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">vl</span>
 
-<div class="viewcode-block" id="FElementWithAttr.h5Attribute"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElementWithAttr.h5Attribute">[docs]</a>    <span class="k">def</span> <span class="nf">h5Attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="FElementWithAttr.h5Attribute">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FElement.FElementWithAttr.h5Attribute">[docs]</a>
+    <span class="k">def</span> <span class="nf">h5Attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides attribute h5 object</span>
 
 <span class="sd">        :param name: attribute name</span>
@@ -644,7 +669,9 @@
 <span class="sd">        :returns: instance of the attribute object if created</span>
 <span class="sd">        :rtype: :class:`nxswriter.FileWriter.FTObject`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__h5Instances</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__h5Instances</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+</div>
+
 </pre></div>
 
     </div>
@@ -661,7 +688,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>
