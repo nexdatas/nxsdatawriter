@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nxswriter.TangoSource &#8212; NXSDataWriter 3.10.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          NXSDataWriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nxswriter.html">nxswriter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ClientSource">nxswriter.ClientSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DBaseSource">nxswriter.DBaseSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataHolder">nxswriter.DataHolder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSourceFactory">nxswriter.DataSourceFactory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSourcePool">nxswriter.DataSourcePool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSources">nxswriter.DataSources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DecoderPool">nxswriter.DecoderPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EAttribute">nxswriter.EAttribute module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EField">nxswriter.EField module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EGroup">nxswriter.EGroup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ELink">nxswriter.ELink module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EStrategy">nxswriter.EStrategy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Element">nxswriter.Element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ElementThread">nxswriter.ElementThread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Errors">nxswriter.Errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.FElement">nxswriter.FElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.FetchNameHandler">nxswriter.FetchNameHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.InnerXMLParser">nxswriter.InnerXMLParser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.NXSWriter">nxswriter.NXSWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.NexusXMLHandler">nxswriter.NexusXMLHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.PyEvalSource">nxswriter.PyEvalSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.StreamSet">nxswriter.StreamSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.TangoDataWriter">nxswriter.TangoDataWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.TangoSource">nxswriter.TangoSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ThreadPool">nxswriter.ThreadPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Types">nxswriter.Types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <h1>Source code for nxswriter.TangoSource</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#   This file is part of nexdatas - Tango Server for NeXus data writer</span>
+<span class="c1">#</span>
+<span class="c1">#    Copyright (C) 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#    nexdatas is free software: you can redistribute it and/or modify</span>
+<span class="c1">#    it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1">#    (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#    nexdatas is distributed in the hope that it will be useful,</span>
+<span class="c1">#    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#    GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#    You should have received a copy of the GNU General Public License</span>
+<span class="c1">#    along with nexdatas.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+
+<span class="sd">&quot;&quot;&quot; Definitions of TANGO datasource &quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">et</span>
+<span class="kn">from</span> <span class="nn">lxml.etree</span> <span class="kn">import</span> <span class="n">XMLParser</span>
+
+<span class="kn">from</span> <span class="nn">.Types</span> <span class="kn">import</span> <span class="n">NTP</span>
+
+<span class="kn">from</span> <span class="nn">.DataSources</span> <span class="kn">import</span> <span class="n">DataSource</span>
+<span class="kn">from</span> <span class="nn">.Errors</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PackageError</span><span class="p">,</span> <span class="n">DataSourceSetupError</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">tango</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">PyTango</span> <span class="k">as</span> <span class="nn">tango</span>
+    <span class="c1">#: (:obj:`str`) global variable if tango module installed</span>
+    <span class="n">PYTANGO_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">PYTANGO_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;PYTANGO not available: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="ProxyTools"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools">[docs]</a><span class="k">class</span> <span class="nc">ProxyTools</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; tools for proxy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ProxyTools.proxySetup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.proxySetup">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">proxySetup</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxcount</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets the Tango proxy up</span>
+
+<span class="sd">        :param device: tango device</span>
+<span class="sd">        :type device: :obj:`str`</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        :param maxcount: a number of tries</span>
+<span class="sd">        :type maxcount: :obj:`int`</span>
+<span class="sd">        :returns: proxy if proxy is set up</span>
+<span class="sd">        :rtype: :class:`tango.DeviceProxy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">proxy</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DeviceProxy</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">proxy</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevSource</span><span class="o">.</span><span class="n">DEV</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">streams</span><span class="p">:</span>
+                <span class="n">streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;ProxyTools.proxySetup() - &quot;</span>
+                    <span class="s2">&quot;Cannot connect to </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="n">device</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">cnt</span> <span class="o">&lt;</span> <span class="n">maxcount</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">proxy</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">proxy</span></div>
+
+<div class="viewcode-block" id="ProxyTools.isProxyValid"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.isProxyValid">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">isProxyValid</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; checks if proxy is valid</span>
+
+<span class="sd">        :param proxy: tango proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :returns: True if proxy is valid else false</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">failed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">proxy</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="n">failed</span></div></div>
+
+
+<div class="viewcode-block" id="TangoSource"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource">[docs]</a><span class="k">class</span> <span class="nc">TangoSource</span><span class="p">(</span><span class="n">DataSource</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; Tango data source</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; constructor</span>
+
+<span class="sd">        :brief: It cleans all member variables</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        :param name: datasource name</span>
+<span class="sd">        :type name: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">DataSource</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="n">streams</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1">#: (:class:`TgMember`) Tango device member</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">member</span> <span class="o">=</span> <span class="n">TgMember</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+        <span class="c1">#: (:class:`TgGroup`) datasource tango group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:obj:`str`) full device name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: (:class:`TgGroup`) global tango group for TANGO datasources</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`nxswriter.DataSourcePool.DataSourcePool`) datasource pool</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`tango.DeviceProxy`) device proxy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: (:obj:`dict` &lt;:obj:`str` , :obj:`dict` &lt;:obj:`str`, any&gt;&gt;) \</span>
+        <span class="c1">#:     the current  static JSON object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__globalJSON</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:obj:`dict` &lt;:obj:`str` , :obj:`dict` &lt;:obj:`str`, any&gt;&gt;) \</span>
+        <span class="c1">#:     the current  dynamic JSON object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__localJSON</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: (:class:`nxswriter.DecoderPool.DecoderPool`) decoder pool</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__decoders</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:obj:`str`) client datasource for mixed CLIENT/TANGO mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:obj:`str`) client datasource for mixed CLIENT/TANGO mode with fqdn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; self-description</span>
+
+<span class="sd">        :returns: self-describing string</span>
+<span class="sd">        :rtype: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot; TANGO Device </span><span class="si">%s</span><span class="s2"> : </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">memberType</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TangoSource.setJSON"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setJSON">[docs]</a>    <span class="k">def</span> <span class="nf">setJSON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">globalJSON</span><span class="p">,</span> <span class="n">localJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets JSON string</span>
+
+<span class="sd">        :brief: It sets the currently used  JSON string</span>
+<span class="sd">        :param globalJSON: static JSON string</span>
+<span class="sd">        :type globalJSON: \</span>
+<span class="sd">        :     :obj:`dict` &lt;:obj:`str` , :obj:`dict` &lt;:obj:`str`, any&gt;&gt;</span>
+<span class="sd">        :param localJSON: dynamic JSON string</span>
+<span class="sd">        :type localJSON: \</span>
+<span class="sd">        :     :obj:`dict` &lt;:obj:`str`, :obj:`dict` &lt;:obj:`str`, any&gt;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__globalJSON</span> <span class="o">=</span> <span class="n">globalJSON</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__localJSON</span> <span class="o">=</span> <span class="n">localJSON</span></div>
+
+<div class="viewcode-block" id="TangoSource.setup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets the parrameters up from xml</span>
+
+<span class="sd">        :param xml:  datasource parameters</span>
+<span class="sd">        :type xml: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+            <span class="n">xml</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">xml</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">et</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">XMLParser</span><span class="p">(</span><span class="n">collect_ids</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;record&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">rec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TangoSource::setup() - &quot;</span>
+                    <span class="s2">&quot;Tango record name not defined: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">xml</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                <span class="s2">&quot;Tango record name not defined: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">xml</span><span class="p">)</span>
+        <span class="n">dv</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">dv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+            <span class="n">hostname</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hostname&quot;</span><span class="p">)</span>
+            <span class="n">port</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">)</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span>
+            <span class="n">encoding</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">)</span>
+            <span class="n">memberType</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">memberType</span> <span class="ow">or</span> <span class="n">memberType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s2">&quot;attribute&quot;</span><span class="p">,</span> <span class="s2">&quot;command&quot;</span><span class="p">,</span> <span class="s2">&quot;property&quot;</span><span class="p">]:</span>
+                <span class="n">memberType</span> <span class="o">=</span> <span class="s2">&quot;attribute&quot;</span>
+            <span class="k">if</span> <span class="n">group</span> <span class="o">!=</span> <span class="s1">&#39;__CLIENT__&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">group</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">member</span> <span class="o">=</span> <span class="n">TgMember</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span> <span class="n">memberType</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TangoSource::setup() - &quot;</span>
+                    <span class="s2">&quot;Tango device name not defined: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">xml</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                <span class="s2">&quot;Tango device name not defined: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">xml</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+            <span class="n">ehostname</span> <span class="o">=</span> <span class="n">hostname</span>
+            <span class="n">eport</span> <span class="o">=</span> <span class="n">port</span>
+            <span class="n">edevice</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ehostname</span> <span class="o">=</span> <span class="n">hostname</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="k">if</span> <span class="n">hostname</span> <span class="k">else</span> <span class="n">hostname</span>
+            <span class="n">eport</span> <span class="o">=</span> <span class="n">port</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="k">if</span> <span class="n">port</span> <span class="k">else</span> <span class="n">port</span>
+            <span class="n">edevice</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="k">if</span> <span class="n">device</span> <span class="k">else</span> <span class="n">device</span>
+        <span class="k">if</span> <span class="n">hostname</span> <span class="ow">and</span> <span class="n">port</span> <span class="ow">and</span> <span class="n">device</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ehostname</span><span class="p">,</span>
+                                        <span class="n">eport</span><span class="p">,</span> <span class="n">edevice</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">device</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">edevice</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span> <span class="o">=</span> <span class="n">ProxyTools</span><span class="o">.</span><span class="n">proxySetup</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TangoSource::setup() - &quot;</span>
+                    <span class="s2">&quot;Cannot connect to: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">defined by </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">xml</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TangoSource::setup() - &quot;</span>
+                    <span class="s2">&quot;Cannot connect to: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">defined by </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">xml</span><span class="p">))</span>
+            <span class="c1"># to make canfail works</span>
+            <span class="c1"># raise DataSourceSetupError(</span>
+            <span class="c1">#     &quot;Cannot connect to: %s \ndefined by %s&quot; % (self.device, xml))</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">port</span> <span class="ow">and</span> <span class="n">device</span> <span class="ow">and</span> <span class="n">client</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="o">.</span><span class="n">get_db_host</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">host</span> <span class="o">=</span> <span class="n">ehostname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">host</span> <span class="ow">and</span> <span class="n">eport</span> <span class="ow">and</span> <span class="n">device</span> <span class="ow">and</span> <span class="n">client</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">host</span><span class="p">,</span> <span class="n">eport</span><span class="p">,</span>
+                <span class="n">edevice</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">socket</span><span class="o">.</span><span class="n">getfqdn</span><span class="p">(</span><span class="n">host</span><span class="p">),</span> <span class="n">eport</span><span class="p">,</span>
+                <span class="n">edevice</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TangoSource.setDecoders"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDecoders">[docs]</a>    <span class="k">def</span> <span class="nf">setDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets the used decoders</span>
+
+<span class="sd">        :param decoders: pool to be set</span>
+<span class="sd">        :type decoders: :class:`nxswriter.DecoderPool.DecoderPool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__decoders</span> <span class="o">=</span> <span class="n">decoders</span></div>
+
+    <span class="k">def</span> <span class="nf">__tryclient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fullclient</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; data provider from client</span>
+
+<span class="sd">        :param fullclient: data key name</span>
+<span class="sd">        :type fullclient: :obj:`str:obj:`</span>
+<span class="sd">        :returns: dictionary with collected data</span>
+<span class="sd">        :rtype: {&#39;rank&#39;: :obj:`str`, &#39;value&#39;: any, &#39;tangoDType&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;shape&#39;: :obj:`list` &lt;int&gt;, &#39;encoding&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;decoders&#39;: :obj:`str`}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">fclient</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">fullclient</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">sclient</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">clients</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;tango://</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">fullclient</span><span class="p">,</span>
+            <span class="n">fullclient</span><span class="p">,</span>
+            <span class="n">fclient</span><span class="p">,</span>
+            <span class="s2">&quot;tango://</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">fclient</span><span class="p">,</span>
+            <span class="s2">&quot;tango://</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span>
+            <span class="n">sclient</span><span class="p">,</span>
+            <span class="s2">&quot;tango://</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sclient</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+            <span class="n">clients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
+        <span class="c1"># print(clients)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getJSONData</span><span class="p">(</span>
+                <span class="n">clients</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__globalJSON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__localJSON</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="TangoSource.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; data provider</span>
+
+<span class="sd">        :returns: dictionary with collected data</span>
+<span class="sd">        :rtype: {&#39;rank&#39;: :obj:`str`, &#39;value&#39;: any, &#39;tangoDType&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;shape&#39;: :obj:`list` &lt;int&gt;, &#39;encoding&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;decoders&#39;: :obj:`str`}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tryclient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">res</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tryclient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">res</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">PYTANGO_AVAILABLE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TangoSource::getData() - &quot;</span>
+                    <span class="s2">&quot;Support for tango datasources not available&quot;</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">PackageError</span><span class="p">(</span>
+                <span class="s2">&quot;Support for tango datasources not available&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span> <span class="o">=</span> <span class="n">ProxyTools</span><span class="o">.</span><span class="n">proxySetup</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                            <span class="s2">&quot;TangoSource::getData() - &quot;</span>
+                            <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                            <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                    <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                        <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">getData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="p">,</span> <span class="s2">&quot;getData&quot;</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="s2">&quot;TangoSource::getData() - &quot;</span>
+                                <span class="s2">&quot;DataSource pool not set up&quot;</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                        <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                            <span class="s2">&quot;DataSource pool not set up&quot;</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">getData</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span> <span class="o">=</span> <span class="n">ProxyTools</span><span class="o">.</span><span class="n">proxySetup</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                            <span class="s2">&quot;TangoSource::getData() - &quot;</span>
+                            <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                            <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                    <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                        <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">getData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="p">,</span> <span class="s2">&quot;getData&quot;</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="s2">&quot;TangoSource::getData() - &quot;</span>
+                                <span class="s2">&quot;DataSource pool not set up&quot;</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                        <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                            <span class="s2">&quot;DataSource pool not set up&quot;</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">getData</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="p">,</span> <span class="s2">&quot;lock&quot;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">getValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__decoders</span><span class="p">)</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="p">,</span> <span class="s2">&quot;lock&quot;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">val</span></div>
+
+<div class="viewcode-block" id="TangoSource.setDataSources"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">setDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets the datasources</span>
+
+<span class="sd">        :param pool: datasource pool</span>
+<span class="sd">        :type pool: :class:`nxswriter.DataSourcePool.DataSourcePool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span> <span class="o">=</span> <span class="n">pool</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;TANGO&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">common</span><span class="p">[</span><span class="s1">&#39;TANGO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">common</span><span class="p">[</span><span class="s1">&#39;TANGO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">common</span><span class="p">[</span><span class="s1">&#39;TANGO&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">]</span> <span class="o">=</span> <span class="n">TgGroup</span><span class="p">(</span>
+                        <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">common</span><span class="p">[</span><span class="s1">&#39;TANGO&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+                <span class="n">tdv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">tdv</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">member</span> <span class="o">=</span> <span class="n">tdv</span><span class="o">.</span><span class="n">setMember</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+            <span class="n">pool</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="TgGroup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup">[docs]</a><span class="k">class</span> <span class="nc">TgGroup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; Group of tango devices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; default constructor</span>
+
+<span class="sd">        :param counter: counts of steps</span>
+<span class="sd">        :type counter: :obj:`int`</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#: (:class:`threading.Lock`) threading lock</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="c1">#: (:obj:`int`) counter of steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span>
+        <span class="c1">#: (:obj:`dict` &lt;:obj:`str`,  :class:`TgDevice`&gt; ) TANGO devices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
+
+<div class="viewcode-block" id="TgGroup.getDevice"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getDevice">[docs]</a>    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; provides tango device</span>
+
+<span class="sd">        :param device: tango device name</span>
+<span class="sd">        :type device: :obj:`str`</span>
+<span class="sd">        :returns: TgDevice instance of tango device</span>
+<span class="sd">        :rtype: :class:`TgDevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="n">device</span><span class="p">]</span> <span class="o">=</span> <span class="n">TgDevice</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="n">device</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">__fetchAttributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; fetches attribute data for given device</span>
+
+<span class="sd">        :param device: given device</span>
+<span class="sd">        :type device: :class:`TgDevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">attr</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">attributes</span>
+        <span class="n">alist</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">get_attribute_list</span><span class="p">()</span>
+        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span>
+
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">attr</span><span class="p">:</span>
+            <span class="n">ea</span> <span class="o">=</span> <span class="n">a</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> <span class="k">else</span> <span class="n">a</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">ea</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">device</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TgGroup::getData() - &quot;</span>
+                    <span class="s2">&quot;attribute not in tango &quot;</span>
+                    <span class="s2">&quot;device attributes:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">errors</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                <span class="s2">&quot;TgGroup::getData() - &quot;</span>
+                <span class="s2">&quot;attribute not in tango &quot;</span>
+                <span class="s2">&quot;device attributes:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">errors</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">read_attributes</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">attr</span><span class="p">)):</span>
+            <span class="n">mb</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">attr</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">mb</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__fetchAttribute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; fetches attribute data for given proxy</span>
+
+<span class="sd">        :param proxy: given proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :param member: given member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">alist</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_attribute_list</span><span class="p">()</span>
+        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+            <span class="n">emname</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> \
+                <span class="k">else</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">read_attribute</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
+            <span class="n">member</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__fetchProperty</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; fetches property data for given member</span>
+
+<span class="sd">        :param proxy: given proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :param member: given member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">plist</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_property_list</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+        <span class="n">plist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">plist</span><span class="p">]</span>
+        <span class="n">emname</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> \
+            <span class="k">else</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">emname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">plist</span><span class="p">:</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">emname</span><span class="p">)[</span><span class="n">emname</span><span class="p">]</span>
+            <span class="n">member</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__fetchCommand</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; fetches command data for given member</span>
+
+<span class="sd">        :param proxy: given device proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :param member: given member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">cm</span><span class="o">.</span><span class="n">cmd_name</span>
+                 <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_list_query</span><span class="p">()]</span>
+        <span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">]</span>
+        <span class="n">emname</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> \
+            <span class="k">else</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">emname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">:</span>
+            <span class="n">cd</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_query</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_inout</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
+            <span class="n">member</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="n">cd</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TgGroup.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
+
+<span class="sd">        :param counter: counts of scan steps</span>
+<span class="sd">        :type counter: :obj:`int`</span>
+<span class="sd">        :param proxy: device proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :param member: required member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">proxy</span> <span class="ow">and</span> <span class="n">member</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">member</span><span class="o">.</span><span class="n">isDataSet</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;attribute&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchAttribute</span><span class="p">(</span><span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchCommand</span><span class="p">(</span><span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;property&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchProperty</span><span class="p">(</span><span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+                <span class="k">return</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span>
+
+            <span class="k">for</span> <span class="n">dv</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">mb</span> <span class="ow">in</span> <span class="n">dv</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="n">mb</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">dv</span><span class="o">.</span><span class="n">proxy</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">ProxyTools</span><span class="o">.</span><span class="n">isProxyValid</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">):</span>
+                    <span class="n">dv</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">ProxyTools</span><span class="o">.</span><span class="n">proxySetup</span><span class="p">(</span>
+                        <span class="n">dv</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="s2">&quot;TgGroup::getData() - &quot;</span>
+                                <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">dv</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                        <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                            <span class="s2">&quot;TgGroup::getData() - &quot;</span>
+                            <span class="s2">&quot;Setting up lasts to long: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">dv</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">dv</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__fetchAttributes</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">mb</span> <span class="ow">in</span> <span class="n">dv</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">mb</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;property&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchProperty</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">mb</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">mb</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchCommand</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">mb</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TgDevice"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice">[docs]</a><span class="k">class</span> <span class="nc">TgDevice</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; tango device</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; default constructor</span>
+
+<span class="sd">        :param device: tango device name</span>
+<span class="sd">        :type device: :obj:`str`</span>
+<span class="sd">        :param proxy: device proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#: (:obj:`str`) tango device name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="c1">#: (:obj:`dict` &lt;:obj:`str` , :class:`TgMember` &gt; ) \</span>
+        <span class="c1">#:      dictionary with tango members</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#: (:obj:`list` &lt;:obj:`str`&gt;) device attribute names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#: (:obj:`list` &lt;:obj:`str`&gt;) device property names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#: (:obj:`list` &lt;:obj:`str`&gt;) device command names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commands</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#: (:class:`tango.DeviceProxy`) device proxy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">proxy</span>
+        <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
+
+<div class="viewcode-block" id="TgDevice.setMember"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice.setMember">[docs]</a>    <span class="k">def</span> <span class="nf">setMember</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; provides tango device member</span>
+
+<span class="sd">        :param member: tango  device member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        :returns: TgMember instance of tango device member</span>
+<span class="sd">        :rtype: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">member</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__setFlag</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">__setFlag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets corresponding flag related to member type</span>
+
+<span class="sd">        :param member: given tango device member</span>
+<span class="sd">        :type member: :class:`TgMember`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">emname</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> \
+            <span class="k">else</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s1">&#39;attribute&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s1">&#39;property&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">member</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TgMember"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember">[docs]</a><span class="k">class</span> <span class="nc">TgMember</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; tango device member</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">memberType</span><span class="o">=</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; default constructor</span>
+
+<span class="sd">        :param name: name of data record</span>
+<span class="sd">        :type name: :obj:`str`</span>
+<span class="sd">        :param memberType: member type of the data</span>
+<span class="sd">        :type memberType: :obj:`str`</span>
+<span class="sd">        :param encoding: encoding type of Tango DevEncoded variables</span>
+<span class="sd">        :type encoding: :obj:`str`</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#: (:obj:`str`) name of data record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="c1">#: (:obj:`str`) member type of the data, i.e. attribute, property,...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">=</span> <span class="n">memberType</span>
+        <span class="c1">#: (:obj:`str`) encoding type of Tango DevEncoded variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">encoding</span>
+        <span class="c1">#: {&#39;rank&#39;: :obj:`str`, &#39;value&#39;: any, &#39;tangoDType&#39;: :obj:`str`, \</span>
+        <span class="c1">#:        &#39;shape&#39;: :obj:`list`&lt;int&gt;, &#39;encoding&#39;: :obj:`str`, \</span>
+        <span class="c1">#:        &#39;decoders&#39;: :obj:`str`} ) data value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`tango.DeviceAttribute`) output data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`tango.CommandInfo`) input command data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
+
+<div class="viewcode-block" id="TgMember.reset"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; cleans output value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TgMember.setData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.setData">[docs]</a>    <span class="k">def</span> <span class="nf">setData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sets tango data</span>
+
+<span class="sd">        :param data: output tango data</span>
+<span class="sd">        :type data: :class:`tango.DeviceAttribute`</span>
+<span class="sd">        :param cmd: input command data</span>
+<span class="sd">        :type cmd: :class:`tango.CommandInfo`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="n">cmd</span></div>
+
+<div class="viewcode-block" id="TgMember.isDataSet"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.isDataSet">[docs]</a>    <span class="k">def</span> <span class="nf">isDataSet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; checks if data is set</span>
+
+<span class="sd">        :returns: True if data is set</span>
+<span class="sd">        :rtype: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">status</span> <span class="ow">and</span> <span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span></div>
+
+<div class="viewcode-block" id="TgMember.getValue"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getValue">[docs]</a>    <span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; provides value of tango member</span>
+
+<span class="sd">        :param decoders: decoder pool</span>
+<span class="sd">        :type decoders: :class:`nxswriter.DecoderPool.DecoderPool`</span>
+<span class="sd">        :returns: dictionary with {&quot;rank&quot;:, &quot;value&quot;:, &quot;tangoDType&quot;:,</span>
+<span class="sd">                  &quot;shape&quot;:, &quot;encoding&quot;:, &quot;decoders&quot;:}</span>
+<span class="sd">        :returns: dictionary with collected data</span>
+<span class="sd">        :rtype: {&#39;rank&#39;: :obj:`str`, &#39;value&#39;: any, &#39;tangoDType&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;shape&#39;: :obj:`list` &lt;int&gt;, &#39;encoding&#39;: :obj:`str`, \</span>
+<span class="sd">        :        &#39;decoders&#39;: :obj:`str`}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;TgMember::getValue() - &quot;</span>
+                    <span class="s2">&quot;Data for </span><span class="si">%s</span><span class="s2"> not fetched&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                <span class="s2">&quot;TgMember::getValue() -  &quot;</span>
+                <span class="s2">&quot;Data of </span><span class="si">%s</span><span class="s2"> not fetched&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;attribute&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">data_format</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="s2">&quot;tangoDType&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">type</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">dim_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">dim_x</span><span class="p">]</span>
+                          <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">dim_y</span>
+                          <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="o">.</span><span class="n">dim_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+                <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span> <span class="s2">&quot;decoders&quot;</span><span class="p">:</span> <span class="n">decoders</span><span class="p">}</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;property&quot;</span><span class="p">:</span>
+
+            <span class="n">ntp</span> <span class="o">=</span> <span class="n">NTP</span><span class="p">()</span>
+            <span class="n">rank</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">ntp</span><span class="o">.</span><span class="n">arrayRankShape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">NTP</span><span class="o">.</span><span class="n">rTf</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">shape</span> <span class="ow">or</span> <span class="n">shape</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">shape</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                    <span class="n">rank</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="n">NTP</span><span class="o">.</span><span class="n">rTf</span><span class="p">[</span><span class="n">rank</span><span class="p">],</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                    <span class="s2">&quot;tangoDType&quot;</span><span class="p">:</span> <span class="n">NTP</span><span class="o">.</span><span class="n">pTt</span><span class="p">[</span><span class="n">dtype</span><span class="p">],</span>
+                    <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="n">shape</span><span class="p">}</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                        <span class="s2">&quot;TgMember::getValue() - &quot;</span>
+                        <span class="s2">&quot;Data for </span><span class="si">%s</span><span class="s2"> not fetched&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="k">raise</span> <span class="n">DataSourceSetupError</span><span class="p">(</span>
+                    <span class="s2">&quot;TgMember::getValue() -  &quot;</span>
+                    <span class="s2">&quot;Data or </span><span class="si">%s</span><span class="s2"> not fetched&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="s2">&quot;SCALAR&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__da</span><span class="p">,</span>
+                <span class="s2">&quot;tangoDType&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__cd</span><span class="o">.</span><span class="n">out_type</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+                <span class="s2">&quot;decoders&quot;</span><span class="p">:</span> <span class="n">decoders</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
+
+<div class="viewcode-block" id="TgMember.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proxy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
+
+<span class="sd">        :param proxy: device proxy</span>
+<span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">ename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;attribute&quot;</span><span class="p">:</span>
+            <span class="n">alist</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_attribute_list</span><span class="p">()</span>
+            <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">ename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">read_attribute</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;property&quot;</span><span class="p">:</span>
+            <span class="n">plist</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_property_list</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+            <span class="n">plist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">plist</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">ename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">plist</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span>
+                    <span class="n">ename</span><span class="p">)[</span><span class="n">ename</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
+            <span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">cm</span><span class="o">.</span><span class="n">cmd_name</span> <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_list_query</span><span class="p">()]</span>
+            <span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">ename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_query</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_inout</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
+
+GNU GENERAL PUBLIC LICENSE, version 3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
