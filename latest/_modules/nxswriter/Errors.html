@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.Errors &#8212; NXSDataWriter 3.10.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>nxswriter.Errors &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -34,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -125,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.Errors</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -151,60 +165,84 @@
 <span class="sd">&quot;&quot;&quot; Tango Data Writer errors &quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="ThreadError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.ThreadError">[docs]</a><span class="k">class</span> <span class="nc">ThreadError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="ThreadError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.ThreadError">[docs]</a>
+<span class="k">class</span> <span class="nc">ThreadError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for problems in thread</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for problems in thread</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CorruptedFieldArrayError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.CorruptedFieldArrayError">[docs]</a><span class="k">class</span> <span class="nc">CorruptedFieldArrayError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for corrupted FieldArray</span>
+<div class="viewcode-block" id="CorruptedFieldArrayError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.CorruptedFieldArrayError">[docs]</a>
+<span class="k">class</span> <span class="nc">CorruptedFieldArrayError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for corrupted FieldArray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="XMLSettingSyntaxError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.XMLSettingSyntaxError">[docs]</a><span class="k">class</span> <span class="nc">XMLSettingSyntaxError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for syntax in XML settings</span>
+<div class="viewcode-block" id="XMLSettingSyntaxError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.XMLSettingSyntaxError">[docs]</a>
+<span class="k">class</span> <span class="nc">XMLSettingSyntaxError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for syntax in XML settings</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="DataSourceError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.DataSourceError">[docs]</a><span class="k">class</span> <span class="nc">DataSourceError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for fetching data from data source</span>
+<div class="viewcode-block" id="DataSourceError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.DataSourceError">[docs]</a>
+<span class="k">class</span> <span class="nc">DataSourceError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for fetching data from data source</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="PackageError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.PackageError">[docs]</a><span class="k">class</span> <span class="nc">PackageError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for fetching data from data source</span>
+<div class="viewcode-block" id="PackageError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.PackageError">[docs]</a>
+<span class="k">class</span> <span class="nc">PackageError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for fetching data from data source</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="DataSourceSetupError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.DataSourceSetupError">[docs]</a><span class="k">class</span> <span class="nc">DataSourceSetupError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for setting data source</span>
+<div class="viewcode-block" id="DataSourceSetupError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.DataSourceSetupError">[docs]</a>
+<span class="k">class</span> <span class="nc">DataSourceSetupError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for setting data source</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="XMLSyntaxError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.XMLSyntaxError">[docs]</a><span class="k">class</span> <span class="nc">XMLSyntaxError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; exception for syntax in XML settings</span>
+<div class="viewcode-block" id="XMLSyntaxError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.XMLSyntaxError">[docs]</a>
+<span class="k">class</span> <span class="nc">XMLSyntaxError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; exception for syntax in XML settings</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="UnsupportedTagError"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.UnsupportedTagError">[docs]</a><span class="k">class</span> <span class="nc">UnsupportedTagError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; unsupported tag exception</span>
+<div class="viewcode-block" id="UnsupportedTagError">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.Errors.UnsupportedTagError">[docs]</a>
+<span class="k">class</span> <span class="nc">UnsupportedTagError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; unsupported tag exception</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 </pre></div>
 
     </div>
@@ -221,7 +259,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

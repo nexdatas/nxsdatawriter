@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.H5Elements &#8212; NXSDataWriter 3.22.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <title>nxswriter.H5Elements &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
@@ -36,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.H5Elements</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -158,7 +170,9 @@
 <span class="kn">from</span> <span class="nn">.DataHolder</span> <span class="kn">import</span> <span class="n">DataHolder</span>
 
 
-<div class="viewcode-block" id="EFile"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EFile">[docs]</a><span class="k">class</span> <span class="nc">EFile</span><span class="p">(</span><span class="n">FElementWithAttr</span><span class="p">):</span>
+<div class="viewcode-block" id="EFile">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EFile">[docs]</a>
+<span class="k">class</span> <span class="nc">EFile</span><span class="p">(</span><span class="n">FElementWithAttr</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; file H5 element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -179,7 +193,10 @@
                                   <span class="n">streams</span><span class="o">=</span><span class="n">streams</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="EDoc"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDoc">[docs]</a><span class="k">class</span> <span class="nc">EDoc</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="EDoc">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDoc">[docs]</a>
+<span class="k">class</span> <span class="nc">EDoc</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; doc tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -196,7 +213,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Element</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="n">streams</span><span class="p">)</span>
 
-<div class="viewcode-block" id="EDoc.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDoc.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EDoc.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDoc.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
@@ -206,10 +225,14 @@
 <span class="sd">        :     :obj:`dict` &lt;:obj:`str`, :obj:`dict` &lt;:obj:`str`, any&gt;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">doc</span> <span class="o">+=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">xml</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">doc</span> <span class="o">+=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">xml</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
+</div>
 
 
-<div class="viewcode-block" id="ESymbol"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESymbol">[docs]</a><span class="k">class</span> <span class="nc">ESymbol</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ESymbol">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESymbol">[docs]</a>
+<span class="k">class</span> <span class="nc">ESymbol</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; symbol tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -229,7 +252,9 @@
         <span class="c1">#:    dictionary with symbols4</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="ESymbol.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESymbol.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ESymbol.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESymbol.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting2</span>
@@ -239,10 +264,14 @@
 <span class="sd">        :     :obj:`dict` &lt;:obj:`str`, :obj:`dict` &lt;:obj:`str`, any&gt;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tagAttrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_tagAttrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">doc</span></div></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_tagAttrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">doc</span></div>
+</div>
 
 
-<div class="viewcode-block" id="EDimensions"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDimensions">[docs]</a><span class="k">class</span> <span class="nc">EDimensions</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="EDimensions">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDimensions">[docs]</a>
+<span class="k">class</span> <span class="nc">EDimensions</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; dimensions tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -262,7 +291,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">setRank</span><span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">])</span></div>
 
 
-<div class="viewcode-block" id="ESelection"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESelection">[docs]</a><span class="k">class</span> <span class="nc">ESelection</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ESelection">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESelection">[docs]</a>
+<span class="k">class</span> <span class="nc">ESelection</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; selection tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -282,7 +314,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">setRank</span><span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">])</span></div>
 
 
-<div class="viewcode-block" id="EDim"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDim">[docs]</a><span class="k">class</span> <span class="nc">EDim</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="EDim">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDim">[docs]</a>
+<span class="k">class</span> <span class="nc">EDim</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; dim tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -309,7 +344,9 @@
         <span class="k">if</span> <span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="EDim.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDim.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EDim.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDim.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
@@ -324,10 +361,14 @@
                 <span class="n">dh</span> <span class="o">=</span> <span class="n">DataHolder</span><span class="p">(</span><span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">,</span> <span class="o">**</span><span class="n">dt</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">dh</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setLength</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span>
-                                                 <span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span></div></div>
+                                                 <span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span></div>
+</div>
 
 
-<div class="viewcode-block" id="ESlab"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlab">[docs]</a><span class="k">class</span> <span class="nc">ESlab</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ESlab">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlab">[docs]</a>
+<span class="k">class</span> <span class="nc">ESlab</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; slab tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -379,7 +420,9 @@
         <span class="k">if</span> <span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="ESlab.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlab.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ESlab.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlab.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
@@ -395,10 +438,14 @@
                 <span class="k">if</span> <span class="n">dh</span><span class="p">:</span>
                     <span class="n">slab</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slab</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setSelection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span> <span class="n">slab</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span></div></div>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setSelection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span> <span class="n">slab</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span></div>
+</div>
 
 
-<div class="viewcode-block" id="ESlice"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlice">[docs]</a><span class="k">class</span> <span class="nc">ESlice</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ESlice">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlice">[docs]</a>
+<span class="k">class</span> <span class="nc">ESlice</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; slice tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -449,7 +496,9 @@
         <span class="k">if</span> <span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="ESlice.store"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlice.store">[docs]</a>    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ESlice.store">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.ESlice.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">globalJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; stores the tag content</span>
 
 <span class="sd">        :param xml: xml setting</span>
@@ -466,10 +515,14 @@
                     <span class="n">lslice</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lslice</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setSelection</span><span class="p">(</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lslice</span><span class="p">))</span></div></div>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lslice</span><span class="p">))</span></div>
+</div>
 
 
-<div class="viewcode-block" id="EFilter"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EFilter">[docs]</a><span class="k">class</span> <span class="nc">EFilter</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<div class="viewcode-block" id="EFilter">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EFilter">[docs]</a>
+<span class="k">class</span> <span class="nc">EFilter</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; filter tag element</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -513,6 +566,7 @@
                 <span class="n">filter_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cd_values</span><span class="p">,</span> <span class="n">availability</span><span class="p">)</span>
         <span class="c1">#: (:obj:`int`) index attribute</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">index</span></div>
+
 </pre></div>
 
     </div>
@@ -529,7 +583,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.TangoSource &#8212; NXSDataWriter 3.10.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>nxswriter.TangoSource &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -34,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -125,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.TangoSource</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -175,14 +189,18 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="ProxyTools"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools">[docs]</a><span class="k">class</span> <span class="nc">ProxyTools</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ProxyTools">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools">[docs]</a>
+<span class="k">class</span> <span class="nc">ProxyTools</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; tools for proxy</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; tools for proxy</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ProxyTools.proxySetup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.proxySetup">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ProxyTools.proxySetup">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.proxySetup">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">proxySetup</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxcount</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets the Tango proxy up</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the Tango proxy up</span>
 
 <span class="sd">        :param device: tango device</span>
 <span class="sd">        :type device: :obj:`str`</span>
@@ -221,9 +239,12 @@
         <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">proxy</span></div>
 
-<div class="viewcode-block" id="ProxyTools.isProxyValid"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.isProxyValid">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="ProxyTools.isProxyValid">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.ProxyTools.isProxyValid">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">isProxyValid</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks if proxy is valid</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks if proxy is valid</span>
 
 <span class="sd">        :param proxy: tango proxy</span>
 <span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
@@ -237,16 +258,20 @@
             <span class="n">failed</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">failed</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="n">failed</span></div></div>
+        <span class="k">return</span> <span class="ow">not</span> <span class="n">failed</span></div>
+</div>
 
 
-<div class="viewcode-block" id="TangoSource"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource">[docs]</a><span class="k">class</span> <span class="nc">TangoSource</span><span class="p">(</span><span class="n">DataSource</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; Tango data source</span>
+<div class="viewcode-block" id="TangoSource">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource">[docs]</a>
+<span class="k">class</span> <span class="nc">TangoSource</span><span class="p">(</span><span class="n">DataSource</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Tango data source</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
 
 <span class="sd">        :brief: It cleans all member variables</span>
 <span class="sd">        :param streams: tango-like steamset class</span>
@@ -285,7 +310,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fullclient</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; self-description</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; self-description</span>
 
 <span class="sd">        :returns: self-describing string</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -294,8 +319,10 @@
         <span class="k">return</span> <span class="s2">&quot; TANGO Device </span><span class="si">%s</span><span class="s2"> : </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">memberType</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TangoSource.setJSON"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setJSON">[docs]</a>    <span class="k">def</span> <span class="nf">setJSON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">globalJSON</span><span class="p">,</span> <span class="n">localJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets JSON string</span>
+<div class="viewcode-block" id="TangoSource.setJSON">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setJSON">[docs]</a>
+    <span class="k">def</span> <span class="nf">setJSON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">globalJSON</span><span class="p">,</span> <span class="n">localJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets JSON string</span>
 
 <span class="sd">        :brief: It sets the currently used  JSON string</span>
 <span class="sd">        :param globalJSON: static JSON string</span>
@@ -308,8 +335,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__globalJSON</span> <span class="o">=</span> <span class="n">globalJSON</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__localJSON</span> <span class="o">=</span> <span class="n">localJSON</span></div>
 
-<div class="viewcode-block" id="TangoSource.setup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets the parrameters up from xml</span>
+
+<div class="viewcode-block" id="TangoSource.setup">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setup">[docs]</a>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the parrameters up from xml</span>
 
 <span class="sd">        :param xml:  datasource parameters</span>
 <span class="sd">        :type xml: :obj:`str`</span>
@@ -407,16 +437,20 @@
                 <span class="n">edevice</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="TangoSource.setDecoders"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDecoders">[docs]</a>    <span class="k">def</span> <span class="nf">setDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets the used decoders</span>
+
+<div class="viewcode-block" id="TangoSource.setDecoders">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDecoders">[docs]</a>
+    <span class="k">def</span> <span class="nf">setDecoders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the used decoders</span>
 
 <span class="sd">        :param decoders: pool to be set</span>
 <span class="sd">        :type decoders: :class:`nxswriter.DecoderPool.DecoderPool`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__decoders</span> <span class="o">=</span> <span class="n">decoders</span></div>
 
+
     <span class="k">def</span> <span class="nf">__tryclient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fullclient</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; data provider from client</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; data provider from client</span>
 
 <span class="sd">        :param fullclient: data key name</span>
 <span class="sd">        :type fullclient: :obj:`str:obj:`</span>
@@ -450,8 +484,10 @@
             <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="TangoSource.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; data provider</span>
+<div class="viewcode-block" id="TangoSource.getData">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.getData">[docs]</a>
+    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; data provider</span>
 
 <span class="sd">        :returns: dictionary with collected data</span>
 <span class="sd">        :rtype: {&#39;rank&#39;: :obj:`str`, &#39;value&#39;: any, &#39;tangoDType&#39;: :obj:`str`, \</span>
@@ -542,8 +578,11 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">val</span></div>
 
-<div class="viewcode-block" id="TangoSource.setDataSources"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">setDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets the datasources</span>
+
+<div class="viewcode-block" id="TangoSource.setDataSources">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TangoSource.setDataSources">[docs]</a>
+    <span class="k">def</span> <span class="nf">setDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the datasources</span>
 
 <span class="sd">        :param pool: datasource pool</span>
 <span class="sd">        :type pool: :class:`nxswriter.DataSourcePool.DataSourcePool`</span>
@@ -567,16 +606,20 @@
         <span class="k">finally</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__tngrp</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-            <span class="n">pool</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div></div>
+            <span class="n">pool</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+</div>
 
 
-<div class="viewcode-block" id="TgGroup"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup">[docs]</a><span class="k">class</span> <span class="nc">TgGroup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; Group of tango devices</span>
+<div class="viewcode-block" id="TgGroup">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup">[docs]</a>
+<span class="k">class</span> <span class="nc">TgGroup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Group of tango devices</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; default constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; default constructor</span>
 
 <span class="sd">        :param counter: counts of steps</span>
 <span class="sd">        :type counter: :obj:`int`</span>
@@ -593,8 +636,10 @@
         <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
 
-<div class="viewcode-block" id="TgGroup.getDevice"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getDevice">[docs]</a>    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides tango device</span>
+<div class="viewcode-block" id="TgGroup.getDevice">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getDevice">[docs]</a>
+    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides tango device</span>
 
 <span class="sd">        :param device: tango device name</span>
 <span class="sd">        :type device: :obj:`str`</span>
@@ -606,8 +651,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="n">device</span><span class="p">]</span> <span class="o">=</span> <span class="n">TgDevice</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="n">device</span><span class="p">]</span></div>
 
+
     <span class="k">def</span> <span class="nf">__fetchAttributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches attribute data for given device</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches attribute data for given device</span>
 
 <span class="sd">        :param device: given device</span>
 <span class="sd">        :type device: :class:`TgDevice`</span>
@@ -642,7 +688,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__fetchAttribute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches attribute data for given proxy</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches attribute data for given proxy</span>
 
 <span class="sd">        :param proxy: given proxy</span>
 <span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
@@ -660,7 +706,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__fetchProperty</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches property data for given member</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches property data for given member</span>
 
 <span class="sd">        :param proxy: given proxy</span>
 <span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
@@ -678,7 +724,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__fetchCommand</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">proxy</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches command data for given member</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches command data for given member</span>
 
 <span class="sd">        :param proxy: given device proxy</span>
 <span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
@@ -696,8 +742,10 @@
             <span class="n">da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_inout</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span>
             <span class="n">member</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="n">cd</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TgGroup.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
+<div class="viewcode-block" id="TgGroup.getData">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgGroup.getData">[docs]</a>
+    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
 
 <span class="sd">        :param counter: counts of scan steps</span>
 <span class="sd">        :type counter: :obj:`int`</span>
@@ -745,16 +793,20 @@
                     <span class="k">if</span> <span class="n">mb</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;property&quot;</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">__fetchProperty</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">mb</span><span class="p">)</span>
                     <span class="k">elif</span> <span class="n">mb</span><span class="o">.</span><span class="n">memberType</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchCommand</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">mb</span><span class="p">)</span></div></div>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__fetchCommand</span><span class="p">(</span><span class="n">dv</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">mb</span><span class="p">)</span></div>
+</div>
 
 
-<div class="viewcode-block" id="TgDevice"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice">[docs]</a><span class="k">class</span> <span class="nc">TgDevice</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; tango device</span>
+<div class="viewcode-block" id="TgDevice">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice">[docs]</a>
+<span class="k">class</span> <span class="nc">TgDevice</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; tango device</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; default constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; default constructor</span>
 
 <span class="sd">        :param device: tango device name</span>
 <span class="sd">        :type device: :obj:`str`</span>
@@ -780,8 +832,10 @@
         <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
 
-<div class="viewcode-block" id="TgDevice.setMember"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice.setMember">[docs]</a>    <span class="k">def</span> <span class="nf">setMember</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides tango device member</span>
+<div class="viewcode-block" id="TgDevice.setMember">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgDevice.setMember">[docs]</a>
+    <span class="k">def</span> <span class="nf">setMember</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides tango device member</span>
 
 <span class="sd">        :param member: tango  device member</span>
 <span class="sd">        :type member: :class:`TgMember`</span>
@@ -794,8 +848,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__setFlag</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">]</span></div>
 
+
     <span class="k">def</span> <span class="nf">__setFlag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets corresponding flag related to member type</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets corresponding flag related to member type</span>
 
 <span class="sd">        :param member: given tango device member</span>
 <span class="sd">        :type member: :class:`TgMember`</span>
@@ -810,14 +865,17 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emname</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="TgMember"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember">[docs]</a><span class="k">class</span> <span class="nc">TgMember</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; tango device member</span>
+<div class="viewcode-block" id="TgMember">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember">[docs]</a>
+<span class="k">class</span> <span class="nc">TgMember</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; tango device member</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">memberType</span><span class="o">=</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; default constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; default constructor</span>
 
 <span class="sd">        :param name: name of data record</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -845,15 +903,20 @@
         <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
 
-<div class="viewcode-block" id="TgMember.reset"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; cleans output value</span>
+<div class="viewcode-block" id="TgMember.reset">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.reset">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; cleans output value</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="TgMember.setData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.setData">[docs]</a>    <span class="k">def</span> <span class="nf">setData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets tango data</span>
+
+<div class="viewcode-block" id="TgMember.setData">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.setData">[docs]</a>
+    <span class="k">def</span> <span class="nf">setData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets tango data</span>
 
 <span class="sd">        :param data: output tango data</span>
 <span class="sd">        :type data: :class:`tango.DeviceAttribute`</span>
@@ -864,8 +927,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="n">cmd</span></div>
 
-<div class="viewcode-block" id="TgMember.isDataSet"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.isDataSet">[docs]</a>    <span class="k">def</span> <span class="nf">isDataSet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks if data is set</span>
+
+<div class="viewcode-block" id="TgMember.isDataSet">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.isDataSet">[docs]</a>
+    <span class="k">def</span> <span class="nf">isDataSet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks if data is set</span>
 
 <span class="sd">        :returns: True if data is set</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -875,8 +941,11 @@
             <span class="n">status</span> <span class="o">=</span> <span class="n">status</span> <span class="ow">and</span> <span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">status</span></div>
 
-<div class="viewcode-block" id="TgMember.getValue"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getValue">[docs]</a>    <span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides value of tango member</span>
+
+<div class="viewcode-block" id="TgMember.getValue">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getValue">[docs]</a>
+    <span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides value of tango member</span>
 
 <span class="sd">        :param decoders: decoder pool</span>
 <span class="sd">        :type decoders: :class:`nxswriter.DecoderPool.DecoderPool`</span>
@@ -945,8 +1014,11 @@
                 <span class="s2">&quot;decoders&quot;</span><span class="p">:</span> <span class="n">decoders</span><span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span></div>
 
-<div class="viewcode-block" id="TgMember.getData"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proxy</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
+
+<div class="viewcode-block" id="TgMember.getData">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.TangoSource.TgMember.getData">[docs]</a>
+    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proxy</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reads data from device proxy</span>
 
 <span class="sd">        :param proxy: device proxy</span>
 <span class="sd">        :type proxy: :class:`tango.DeviceProxy`</span>
@@ -969,7 +1041,9 @@
             <span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">ename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">clist</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__cd</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_query</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_inout</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__da</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">command_inout</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span></div>
+</div>
+
 </pre></div>
 
     </div>
@@ -986,7 +1060,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

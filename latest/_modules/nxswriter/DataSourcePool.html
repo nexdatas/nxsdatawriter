@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.DataSourcePool &#8212; NXSDataWriter 3.10.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>nxswriter.DataSourcePool &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -34,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.10</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -125,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.DataSourcePool</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -158,13 +172,15 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">PyEvalSource</span>
 
 
-<div class="viewcode-block" id="DataSourcePool"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool">[docs]</a><span class="k">class</span> <span class="nc">DataSourcePool</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="DataSourcePool">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool">[docs]</a>
+<span class="k">class</span> <span class="nc">DataSourcePool</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; DataSource pool</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; DataSource pool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configJSON</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
 
 <span class="sd">        :brief: It creates know datasources</span>
 <span class="sd">        :param configJSON: JSON dictionary with datasources</span>
@@ -188,8 +204,10 @@
         <span class="c1">#: (:class:`threading.Lock`) pool lock</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
 
-<div class="viewcode-block" id="DataSourcePool.appendUserDataSources"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.appendUserDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">appendUserDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configJSON</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; loads user datasources</span>
+<div class="viewcode-block" id="DataSourcePool.appendUserDataSources">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.appendUserDataSources">[docs]</a>
+    <span class="k">def</span> <span class="nf">appendUserDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configJSON</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; loads user datasources</span>
 
 <span class="sd">        :param configJSON: string with datasources</span>
 <span class="sd">        :type configJSON: \</span>
@@ -209,8 +227,11 @@
                                      <span class="nb">locals</span><span class="p">(),</span> <span class="n">pkl</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">pkl</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dk</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DataSourcePool.hasDataSource"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.hasDataSource">[docs]</a>    <span class="k">def</span> <span class="nf">hasDataSource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks if the datasource is registered</span>
+
+<div class="viewcode-block" id="DataSourcePool.hasDataSource">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.hasDataSource">[docs]</a>
+    <span class="k">def</span> <span class="nf">hasDataSource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks if the datasource is registered</span>
 
 <span class="sd">        :param datasource: the given datasource</span>
 <span class="sd">        :type datasource: :obj:`str`</span>
@@ -220,8 +241,11 @@
         <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">datasource</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> \
             <span class="k">else</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="DataSourcePool.get"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;checks it the datasource is registered</span>
+
+<div class="viewcode-block" id="DataSourcePool.get">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;checks it the datasource is registered</span>
 
 <span class="sd">        :param datasource: the given datasource name</span>
 <span class="sd">        :type datasource: :obj:`str`</span>
@@ -232,16 +256,22 @@
         <span class="k">if</span> <span class="n">datasource</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="p">[</span><span class="n">datasource</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="DataSourcePool.pop"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds additional datasource</span>
+
+<div class="viewcode-block" id="DataSourcePool.pop">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.pop">[docs]</a>
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds additional datasource</span>
 
 <span class="sd">        :param name: name of the adding datasource</span>
 <span class="sd">        :type name: :obj:`str`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DataSourcePool.append"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds additional datasource</span>
+
+<div class="viewcode-block" id="DataSourcePool.append">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.append">[docs]</a>
+    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasource</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds additional datasource</span>
 
 <span class="sd">        :param name: name of the adding datasource</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -256,7 +286,9 @@
                 <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">datasource</span><span class="p">,</span> <span class="s2">&quot;isValid&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="k">return</span>
-        <span class="k">return</span> <span class="n">name</span></div></div>
+        <span class="k">return</span> <span class="n">name</span></div>
+</div>
+
 </pre></div>
 
     </div>
@@ -273,7 +305,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>

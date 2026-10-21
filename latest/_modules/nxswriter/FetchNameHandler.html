@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.FetchNameHandler &#8212; NXSDataWriter 3.22.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <title>nxswriter.FetchNameHandler &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
@@ -36,8 +33,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../index.html">
-          NXSDataWriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.22</b></span>
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +124,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for nxswriter.FetchNameHandler</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
@@ -161,7 +173,9 @@
 <span class="kn">from</span> <span class="nn">.Errors</span> <span class="kn">import</span> <span class="n">XMLSyntaxError</span>
 
 
-<div class="viewcode-block" id="TNObject"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.TNObject">[docs]</a><span class="k">class</span> <span class="nc">TNObject</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="TNObject">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.TNObject">[docs]</a>
+<span class="k">class</span> <span class="nc">TNObject</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Type Name object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -189,7 +203,9 @@
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(),</span> <span class="s2">&quot;children&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TNObject.child"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.TNObject.child">[docs]</a>    <span class="k">def</span> <span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">nxtype</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="TNObject.child">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.TNObject.child">[docs]</a>
+    <span class="k">def</span> <span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">nxtype</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; get child by name or nxtype</span>
 
 <span class="sd">        :param name: group name</span>
@@ -215,10 +231,14 @@
             <span class="k">return</span> <span class="n">found</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div></div>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+</div>
 
 
-<div class="viewcode-block" id="FetchNameHandler"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler">[docs]</a><span class="k">class</span> <span class="nc">FetchNameHandler</span><span class="p">(</span><span class="n">sax</span><span class="o">.</span><span class="n">ContentHandler</span><span class="p">):</span>
+
+<div class="viewcode-block" id="FetchNameHandler">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler">[docs]</a>
+<span class="k">class</span> <span class="nc">FetchNameHandler</span><span class="p">(</span><span class="n">sax</span><span class="o">.</span><span class="n">ContentHandler</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; SAX2 parser</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -247,7 +267,9 @@
         <span class="c1">#: (:class:`StreamSet` or :class:`tango.LatestDeviceImpl`) stream set</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span> <span class="o">=</span> <span class="n">streams</span>
 
-<div class="viewcode-block" id="FetchNameHandler.startElement"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.startElement">[docs]</a>    <span class="k">def</span> <span class="nf">startElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+<div class="viewcode-block" id="FetchNameHandler.startElement">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.startElement">[docs]</a>
+    <span class="k">def</span> <span class="nf">startElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; parses the opening tag</span>
 
 <span class="sd">        :param name: tag name</span>
@@ -274,7 +296,10 @@
             <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__attrName</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="FetchNameHandler.characters"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.characters">[docs]</a>    <span class="k">def</span> <span class="nf">characters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+
+<div class="viewcode-block" id="FetchNameHandler.characters">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.characters">[docs]</a>
+    <span class="k">def</span> <span class="nf">characters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; adds the tag content</span>
 
 <span class="sd">        :param content: partial content of the tag</span>
@@ -284,7 +309,10 @@
                 <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stack</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;group&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FetchNameHandler.endElement"><a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.endElement">[docs]</a>    <span class="k">def</span> <span class="nf">endElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+<div class="viewcode-block" id="FetchNameHandler.endElement">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.endElement">[docs]</a>
+    <span class="k">def</span> <span class="nf">endElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; parses an closing tag</span>
 
 <span class="sd">        :param name: tag name</span>
@@ -318,7 +346,9 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">__attribute</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__content</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__attrName</span> <span class="o">=</span> <span class="kc">None</span></div></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__attrName</span> <span class="o">=</span> <span class="kc">None</span></div>
+</div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -356,7 +386,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
     </p>
   </div>
 </footer>
