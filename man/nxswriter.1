@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "NXSWRITER" "1" "Jun 04, 2025" "3.16" "NXSDataWriter"
+.TH "NXSWRITER" "1" "Oct 21, 2026" "3.25" "nxswriter"
 .SH NAME
 nxswriter \- nxswriter Documentation
 .sp
@@ -79,7 +79,7 @@ $ python3 setup.py install
 .UNINDENT
 .SS Debian packages
 .sp
-Debian \fIbookworm\fP, \fIbullseye\fP, \fIbuster\fP  or Ubuntu \fIquesting\fP,  \fInoble\fP, \fIjammy\fP  packages can be found in the HDRI repository.
+Debian \fItrixie\fP, \fIbookworm\fP, \fIbullseye\fP  or Ubuntu \fIresolute\fP,  \fInoble\fP, \fIjammy\fP  packages can be found in the HDRI repository.
 .sp
 To install the debian packages, add the PGP repository key
 .INDENT 0.0
@@ -102,7 +102,7 @@ and then download the corresponding source list
 .nf
 .ft C
 $ cd /etc/apt/sources.list.d
-$ wget http://repos.pni\-hdri.de/bookworm\-pni\-hdri.list
+$ wget http://repos.pni\-hdri.de/trixie\-pni\-hdri.sources
 .ft P
 .fi
 .UNINDENT
@@ -388,6 +388,11 @@ sets the parrameters up from xml
 \fI\%nxswriter.Errors.DataSourceSetupError\fP         :        if \fI\%name\fP is not defined
 .UNINDENT
 .UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B nxswriter.ClientSource.PYTANGO_AVAILABLE  =  True
+(\fI\%str\fP) global variable if tango module installed
 .UNINDENT
 .SS nxswriter.DBaseSource module
 .sp
@@ -1710,7 +1715,7 @@ It creates ElementThread from the runnable element
 .IP \(bu 2
 \fBindex\fP (\fI\%int\fP) \-\- the current thread index
 .IP \(bu 2
-\fBqueue\fP (\fI\%Queue.Queue\fP) \-\- queue with tasks
+\fBqueue\fP (\fBQueue.Queue\fP) \-\- queue with tasks
 .UNINDENT
 .UNINDENT
 .INDENT 7.0
@@ -2152,7 +2157,7 @@ stores the tag content
 .INDENT 0.0
 .TP
 .B class  nxswriter.H5Elements.EFile(attrs, last, h5fileObject, streams=None)
-Bases: \fI\%FElement\fP
+Bases: \fI\%FElementWithAttr\fP
 .sp
 file H5 element
 .sp
@@ -3061,7 +3066,7 @@ Write XMLSettings attribute
 .INDENT 0.0
 .TP
 .B class  nxswriter.NXSWriter.NXSDataWriterClass(name)
-Bases: \fBDeviceClass\fP
+Bases: \fI\%DeviceClass\fP
 .sp
 NXSDataWriterClass class definition
 .sp
@@ -4276,6 +4281,10 @@ Tango Data Writer
 .TP
 .B nxswriter.globallock  =  <unlocked _thread.lock object>
 (\fI\%threading.Lock\fP) global lock
+.UNINDENT
+.INDENT 0.0
+.TP
+.B nxswriter.main()
 .UNINDENT
 .INDENT 0.0
 .TP
