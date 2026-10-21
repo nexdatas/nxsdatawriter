@@ -17,7 +17,7 @@ RUN cd /etc/apt/sources.list.d && wget https://repos.pni-hdri.de/trixie-pni-hdri
 
 
 RUN apt-get -qq update && apt-get -qq -y dist-upgrade
-RUN apt-get -qq update && apt-get -qq install -y default-mysql-client  python3-h5py  python3-mysqldb python3-sphinx  apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libomnithread4-dev libzmq3-dev python3-pninexus liblog4j1.2-java python3-tz python3-setuptools python3-pytest hdf5-filter-plugin bitshuffle
+RUN apt-get -qq update && apt-get -qq install -y default-mysql-client  python3-h5py  python3-mysqldb python3-sphinx  apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libomnithread4-dev libzmq3-dev python3-pninexus liblog4j1.2-java python3-tz python3-setuptools python3-pytest hdf5-filter-plugin bitshuffle   python3-pip python3-pip-whl python3-sphinx-bootstrap-theme git
 # hdf5-plugin-bz2 hdf5-plugin-lz4
 
 # set db configuration
