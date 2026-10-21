@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # restart mysqldb
-if [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] || [ "$1" = "ubuntu24.10" ] || [ "$1" = "ubuntu26.04py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu26.04py" ]; then
+if [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] || [ "$1" = "ubuntu24.10" ] || [ "$1" = "ubuntu26.10py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu26.04py" ]; then
     docker exec --user root ndts service mariadb restart
 else
     # workaround for a bug in debian9, i.e. starting mysql hangs
