@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to NXSDataWriter’s documentation! &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nxswriter package" href="nxswriter.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="nxswriter.html">nxswriter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ClientSource">nxswriter.ClientSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DBaseSource">nxswriter.DBaseSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataHolder">nxswriter.DataHolder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSourceFactory">nxswriter.DataSourceFactory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSourcePool">nxswriter.DataSourcePool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSources">nxswriter.DataSources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DecoderPool">nxswriter.DecoderPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EAttribute">nxswriter.EAttribute module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EField">nxswriter.EField module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EGroup">nxswriter.EGroup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ELink">nxswriter.ELink module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EStrategy">nxswriter.EStrategy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Element">nxswriter.Element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ElementThread">nxswriter.ElementThread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Errors">nxswriter.Errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.FElement">nxswriter.FElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.FetchNameHandler">nxswriter.FetchNameHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.InnerXMLParser">nxswriter.InnerXMLParser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.NXSWriter">nxswriter.NXSWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.NexusXMLHandler">nxswriter.NexusXMLHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.PyEvalSource">nxswriter.PyEvalSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.StreamSet">nxswriter.StreamSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.TangoDataWriter">nxswriter.TangoDataWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.TangoSource">nxswriter.TangoSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ThreadPool">nxswriter.ThreadPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Types">nxswriter.Types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Welcome to NXSDataWriter’s documentation!</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#from-sources">From sources</a></li>
+<li><a class="reference internal" href="#debian-packages">Debian packages</a></li>
+<li><a class="reference internal" href="#from-pip">From pip</a></li>
+<li><a class="reference internal" href="#setting-nexus-writer-server">Setting NeXus Writer Server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client-code">Client code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="nxswriter.html" title="Next Chapter: nxswriter package"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">nxswriter package &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Welcome to NXSDataWriter’s documentation!</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#from-sources">From sources</a></li>
+<li><a class="reference internal" href="#debian-packages">Debian packages</a></li>
+<li><a class="reference internal" href="#from-pip">From pip</a></li>
+<li><a class="reference internal" href="#setting-nexus-writer-server">Setting NeXus Writer Server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client-code">Client code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="welcome-to-nxsdatawriter-s-documentation">
+<h1>Welcome to NXSDataWriter’s documentation!<a class="headerlink" href="#welcome-to-nxsdatawriter-s-documentation" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://github.com/nexdatas/nxsdatawriter/actions"><img alt="" src="https://github.com/nexdatas/nxsdatawriter/actions/workflows/tests.yml/badge.svg" /></a>
+<a class="reference external" href="https://nexdatas.github.io/nxsdatawriter/index.html"><img alt="" src="https://img.shields.io/badge/Documentation-webpages-ADD8E6.svg" /></a>
+<a class="reference external" href="https://pypi.python.org/pypi/nxswriter"><img alt="" src="https://img.shields.io/pypi/v/nxswriter.svg" /></a>
+<a class="reference external" href="https://pypi.python.org/pypi/nxswriter/"><img alt="" src="https://img.shields.io/pypi/pyversions/nxswriter.svg" /></a></p>
+<p>Authors: Jan Kotanski, Eugen Wintersberger, Halil Pasic</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>NXSDataWriter is a Tango server which allows to store NeXuS Data in H5 files.</p>
+<p>The server provides storing data from other Tango devices,
+various databases as well as passed by a user client via JSON strings.</p>
+<p>Tango Server API: <a class="reference external" href="https://nexdatas.github.io/nxsdatawriter/doc_html">https://nexdatas.github.io/nxsdatawriter/doc_html</a></p>
+<div class="line-block">
+<div class="line">Source code: <a class="reference external" href="https://github.com/nexdatas/nxsdatawriter">https://github.com/nexdatas/nxsdatawriter</a></div>
+<div class="line">Project Web page: <a class="reference external" href="https://nexdatas.github.io/nxsdatawriter">https://nexdatas.github.io/nxsdatawriter</a></div>
+<div class="line">NexDaTaS Web page: <a class="reference external" href="https://nexdatas.github.io">https://nexdatas.github.io</a></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>Install the dependencies:</p>
+<div class="line-block">
+<div class="line">pninexus or h5py, tango, numpy, nxstools, sphinx</div>
+</div>
+<section id="from-sources">
+<h3>From sources<a class="headerlink" href="#from-sources" title="Link to this heading">¶</a></h3>
+<p>Download the latest NexDaTaS version from</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/nexdatas/nxsdatawriter">https://github.com/nexdatas/nxsdatawriter</a></div>
+</div>
+<p>Extract sources and run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="debian-packages">
+<h3>Debian packages<a class="headerlink" href="#debian-packages" title="Link to this heading">¶</a></h3>
+<p>Debian <cite>trixie</cite>, <cite>bookworm</cite>, <cite>bullseye</cite>  or Ubuntu <cite>resolute</cite>,  <cite>noble</cite>, <cite>jammy</cite>  packages can be found in the HDRI repository.</p>
+<p>To install the debian packages, add the PGP repository key</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>su
+<span class="gp">$ </span>curl<span class="w"> </span>-s<span class="w"> </span>http://repos.pni-hdri.de/debian_repo.pub.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--no-default-keyring<span class="w"> </span>--keyring<span class="w"> </span>gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg<span class="w"> </span>--import
+<span class="gp">$ </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg
+</pre></div>
+</div>
+<p>and then download the corresponding source list</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/etc/apt/sources.list.d
+<span class="gp">$ </span>wget<span class="w"> </span>http://repos.pni-hdri.de/trixie-pni-hdri.sources
+</pre></div>
+</div>
+<p>To install tango server</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>nxswriter
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>nxswriter3
+</pre></div>
+</div>
+<p>for older python3 releases.</p>
+<p>To install only the python3 package</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-nxswriter
+</pre></div>
+</div>
+<p>and for python2</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-nxswriter
+</pre></div>
+</div>
+<p>if exists.</p>
+</section>
+<section id="from-pip">
+<h3>From pip<a class="headerlink" href="#from-pip" title="Link to this heading">¶</a></h3>
+<p>To install it from pip you can</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>myvenv
+<span class="gp">$ </span>.<span class="w"> </span>myvenv/bin/activate
+
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>nxswriter
+</pre></div>
+</div>
+<p>Moreover it is also good to install</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pytango
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pymysqldb
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>psycopg2-binary
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>cx-oracle
+</pre></div>
+</div>
+</section>
+<section id="setting-nexus-writer-server">
+<h3>Setting NeXus Writer Server<a class="headerlink" href="#setting-nexus-writer-server" title="Link to this heading">¶</a></h3>
+<p>To set up  NeXus Writer Server run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nxsetup<span class="w"> </span>-x<span class="w"> </span>NXSDataWriter
+</pre></div>
+</div>
+<p>The <em>nxsetup</em> command comes from the <strong>python3-nxstools</strong> package.</p>
+</section>
+</section>
+<section id="client-code">
+<h2>Client code<a class="headerlink" href="#client-code" title="Link to this heading">¶</a></h2>
+<p>In order to use Nexus Data Server one has to write a client code. Some simple client codes
+are in the  nexdatas repository. In this section we add some
+comments related to the client code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To use the Tango Server we must import the tango module and</span>
+<span class="c1"># create DeviceProxy for the server.</span>
+
+<span class="kn">import</span> <span class="nn">tango</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;p09/tdw/r228&quot;</span>
+<span class="n">dpx</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DeviceProxy</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">set_timeout_millis</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+
+<span class="c1"># Here device corresponds to a name of our Nexus Data Server.</span>
+<span class="c1"># The Init() method resets the state of the server.</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">FileName</span> <span class="o">=</span> <span class="s2">&quot;test.h5&quot;</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">OpenFile</span><span class="p">()</span>
+
+<span class="c1"># We set the name of the output HDF5 file and open it.</span>
+
+<span class="c1"># Now we are ready to pass the XML settings describing a structure of</span>
+<span class="c1"># the output file as well as defining a way of data storing.</span>
+<span class="c1"># Examples of the XMLSettings can be found in the XMLExamples directory.</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.xml&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fl</span><span class="p">:</span>
+    <span class="n">xml</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">XMLSettings</span> <span class="o">=</span> <span class="n">xml</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">JSONRecord</span> <span class="o">=</span> <span class="s1">&#39;{&quot;data&quot;: {&quot;parameterA&quot;:0.2},</span>
+                      <span class="s2">&quot;decoders&quot;</span><span class="p">:{</span><span class="s2">&quot;DESY2D&quot;</span><span class="p">:</span><span class="s2">&quot;desydecoders.desy2Ddec.desy2d&quot;</span><span class="p">},</span>
+                      <span class="s2">&quot;datasources&quot;</span><span class="p">:{</span>
+                           <span class="s2">&quot;MCLIENT&quot;</span><span class="p">:</span><span class="s2">&quot;sources.DataSources.LocalClientSource&quot;</span><span class="p">}</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">OpenEntry</span><span class="p">()</span>
+
+<span class="c1"># We read our XML settings settings from a file and pass them to the server via</span>
+<span class="c1"># the XMLSettings attribute. Then we open an entry group related to the XML</span>
+<span class="c1"># configuration. Optionally, we can also set JSONRecord, i.e. an attribute</span>
+<span class="c1"># which contains a global JSON string with data needed to store during opening</span>
+<span class="c1"># the entry and also other stages of recording. If external decoder for</span>
+<span class="c1"># DevEncoded data is need one can registred it passing its packages and</span>
+<span class="c1"># class names in JSONRecord,</span>
+<span class="c1"># e.g. &quot;desy2d&quot; class of &quot;DESY2D&quot; label in &quot;desydecoders.desy2Ddec&quot; package.</span>
+<span class="c1"># Similarly making use of &quot;datasources&quot; records of the JSON string one can</span>
+<span class="c1"># registred additional datasources. The OpenEntry method stores data defined</span>
+<span class="c1"># in the XML string with strategy=INIT.</span>
+<span class="c1"># The JSONRecord attribute can be changed during recording our data.</span>
+
+<span class="c1"># After finalization of the configuration process we can start recording</span>
+<span class="c1"># the main experiment data in a STEP mode.</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">Record</span><span class="p">(</span><span class="s1">&#39;{&quot;data&quot;: {&quot;p09/counter/exp.01&quot;:0.1, &quot;p09/counter/exp.02&quot;:1.1}}&#39;</span><span class="p">)</span>
+
+<span class="c1"># Every time we call the Record method all nexus fields defined with</span>
+<span class="c1"># strategy=STEP are extended by one record unit and the assigned to them data</span>
+<span class="c1"># is stored. As the method argument we pass a local JSON string with the client</span>
+<span class="c1"># data. To record the client data one can also use the global JSONRecord string.</span>
+<span class="c1"># Contrary to the global JSON string the local one is only</span>
+<span class="c1"># valid during one record step.</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">Record</span><span class="p">(</span><span class="s1">&#39;{&quot;data&quot;: {&quot;emittance_x&quot;: 0.1},  &quot;triggers&quot;:[&quot;trigger1&quot;, &quot;trigger2&quot;]  }&#39;</span><span class="p">)</span>
+
+<span class="c1"># If you denote in your XML configuration string some fields by additional</span>
+<span class="c1"># trigger attributes you may ask the server to store your data only in specific</span>
+<span class="c1"># record steps. This can be helpful if you want to store your data in</span>
+<span class="c1"># asynchronous mode. To this end you define in the local JSON string a list of</span>
+<span class="c1"># triggers which are used in the current record step.</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">JSONRecord</span> <span class="o">=</span> <span class="s1">&#39;{&quot;data&quot;: {&quot;parameterB&quot;:0.3}}&#39;</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">CloseEntry</span><span class="p">()</span>
+
+<span class="c1"># After scanning experiment data in &#39;STEP&#39; mode we close the entry.</span>
+<span class="c1"># To this end we call the CloseEntry method which also stores data defined</span>
+<span class="c1"># with strategy=FINAL. Since our HDF5 file can contain many entries we can again</span>
+<span class="c1"># open the entry and repeat our record procedure. If we define more than one entry</span>
+<span class="c1"># in one XML setting string the defined entries are recorded parallel</span>
+<span class="c1"># with the same steps.</span>
+
+<span class="c1"># Finally, we can close our output file by</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">CloseFile</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Additionally, one can use asynchronous versions of <strong>OpenEntry</strong>, <strong>Record</strong>, <strong>CloseEntry</strong>, i.e.
+<strong>OpenEntryAsynch</strong>, <strong>RecordAsynch</strong>, <strong>CloseEntryAsynch</strong>. In this case data is stored
+in a background thread and during this writing Tango Data Server has a state <em>RUNNING</em>.</p>
+<p>In order to build the XML configurations in the easy way the authors of the server provide
+for this purpose a specialized GUI tool, Component Designer.
+The attached to the server XML examples
+was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
+</section>
+</section>
+<section id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nxswriter.html">nxswriter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ClientSource">nxswriter.ClientSource module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.ClientSource"><code class="docutils literal notranslate"><span class="pre">ClientSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.ClientSource.getData"><code class="docutils literal notranslate"><span class="pre">ClientSource.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.ClientSource.name"><code class="docutils literal notranslate"><span class="pre">ClientSource.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.ClientSource.setJSON"><code class="docutils literal notranslate"><span class="pre">ClientSource.setJSON()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.ClientSource.setup"><code class="docutils literal notranslate"><span class="pre">ClientSource.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.ClientSource.PYTANGO_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PYTANGO_AVAILABLE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DBaseSource">nxswriter.DBaseSource module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DB_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">DB_AVAILABLE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource"><code class="docutils literal notranslate"><span class="pre">DBaseSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.dbname"><code class="docutils literal notranslate"><span class="pre">DBaseSource.dbname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.dbtype"><code class="docutils literal notranslate"><span class="pre">DBaseSource.dbtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.dsn"><code class="docutils literal notranslate"><span class="pre">DBaseSource.dsn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.format"><code class="docutils literal notranslate"><span class="pre">DBaseSource.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.getData"><code class="docutils literal notranslate"><span class="pre">DBaseSource.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.hostname"><code class="docutils literal notranslate"><span class="pre">DBaseSource.hostname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.mode"><code class="docutils literal notranslate"><span class="pre">DBaseSource.mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.mycnf"><code class="docutils literal notranslate"><span class="pre">DBaseSource.mycnf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.passwd"><code class="docutils literal notranslate"><span class="pre">DBaseSource.passwd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.port"><code class="docutils literal notranslate"><span class="pre">DBaseSource.port</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.query"><code class="docutils literal notranslate"><span class="pre">DBaseSource.query</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.setup"><code class="docutils literal notranslate"><span class="pre">DBaseSource.setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DBaseSource.DBaseSource.user"><code class="docutils literal notranslate"><span class="pre">DBaseSource.user</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataHolder">nxswriter.DataHolder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder"><code class="docutils literal notranslate"><span class="pre">DataHolder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.cast"><code class="docutils literal notranslate"><span class="pre">DataHolder.cast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.decoders"><code class="docutils literal notranslate"><span class="pre">DataHolder.decoders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.encoding"><code class="docutils literal notranslate"><span class="pre">DataHolder.encoding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.format"><code class="docutils literal notranslate"><span class="pre">DataHolder.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.shape"><code class="docutils literal notranslate"><span class="pre">DataHolder.shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.tangoDType"><code class="docutils literal notranslate"><span class="pre">DataHolder.tangoDType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataHolder.DataHolder.value"><code class="docutils literal notranslate"><span class="pre">DataHolder.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSourceFactory">nxswriter.DataSourceFactory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory"><code class="docutils literal notranslate"><span class="pre">DataSourceFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDataSources"><code class="docutils literal notranslate"><span class="pre">DataSourceFactory.setDataSources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.setDecoders"><code class="docutils literal notranslate"><span class="pre">DataSourceFactory.setDecoders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourceFactory.DataSourceFactory.store"><code class="docutils literal notranslate"><span class="pre">DataSourceFactory.store()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSourcePool">nxswriter.DataSourcePool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool"><code class="docutils literal notranslate"><span class="pre">DataSourcePool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.append"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.appendUserDataSources"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.appendUserDataSources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.canfail"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.canfail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.common"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.common</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.counter"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.counter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.get"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.hasDataSource"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.hasDataSource()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.lock"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.lock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.nxroot"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.nxroot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSourcePool.DataSourcePool.pop"><code class="docutils literal notranslate"><span class="pre">DataSourcePool.pop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DataSources">nxswriter.DataSources module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DataSources.DataSource"><code class="docutils literal notranslate"><span class="pre">DataSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSources.DataSource.getData"><code class="docutils literal notranslate"><span class="pre">DataSource.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSources.DataSource.isValid"><code class="docutils literal notranslate"><span class="pre">DataSource.isValid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DataSources.DataSource.setup"><code class="docutils literal notranslate"><span class="pre">DataSource.setup()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.DecoderPool">nxswriter.DecoderPool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.decode"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.dtype"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.format"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.frameNumber"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.frameNumber()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.load"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.name"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.shape"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DATAARRAYdecoder.steps"><code class="docutils literal notranslate"><span class="pre">DATAARRAYdecoder.steps()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool"><code class="docutils literal notranslate"><span class="pre">DecoderPool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool.append"><code class="docutils literal notranslate"><span class="pre">DecoderPool.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool.appendUserDecoders"><code class="docutils literal notranslate"><span class="pre">DecoderPool.appendUserDecoders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool.get"><code class="docutils literal notranslate"><span class="pre">DecoderPool.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool.hasDecoder"><code class="docutils literal notranslate"><span class="pre">DecoderPool.hasDecoder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.DecoderPool.pop"><code class="docutils literal notranslate"><span class="pre">DecoderPool.pop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder"><code class="docutils literal notranslate"><span class="pre">UINT32decoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.decode"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.dtype"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.format"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.load"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.name"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UINT32decoder.shape"><code class="docutils literal notranslate"><span class="pre">UINT32decoder.shape()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder"><code class="docutils literal notranslate"><span class="pre">UTF8decoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.decode"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.dtype"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.format"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.load"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.name"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.UTF8decoder.shape"><code class="docutils literal notranslate"><span class="pre">UTF8decoder.shape()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.decode"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.dtype"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.format"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.load"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.name"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.DecoderPool.VDEOdecoder.shape"><code class="docutils literal notranslate"><span class="pre">VDEOdecoder.shape()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EAttribute">nxswriter.EAttribute module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute"><code class="docutils literal notranslate"><span class="pre">EAttribute</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.lengths"><code class="docutils literal notranslate"><span class="pre">EAttribute.lengths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.markFailed"><code class="docutils literal notranslate"><span class="pre">EAttribute.markFailed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.name"><code class="docutils literal notranslate"><span class="pre">EAttribute.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.rank"><code class="docutils literal notranslate"><span class="pre">EAttribute.rank</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.run"><code class="docutils literal notranslate"><span class="pre">EAttribute.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.setLength"><code class="docutils literal notranslate"><span class="pre">EAttribute.setLength()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.setRank"><code class="docutils literal notranslate"><span class="pre">EAttribute.setRank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.store"><code class="docutils literal notranslate"><span class="pre">EAttribute.store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.strategy"><code class="docutils literal notranslate"><span class="pre">EAttribute.strategy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EAttribute.EAttribute.trigger"><code class="docutils literal notranslate"><span class="pre">EAttribute.trigger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EField">nxswriter.EField module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField"><code class="docutils literal notranslate"><span class="pre">EField</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.compression"><code class="docutils literal notranslate"><span class="pre">EField.compression</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.compression_opts"><code class="docutils literal notranslate"><span class="pre">EField.compression_opts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.filters"><code class="docutils literal notranslate"><span class="pre">EField.filters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.grows"><code class="docutils literal notranslate"><span class="pre">EField.grows</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.lengths"><code class="docutils literal notranslate"><span class="pre">EField.lengths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.markFailed"><code class="docutils literal notranslate"><span class="pre">EField.markFailed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.postrun"><code class="docutils literal notranslate"><span class="pre">EField.postrun</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rank"><code class="docutils literal notranslate"><span class="pre">EField.rank</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rate"><code class="docutils literal notranslate"><span class="pre">EField.rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.run"><code class="docutils literal notranslate"><span class="pre">EField.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setLength"><code class="docutils literal notranslate"><span class="pre">EField.setLength()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setRank"><code class="docutils literal notranslate"><span class="pre">EField.setRank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.shuffle"><code class="docutils literal notranslate"><span class="pre">EField.shuffle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.store"><code class="docutils literal notranslate"><span class="pre">EField.store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.strategy"><code class="docutils literal notranslate"><span class="pre">EField.strategy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.trigger"><code class="docutils literal notranslate"><span class="pre">EField.trigger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EGroup">nxswriter.EGroup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.EGroup.EGroup"><code class="docutils literal notranslate"><span class="pre">EGroup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EGroup.EGroup.store"><code class="docutils literal notranslate"><span class="pre">EGroup.store()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ELink">nxswriter.ELink module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink"><code class="docutils literal notranslate"><span class="pre">ELink</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.createLink"><code class="docutils literal notranslate"><span class="pre">ELink.createLink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.h5Object"><code class="docutils literal notranslate"><span class="pre">ELink.h5Object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.run"><code class="docutils literal notranslate"><span class="pre">ELink.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.store"><code class="docutils literal notranslate"><span class="pre">ELink.store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.strategy"><code class="docutils literal notranslate"><span class="pre">ELink.strategy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ELink.ELink.trigger"><code class="docutils literal notranslate"><span class="pre">ELink.trigger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.EStrategy">nxswriter.EStrategy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.EStrategy.EStrategy"><code class="docutils literal notranslate"><span class="pre">EStrategy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EStrategy.EStrategy.setCanFail"><code class="docutils literal notranslate"><span class="pre">EStrategy.setCanFail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EStrategy.EStrategy.store"><code class="docutils literal notranslate"><span class="pre">EStrategy.store()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Element">nxswriter.Element module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element.content"><code class="docutils literal notranslate"><span class="pre">Element.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element.doc"><code class="docutils literal notranslate"><span class="pre">Element.doc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element.last"><code class="docutils literal notranslate"><span class="pre">Element.last</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element.store"><code class="docutils literal notranslate"><span class="pre">Element.store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Element.Element.tagName"><code class="docutils literal notranslate"><span class="pre">Element.tagName</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ElementThread">nxswriter.ElementThread module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.ElementThread.ElementThread"><code class="docutils literal notranslate"><span class="pre">ElementThread</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ElementThread.ElementThread.index"><code class="docutils literal notranslate"><span class="pre">ElementThread.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ElementThread.ElementThread.run"><code class="docutils literal notranslate"><span class="pre">ElementThread.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Errors">nxswriter.Errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.CorruptedFieldArrayError"><code class="docutils literal notranslate"><span class="pre">CorruptedFieldArrayError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.DataSourceError"><code class="docutils literal notranslate"><span class="pre">DataSourceError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.DataSourceSetupError"><code class="docutils literal notranslate"><span class="pre">DataSourceSetupError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.PackageError"><code class="docutils literal notranslate"><span class="pre">PackageError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.ThreadError"><code class="docutils literal notranslate"><span class="pre">ThreadError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.UnsupportedTagError"><code class="docutils literal notranslate"><span class="pre">UnsupportedTagError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.XMLSettingSyntaxError"><code class="docutils literal notranslate"><span class="pre">XMLSettingSyntaxError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Errors.XMLSyntaxError"><code class="docutils literal notranslate"><span class="pre">XMLSyntaxError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.FElement">nxswriter.FElement module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement"><code class="docutils literal notranslate"><span class="pre">FElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.canfail"><code class="docutils literal notranslate"><span class="pre">FElement.canfail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.error"><code class="docutils literal notranslate"><span class="pre">FElement.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.h5Object"><code class="docutils literal notranslate"><span class="pre">FElement.h5Object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.run"><code class="docutils literal notranslate"><span class="pre">FElement.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.runtime"><code class="docutils literal notranslate"><span class="pre">FElement.runtime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.setMessage"><code class="docutils literal notranslate"><span class="pre">FElement.setMessage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElement.source"><code class="docutils literal notranslate"><span class="pre">FElement.source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElementWithAttr"><code class="docutils literal notranslate"><span class="pre">FElementWithAttr</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElementWithAttr.h5Attribute"><code class="docutils literal notranslate"><span class="pre">FElementWithAttr.h5Attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FElement.FElementWithAttr.tagAttributes"><code class="docutils literal notranslate"><span class="pre">FElementWithAttr.tagAttributes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.FetchNameHandler">nxswriter.FetchNameHandler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler"><code class="docutils literal notranslate"><span class="pre">FetchNameHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.characters"><code class="docutils literal notranslate"><span class="pre">FetchNameHandler.characters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.endElement"><code class="docutils literal notranslate"><span class="pre">FetchNameHandler.endElement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.groupTypes"><code class="docutils literal notranslate"><span class="pre">FetchNameHandler.groupTypes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.FetchNameHandler.startElement"><code class="docutils literal notranslate"><span class="pre">FetchNameHandler.startElement()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject"><code class="docutils literal notranslate"><span class="pre">TNObject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject.child"><code class="docutils literal notranslate"><span class="pre">TNObject.child()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject.children"><code class="docutils literal notranslate"><span class="pre">TNObject.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject.name"><code class="docutils literal notranslate"><span class="pre">TNObject.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject.nxtype"><code class="docutils literal notranslate"><span class="pre">TNObject.nxtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.FetchNameHandler.TNObject.parent"><code class="docutils literal notranslate"><span class="pre">TNObject.parent</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim"><code class="docutils literal notranslate"><span class="pre">EDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim.content"><code class="docutils literal notranslate"><span class="pre">EDim.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim.source"><code class="docutils literal notranslate"><span class="pre">EDim.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim.store"><code class="docutils literal notranslate"><span class="pre">EDim.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDimensions"><code class="docutils literal notranslate"><span class="pre">EDimensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDoc"><code class="docutils literal notranslate"><span class="pre">EDoc</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDoc.store"><code class="docutils literal notranslate"><span class="pre">EDoc.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EFile"><code class="docutils literal notranslate"><span class="pre">EFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EFilter"><code class="docutils literal notranslate"><span class="pre">EFilter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESelection"><code class="docutils literal notranslate"><span class="pre">ESelection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab"><code class="docutils literal notranslate"><span class="pre">ESlab</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.content"><code class="docutils literal notranslate"><span class="pre">ESlab.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.source"><code class="docutils literal notranslate"><span class="pre">ESlab.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlab.store"><code class="docutils literal notranslate"><span class="pre">ESlab.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice"><code class="docutils literal notranslate"><span class="pre">ESlice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.content"><code class="docutils literal notranslate"><span class="pre">ESlice.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.source"><code class="docutils literal notranslate"><span class="pre">ESlice.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESlice.store"><code class="docutils literal notranslate"><span class="pre">ESlice.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol"><code class="docutils literal notranslate"><span class="pre">ESymbol</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol.store"><code class="docutils literal notranslate"><span class="pre">ESymbol.store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.ESymbol.symbols"><code class="docutils literal notranslate"><span class="pre">ESymbol.symbols</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.InnerXMLParser">nxswriter.InnerXMLParser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.InnerXMLParser.InnerXMLHandler"><code class="docutils literal notranslate"><span class="pre">InnerXMLHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.InnerXMLParser.InnerXMLHandler.characters"><code class="docutils literal notranslate"><span class="pre">InnerXMLHandler.characters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.InnerXMLParser.InnerXMLHandler.endElement"><code class="docutils literal notranslate"><span class="pre">InnerXMLHandler.endElement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.InnerXMLParser.InnerXMLHandler.startElement"><code class="docutils literal notranslate"><span class="pre">InnerXMLHandler.startElement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.InnerXMLParser.InnerXMLHandler.xml"><code class="docutils literal notranslate"><span class="pre">InnerXMLHandler.xml</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.NXSWriter">nxswriter.NXSWriter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread"><code class="docutils literal notranslate"><span class="pre">CommandThread</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.args"><code class="docutils literal notranslate"><span class="pre">CommandThread.args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.command"><code class="docutils literal notranslate"><span class="pre">CommandThread.command</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.estate"><code class="docutils literal notranslate"><span class="pre">CommandThread.estate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.fstate"><code class="docutils literal notranslate"><span class="pre">CommandThread.fstate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.run"><code class="docutils literal notranslate"><span class="pre">CommandThread.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.CommandThread.server"><code class="docutils literal notranslate"><span class="pre">CommandThread.server</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseEntry"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.CloseEntry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseEntryAsynch"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.CloseEntryAsynch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseFile"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.CloseFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenEntry"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.OpenEntry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenEntryAsynch"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.OpenEntryAsynch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenFile"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.OpenFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.Record"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.Record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.RecordAsynch"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.RecordAsynch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.always_executed_hook"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.always_executed_hook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.cthread"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.cthread</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.delete_device"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.delete_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.dev_state"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.dev_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.dev_status"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.dev_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.errors"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.init_device"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.init_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CanFail_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_CanFail_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CanFail_write_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_CanFail_write_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseEntryAsynch_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_CloseEntryAsynch_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseEntry_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_CloseEntry_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseFile_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_CloseFile_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_FileName_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_FileName_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_FileName_write_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_FileName_write_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_JSONRecord_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_JSONRecord_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenEntryAsynch_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_OpenEntryAsynch_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenEntry_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_OpenEntry_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenFile_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_OpenFile_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_RecordAsynch_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_RecordAsynch_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_Record_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_Record_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_SkipAcquisition_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_SkipAcquisition_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_SkipAcquisition_write_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_SkipAcquisition_write_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_StepsPerFile_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_StepsPerFile_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_StepsPerFile_write_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_StepsPerFile_write_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_XMLSettings_allowed"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.is_XMLSettings_allowed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.lock"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.lock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.othread"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.othread</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_CanFail"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_CanFail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_CurrentFileId"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_CurrentFileId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_Errors"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_Errors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_FileName"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_FileName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_JSONRecord"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_JSONRecord()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_SkipAcquisition"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_SkipAcquisition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_StepsPerFile"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_StepsPerFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_XMLSettings"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_XMLSettings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_attr_hardware"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.read_attr_hardware()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.rthread"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.rthread</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.set_state"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.set_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.state_flag"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.state_flag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.tdw"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.tdw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_CanFail"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_CanFail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_FileName"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_FileName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_JSONRecord"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_JSONRecord()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_SkipAcquisition"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_SkipAcquisition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_StepsPerFile"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_StepsPerFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_XMLSettings"><code class="docutils literal notranslate"><span class="pre">NXSDataWriter.write_XMLSettings()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass"><code class="docutils literal notranslate"><span class="pre">NXSDataWriterClass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass.attr_list"><code class="docutils literal notranslate"><span class="pre">NXSDataWriterClass.attr_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass.class_property_list"><code class="docutils literal notranslate"><span class="pre">NXSDataWriterClass.class_property_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass.cmd_list"><code class="docutils literal notranslate"><span class="pre">NXSDataWriterClass.cmd_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass.device_property_list"><code class="docutils literal notranslate"><span class="pre">NXSDataWriterClass.device_property_list</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.NexusXMLHandler">nxswriter.NexusXMLHandler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.characters"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.characters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.close"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.elementClass"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.elementClass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.endElement"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.endElement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.entryAttrs"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.entryAttrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.finalPool"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.finalPool</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.initPool"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.initPool</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.raiseUnsupportedTag"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.raiseUnsupportedTag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.startElement"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.startElement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.stepPool"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.stepPool</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.transparentTags"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.transparentTags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.triggerPools"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.triggerPools</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.withAttr"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.withAttr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.NexusXMLHandler.NexusXMLHandler.withXMLinput"><code class="docutils literal notranslate"><span class="pre">NexusXMLHandler.withXMLinput</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.PyEvalSource">nxswriter.PyEvalSource module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource"><code class="docutils literal notranslate"><span class="pre">PyEvalSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource.getData"><code class="docutils literal notranslate"><span class="pre">PyEvalSource.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource.setDataSources"><code class="docutils literal notranslate"><span class="pre">PyEvalSource.setDataSources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource.setDecoders"><code class="docutils literal notranslate"><span class="pre">PyEvalSource.setDecoders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource.setJSON"><code class="docutils literal notranslate"><span class="pre">PyEvalSource.setJSON()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.PyEvalSource.setup"><code class="docutils literal notranslate"><span class="pre">PyEvalSource.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.PyEvalSource.Variables"><code class="docutils literal notranslate"><span class="pre">Variables</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.StreamSet">nxswriter.StreamSet module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet"><code class="docutils literal notranslate"><span class="pre">StreamSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.debug"><code class="docutils literal notranslate"><span class="pre">StreamSet.debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.error"><code class="docutils literal notranslate"><span class="pre">StreamSet.error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.fatal"><code class="docutils literal notranslate"><span class="pre">StreamSet.fatal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.info"><code class="docutils literal notranslate"><span class="pre">StreamSet.info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.log_debug"><code class="docutils literal notranslate"><span class="pre">StreamSet.log_debug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.log_error"><code class="docutils literal notranslate"><span class="pre">StreamSet.log_error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.log_fatal"><code class="docutils literal notranslate"><span class="pre">StreamSet.log_fatal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.log_info"><code class="docutils literal notranslate"><span class="pre">StreamSet.log_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.log_warn"><code class="docutils literal notranslate"><span class="pre">StreamSet.log_warn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.StreamSet.StreamSet.warn"><code class="docutils literal notranslate"><span class="pre">StreamSet.warn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.TangoDataWriter">nxswriter.TangoDataWriter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.PYTG_BUG_213"><code class="docutils literal notranslate"><span class="pre">PYTG_BUG_213</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.addingLogs"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.addingLogs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.canfail"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.canfail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.closeEntry"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.closeEntry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.closeFile"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.closeFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.currentfileid"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.currentfileid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.defaultCanFail"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.defaultCanFail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.fileName"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.fileName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.getFile"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.getFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.jsonrecord"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.jsonrecord</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.maxElementRuntime"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.maxElementRuntime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.maxRecordRuntime"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.maxRecordRuntime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.metadataOutput"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.metadataOutput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.numberOfThreads"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.numberOfThreads</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.openEntry"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.openEntry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.openFile"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.openFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.record"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.skipacquisition"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.skipacquisition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.stepsperfile"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.stepsperfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.writer"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.writer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoDataWriter.TangoDataWriter.xmlsettings"><code class="docutils literal notranslate"><span class="pre">TangoDataWriter.xmlsettings</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.TangoSource">nxswriter.TangoSource module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.PYTANGO_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PYTANGO_AVAILABLE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.ProxyTools"><code class="docutils literal notranslate"><span class="pre">ProxyTools</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.ProxyTools.isProxyValid"><code class="docutils literal notranslate"><span class="pre">ProxyTools.isProxyValid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.ProxyTools.proxySetup"><code class="docutils literal notranslate"><span class="pre">ProxyTools.proxySetup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource"><code class="docutils literal notranslate"><span class="pre">TangoSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.client"><code class="docutils literal notranslate"><span class="pre">TangoSource.client</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.device"><code class="docutils literal notranslate"><span class="pre">TangoSource.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.fullclient"><code class="docutils literal notranslate"><span class="pre">TangoSource.fullclient</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.getData"><code class="docutils literal notranslate"><span class="pre">TangoSource.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.group"><code class="docutils literal notranslate"><span class="pre">TangoSource.group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.member"><code class="docutils literal notranslate"><span class="pre">TangoSource.member</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.setDataSources"><code class="docutils literal notranslate"><span class="pre">TangoSource.setDataSources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.setDecoders"><code class="docutils literal notranslate"><span class="pre">TangoSource.setDecoders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.setJSON"><code class="docutils literal notranslate"><span class="pre">TangoSource.setJSON()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TangoSource.setup"><code class="docutils literal notranslate"><span class="pre">TangoSource.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice"><code class="docutils literal notranslate"><span class="pre">TgDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.attributes"><code class="docutils literal notranslate"><span class="pre">TgDevice.attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.commands"><code class="docutils literal notranslate"><span class="pre">TgDevice.commands</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.device"><code class="docutils literal notranslate"><span class="pre">TgDevice.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.members"><code class="docutils literal notranslate"><span class="pre">TgDevice.members</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.properties"><code class="docutils literal notranslate"><span class="pre">TgDevice.properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.proxy"><code class="docutils literal notranslate"><span class="pre">TgDevice.proxy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgDevice.setMember"><code class="docutils literal notranslate"><span class="pre">TgDevice.setMember()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup"><code class="docutils literal notranslate"><span class="pre">TgGroup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup.counter"><code class="docutils literal notranslate"><span class="pre">TgGroup.counter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup.devices"><code class="docutils literal notranslate"><span class="pre">TgGroup.devices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup.getData"><code class="docutils literal notranslate"><span class="pre">TgGroup.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup.getDevice"><code class="docutils literal notranslate"><span class="pre">TgGroup.getDevice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgGroup.lock"><code class="docutils literal notranslate"><span class="pre">TgGroup.lock</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember"><code class="docutils literal notranslate"><span class="pre">TgMember</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.encoding"><code class="docutils literal notranslate"><span class="pre">TgMember.encoding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.getData"><code class="docutils literal notranslate"><span class="pre">TgMember.getData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.getValue"><code class="docutils literal notranslate"><span class="pre">TgMember.getValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.isDataSet"><code class="docutils literal notranslate"><span class="pre">TgMember.isDataSet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.memberType"><code class="docutils literal notranslate"><span class="pre">TgMember.memberType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.name"><code class="docutils literal notranslate"><span class="pre">TgMember.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.reset"><code class="docutils literal notranslate"><span class="pre">TgMember.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.TangoSource.TgMember.setData"><code class="docutils literal notranslate"><span class="pre">TgMember.setData()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.ThreadPool">nxswriter.ThreadPool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool"><code class="docutils literal notranslate"><span class="pre">ThreadPool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.append"><code class="docutils literal notranslate"><span class="pre">ThreadPool.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.checkErrors"><code class="docutils literal notranslate"><span class="pre">ThreadPool.checkErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.close"><code class="docutils literal notranslate"><span class="pre">ThreadPool.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.join"><code class="docutils literal notranslate"><span class="pre">ThreadPool.join()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.maxRuntime"><code class="docutils literal notranslate"><span class="pre">ThreadPool.maxRuntime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.numberOfThreads"><code class="docutils literal notranslate"><span class="pre">ThreadPool.numberOfThreads</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.run"><code class="docutils literal notranslate"><span class="pre">ThreadPool.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.runAndWait"><code class="docutils literal notranslate"><span class="pre">ThreadPool.runAndWait()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.ThreadPool.ThreadPool.setJSON"><code class="docutils literal notranslate"><span class="pre">ThreadPool.setJSON()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.Types">nxswriter.Types module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Types.Converters"><code class="docutils literal notranslate"><span class="pre">Converters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.Converters.toBool"><code class="docutils literal notranslate"><span class="pre">Converters.toBool()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP"><code class="docutils literal notranslate"><span class="pre">NTP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.aTn"><code class="docutils literal notranslate"><span class="pre">NTP.aTn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.aTnv"><code class="docutils literal notranslate"><span class="pre">NTP.aTnv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRank"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRankRShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankRShape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRankShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankShape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.convert"><code class="docutils literal notranslate"><span class="pre">NTP.convert</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.createArray"><code class="docutils literal notranslate"><span class="pre">NTP.createArray()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.nTnp"><code class="docutils literal notranslate"><span class="pre">NTP.nTnp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.pTt"><code class="docutils literal notranslate"><span class="pre">NTP.pTt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.rTf"><code class="docutils literal notranslate"><span class="pre">NTP.rTf</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.Types.nptype"><code class="docutils literal notranslate"><span class="pre">nptype()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.globallock"><code class="docutils literal notranslate"><span class="pre">globallock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
+
+GNU GENERAL PUBLIC LICENSE, version 3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
