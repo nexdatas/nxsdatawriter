@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 
 RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get purge curl wget
 RUN apt-get -qq update && apt-get -qq -y dist-upgrade
-RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get install -y  curl gpg-agent mariadb-client python3-h5py python3-sphinx apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libzmq3-dev python3-setuptools libterm-readline-gnu-perl software-properties-common coreutils procps  apt-transport-https gnupg2 ca-certificates wget python3-h5py python3-sphinx apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libzmq3-dev python3-setuptools python3-lxml  liblog4j1.2-java python3-setuptools python3-pytest 
+RUN apt-get -qq update && export DEBIAN_FRONTEND=noninteractive && apt-get install -y  curl gpg-agent mariadb-client python3-h5py python3-sphinx apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libzmq3-dev python3-setuptools libterm-readline-gnu-perl software-properties-common coreutils procps  apt-transport-https gnupg2 ca-certificates wget python3-h5py python3-sphinx apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libzmq3-dev python3-setuptools python3-lxml  liblog4j1.2-java python3-setuptools python3-pytest  python3-pip python3-pip-whl python3-sphinx-bootstrap-theme git
 # hdf5-plugin-bshuf hdf5-plugin-bz2 hdf5-plugin-lz4
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
