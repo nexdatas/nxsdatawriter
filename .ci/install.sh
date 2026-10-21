@@ -91,7 +91,7 @@ if [ "$2" = "2" ]; then
     docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python-pytango nxsconfigserver-db python-nxstools'
 else
     echo "install python3-pytango"
-    if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu24.10py" ] || [ "$1" = "ubuntu26.04py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu23.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] ; then
+    if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu26.10py" ] || [ "$1" = "ubuntu26.04py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu23.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] ; then
 	docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python3-tango nxsconfigserver-db python3-nxstools'
     else
 	docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python3-pytango nxsconfigserver-db python3-nxstools'
