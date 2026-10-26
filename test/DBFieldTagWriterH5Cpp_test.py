@@ -105,7 +105,7 @@ class DBFieldTagWriterH5CppTest(unittest.TestCase):
             home = expanduser("~")
             args2 = {
                 # 'host': u'localhost',
-                'db': u'tango',
+                'database': u'tango',
                 'read_default_file': u'%s/.my.cnf' % home,
                 'use_unicode': True}
             self._mydb = MySQLdb.connect(**args2)
