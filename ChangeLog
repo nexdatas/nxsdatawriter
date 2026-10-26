@@ -1,3 +1,7 @@
+2026-10-26 Jan Kotanski <jankotan@gmail.com>
+	* do not use the HDRI repo in pixi tests (#240)
+	* tagged as 3.25.1
+
 2026-10-21 Jan Kotanski <jankotan@gmail.com>
 	* add pyporject.toml file (#238)
 	* add ubuntu 26.10 tests (#238)
