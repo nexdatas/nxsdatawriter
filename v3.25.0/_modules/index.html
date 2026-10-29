@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview: module code &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../nxswriter.html">nxswriter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.ClientSource">nxswriter.ClientSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DBaseSource">nxswriter.DBaseSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DataHolder">nxswriter.DataHolder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DataSourceFactory">nxswriter.DataSourceFactory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DataSourcePool">nxswriter.DataSourcePool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DataSources">nxswriter.DataSources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.DecoderPool">nxswriter.DecoderPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.EAttribute">nxswriter.EAttribute module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.EField">nxswriter.EField module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.EGroup">nxswriter.EGroup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.ELink">nxswriter.ELink module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.EStrategy">nxswriter.EStrategy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.Element">nxswriter.Element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.ElementThread">nxswriter.ElementThread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.Errors">nxswriter.Errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.FElement">nxswriter.FElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.FetchNameHandler">nxswriter.FetchNameHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.InnerXMLParser">nxswriter.InnerXMLParser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.NXSWriter">nxswriter.NXSWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.NexusXMLHandler">nxswriter.NexusXMLHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.PyEvalSource">nxswriter.PyEvalSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.StreamSet">nxswriter.StreamSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.TangoDataWriter">nxswriter.TangoDataWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.TangoSource">nxswriter.TangoSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.ThreadPool">nxswriter.ThreadPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter.Types">nxswriter.Types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxswriter.html#module-nxswriter">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="_thread.html">_thread</a></li>
+<li><a href="nxswriter.html">nxswriter</a></li>
+<ul><li><a href="nxswriter/ClientSource.html">nxswriter.ClientSource</a></li>
+<li><a href="nxswriter/DBaseSource.html">nxswriter.DBaseSource</a></li>
+<li><a href="nxswriter/DataHolder.html">nxswriter.DataHolder</a></li>
+<li><a href="nxswriter/DataSourceFactory.html">nxswriter.DataSourceFactory</a></li>
+<li><a href="nxswriter/DataSourcePool.html">nxswriter.DataSourcePool</a></li>
+<li><a href="nxswriter/DataSources.html">nxswriter.DataSources</a></li>
+<li><a href="nxswriter/DecoderPool.html">nxswriter.DecoderPool</a></li>
+<li><a href="nxswriter/EAttribute.html">nxswriter.EAttribute</a></li>
+<li><a href="nxswriter/EField.html">nxswriter.EField</a></li>
+<li><a href="nxswriter/EGroup.html">nxswriter.EGroup</a></li>
+<li><a href="nxswriter/ELink.html">nxswriter.ELink</a></li>
+<li><a href="nxswriter/EStrategy.html">nxswriter.EStrategy</a></li>
+<li><a href="nxswriter/Element.html">nxswriter.Element</a></li>
+<li><a href="nxswriter/ElementThread.html">nxswriter.ElementThread</a></li>
+<li><a href="nxswriter/Errors.html">nxswriter.Errors</a></li>
+<li><a href="nxswriter/FElement.html">nxswriter.FElement</a></li>
+<li><a href="nxswriter/FetchNameHandler.html">nxswriter.FetchNameHandler</a></li>
+<li><a href="nxswriter/H5Elements.html">nxswriter.H5Elements</a></li>
+<li><a href="nxswriter/InnerXMLParser.html">nxswriter.InnerXMLParser</a></li>
+<li><a href="nxswriter/NXSWriter.html">nxswriter.NXSWriter</a></li>
+<li><a href="nxswriter/NexusXMLHandler.html">nxswriter.NexusXMLHandler</a></li>
+<li><a href="nxswriter/PyEvalSource.html">nxswriter.PyEvalSource</a></li>
+<li><a href="nxswriter/StreamSet.html">nxswriter.StreamSet</a></li>
+<li><a href="nxswriter/TangoDataWriter.html">nxswriter.TangoDataWriter</a></li>
+<li><a href="nxswriter/TangoSource.html">nxswriter.TangoSource</a></li>
+<li><a href="nxswriter/ThreadPool.html">nxswriter.ThreadPool</a></li>
+<li><a href="nxswriter/Types.html">nxswriter.Types</a></li>
+</ul></ul>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
+
+GNU GENERAL PUBLIC LICENSE, version 3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

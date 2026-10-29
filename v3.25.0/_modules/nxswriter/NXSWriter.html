@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nxswriter.NXSWriter &#8212; nxswriter 3.24.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <script src="../../_static/documentation_options.js?v=d3bef5a7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          nxswriter</a>
+        <span class="navbar-text navbar-version pull-left"><b>3.24</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nxswriter.html">nxswriter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ClientSource">nxswriter.ClientSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DBaseSource">nxswriter.DBaseSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataHolder">nxswriter.DataHolder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSourceFactory">nxswriter.DataSourceFactory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSourcePool">nxswriter.DataSourcePool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DataSources">nxswriter.DataSources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.DecoderPool">nxswriter.DecoderPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EAttribute">nxswriter.EAttribute module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EField">nxswriter.EField module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EGroup">nxswriter.EGroup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ELink">nxswriter.ELink module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.EStrategy">nxswriter.EStrategy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Element">nxswriter.Element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ElementThread">nxswriter.ElementThread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Errors">nxswriter.Errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.FElement">nxswriter.FElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.FetchNameHandler">nxswriter.FetchNameHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.InnerXMLParser">nxswriter.InnerXMLParser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.NXSWriter">nxswriter.NXSWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.NexusXMLHandler">nxswriter.NexusXMLHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.PyEvalSource">nxswriter.PyEvalSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.StreamSet">nxswriter.StreamSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.TangoDataWriter">nxswriter.TangoDataWriter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.TangoSource">nxswriter.TangoSource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.ThreadPool">nxswriter.ThreadPool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter.Types">nxswriter.Types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nxswriter.html#module-nxswriter">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p>
+  <h3 class='versions'>Versions</h3>
+  <p>
+    <ul>
+      <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
+      <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
+      
+      <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
+      
+    </ul>
+  </p>
+</p>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <h1>Source code for nxswriter.NXSWriter</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    &quot;$Name:  $&quot;;</span>
+<span class="c1">#    &quot;$Header:  $&quot;;</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#</span>
+<span class="c1"># file :        NXSDataWriter.py</span>
+<span class="c1">#</span>
+<span class="c1"># description : Python source for the NXSDataWriter and its commands.</span>
+<span class="c1">#                The class is derived from Device. It represents the</span>
+<span class="c1">#                CORBA servant object which will be accessed from the</span>
+<span class="c1">#                network. All commands which can be executed on the</span>
+<span class="c1">#                NXSDataWriter are implemented in this file.</span>
+<span class="c1">#</span>
+<span class="c1"># project :     TANGO Device Server</span>
+<span class="c1">#</span>
+<span class="c1"># $Author:  $</span>
+<span class="c1">#</span>
+<span class="c1"># $Revision:  $</span>
+<span class="c1">#</span>
+<span class="c1"># $Log:  $</span>
+<span class="c1">#</span>
+<span class="c1"># copyleft :    European Synchrotron Radiation Facility</span>
+<span class="c1">#               BP 220, Grenoble 38043</span>
+<span class="c1">#               FRANCE</span>
+<span class="c1">#</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#          This file is generated by POGO</span>
+<span class="c1">#    (Program Obviously used to Generate tango Object)</span>
+<span class="c1">#</span>
+<span class="c1">#         (c) - Software Engineering Group - ESRF</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#</span>
+
+<span class="sd">&quot;&quot;&quot; Nexus Data Writer - Tango Server &quot;&quot;&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">tango</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">PyTango</span> <span class="k">as</span> <span class="nn">tango</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span> <span class="n">Lock</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">.TangoDataWriter</span> <span class="kn">import</span> <span class="n">TangoDataWriter</span> <span class="k">as</span> <span class="n">TDW</span>
+
+
+<div class="viewcode-block" id="CommandThread">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.CommandThread">[docs]</a>
+<span class="k">class</span> <span class="nc">CommandThread</span><span class="p">(</span><span class="n">Thread</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; thread with server command</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">finalState</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;constructor</span>
+
+<span class="sd">        :param server: Tango server implementation</span>
+<span class="sd">        :type server: :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        :param command: Thread command</span>
+<span class="sd">        :type command: :obj:`str`</span>
+<span class="sd">        :param finalState: Final State Code</span>
+<span class="sd">        :type finalState: :class:`tango.DevState`</span>
+<span class="sd">        :param args: List of command arguments</span>
+<span class="sd">        :type args: :obj:`list` &lt;:obj:`str`&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1">#: (:class:`tango.LatestDeviceImpl`) tango server</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
+        <span class="c1">#: (:obj:`__callable__`) command</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">tdw</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+        <span class="c1">#: (:class:`tango.DevState`) final state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fstate</span> <span class="o">=</span> <span class="n">finalState</span>
+        <span class="c1">#: (:class:`tango.DevState`) error state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estate</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span>
+        <span class="c1">#: (:obj:`list` &lt;:obj:`str`&gt;) command arguments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DeviceProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevSource</span><span class="o">.</span><span class="n">DEV</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CommandThread.run">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.CommandThread.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; runs the given command on the server and changes the state on exit</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">state_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fstate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">state</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__failed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">state_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">state</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="NXSDataWriter">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter">[docs]</a>
+<span class="k">class</span> <span class="nc">NXSDataWriter</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Tango Server to store data in H5 files</span>
+
+<span class="sd">    :brief: Device States Description:</span>
+<span class="sd">            DevState.ON :       NeXuS Data Server is switch on</span>
+<span class="sd">            DevState.OFF :      NeXuS Data Writer is switch off</span>
+<span class="sd">            DevState.EXTRACT :  H5 file is open</span>
+<span class="sd">            DevState.OPEN :     XML configuration is initialized</span>
+<span class="sd">            DevState.RUNNING :  NeXus Data Server is writing</span>
+<span class="sd">            DevState.FAULT :    Error state</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cl</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Device constructor</span>
+
+<span class="sd">        :param cl: class name</span>
+<span class="sd">        :type cl: :obj:`str`</span>
+<span class="sd">        :param name: device name</span>
+<span class="sd">        :type name: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cl</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In __init__()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;lock&quot;</span><span class="p">):</span>
+            <span class="c1">#: (:class:`threading.Lock`) thread lock</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+        <span class="c1">#: (:class:`tango.DevState`) state flag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span>
+        <span class="c1">#: (:class:`CommandThread`) openentry thread</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">othread</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`CommandThread`) record thread</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rthread</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`CommandThread`) closentry thread</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cthread</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:class:`nxswriter.TangoDataWriter.TangoDataWriter`) \</span>
+        <span class="c1">#:       Tango Data Writer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span> <span class="o">=</span> <span class="n">TDW</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1">#: (:obj:`list`&lt;:obj:`str`&gt;) list with errors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#: (:obj:`dict` &lt; :class:`tango.DevState`, :obj:`str`&gt; ) \</span>
+        <span class="c1">#:      status messages</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__status</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">:</span> <span class="s2">&quot;Not Initialized&quot;</span><span class="p">,</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">:</span> <span class="s2">&quot;Ready&quot;</span><span class="p">,</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">:</span> <span class="s2">&quot;File Open&quot;</span><span class="p">,</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">:</span> <span class="s2">&quot;Entry Open&quot;</span><span class="p">,</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">:</span> <span class="s2">&quot;Writing ...&quot;</span><span class="p">,</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">:</span> <span class="s2">&quot;Error&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">NXSDataWriter</span><span class="o">.</span><span class="n">init_device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NXSDataWriter.delete_device">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.delete_device">[docs]</a>
+    <span class="k">def</span> <span class="nf">delete_device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Device destructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In delete_device()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;tdw&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="p">,</span> <span class="s1">&#39;closeFile&#39;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">closeFile</span><span class="p">()</span>
+                    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.init_device">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.init_device">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Device initialization</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In init_device()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;lock&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">oldstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;tdw&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="p">,</span> <span class="s1">&#39;closeFile&#39;</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">oldstate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span>
+                        <span class="p">]:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">closeFile</span><span class="p">()</span>
+                        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span>
+                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span> <span class="o">=</span> <span class="n">TDW</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_device_class</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">defaultCanFail</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DefaultCanFail</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">addingLogs</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AddingLogs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.set_state">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.set_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;set_state method</span>
+
+<span class="sd">        :param state: State Code</span>
+<span class="sd">        :type state: :class:`tango.DevState`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span> <span class="o">=</span> <span class="n">state</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.dev_state">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.dev_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">dev_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; dev_state method</span>
+
+<span class="sd">        :returns: State Code</span>
+<span class="sd">        :rtype: :class:`tango.DevState`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span> <span class="o">!=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ALARM</span><span class="p">:</span>
+                <span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="o">.</span><span class="n">dev_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tango</span><span class="o">.</span><span class="n">LatestDeviceImpl</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.always_executed_hook">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.always_executed_hook">[docs]</a>
+    <span class="k">def</span> <span class="nf">always_executed_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Always excuted hook method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In always_excuted_hook()&quot;</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ==================================================================</span>
+    <span class="c1">#</span>
+    <span class="c1">#    NXSDataWriter read/write attribute methods</span>
+    <span class="c1">#</span>
+    <span class="c1"># ==================================================================</span>
+<div class="viewcode-block" id="NXSDataWriter.read_attr_hardware">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_attr_hardware">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_attr_hardware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read Attribute Hardware</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_attr_hardware()&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__failed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; on error</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+
+<div class="viewcode-block" id="NXSDataWriter.read_CurrentFileId">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_CurrentFileId">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_CurrentFileId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read CurrentFileId</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_CurrentFileId()&quot;</span><span class="p">)</span>
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">currentfileid</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_XMLSettings">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_XMLSettings">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_XMLSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read XMLSettings attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_XMLSettings()&quot;</span><span class="p">)</span>
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">xmlsettings</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_XMLSettings">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_XMLSettings">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_XMLSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write XMLSettings attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_XMLSettings()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">xmlsettings</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_XMLSettings_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_XMLSettings_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_XMLSettings_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;XMLSettings attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_JSONRecord">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_JSONRecord">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_JSONRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read JSONRecord attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_JSONRecord()&quot;</span><span class="p">)</span>
+
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">jsonrecord</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_JSONRecord">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_JSONRecord">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_JSONRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write JSONRecord attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_JSONRecord()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">jsonrecord</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_JSONRecord_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_JSONRecord_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_JSONRecord_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; JSONRecord attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_FileName">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_FileName">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_FileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read FileName attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_FileName()&quot;</span><span class="p">)</span>
+
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_FileName">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_FileName">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_FileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write FileName attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_FileName()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_FileName_write_allowed</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">fileName</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">warn_stream</span><span class="p">(</span><span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_FileName_write_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_FileName_write_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_FileName_write_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; FileName attribute Write State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_FileName_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_FileName_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_FileName_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;FileName attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_CanFail">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_CanFail">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_CanFail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read CanFail attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_CanFail()&quot;</span><span class="p">)</span>
+
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">canfail</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_CanFail">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_CanFail">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_CanFail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write CanFail attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_CanFail()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_CanFail_write_allowed</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">canfail</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">warn_stream</span><span class="p">(</span><span class="s2">&quot;To change the can fail flag please&quot;</span>
+                             <span class="s2">&quot; close the file.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;To change the can fail flag please close the file.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_CanFail_write_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CanFail_write_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_CanFail_write_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CanFail attribute Write State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_CanFail_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CanFail_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_CanFail_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;CanFail attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_SkipAcquisition">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_SkipAcquisition">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_SkipAcquisition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read SkipAcquisition attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_SkipAcquisition()&quot;</span><span class="p">)</span>
+
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">skipacquisition</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_SkipAcquisition">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_SkipAcquisition">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_SkipAcquisition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write SkipAcquisition attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_SkipAcquisition()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_SkipAcquisition_write_allowed</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">skipacquisition</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">warn_stream</span><span class="p">(</span><span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_SkipAcquisition_write_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_SkipAcquisition_write_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_SkipAcquisition_write_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; SkipAcquisition attribute Write State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_SkipAcquisition_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_SkipAcquisition_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_SkipAcquisition_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SkipAcquisition attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_StepsPerFile">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_StepsPerFile">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_StepsPerFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read StepsPerFile attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_StepsPerFile()&quot;</span><span class="p">)</span>
+
+        <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">stepsperfile</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.write_StepsPerFile">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.write_StepsPerFile">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_StepsPerFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Write StepsPerFile attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In write_StepsPerFile()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_StepsPerFile_write_allowed</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">stepsperfile</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">get_write_value</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">warn_stream</span><span class="p">(</span><span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;To change the file name please close the file.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_StepsPerFile_write_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_StepsPerFile_write_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_StepsPerFile_write_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; StepsPerFile attribute Write State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_StepsPerFile_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_StepsPerFile_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_StepsPerFile_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;StepsPerFile attribute State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.read_Errors">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.read_Errors">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_Errors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Read Errors attribute</span>
+
+<span class="sd">        :param attr: attribute object</span>
+<span class="sd">        :type attr: :class:`tango.Attribute`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In read_Errors()&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="n">attr</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ==================================================================</span>
+    <span class="c1">#</span>
+    <span class="c1">#    NXSDataWriter command methods</span>
+    <span class="c1">#</span>
+    <span class="c1"># ==================================================================</span>
+
+<div class="viewcode-block" id="NXSDataWriter.dev_status">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.dev_status">[docs]</a>
+    <span class="k">def</span> <span class="nf">dev_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Status command</span>
+
+<span class="sd">        :brief: This command gets the device status</span>
+<span class="sd">                (stored in its &lt;i&gt;device_status&lt;/i&gt; data member)</span>
+<span class="sd">                and returns it to the caller.</span>
+
+<span class="sd">        :returns: Status description</span>
+<span class="sd">        :rtype: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In dev_status()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_flag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__status</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__status</span><span class="p">[</span><span class="n">state</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.OpenFile">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenFile">[docs]</a>
+    <span class="k">def</span> <span class="nf">OpenFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;OpenFile command</span>
+
+<span class="sd">        :brief: Opens the H5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In OpenFile()&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">]:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CloseFile</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Writer</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">metadataOutput</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MetadataOutput</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">openFile</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_OpenFile_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenFile_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_OpenFile_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; OpenFile command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.OpenEntry">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenEntry">[docs]</a>
+    <span class="k">def</span> <span class="nf">OpenEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; OpenEntry command</span>
+
+<span class="sd">        :brief: Creates the new entry</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In OpenEntry()&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_device_class</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">numberOfThreads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NumberOfThreads</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">maxRecordRuntime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MaxRecordRuntime</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">maxElementRuntime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MaxElementRuntime</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">openEntry</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_OpenEntry_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenEntry_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_OpenEntry_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; OpenEntry command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.Record">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.Record">[docs]</a>
+    <span class="k">def</span> <span class="nf">Record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argin</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Record command</span>
+
+<span class="sd">        :brief: Records data for one scan step</span>
+<span class="sd">        :param argin: JSON string with data</span>
+<span class="sd">        :type argin: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In Record()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">argin</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_Record_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_Record_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_Record_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Record command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.CloseEntry">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseEntry">[docs]</a>
+    <span class="k">def</span> <span class="nf">CloseEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CloseEntry command</span>
+
+<span class="sd">        :brief: Closes the entry</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In CloseEntry()&quot;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">closeEntry</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_CloseEntry_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseEntry_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_CloseEntry_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CloseEntry command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.OpenEntryAsynch">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.OpenEntryAsynch">[docs]</a>
+    <span class="k">def</span> <span class="nf">OpenEntryAsynch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; OpenEntryAsynch command</span>
+
+<span class="sd">        :brief: Creates the new entry in asynchronous mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In OpenEntryAsynch()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_device_class</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">numberOfThreads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NumberOfThreads</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">maxRecordRuntime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MaxRecordRuntime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">maxElementRuntime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MaxElementRuntime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Writer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">metadataOutput</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MetadataOutput</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">othread</span> <span class="o">=</span> <span class="n">CommandThread</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;openEntry&quot;</span><span class="p">,</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">othread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_OpenEntryAsynch_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_OpenEntryAsynch_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_OpenEntryAsynch_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; OpenEntryAsynch command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.RecordAsynch">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.RecordAsynch">[docs]</a>
+    <span class="k">def</span> <span class="nf">RecordAsynch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argin</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; RecordAsynch command</span>
+
+<span class="sd">        :brief: Records data for one scan step in asynchronous mode</span>
+<span class="sd">        :param argin:  DevString    JSON string with data</span>
+<span class="sd">        :type argin: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In RecordAsynch()&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rthread</span> <span class="o">=</span> <span class="n">CommandThread</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">,</span> <span class="p">[</span><span class="n">argin</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rthread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_RecordAsynch_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_RecordAsynch_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_RecordAsynch_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; RecordAsynch command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.CloseEntryAsynch">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseEntryAsynch">[docs]</a>
+    <span class="k">def</span> <span class="nf">CloseEntryAsynch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;CloseEntryAsynch command</span>
+
+<span class="sd">        :brief: Closes the entry is asynchronous mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In CloseEntryAsynch()&quot;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cthread</span> <span class="o">=</span> <span class="n">CommandThread</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;closeEntry&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cthread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_CloseEntryAsynch_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseEntryAsynch_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_CloseEntryAsynch_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CloseEntryAsynch command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.CloseFile">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.CloseFile">[docs]</a>
+    <span class="k">def</span> <span class="nf">CloseFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;CloseFile command</span>
+
+<span class="sd">        :brief: Close the H5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_stream</span><span class="p">(</span><span class="s2">&quot;In CloseFile()&quot;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">EXTRACT</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CloseEntry</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">FAULT</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tdw</span><span class="o">.</span><span class="n">closeFile</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DevFailed</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__failed</span><span class="p">()</span>
+            <span class="n">tango</span><span class="o">.</span><span class="n">Except</span><span class="o">.</span><span class="n">throw_exception</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NXSDataWriter.is_CloseFile_allowed">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriter.is_CloseFile_allowed">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_CloseFile_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CloseFile command State Machine</span>
+
+<span class="sd">        :returns: True if the operation allowed</span>
+<span class="sd">        :rtype: :obj:`bool`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">ON</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+                                <span class="n">tango</span><span class="o">.</span><span class="n">DevState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="NXSDataWriterClass">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.NXSWriter.NXSDataWriterClass">[docs]</a>
+<span class="k">class</span> <span class="nc">NXSDataWriterClass</span><span class="p">(</span><span class="n">tango</span><span class="o">.</span><span class="n">DeviceClass</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; NXSDataWriterClass class definition</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#: (:obj:`dict` &lt;:obj:`str`, \</span>
+    <span class="c1">#:       [ :obj:`str`, :class:`tango.CmdArgType`, \</span>
+    <span class="c1">#:       [ :obj:`list` &lt;:obj:`int`&gt; ] ] &gt; ) Class Properties</span>
+    <span class="n">class_property_list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="c1">#: (:obj:`dict` &lt;:obj:`str`, \</span>
+    <span class="c1">#:       [ :obj:`str`, :class:`tango.CmdArgType`, \</span>
+    <span class="c1">#:       [ :obj:`list` &lt;:obj:`int`&gt; ] ] &gt; ) Device Properties</span>
+    <span class="n">device_property_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;NumberOfThreads&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevLong</span><span class="p">,</span>
+         <span class="s2">&quot;maximal number of threads&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="mi">100</span><span class="p">]],</span>
+        <span class="s1">&#39;MaxRecordRuntime&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevDouble</span><span class="p">,</span>
+         <span class="s2">&quot;maximal runtime for a record command in seconds&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="mf">0.0</span><span class="p">]],</span>
+        <span class="s1">&#39;MaxElementRuntime&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevDouble</span><span class="p">,</span>
+         <span class="s2">&quot;maximal runtime for a thread element in seconds&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="mf">0.0</span><span class="p">]],</span>
+        <span class="s1">&#39;Writer&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+         <span class="s2">&quot;writer module&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;DefaultCanFail&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevBoolean</span><span class="p">,</span>
+         <span class="s2">&quot;Default value of CanFail attribute&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="kc">True</span><span class="p">]],</span>
+        <span class="s1">&#39;AddingLogs&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevBoolean</span><span class="p">,</span>
+         <span class="s2">&quot;Add XML logs&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="kc">True</span><span class="p">]],</span>
+        <span class="s1">&#39;MetadataOutput&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+         <span class="s2">&quot;metadata output&quot;</span><span class="p">,</span>
+         <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]],</span>
+    <span class="p">}</span>
+
+    <span class="c1">#: (:obj:`dict` &lt;:obj:`str`, \</span>
+    <span class="c1">#:       [[ :class:`tango.CmdArgType`, :obj:`str`]] &gt;)</span>
+    <span class="c1">#:       Command definitions</span>
+    <span class="n">cmd_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;OpenFile&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;OpenEntry&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;Record&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span> <span class="s2">&quot;JSON string with data&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;CloseEntry&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;OpenEntryAsynch&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;RecordAsynch&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span> <span class="s2">&quot;JSON string with data&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;CloseEntryAsynch&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+        <span class="s1">&#39;CloseFile&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevVoid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+    <span class="p">}</span>
+
+    <span class="c1">#: (:obj:`dict` &lt;:obj:`str`, \</span>
+    <span class="c1">#:  [[ :class:`tango.CmdArgType`, :class:`tango.AttrDataFormat`, \</span>
+    <span class="c1">#:  :class:`tango.AttrWriteType`], :obj:`dict` &lt;:obj:`str`, any&gt; ] &gt; ) \</span>
+    <span class="c1">#:  Attribute definitions</span>
+    <span class="n">attr_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;XMLSettings&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;XML Configuration&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;An XML string with Nexus configuration.&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;Display level&#39;</span><span class="p">:</span> <span class="n">tango</span><span class="o">.</span><span class="n">DispLevel</span><span class="o">.</span><span class="n">EXPERT</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;JSONRecord&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;JSON string with client data&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;A JSON string with global client data.&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;Display level&#39;</span><span class="p">:</span> <span class="n">tango</span><span class="o">.</span><span class="n">DispLevel</span><span class="o">.</span><span class="n">EXPERT</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;FileName&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Output file with its path&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;A name of H5 output file with its full path&quot;</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;CanFail&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevBoolean</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Can fail&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Global can fail flag. By default it is False&quot;</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;SkipAcquisition&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevBoolean</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Skip acquisition&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Skip acquisition. &quot;</span>
+             <span class="s2">&quot;It is set to default False value &quot;</span>
+             <span class="s2">&quot;after excuting the OpenEntry, Record or CloseEntry&quot;</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;Errors&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevString</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SPECTRUM</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;List of errors&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;list of errors&quot;</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;CurrentFileId&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevLong</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Current file id&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;current file id&quot;</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s1">&#39;StepsPerFile&#39;</span><span class="p">:</span>
+        <span class="p">[[</span><span class="n">tango</span><span class="o">.</span><span class="n">DevLong</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span>
+          <span class="n">tango</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">],</span>
+         <span class="p">{</span>
+             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Steps per file&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of steps per file&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;Memorized&#39;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+        <span class="p">}],</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;  NXSDataWriterClass Constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tango</span><span class="o">.</span><span class="n">DeviceClass</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In NXSDataWriterClass constructor&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># NXSDataWriter class main method</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
+
+GNU GENERAL PUBLIC LICENSE, version 3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
