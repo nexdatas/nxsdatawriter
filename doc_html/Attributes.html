@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title> NXSDataWriter Tango Class Attributes </title>
+</head>
+<body text="Black" bgcolor="White" link="Blue" vlink="Purple" alink="Red">
+<br><br><br><br>
+<Table Border=2 Cellpadding=3 CELLSPACING=0>
+	<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+	<td colspan=8> <font size=+1> <center><b> NXSDataWriter Class Attributes </b></font></center></td>
+	<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+		<td> <center><b> Name </b></center> </td>
+		<td> <center><b> Inherited </b></center> </td>
+		<td> <center><b> Abstract </b></center> </td>
+		<td> <center><b> Attr. type </b></center> </td>
+		<td> <center><b> R/W type </b></center> </td>
+		<td> <center><b> Data type </b></center> </td>
+		<td> <center><b> Level </b></center> </td>
+		<td> <center><b> Description </b></center> </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrXMLSettings.html"> XMLSettings </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_STRING </td>
+		<td> EXPERT </td>
+		<td> An XML string with Nexus configuration. </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrJSONRecord.html"> JSONRecord </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_STRING </td>
+		<td> EXPERT </td>
+		<td> A JSON string with global client data. </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrFileName.html"> FileName </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_STRING </td>
+		<td> OPERATOR </td>
+		<td> A name of H5 output file with its full path </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrCurrentFileId.html"> CurrentFileId </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ </td>
+		<td> Tango::DEV_LONG </td>
+		<td> OPERATOR </td>
+		<td> Current file id </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrStepsPerFile.html"> StepsPerFile </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_LONG </td>
+		<td> OPERATOR </td>
+		<td> Steps per file </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrCanFail.html"> CanFail </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_BOOLEAN </td>
+		<td> OPERATOR </td>
+		<td> Global can fail flag. By default it is False </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrSkipAcquisition.html"> SkipAcquisition </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Scalar </td>
+		<td> READ_WRITE </td>
+		<td> Tango::DEV_BOOLEAN </td>
+		<td> OPERATOR </td>
+		<td> Skip acquisition. It is set to default False value  after excuting the OpenEntry, Record or CloseEntry </td>
+	</tr>
+	<tr>
+		<td> <a href="AttrErrors.html"> Errors </a> </td>
+		<td> false </td>
+		<td> false </td>
+		<td> Spectrum </td>
+		<td> READ </td>
+		<td> Tango::DEV_STRING </td>
+		<td> OPERATOR </td>
+		<td> list of errors </td>
+	</tr>
+</table>
+<br><br>
+<hr>
+<br><br>
+<font size="+1"><u><b> There is no dynamic attribute defined. </b></u></font>
+</body>
+</html>
