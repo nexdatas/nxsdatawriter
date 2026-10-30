@@ -34,7 +34,7 @@ NXSDataWriter is a Tango server which allows to store NeXuS Data in H5 files.
 The server provides storing data from other Tango devices,
 various databases as well as passed by a user client via JSON strings.
 
-Tango Server API: https://nexdatas.github.io/nxsdatawriter/doc_html
+Tango Server API: https://nexdatas.github.io/nxsdatawriter/stable/doc_html
 
 | Source code: https://github.com/nexdatas/nxsdatawriter
 | Project Web page: https://nexdatas.github.io/nxsdatawriter
