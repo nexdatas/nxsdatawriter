@@ -7,9 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # add the HDRI repository
 RUN apt-get -qq update && apt-get -qq install -y software-properties-common curl wget
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-RUN curl -s https://docs.desy.de/pni-hdri/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
+RUN curl -s https://repos.desy.de/pni-hdri/debian_repo.pub.gpg  | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg --import
 RUN chmod 644 /etc/apt/trusted.gpg.d/debian-hdri-repo.gpg
-RUN add-apt-repository "deb https://docs.desy.de/pni-hdri/apt/ubuntu lunar main" -y
+RUN add-apt-repository "deb https://repos.desy.de/pni-hdri/apt/ubuntu lunar main" -y
 
 # install packages
 RUN apt-get -qq update && apt-get -qq dist-upgrade
