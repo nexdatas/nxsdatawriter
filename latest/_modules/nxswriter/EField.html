@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.EField &#8212; nxswriter 3.25.1 documentation</title>
+    <title>nxswriter.EField &#8212; nxswriter 3.26.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="../../_static/documentation_options.js?v=06133be7"></script>
+    <script src="../../_static/documentation_options.js?v=30146115"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +34,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.25</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,6 +132,7 @@
       <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="../../index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
       
@@ -322,8 +323,6 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reloadmode</span><span class="p">:</span>
             <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">kd</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">kd</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastObject</span><span class="p">()]</span>
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-                    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
                 <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastObject</span><span class="p">()</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">f</span>
 
@@ -367,10 +366,6 @@
 
                             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Wrong filter cd_values&quot;</span><span class="p">)</span>
                     <span class="n">datafilters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datafilter</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-            <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">shape</span><span class="p">:</span>
@@ -428,16 +423,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_createAttributes</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">&quot;POSTRUN&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-                    <span class="s2">&quot;postrun&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="o">...</span><span class="p">]</span> \
-                    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postrun</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-                    <span class="s2">&quot;postrun&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
-                    <span class="s2">&quot;string&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="o">...</span><span class="p">]</span> \
-                    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postrun</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">h5Object</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="s2">&quot;postrun&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="o">...</span><span class="p">]</span> \
+                <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postrun</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__setStrategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides strategy or fill the value in</span>
@@ -449,10 +438,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">isValid</span><span class="p">():</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-                <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">val</span><span class="p">:</span>
                 <span class="n">dh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_setValue</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">),</span> <span class="n">val</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__growshape</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
