@@ -104,15 +104,6 @@ To install only the python3 package
 	  $ apt-get update
 	  $ apt-get install python3-nxswriter
 
-and for python2
-
-.. code-block:: console
-
-	  $ apt-get update
-	  $ apt-get install python-nxswriter
-
-if exists.
-
 
 
 From pip

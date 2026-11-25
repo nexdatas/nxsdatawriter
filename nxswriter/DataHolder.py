@@ -20,15 +20,8 @@
 """ definition of a data holder with casting methods """
 
 import numpy
-import sys
 
 from .Types import NTP, nptype
-
-
-if sys.version_info > (3,):
-    unicode = str
-else:
-    bytes = str
 
 
 class DataHolder(object):
@@ -135,7 +128,7 @@ class DataHolder(object):
             if dtype in NTP.pTt.keys() \
                     and NTP.pTt[dtype] == str(self.tangoDType):
                 # workaround for bug python-pni #8
-                if isinstance(self.value, unicode):
+                if isinstance(self.value, str):
                     return str(self.value)
                 else:
                     return self.value

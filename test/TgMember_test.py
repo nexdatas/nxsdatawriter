@@ -52,9 +52,6 @@ import threading
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-
 
 # test pool
 class pool(object):
@@ -67,20 +64,19 @@ class pool(object):
 
 #: (:obj:`bool`) tango bug #213 flag related to EncodedAttributes in python3
 PYTG_BUG_213 = False
-if sys.version_info > (3,):
-    try:
-        PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
-            map(int, tango.__version__.split(".")[:3]))
-        if PYTGMAJOR <= 9:
-            if PYTGMAJOR == 9:
-                if PYTGMINOR < 2:
-                    PYTG_BUG_213 = True
-                elif PYTGMINOR == 2 and PYTGPATCH <= 4:
-                    PYTG_BUG_213 = True
-            else:
+try:
+    PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
+        map(int, tango.__version__.split(".")[:3]))
+    if PYTGMAJOR <= 9:
+        if PYTGMAJOR == 9:
+            if PYTGMINOR < 2:
                 PYTG_BUG_213 = True
-    except Exception:
-        pass
+            elif PYTGMINOR == 2 and PYTGPATCH <= 4:
+                PYTG_BUG_213 = True
+        else:
+            PYTG_BUG_213 = True
+except Exception:
+    pass
 
 
 # test fixture
@@ -107,10 +103,10 @@ class TgMemberTest(unittest.TestCase):
         self._bfloat = "float64" if IS64BIT else "float32"
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
             import time
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.__seed)
 

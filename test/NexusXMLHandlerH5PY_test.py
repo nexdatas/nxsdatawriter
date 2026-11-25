@@ -653,10 +653,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
             st += ' %s ="%s"' % (a, attr1[a])
         xml = '<group%s/>' % (st)
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -794,10 +791,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '<group%s/>' % (st)
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -877,10 +871,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1052,10 +1043,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1259,10 +1247,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</field>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1344,10 +1329,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</attribute>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1484,10 +1466,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</attribute>'
         xml += '</field>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1628,10 +1607,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1686,10 +1662,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1740,10 +1713,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1794,10 +1764,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1860,10 +1827,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</field>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -1952,10 +1916,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</group>'
 
         # parser = sax.make_parser()
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -2048,10 +2009,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</group>'
 
         # parser = sax.make_parser()
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -2130,10 +2088,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
         self.assertTrue(isinstance(el.initPool, ThreadPool))
@@ -2208,10 +2163,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += value
         xml += strtag
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
         self.assertTrue(isinstance(el.initPool, ThreadPool))
@@ -2288,10 +2240,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += value
         xml += strtag
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
         self.assertTrue(isinstance(el.initPool, ThreadPool))
@@ -2362,10 +2311,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
         self.assertTrue(isinstance(el.initPool, ThreadPool))
@@ -2435,10 +2381,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
         self.assertTrue(isinstance(el.initPool, ThreadPool))
@@ -2506,10 +2449,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml = '<field%s>' % (st)
         xml += value
         xml += '</field>'
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(len(el.triggerPools), 1)
         self.assertTrue(isinstance(el.triggerPools["mytrigger"], ThreadPool))
@@ -2591,10 +2531,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</field>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -2683,10 +2620,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</field>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -2776,10 +2710,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</definition>'
         xml += '</group>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -2869,10 +2800,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
         xml += '</group>'
         xml += '</mydefinition>'
 
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
 
         self.assertEqual(el.triggerPools, {})
 
@@ -3016,10 +2944,7 @@ class NexusXMLHandlerH5PYTest(unittest.TestCase):
 
         el.raiseUnsupportedTag = False
         self.assertTrue(not el.raiseUnsupportedTag)
-        if sys.version_info > (3,):
-            sax.parseString(bytes(xml, "UTF-8"), el)
-        else:
-            sax.parseString(xml, el)
+        sax.parseString(bytes(xml, "UTF-8"), el)
         self._nxFile.close()
         os.remove(self._fname)
 

@@ -37,10 +37,7 @@ def tobytes(x):
     :returns:  decode string in byte array
     :rtype: :obj:``bytes
     """
-    if sys.version_info > (3,):
-        return bytes(x, "utf-8")
-    else:
-        return bytes(x)
+    return bytes(x, "utf-8")
 
 
 # if 64-bit machione

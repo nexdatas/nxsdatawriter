@@ -86,39 +86,27 @@ fi
 
 # docker exec  --user root ndts chown -R tango:tango .
 
-if [ "$2" = "2" ]; then
-    echo "install python-pytango"
-    docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python-pytango nxsconfigserver-db python-nxstools'
-else
-    echo "install python3-pytango"
-    if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu26.10py" ] || [ "$1" = "ubuntu26.04py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu23.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] ; then
+echo "install python3-pytango"
+if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu26.10py" ] || [ "$1" = "ubuntu26.04py" ] || [ "$1" = "ubuntu26.04" ] || [ "$1" = "ubuntu23.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "debian11" ] || [ "$1" = "debian12" ] || [ "$1" = "debian12tg10" ] || [ "$1" = "debian13" ] || [ "$1" = "debian13py" ] ; then
 	docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python3-tango nxsconfigserver-db python3-nxstools'
-    else
+else
 	docker exec  --user root ndts /bin/sh -c 'apt-get -qq update; apt-get -qq install -y   python3-pytango nxsconfigserver-db python3-nxstools'
-    fi
 fi
 if [ "$?" != "0" ]; then exit 255; fi
 
-if [ "$2" = "2" ]; then
-    echo "install python-nxswriter"
-    docker exec --user root ndts chown -R tango:tango .
-    docker exec  ndts python setup.py build
-    docker exec --user root ndts python setup.py  install
-else
-    echo "install python3-nxswriter"
-    docker exec --user root ndts chown -R tango:tango .
-    docker exec ndts mkdir build
-    if [ "$1" = "ubuntu22.04" ] ; then
+echo "install python3-nxswriter"
+docker exec --user root ndts chown -R tango:tango .
+docker exec ndts mkdir build
+if [ "$1" = "ubuntu22.04" ] ; then
 	docker exec --user root ndts python3 -m pip install . -vv  --no-deps --no-build-isolation
-    else
+else
 	docker exec --user root ndts python3 -m pip install . -vv  --no-deps --no-build-isolation  --break-system-packages --root-user-action=ignore
-    fi    
-    # if [ "$?" != "0" ]; then exit 255; fi
+fi    
+# if [ "$?" != "0" ]; then exit 255; fi
 
-    echo "build python3-nxstools docs"
-    docker exec ndts mkdir doc/_static
-    docker exec ndts sphinx-build  doc build/sphinx/html
-fi
+echo "build python3-nxstools docs"
+docker exec ndts mkdir doc/_static
+docker exec ndts sphinx-build  doc build/sphinx/html
 if [ $? != 0]; then exit 255; fi
 
 if  [ "$1" = "debian13py" ] || [ "$1" = "ubuntu26.04py" ]|| [ "$1" = "ubuntu26.10py" ] ; then

@@ -24,17 +24,10 @@ import random
 import binascii
 import time
 import numpy
-import sys
 
 from nxswriter import Types
 
 from math import exp
-
-if sys.version_info > (3,):
-    unicode = str
-    long = int
-else:
-    bytes = str
 
 
 try:
@@ -61,9 +54,9 @@ class Checker(object):
 
         try:
             # random seed
-            self.seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.seed = long(time.time() * 256)  # use fractional seconds
+            self.seed = int(time.time() * 256)  # use fractional seconds
             #  self.seed = 113927724434234094860192629108901591122
         self.__rnd = random.Random(self.seed)
 
@@ -239,7 +232,7 @@ class Checker(object):
             self._tc.assertEqual(len(cnt.shape), 0)
         self._tc.assertEqual(cnt.dtype, dtype)
         # pninx is not supporting reading string areas
-        if not isinstance(values, str) and not isinstance(values, unicode):
+        if not isinstance(values, str) and not isinstance(values, str):
             value = cnt[...]
             if self._isNumeric(value):
                 #  print "Val", name , values ,value
@@ -289,7 +282,7 @@ class Checker(object):
         # pninx is not supporting reading string areas
 
         for i in range(len(values)):
-            if isinstance(cnt[...], str) or isinstance(cnt[...], unicode):
+            if isinstance(cnt[...], str) or isinstance(cnt[...], str):
                 self._tc.assertEqual(values[i], cnt[...])
             elif dtype != "string" and self._isNumeric(cnt[i]) and not (
                     isinstance(cnt[...], numpy.ndarray) and
@@ -345,11 +338,8 @@ class Checker(object):
     # \param checking instance
     # \returns is instance is numeric
     def _isNumeric(self, instance):
-        if sys.version_info > (3,):
-            attrs = ['__pow__', '__mul__', '__floordiv__',
-                     '__truediv__', '__add__', '__sub__']
-        else:
-            attrs = ['__pow__', '__mul__', '__div__', '__add__', '__sub__']
+        attrs = ['__pow__', '__mul__', '__floordiv__',
+                 '__truediv__', '__add__', '__sub__']
         return all(hasattr(instance, attr) for attr in attrs)
 
     # creates spectrum plot with random Gaussians
@@ -414,7 +404,7 @@ class Checker(object):
         # pninx is not supporting reading string areas
         if (
                 not isinstance(values[0], str) and
-                not isinstance(values[0], unicode) and
+                not isinstance(values[0], str) and
                 not isinstance(values[0], bytes)
         ):
             value = cnt.read()
@@ -487,7 +477,7 @@ class Checker(object):
         self._tc.assertEqual(cnt.dtype, dtype)
         self._tc.assertEqual(cnt.size, 1)
         # pninx is not supporting reading string areas
-        if not isinstance(values, str) and not isinstance(values, unicode):
+        if not isinstance(values, str) and not isinstance(values, str):
             value = cnt.read()
             if self._isNumeric(value):
                 try:
@@ -552,7 +542,7 @@ class Checker(object):
         self._tc.assertEqual(cnt.dtype, dtype)
         self._tc.assertEqual(cnt.size, 1)
         # pninx is not supporting reading string areas
-        if not isinstance(values, str) and not isinstance(values, unicode):
+        if not isinstance(values, str) and not isinstance(values, str):
             value = cnt.read()
             if self._isNumeric(value):
                 try:
@@ -668,7 +658,7 @@ class Checker(object):
             if atts[a] is not None:
                 self._tc.assertEqual(at[...], atts[a])
 
-        if not isinstance(values, str) and not isinstance(values, unicode):
+        if not isinstance(values, str) and not isinstance(values, str):
             value = cnt.read()
             if self._isNumeric(value):
                 try:
@@ -728,7 +718,7 @@ class Checker(object):
             if atts[a] is not None:
                 self._tc.assertEqual(at[...], atts[a])
 
-        if not isinstance(values, str) and not isinstance(values, unicode):
+        if not isinstance(values, str) and not isinstance(values, str):
             value = cnt.read()
             if self._isNumeric(value):
                 try:

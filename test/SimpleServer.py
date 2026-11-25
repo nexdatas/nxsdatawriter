@@ -41,11 +41,7 @@ except Exception:
     import PyTango as tango
 
 
-if sys.version_info > (3,):
-    long = int
-    # unicode = str
-else:
-    bytes = str
+# unicode = str
 
 # ==================================================================
 #   SimpleServer Class Description:
@@ -292,7 +288,7 @@ class SimpleServer(tango.LatestDeviceImpl):
     def read_ScalarULong64(self, attr):
         # print "In ", self.get_name(), "::read_ScalarULong64()"
         #    Add your own code here
-        attr.set_value(long(self.attr_ScalarULong64))
+        attr.set_value(int(self.attr_ScalarULong64))
         # Do not work as well
 
     # ------------------------------------------------------------------

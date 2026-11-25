@@ -20,11 +20,6 @@
 """ Types converters  """
 
 import numpy
-import sys
-
-
-if sys.version_info > (3,):
-    long = int
 
 
 try:
@@ -106,9 +101,9 @@ class NTP(object):
     #: (:obj:`dict` <:obj:`str` , :obj:`type` or :obj:`types.MethodType` >) \
     #:      map of type : converting function
     convert = {"float16": float, "float32": float, "float64": float,
-               "float": float, "int64": long, "int32": int,
-               "int16": int, "int8": int, "int": int, "uint64": long,
-               "uint32": long, "uint16": int,
+               "float": float, "int64": int, "int32": int,
+               "int16": int, "int8": int, "int": int, "uint64": int,
+               "uint32": int, "uint16": int,
                "uint8": int, "uint": int, "string": str, "str": str,
                "bool": Converters.toBool}
 

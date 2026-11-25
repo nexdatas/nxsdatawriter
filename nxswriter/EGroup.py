@@ -19,7 +19,6 @@
 
 """ Definitions of group tag evaluation classes """
 
-import sys
 
 from .FElement import FElementWithAttr
 from .Errors import (XMLSettingSyntaxError)
@@ -47,15 +46,9 @@ class EGroup(FElementWithAttr):
                                   reloadmode=reloadmode)
         if self._lastObject() is not None:
             if ("type" in attrs.keys()) and ("name" in attrs.keys()):
-                if sys.version_info > (3,):
-                    gname = attrs["name"]
-                else:
-                    gname = attrs["name"].encode()
+                gname = attrs["name"]
             elif "type" in attrs.keys():
-                if sys.version_info > (3,):
-                    gname = attrs["type"][2:]
-                else:
-                    gname = attrs["type"][2:].encode()
+                gname = attrs["type"][2:]
             else:
                 if self._streams:
                     self._streams.error(
@@ -66,24 +59,15 @@ class EGroup(FElementWithAttr):
             if self._reloadmode:
                 names = [kd.name for kd in self._lastObject()]
                 if gname in names:
-                    if sys.version_info < (3,):
-                        gname = gname.encode()
                     self.h5Object = self._lastObject().open(gname)
                     return
             try:
                 #: (:class:`nxswriter.FileWriter.FTGroup`) \
                 #:      stored H5 file object (defined in base class)
-                if sys.version_info > (3,):
-                    self.h5Object = self._lastObject().create_group(
-                        gname, attrs["type"])
-                else:
-                    self.h5Object = self._lastObject().create_group(
-                        gname, attrs["type"].encode())
+                self.h5Object = self._lastObject().create_group(
+                    gname, attrs["type"])
             except Exception as e:
-                if sys.version_info < (3,):
-                    atype = attrs["type"]
-                else:
-                    atype = attrs["type"].encode()
+                atype = attrs["type"].encode()
                 if self._streams:
                     self._streams.debug(str(e))
                     self._streams.error(

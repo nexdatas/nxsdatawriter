@@ -1,6 +1,7 @@
 2026-11-25 Jan Kotanski <jankotan@gmail.com>
 	* update URL for the HDRI repository (#242)
 	* register the h5map writer of nxstools (#246)
+	* remove python2 support
 	* tagged as 3.26.0
 
 2026-10-26 Jan Kotanski <jankotan@gmail.com>

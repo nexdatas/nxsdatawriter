@@ -19,15 +19,11 @@
 
 """ Provides a pool with element threads """
 
-import sys
 
 from .ElementThread import ElementThread
 from .Errors import ThreadError
 
-if sys.version_info > (3,):
-    import queue as Queue
-else:
-    import Queue
+import queue as Queue
 
 
 class ThreadPool(object):

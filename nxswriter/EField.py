@@ -169,8 +169,6 @@ class EField(FElementWithAttr):
         if self._reloadmode:
             names = [kd.name for kd in self._lastObject()]
             if name in names:
-                if sys.version_info < (3,):
-                    name = name.encode()
                 f = self._lastObject().open(name)
                 return f
 
@@ -214,10 +212,6 @@ class EField(FElementWithAttr):
 
                             raise Exception("Wrong filter cd_values")
                     datafilters.append(datafilter)
-
-        if sys.version_info < (3,):
-            name = name.encode()
-            dtype = dtype.encode()
 
         try:
             if shape:
@@ -275,16 +269,10 @@ class EField(FElementWithAttr):
         self._createAttributes()
 
         if self.strategy == "POSTRUN":
-            if sys.version_info > (3,):
-                self.h5Object.attributes.create(
-                    "postrun",
-                    "string", overwrite=True)[...] \
-                    = self.postrun.strip()
-            else:
-                self.h5Object.attributes.create(
-                    "postrun".encode(),
-                    "string".encode(), overwrite=True)[...] \
-                    = self.postrun.encode().strip()
+            self.h5Object.attributes.create(
+                "postrun",
+                "string", overwrite=True)[...] \
+                = self.postrun.strip()
 
     def __setStrategy(self, name):
         """ provides strategy or fill the value in
@@ -296,10 +284,7 @@ class EField(FElementWithAttr):
             if self.source.isValid():
                 return self.strategy, self.trigger
         else:
-            if sys.version_info > (3,):
-                val = ("".join(self.content)).strip()
-            else:
-                val = ("".join(self.content)).strip().encode()
+            val = ("".join(self.content)).strip()
             if val:
                 dh = self._setValue(int(self.rank), val)
                 self.__growshape(dh.shape)

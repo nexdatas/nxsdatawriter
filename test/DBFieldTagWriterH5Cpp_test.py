@@ -47,10 +47,6 @@ except Exception:
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-    unicode = str
-
 
 # test fixture
 class DBFieldTagWriterH5CppTest(unittest.TestCase):
@@ -63,10 +59,10 @@ class DBFieldTagWriterH5CppTest(unittest.TestCase):
 
         try:
             # random seed
-            self.seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
             import time
-            self.seed = long(time.time() * 256)  # use fractional seconds
+            self.seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.seed)
 

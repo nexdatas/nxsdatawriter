@@ -20,7 +20,6 @@
 """ Definitions of file tag evaluation classes """
 
 import numpy
-import sys
 
 from .DataHolder import DataHolder
 from .Element import Element
@@ -192,10 +191,7 @@ class FElement(Element):
                 if extraD:
                     shape.insert(exDim - 1, 0)
             except Exception:
-                if sys.version_info > (3,):
-                    val = ("".join(self.content)).strip()
-                else:
-                    val = ("".join(self.content)).strip().encode("utf-8")
+                val = ("".join(self.content)).strip()
                 found = False
                 if checkData and self.source and self.source.isValid():
                     data = self.source.getData()
@@ -329,10 +325,7 @@ class FElementWithAttr(FElement):
         """
         for key in self.tagAttributes.keys():
             if key not in ["name", "type"]:
-                if sys.version_info > (3,):
-                    ekey = key
-                else:
-                    ekey = key.encode()
+                ekey = key
                 if self._reloadmode:
                     fat = None
                     for at in self.h5Object.attributes:
@@ -344,62 +337,27 @@ class FElementWithAttr(FElement):
                         continue
 
                 if len(self.tagAttributes[key]) < 3:
-                    if sys.version_info > (3,):
-                        if ekey not in self.__h5Instances:
-                            self.__h5Instances[ekey] \
-                                = self.h5Object.attributes.create(
-                                    ekey,
-                                    NTP.nTnp[self.tagAttributes[key][0]])
-                        dh = DataHolder(
-                            "SCALAR", self.tagAttributes[key][1].strip(),
-                            "DevString", [1, 0],
-                            streams=self._streams)
-                    else:
-                        if sys.version_info > (3,):
-                            if ekey not in self.__h5Instances:
-                                self.__h5Instances[ekey] \
-                                    = self.h5Object.attributes.create(
-                                        ekey,
-                                        NTP.nTnp[self.tagAttributes[key][0]])
-                            dh = DataHolder(
-                                "SCALAR", self.tagAttributes[key][1].strip(),
-                                "DevString", [1, 0],
-                                streams=self._streams)
-                        else:
-                            if ekey not in self.__h5Instances:
-                                self.__h5Instances[ekey] \
-                                    = self.h5Object.attributes.create(
-                                        ekey,
-                                        NTP.nTnp[
-                                            self.tagAttributes[key][
-                                                0]].encode())
-                            dh = DataHolder(
-                                "SCALAR",
-                                self.tagAttributes[key][1].strip().encode(),
-                                "DevString", [1, 0],
-                                streams=self._streams)
+                    if ekey not in self.__h5Instances:
+                        self.__h5Instances[ekey] \
+                            = self.h5Object.attributes.create(
+                                ekey,
+                                NTP.nTnp[self.tagAttributes[key][0]])
+                    dh = DataHolder(
+                        "SCALAR", self.tagAttributes[key][1].strip(),
+                        "DevString", [1, 0],
+                        streams=self._streams)
 
                     self.__h5Instances[ekey][...] = \
                         dh.cast(self.__h5Instances[ekey].dtype)
                 else:
                     shape = self.tagAttributes[key][2]
-                    if sys.version_info > (3,):
-                        if ekey not in self.__h5Instances.keys():
-                            self.__h5Instances[ekey] \
-                                = self.h5Object.attributes.create(
-                                    ekey,
-                                    NTP.nTnp[self.tagAttributes[key][0]],
-                                    shape)
-                        val = self.tagAttributes[key][1].strip()
-                    else:
-                        if ekey not in self.__h5Instances.keys():
-                            self.__h5Instances[ekey] \
-                                = self.h5Object.attributes.create(
-                                    ekey,
-                                    NTP.nTnp[
-                                        self.tagAttributes[key][0]].encode(),
-                                    shape)
-                        val = self.tagAttributes[key][1].strip().encode()
+                    if ekey not in self.__h5Instances.keys():
+                        self.__h5Instances[ekey] \
+                            = self.h5Object.attributes.create(
+                                ekey,
+                                NTP.nTnp[self.tagAttributes[key][0]],
+                                shape)
+                    val = self.tagAttributes[key][1].strip()
                     if val:
                         rank = len(shape)
                         hsp = self.__h5Instances[ekey].shape
@@ -422,87 +380,43 @@ class FElementWithAttr(FElement):
         excluded = excluded or []
         for key in self._tagAttrs.keys():
             if key not in excluded:
-                if sys.version_info > (3,):
-                    ekey = key
-                else:
-                    ekey = key.encode()
+                ekey = key
                 if key in NTP.aTn.keys():
-                    if sys.version_info > (3,):
-                        h5att = self.h5Object.attributes.create(
-                            ekey,
-                            NTP.nTnp[NTP.aTn[key]].encode(),
-                            overwrite=True
-                        )
-                    else:
-                        h5att = self.h5Object.attributes.create(
-                            ekey,
-                            NTP.nTnp[NTP.aTn[key]],
-                            overwrite=True
-                        )
-                    if sys.version_info < (3,) and \
-                       hasattr(self._tagAttrs[key], "encode"):
-                        try:
-                            h5att[...] = NTP.convert[
-                                self.h5Object.attributes[
-                                    ekey].dtype
-                            ](self._tagAttrs[key].strip().encode())
-                        except Exception:
-                            h5att[...] = self._tagAttrs[key].strip().encode()
-                    else:
-                        try:
-                            h5att[...] = NTP.convert[
-                                self.h5Object.attributes[
-                                    ekey].dtype
-                            ](self._tagAttrs[key])
-                        except Exception:
-                            h5att[...] = self._tagAttrs[key]
+                    h5att = self.h5Object.attributes.create(
+                        ekey,
+                        NTP.nTnp[NTP.aTn[key]].encode(),
+                        overwrite=True
+                    )
+                    try:
+                        h5att[...] = NTP.convert[
+                            self.h5Object.attributes[
+                                ekey].dtype
+                        ](self._tagAttrs[key])
+                    except Exception:
+                        h5att[...] = self._tagAttrs[key]
 
                 elif key in NTP.aTnv.keys():
                     try:
                         dh = self._setValue(1, self._tagAttrs[key])
                         shape = (dh.shape[0],)
-                        if sys.version_info > (3,):
-                            self.h5Object.attributes.create(
-                                ekey,
-                                NTP.nTnp[NTP.aTnv[key]],
-                                shape,
-                                overwrite=True
-                            )[...] = dh.cast(NTP.nTnp[NTP.aTnv[key]])
-                        else:
-                            self.h5Object.attributes.create(
-                                ekey,
-                                NTP.nTnp[NTP.aTnv[key]].encode(),
-                                shape,
-                                overwrite=True
-                            )[...] = dh.cast(NTP.nTnp[NTP.aTnv[key]].encode())
+                        self.h5Object.attributes.create(
+                            ekey,
+                            NTP.nTnp[NTP.aTnv[key]],
+                            shape,
+                            overwrite=True
+                        )[...] = dh.cast(NTP.nTnp[NTP.aTnv[key]])
                     except Exception:
                         sarr = self._tagAttrs[key].split()
-                        if sys.version_info > (3,):
-                            self.h5Object.attributes.create(
-                                ekey,
-                                NTP.nTnp[NTP.aTnv[key]],
-                                (len(sarr),),
-                                overwrite=True
-                            )[...] = numpy.array(sarr)
-                        else:
-                            self.h5Object.attributes.create(
-                                ekey,
-                                NTP.nTnp[NTP.aTnv[key]].encode(),
-                                (len(sarr),),
-                                overwrite=True
-                            )[...] = numpy.array(sarr)
+                        self.h5Object.attributes.create(
+                            ekey,
+                            NTP.nTnp[NTP.aTnv[key]],
+                            (len(sarr),),
+                            overwrite=True
+                        )[...] = numpy.array(sarr)
                 else:
-                    if sys.version_info > (3,):
-                        self.h5Object.attributes.create(
-                            ekey, "string", overwrite=True)[...] \
-                            = self._tagAttrs[key].strip()
-                    else:
-                        try:
-                            vl = self._tagAttrs[key].strip().encode()
-                        except Exception:
-                            vl = self._tagAttrs[key].strip().encode("utf-8")
-                        self.h5Object.attributes.create(
-                            ekey, "string", overwrite=True)[...] = vl
+                    self.h5Object.attributes.create(
+                        ekey, "string", overwrite=True)[...] \
+                        = self._tagAttrs[key].strip()
 
     def h5Attribute(self, name):
         """ provides attribute h5 object
