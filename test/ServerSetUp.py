@@ -56,26 +56,15 @@ class ServerSetUp(object):
         db.add_server(
             self.new_device_info_writer.server, self.new_device_info_writer)
 
-        if sys.version_info > (3,):
-            if os.path.isfile("../NXSDataWriter"):
-                self._psub = subprocess.call(
-                    "cd ..; python3 ./NXSDataWriter %s &" % self.instance,
-                    stdout=None,
-                    stderr=None, shell=True)
-            else:
-                self._psub = subprocess.call(
-                    "NXSDataWriter %s &" % self.instance, stdout=None,
-                    stderr=None, shell=True)
+        if os.path.isfile("../NXSDataWriter"):
+            self._psub = subprocess.call(
+                "cd ..; python3 ./NXSDataWriter %s &" % self.instance,
+                stdout=None,
+                stderr=None, shell=True)
         else:
-            if os.path.isfile("../NXSDataWriter"):
-                self._psub = subprocess.call(
-                    "cd ..; python2 ./NXSDataWriter %s &" % self.instance,
-                    stdout=None,
-                    stderr=None, shell=True)
-            else:
-                self._psub = subprocess.call(
-                    "python2 NXSDataWriter %s &" % self.instance, stdout=None,
-                    stderr=None, shell=True)
+            self._psub = subprocess.call(
+                "NXSDataWriter %s &" % self.instance, stdout=None,
+                stderr=None, shell=True)
         sys.stdout.write("waiting for server ")
 
         found = False
@@ -106,28 +95,13 @@ class ServerSetUp(object):
         db = tango.Database()
         db.delete_server(self.new_device_info_writer.server)
 
-        if sys.version_info > (3,):
-            with subprocess.Popen(
-                    "ps -ef | grep 'NXSDataWriter %s' | grep -v grep" %
-                    self.instance,
-                    stdout=subprocess.PIPE, shell=True) as proc:
-
-                pipe = proc.stdout
-                res = str(pipe.read(), "utf-8").split("\n")
-                for r in res:
-                    sr = r.split()
-                    if len(sr) > 2:
-                        subprocess.call(
-                            "kill -9 %s" % sr[1], stderr=subprocess.PIPE,
-                            shell=True)
-                pipe.close()
-        else:
-            pipe = subprocess.Popen(
+        with subprocess.Popen(
                 "ps -ef | grep 'NXSDataWriter %s' | grep -v grep" %
                 self.instance,
-                stdout=subprocess.PIPE, shell=True).stdout
+                stdout=subprocess.PIPE, shell=True) as proc:
 
-            res = str(pipe.read()).split("\n")
+            pipe = proc.stdout
+            res = str(pipe.read(), "utf-8").split("\n")
             for r in res:
                 sr = r.split()
                 if len(sr) > 2:

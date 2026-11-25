@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
-if [ "$2" = "2" ]; then
-    echo "run python-nxswriter tests"
-    docker exec ndts python test
-else
-    echo "run python3-nxswriter tests"
-    docker exec ndts python3 -m pytest
-fi    
+echo "run python3-nxswriter tests"
+docker exec ndts python3 -m pytest
 ERR=$?
 
 echo "ERROR: "$ERR

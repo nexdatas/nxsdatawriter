@@ -48,9 +48,6 @@ except Exception:
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-
 
 # test fixture
 class DBFieldTagWriterH5PYTest(unittest.TestCase):
@@ -63,9 +60,9 @@ class DBFieldTagWriterH5PYTest(unittest.TestCase):
 
         try:
             # random seed
-            self.seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.seed = long(time.time() * 256)  # use fractional seconds
+            self.seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.seed)
 

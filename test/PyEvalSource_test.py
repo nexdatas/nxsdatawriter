@@ -37,10 +37,6 @@ from nxswriter.Types import Converters, NTP
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-    unicode = str
-
 
 # test fixture
 class PyEvalSourceTest(unittest.TestCase):
@@ -56,10 +52,10 @@ class PyEvalSourceTest(unittest.TestCase):
         self._bfloat = "float64" if IS64BIT else "float32"
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
             import time
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
         self.__rnd = random.Random(self.__seed)
 
     # test starter
@@ -339,8 +335,7 @@ if type(ds.inp) is type(ds.inp2):
 else:
     ds.res = unicode(ds.inp) + unicode(ds.inp2)
 """
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         dp = DataSourcePool()
 
         arr = {
@@ -396,7 +391,7 @@ else:
                 v2 = Converters.toBool(arr2[a2][0]) if arr2[
                     a2][2] == "DevBoolean" else arr2[a2][0]
                 vv = v1 + v2 if type(v1) is type(
-                    v2) else unicode(v1) + unicode(v2)
+                    v2) else str(v1) + str(v2)
                 self.checkData(
                     dt, arr[a][1], vv, NTP.pTt[type(vv).__name__], arr[a][3])
 
@@ -511,7 +506,7 @@ else:
                     k2][2] == "DevBoolean" else arr2[k2][0]
                 vv = v1 + v2 if (str(type(v1[0]).__name__) ==
                                  str(type(v2[0]).__name__)) \
-                    else [unicode(i) for i in v1] + [unicode(i2) for i2 in v2]
+                    else [str(i) for i in v1] + [str(i2) for i2 in v2]
                 self.checkData(dt, arr[k][1], vv, NTP.pTt[
                                type(vv[0]).__name__],
                                [arr[k][3][0] + arr2[k2][3][0]])
@@ -642,8 +637,8 @@ else:
                       for row in arr2[k2][0]] \
                     if arr2[k2][2] == "DevBoolean" else arr2[k2][0]
                 vv = v1 + v2 if str(type(v1[0][0])) == str(type(v2[0][0])) \
-                    else ([[unicode(j) for j in i] for i in v1] +
-                          [[unicode(j2) for j2 in i2] for i2 in v2])
+                    else ([[str(j) for j in i] for i in v1] +
+                          [[str(j2) for j2 in i2] for i2 in v2])
                 self.checkData(dt, arr[k][1], vv,
                                NTP.pTt[type(vv[0][0]).__name__], [
                                arr[k][3][0] + arr2[k2][3][0], arr[k][3][1]])

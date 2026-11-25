@@ -65,29 +65,25 @@ except Exception:
     from . import SimpleServerSetUp
 
 
-if sys.version_info > (3,):
-    long = int
-
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
 
 #: (:obj:`bool`) tango bug #213 flag related to EncodedAttributes in python3
 PYTG_BUG_213 = False
-if sys.version_info > (3,):
-    try:
-        PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
-            map(int, tango.__version__.split(".")[:3]))
-        if PYTGMAJOR <= 9:
-            if PYTGMAJOR == 9:
-                if PYTGMINOR < 2:
-                    PYTG_BUG_213 = True
-                elif PYTGMINOR == 2 and PYTGPATCH <= 4:
-                    PYTG_BUG_213 = True
-            else:
+try:
+    PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
+        map(int, tango.__version__.split(".")[:3]))
+    if PYTGMAJOR <= 9:
+        if PYTGMAJOR == 9:
+            if PYTGMINOR < 2:
                 PYTG_BUG_213 = True
-    except Exception:
-        pass
+            elif PYTGMINOR == 2 and PYTGPATCH <= 4:
+                PYTG_BUG_213 = True
+        else:
+            PYTG_BUG_213 = True
+except Exception:
+    pass
 
 
 # test fixture
@@ -103,9 +99,9 @@ class TangoFieldTagWriterH5CppTest(unittest.TestCase):
 
         try:
             # random seed
-            self.seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.seed = long(time.time() * 256)  # use fractional seconds
+            self.seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.seed)
 
@@ -397,7 +393,7 @@ name="stestp09/testss/s1r228" port="10000" />
             self._simps.dp.ScalarFloat = self._fcounter[i]
             self._simps.dp.ScalarDouble = self._dcounter[i]
             self._simps.dp.ScalarString = self._bools[i]
-            self._simps.dp.ScalarULong64 = long(abs(self._counter[i]))
+            self._simps.dp.ScalarULong64 = int(abs(self._counter[i]))
             self.record(tdw, '{}')
 #            self._fcounter[i] = self._simps.dp.ScalarFloat
 #            self._dcounter[i] = self._simps.dp.ScalarDouble
@@ -659,7 +655,7 @@ name="stestp09/testss/s1r228" port="10000" group="__CLIENT__" />
             self._simps.dp.ScalarFloat = self._fcounter[i]
             self._simps.dp.ScalarDouble = self._dcounter[i]
             self._simps.dp.ScalarString = self._bools[i]
-            self._simps.dp.ScalarULong64 = long(abs(self._counter[i]))
+            self._simps.dp.ScalarULong64 = int(abs(self._counter[i]))
             self.record(
                 tdw,
                 '{"data": {'
@@ -931,7 +927,7 @@ name="stestp09/testss/s1r228" port="10000" group="__CLIENT__" />
                 self._simps.dp.ScalarFloat = self._fcounter[i]
                 self._simps.dp.ScalarDouble = self._dcounter[i]
                 self._simps.dp.ScalarString = self._bools[i]
-                self._simps.dp.ScalarULong64 = long(abs(self._counter[i]))
+                self._simps.dp.ScalarULong64 = int(abs(self._counter[i]))
             else:
                 self._simps.tearDown()
 

@@ -184,8 +184,7 @@ class TangoSource(DataSource):
         :param xml:  datasource parameters
         :type xml: :obj:`str`
         """
-        if sys.version_info > (3,):
-            xml = bytes(xml, "UTF-8")
+        xml = bytes(xml, "UTF-8")
         root = et.fromstring(xml, parser=XMLParser(collect_ids=False))
         rec = root.find("record")
         name = None
@@ -228,14 +227,9 @@ class TangoSource(DataSource):
 
             raise DataSourceSetupError(
                 "Tango device name not defined: %s" % xml)
-        if sys.version_info > (3,):
-            ehostname = hostname
-            eport = port
-            edevice = device
-        else:
-            ehostname = hostname.encode() if hostname else hostname
-            eport = port.encode() if port else port
-            edevice = device.encode() if device else device
+        ehostname = hostname
+        eport = port
+        edevice = device
         if hostname and port and device:
             self.device = "%s:%s/%s" % (ehostname,
                                         eport, edevice)
@@ -489,7 +483,7 @@ class TgGroup(object):
 
         errors = []
         for a in attr:
-            ea = a if sys.version_info > (3,) else a.encode()
+            ea = a
             if ea.lower() not in alist:
                 errors.append((a, device.device))
         if errors:
@@ -523,8 +517,7 @@ class TgGroup(object):
         alist = proxy.get_attribute_list()
         alist = [a.lower() for a in alist]
         if member.name.lower() in alist:
-            emname = member.name if sys.version_info > (3,) \
-                else member.name.encode()
+            emname = member.name
             da = proxy.read_attribute(emname)
             member.setData(da)
 
@@ -540,8 +533,7 @@ class TgGroup(object):
 
         plist = proxy.get_property_list('*')
         plist = [a.lower() for a in plist]
-        emname = member.name if sys.version_info > (3,) \
-            else member.name.encode()
+        emname = member.name
         if emname.lower() in plist:
             da = proxy.get_property(emname)[emname]
             member.setData(da)
@@ -559,8 +551,7 @@ class TgGroup(object):
         clist = [cm.cmd_name
                  for cm in proxy.command_list_query()]
         clist = [a.lower() for a in clist]
-        emname = member.name if sys.version_info > (3,) \
-            else member.name.encode()
+        emname = member.name
         if emname.lower() in clist:
             cd = proxy.command_query(emname)
             da = proxy.command_inout(emname)
@@ -670,8 +661,7 @@ class TgDevice(object):
         :param member: given tango device member
         :type member: :class:`TgMember`
         """
-        emname = member.name if sys.version_info > (3,) \
-            else member.name.encode()
+        emname = member.name
         if member.memberType == 'attribute':
             self.attributes.append(emname)
         elif member.memberType == 'property':
@@ -822,7 +812,7 @@ class TgMember(object):
         :type proxy: :class:`tango.DeviceProxy`
         """
         self.reset()
-        ename = self.name if sys.version_info > (3,) else self.name.encode()
+        ename = self.name
         if self.memberType == "attribute":
             alist = proxy.get_attribute_list()
             alist = [a.lower() for a in alist]

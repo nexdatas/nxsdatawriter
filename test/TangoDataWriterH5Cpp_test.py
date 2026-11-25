@@ -36,8 +36,6 @@ from nxstools import h5cppwriter as H5CppWriter
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3, ):
-    long = int
 
 # test fixture
 
@@ -330,7 +328,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
 
             tdw.openFile()
             self.assertTrue(tdw.getFile() is not None)
@@ -343,7 +341,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
             self.assertTrue(tdw.getFile() is None)
 
             # check the created file
@@ -391,7 +389,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
 
             tdw.openFile()
             self.assertTrue(tdw.getFile() is not None)
@@ -410,7 +408,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
             self.assertTrue(tdw.getFile() is None)
 
             # check the created file
@@ -459,7 +457,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
 
             tdw.openFile()
             self.assertTrue(tdw.getFile() is not None)
@@ -478,7 +476,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
             self.assertTrue(tdw.getFile() is None)
 
             # check the created file
@@ -555,7 +553,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
 
             tdw.openFile()
             self.assertTrue(tdw.getFile() is not None)
@@ -568,7 +566,7 @@ ds.res2 = str(True)
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.getFile() is None)
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
             self.assertTrue(tdw.getFile() is None)
 
             # check the created file
@@ -630,7 +628,7 @@ ds.res2 = str(True)
             self.assertNotEqual(tdw.xmlsettings, "")
             self.assertEqual(tdw.jsonrecord, "{}")
             self.assertTrue(tdw.numberOfThreads > 0)
-            self.assertTrue(isinstance(tdw.numberOfThreads, (int, long)))
+            self.assertTrue(isinstance(tdw.numberOfThreads, (int, int)))
 
             tdw.closeFile()
 

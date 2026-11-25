@@ -35,9 +35,6 @@ from nxswriter.Errors import DataSourceSetupError
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-
 
 # test fixture
 class DBaseSourceTest(unittest.TestCase):
@@ -53,9 +50,9 @@ class DBaseSourceTest(unittest.TestCase):
         self._bfloat = "float64" if IS64BIT else "float32"
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.__seed)
 

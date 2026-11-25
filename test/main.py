@@ -100,6 +100,7 @@ if H5PY_AVAILABLE:
     import ESymbolH5PY_test
     import FElementH5PY_test
     import TangoDataWriterH5PY_test
+    import TangoDataWriterH5Map_test
     import FileWriterH5PY_test
     import NXSFromXMLH5PY_test
 if H5CPP_AVAILABLE:
@@ -269,24 +270,23 @@ if PYTANGO_AVAILABLE:
 
 #: (:obj:`bool`) tango Bug #213 flag
 PYTG_BUG_213 = False
-if sys.version_info > (3,):
+try:
     try:
-        try:
-            import tango
-        except Exception:
-            import PyTango as tango
-        PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
-            map(int, tango.__version__.split(".")[:3]))
-        if PYTGMAJOR <= 9:
-            if PYTGMAJOR == 9:
-                if PYTGMINOR < 2:
-                    PYTG_BUG_213 = True
-                elif PYTGMINOR == 2 and PYTGPATCH <= 4:
-                    PYTG_BUG_213 = True
-            else:
-                PYTG_BUG_213 = True
+        import tango
     except Exception:
-        pass
+        import PyTango as tango
+    PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
+        map(int, tango.__version__.split(".")[:3]))
+    if PYTGMAJOR <= 9:
+        if PYTGMAJOR == 9:
+            if PYTGMINOR < 2:
+                PYTG_BUG_213 = True
+            elif PYTGMINOR == 2 and PYTGPATCH <= 4:
+                PYTG_BUG_213 = True
+        else:
+            PYTG_BUG_213 = True
+except Exception:
+    pass
 
 
 # main function
@@ -388,6 +388,9 @@ def main():
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
                 TangoDataWriterH5PY_test))
+        suite.addTests(
+            unittest.defaultTestLoader.loadTestsFromModule(
+                TangoDataWriterH5Map_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
                 FileWriterH5PY_test))

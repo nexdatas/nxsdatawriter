@@ -51,26 +51,22 @@ from nxstools import h5cppwriter as H5CppWriter
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-    unicode = str
 
 #: (:obj:`bool`) tango bug #213 flag related to EncodedAttributes in python3
 PYTG_BUG_213 = False
-if sys.version_info > (3,):
-    try:
-        PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
-            map(int, tango.__version__.split(".")[:3]))
-        if PYTGMAJOR <= 9:
-            if PYTGMAJOR == 9:
-                if PYTGMINOR < 2:
-                    PYTG_BUG_213 = True
-                elif PYTGMINOR == 2 and PYTGPATCH <= 4:
-                    PYTG_BUG_213 = True
-            else:
+try:
+    PYTGMAJOR, PYTGMINOR, PYTGPATCH = list(
+        map(int, tango.__version__.split(".")[:3]))
+    if PYTGMAJOR <= 9:
+        if PYTGMAJOR == 9:
+            if PYTGMINOR < 2:
                 PYTG_BUG_213 = True
-    except Exception:
-        pass
+            elif PYTGMINOR == 2 and PYTGPATCH <= 4:
+                PYTG_BUG_213 = True
+        else:
+            PYTG_BUG_213 = True
+except Exception:
+    pass
 
 
 # test fix
@@ -89,9 +85,9 @@ class PyEvalTangoSourceH5CppTest(unittest.TestCase):
         self._bfloat = "float64" if IS64BIT else "float32"
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
         self.__rnd = random.Random(self.__seed)
 
     # test starter
@@ -301,8 +297,7 @@ except Exception:
             ds.res = ds.inp2
 
 """
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         dsp = DataSourcePool()
         dcp = DecoderPool()
 
@@ -378,9 +373,9 @@ except Exception:
                 except Exception:
                     error = 0
                     try:
-                        vv = unicode(v1) + unicode(v2)
+                        vv = str(v1) + str(v2)
                     except Exception:
-                        vv = str(unicode(v1)) + v2
+                        vv = str(str(v1)) + v2
                 if not ((a in ['str', 'unicode'] and
                          a2 in ['ScalarFloat', 'ScalarDouble']) or
                         (a2 in ['ScalarString', 'ScalarUChar'] and
@@ -424,10 +419,10 @@ except Exception:
                         vv = v1 + v2
                     except Exception:
                         try:
-                            vv = unicode(v1) + unicode(v2)
+                            vv = str(v1) + str(v2)
                         except Exception:
                             try:
-                                vv = str(unicode(v1)) + v2
+                                vv = str(str(v1)) + v2
                             except Exception:
                                 vv = v2
 
@@ -453,8 +448,7 @@ else:
     ds.res = [unicode(i) for i in ds.inp] + [unicode(i2) for i2 in ds.inp2]
 """
 
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         dsp = DataSourcePool()
         DecoderPool()
 
@@ -553,7 +547,7 @@ else:
                     vv = v1 + v2
                     error = (arr[k2][4] if len(arr[k2]) > 4 else 0)
                 else:
-                    vv = [unicode(i) for i in v1] + [unicode(i2) for i2 in v2]
+                    vv = [str(i) for i in v1] + [str(i2) for i2 in v2]
                     error = 0
                 shape = [len(vv)]
                 self.checkData(dt, carr[k][1], vv, NTP.pTt[
@@ -572,8 +566,7 @@ else:
     ds.res = [[unicode(j) for j in i] for i in ds.inp] + \
         [[unicode(j2) for j2 in i2] for i2 in ds.inp2]
 """
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         dsp = DataSourcePool()
         DecoderPool()
 
@@ -686,8 +679,8 @@ else:
                     vv = v1 + v2
                     error = (arr[k2][4] if len(arr[k2]) > 4 else 0)
                 else:
-                    vv = [[unicode(j) for j in i]
-                          for i in v1] + [[unicode(j2) for j2 in i2]
+                    vv = [[str(j) for j in i]
+                          for i in v1] + [[str(j2) for j2 in i2]
                                           for i2 in v2]
                     error = 0
                 shape = [len(vv), len(vv[0])]
@@ -921,8 +914,7 @@ except Exception:
             ds.res = ds.inp2
 commonblock["myres"] = ds.res
 """
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         script2 = 'ds.res2 = commonblock["myres"]'
         dsp = DataSourcePool()
         dcp = DecoderPool()
@@ -998,9 +990,9 @@ commonblock["myres"] = ds.res
                 except Exception:
                     error = 0
                     try:
-                        vv = unicode(v1) + unicode(v2)
+                        vv = str(v1) + str(v2)
                     except Exception:
-                        vv = str(unicode(v1)) + v2
+                        vv = str(str(v1)) + v2
                 if not ((a in ['str', 'unicode'] and
                          a2 in ['ScalarFloat', 'ScalarDouble']) or
                         (a2 in ['ScalarString', 'ScalarUChar'] and
@@ -1062,10 +1054,10 @@ commonblock["myres"] = ds.res
                         vv = v1 + v2
                     except Exception:
                         try:
-                            vv = unicode(v1) + unicode(v2)
+                            vv = str(v1) + str(v2)
                         except Exception:
                             try:
-                                vv = str(unicode(v1)) + v2
+                                vv = str(str(v1)) + v2
                             except Exception:
                                 vv = v2
 
@@ -1111,8 +1103,7 @@ else:
 commonblock["my1res"] = ds.res
 """
 
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         script2 = 'ds.res2 = commonblock["my1res"]'
         dsp = DataSourcePool()
         DecoderPool()
@@ -1211,7 +1202,7 @@ commonblock["my1res"] = ds.res
                     vv = v1 + v2
                     error = (arr[k2][4] if len(arr[k2]) > 4 else 0)
                 else:
-                    vv = [unicode(i) for i in v1] + [unicode(i2) for i2 in v2]
+                    vv = [str(i) for i in v1] + [str(i2) for i2 in v2]
                     error = 0
                 shape = [len(vv)]
                 self.checkData(dt, carr[k][1], vv, NTP.pTt[
@@ -1245,8 +1236,7 @@ else:
         [[unicode(j2) for j2 in i2] for i2 in ds.inp2]
 commonblock["myre3"] = ds.res
 """
-        if sys.version_info > (3,):
-            script = script.replace("unicode", "str")
+        script = script.replace("unicode", "str")
         script2 = 'ds.res2 = commonblock["myre3"]'
         dsp = DataSourcePool()
         DecoderPool()
@@ -1361,8 +1351,8 @@ commonblock["myre3"] = ds.res
                     vv = v1 + v2
                     error = (arr[k2][4] if len(arr[k2]) > 4 else 0)
                 else:
-                    vv = [[unicode(j) for j in i]
-                          for i in v1] + [[unicode(j2) for j2 in i2]
+                    vv = [[str(j) for j in i]
+                          for i in v1] + [[str(j2) for j2 in i2]
                                           for i2 in v2]
                     error = 0
                 shape = [len(vv), len(vv[0])]

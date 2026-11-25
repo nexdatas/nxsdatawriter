@@ -70,8 +70,7 @@ class ClientSource(DataSource):
         :raises: :exc:`nxswriter.Errors.DataSourceSetupError` \
         :        if :obj:`name` is not defined
         """
-        if sys.version_info > (3,):
-            xml = bytes(xml, "UTF-8")
+        xml = bytes(xml, "UTF-8")
         root = et.fromstring(xml, parser=XMLParser(collect_ids=False))
         rec = root.find("record")
         if rec is not None:

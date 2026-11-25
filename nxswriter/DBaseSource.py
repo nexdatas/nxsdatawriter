@@ -21,7 +21,6 @@
 
 import xml.etree.ElementTree as et
 from lxml.etree import XMLParser
-import sys
 
 from .Types import NTP
 
@@ -121,8 +120,7 @@ class DBaseSource(DataSource):
         :raises: :exc:`nxswriter.Errors.DataSourceSetupError`
             if :obj:`format` or :obj:`query` is not defined
         """
-        if sys.version_info > (3,):
-            xml = bytes(xml, "UTF-8")
+        xml = bytes(xml, "UTF-8")
         root = et.fromstring(xml, parser=XMLParser(collect_ids=False))
         query = root.find("query")
         if query is not None:
@@ -170,9 +168,6 @@ class DBaseSource(DataSource):
             args["passwd"] = self.passwd
         if self.hostname:
             args["host"] = self.hostname
-        if sys.version_info < (3,):
-            for k in list(args.keys()):
-                args[k] = args[k].encode()
 
         if self.port:
             args["port"] = int(self.port)
@@ -194,9 +189,6 @@ class DBaseSource(DataSource):
             args["password"] = self.passwd
         if self.hostname:
             args["host"] = self.hostname
-        if sys.version_info < (3,):
-            for k in list(args.keys()):
-                args[k] = args[k].encode()
 
         if self.port:
             args["port"] = int(self.port)
@@ -218,9 +210,6 @@ class DBaseSource(DataSource):
             args["dsn"] = self.dsn
         if self.mode:
             args["mode"] = self.mode
-        if sys.version_info < (3,):
-            for k in list(args.keys()):
-                args[k] = args[k].encode()
 
         return cx_Oracle.connect(**args)
 

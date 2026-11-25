@@ -23,9 +23,6 @@ import struct
 import numpy
 import sys
 
-if sys.version_info > (3,):
-    unicode = str
-
 
 class UTF8decoder(object):
 
@@ -77,7 +74,7 @@ class UTF8decoder(object):
         if not self.__data:
             return
         if not self.__value:
-            if isinstance(self.__data[1], unicode):
+            if isinstance(self.__data[1], str):
                 self.__value = bytes(self.__data[1], 'utf-8')
             else:
                 self.__value = bytes(self.__data[1])

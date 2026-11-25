@@ -39,9 +39,6 @@ except Exception:
 
 # test fixture
 
-if sys.version_info > (3,):
-    long = int
-
 
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
@@ -57,10 +54,10 @@ class ClientFieldTagWriterH5PYTest(unittest.TestCase):
 
         try:
             # random seed
-            self.seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
             # random seed
-            self.seed = long(time.time() * 256)  # use fractional seconds
+            self.seed = int(time.time() * 256)  # use fractional seconds
 #        self.seed = 53867028435352363366241944565880343254
         self.__rnd = random.Random(self.seed)
 

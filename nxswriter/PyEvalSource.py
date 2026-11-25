@@ -21,7 +21,6 @@
 
 import threading
 import copy
-import sys
 import xml.etree.ElementTree as et
 from lxml.etree import XMLParser
 
@@ -99,8 +98,7 @@ class PyEvalSource(DataSource):
         :type xml: :obj:`str`
         """
 
-        if sys.version_info > (3,):
-            xml = bytes(xml, "UTF-8")
+        xml = bytes(xml, "UTF-8")
         root = et.fromstring(xml, parser=XMLParser(collect_ids=False))
         mds = root.find("datasource")
         inputs = []

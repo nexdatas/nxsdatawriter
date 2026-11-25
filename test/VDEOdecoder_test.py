@@ -30,9 +30,6 @@ import time
 
 from nxswriter.DecoderPool import VDEOdecoder
 
-if sys.version_info > (3,):
-    long = int
-
 
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
@@ -59,9 +56,9 @@ class VDEOdecoderTest(unittest.TestCase):
         self.__res = numpy.array([1234, 5678, 45, 345], dtype=numpy.uint32)
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.__seed = long(time.time() * 256)
+            self.__seed = int(time.time() * 256)
 
         self.__rnd = random.Random(self.__seed)
 

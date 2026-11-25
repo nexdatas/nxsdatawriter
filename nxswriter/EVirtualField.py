@@ -306,24 +306,15 @@ class EVirtualDataMap(FElement):
         if "name" in self._tagAttrs.keys():
             self.__name = self._tagAttrs["name"]
         if "target" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                target = self._tagAttrs["target"]
-            else:
-                target = self._tagAttrs["target"].encode()
+            target = self._tagAttrs["target"]
             if target:
                 self.__vmap["target"] = target
         if "filename" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                filename = self._tagAttrs["filename"]
-            else:
-                filename = self._tagAttrs["filename"].encode()
+            filename = self._tagAttrs["filename"]
             if filename:
                 self.__vmap["filename"] = filename
         if "fieldpath" in self._tagAttrs.keys():
-            if sys.version_info > (3,):
-                fieldpath = self._tagAttrs["fieldpath"]
-            else:
-                fieldpath = self._tagAttrs["fieldpath"].encode()
+            fieldpath = self._tagAttrs["fieldpath"]
             if fieldpath:
                 self.__vmap["fieldpath"] = fieldpath
         if not self.source:
@@ -474,16 +465,10 @@ class EVirtualField(FElementWithAttr):
         self._createAttributes()
 
         if self.strategy == "POSTRUN":
-            if sys.version_info > (3,):
-                self.h5Object.attributes.create(
-                    "postrun",
-                    "string", overwrite=True)[...] \
-                    = self.postrun.strip()
-            else:
-                self.h5Object.attributes.create(
-                    "postrun".encode(),
-                    "string".encode(), overwrite=True)[...] \
-                    = self.postrun.encode().strip()
+            self.h5Object.attributes.create(
+                "postrun",
+                "string", overwrite=True)[...] \
+                = self.postrun.strip()
 
     def __setStrategy(self, name):
         """ provides strategy or fill the value in
@@ -494,10 +479,7 @@ class EVirtualField(FElementWithAttr):
         if self.source:
             if self.source.isValid():
                 return self.strategy, self.trigger
-        if sys.version_info > (3,):
-            val = ("".join(self.content)).strip()
-        else:
-            val = ("".join(self.content)).strip().encode()
+        val = ("".join(self.content)).strip()
         if val:
             lval = val.split("\n")
             for el in lval:

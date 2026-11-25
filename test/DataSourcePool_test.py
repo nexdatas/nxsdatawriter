@@ -32,10 +32,7 @@ from nxswriter.TangoSource import TangoSource
 from nxswriter.DBaseSource import DBaseSource
 from nxswriter.ClientSource import ClientSource
 
-if sys.version_info > (3,):
-    import _thread as thread
-else:
-    import thread
+import _thread as thread
 
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)

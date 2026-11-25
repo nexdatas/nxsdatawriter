@@ -36,9 +36,6 @@ from nxswriter.Types import Converters
 # if 64-bit machione
 IS64BIT = (struct.calcsize("P") == 8)
 
-if sys.version_info > (3,):
-    long = int
-
 
 # test fixture
 class NTPTest(unittest.TestCase):
@@ -92,9 +89,9 @@ class NTPTest(unittest.TestCase):
         # map of type : converting function
         self._convert = {
             "float16": float, "float32": float, "float64": float,
-            "float": float, "int64": long, "int32": int,
-            "int16": int, "int8": int, "int": int, "uint64": long,
-            "uint32": long, "uint16": int,
+            "float": float, "int64": int, "int32": int,
+            "int16": int, "int8": int, "int": int, "uint64": int,
+            "uint32": int, "uint16": int,
             "uint8": int, "uint": int, "string": str,
             "bool": Converters.toBool}
 
@@ -117,10 +114,10 @@ class NTPTest(unittest.TestCase):
         self._rTf = {0: "SCALAR", 1: "SPECTRUM", 2: "IMAGE", 3: "VERTEX"}
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
             import time
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.__seed)
 

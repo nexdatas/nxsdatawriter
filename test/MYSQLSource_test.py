@@ -75,10 +75,6 @@ from nxswriter.Errors import PackageError
 IS64BIT = (struct.calcsize("P") == 8)
 
 
-if sys.version_info > (3,):
-    long = int
-
-
 # test fixture
 class MYSQLSourceTest(unittest.TestCase):
 
@@ -97,9 +93,9 @@ class MYSQLSourceTest(unittest.TestCase):
         self.__mycnf = '/etc/my.cnf'
 
         try:
-            self.__seed = long(binascii.hexlify(os.urandom(16)), 16)
+            self.__seed = int(binascii.hexlify(os.urandom(16)), 16)
         except NotImplementedError:
-            self.__seed = long(time.time() * 256)  # use fractional seconds
+            self.__seed = int(time.time() * 256)  # use fractional seconds
 
         self.__rnd = random.Random(self.__seed)
 
@@ -222,7 +218,7 @@ class MYSQLSourceTest(unittest.TestCase):
         ds.dbname = self.__dbname
         dt = ds.getData()
 
-        self.checkData(dt, 'SPECTRUM', [long(scalar)], 'DevLong64', [1, 0])
+        self.checkData(dt, 'SPECTRUM', [int(scalar)], 'DevLong64', [1, 0])
 
     # setup test
     # \brief It tests default settings
