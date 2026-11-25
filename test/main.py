@@ -100,6 +100,7 @@ if H5PY_AVAILABLE:
     import ESymbolH5PY_test
     import FElementH5PY_test
     import TangoDataWriterH5PY_test
+    import TangoDataWriterH5Map_test
     import FileWriterH5PY_test
     import NXSFromXMLH5PY_test
 if H5CPP_AVAILABLE:
@@ -388,6 +389,9 @@ def main():
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
                 TangoDataWriterH5PY_test))
+        suite.addTests(
+            unittest.defaultTestLoader.loadTestsFromModule(
+                TangoDataWriterH5Map_test))
         suite.addTests(
             unittest.defaultTestLoader.loadTestsFromModule(
                 FileWriterH5PY_test))

@@ -1,6 +1,7 @@
-2026-XX-YY Jan Kotanski <jankotan@gmail.com>
+2026-11-25 Jan Kotanski <jankotan@gmail.com>
 	* update URL for the HDRI repository (#242)
-	* tagged as 3.25.X
+	* register the h5map writer of nxstools (#246)
+	* tagged as 3.26.0
 
 2026-10-26 Jan Kotanski <jankotan@gmail.com>
 	* do not use the HDRI repo in pixi tests (#240)

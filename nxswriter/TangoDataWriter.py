@@ -72,6 +72,14 @@ try:
 except Exception:
     pass
 
+try:
+    # builds the tree in memory and exports it to a blissdata h5map,
+    # not a default writer as it writes nothing to disk
+    from nxstools import h5mapwriter as H5MapWriter
+    WRITERS["h5map"] = H5MapWriter
+except Exception:
+    pass
+
 
 DEFAULTWRITERS = ["h5cpp", "h5py", "h5redis", "redis"]
 
