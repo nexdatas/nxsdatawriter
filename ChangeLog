@@ -1,7 +1,7 @@
-2026-XX-YY Jan Kotanski <jankotan@gmail.com>
+2026-11-27 Jan Kotanski <jankotan@gmail.com>
 	* accept type names of the pninexus xml builder, e.g. float64, f64, ui32, bool_t, str
 	* add the chunk tag of the pninexus xml builder defining chunks of fields
-	* tagged as 3.26.X
+	* tagged as 3.27.0
 
 2026-11-25 Jan Kotanski <jankotan@gmail.com>
 	* update URL for the HDRI repository (#242)
