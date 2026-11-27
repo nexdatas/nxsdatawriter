@@ -56,6 +56,7 @@ import sys
 import unittest
 import Converters_test
 import NTP_test
+import PniNexusXML_test
 import Errors_test
 import DataSource_test
 import ClientSource_test
@@ -303,6 +304,8 @@ def main():
         unittest.defaultTestLoader.loadTestsFromModule(Converters_test))
     suite.addTests(
         unittest.defaultTestLoader.loadTestsFromModule(NTP_test))
+    suite.addTests(
+        unittest.defaultTestLoader.loadTestsFromModule(PniNexusXML_test))
     suite.addTests(
         unittest.defaultTestLoader.loadTestsFromModule(Errors_test))
     suite.addTests(

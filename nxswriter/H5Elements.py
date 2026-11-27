@@ -150,6 +150,26 @@ class ESelection(Element):
             self.last.setRank(attrs["rank"])
 
 
+class EChunk(Element):
+
+    """ chunk tag element, i.e. chunk shape of a field
+    """
+
+    def __init__(self, attrs, last, streams=None):
+        """ constructor
+
+        :param attrs: dictionary of the tag attributes
+        :type attrs: :obj:`dict` <:obj:`str`, :obj:`str`>
+        :param last: the last element from the stack
+        :type last: :class:`nxswriter.Element.Element`
+        :param streams: tango-like steamset class
+        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
+        """
+        Element.__init__(self, "chunk", attrs, last, streams=streams)
+        if "rank" in attrs.keys() and hasattr(self.last, "setChunkRank"):
+            self.last.setChunkRank(attrs["rank"])
+
+
 class EDim(Element):
 
     """ dim tag element
@@ -166,8 +186,10 @@ class EDim(Element):
         :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`
         """
         Element.__init__(self, "dim", attrs, last, streams=streams)
+        #: (:obj:`bool`) dimension of a chunk
+        self.__chunk = getattr(self.last, "tagName", None) == "chunk"
         if ("index" in attrs.keys()) and ("value" in attrs.keys()):
-            self._beforeLast().setLength(attrs["index"], attrs["value"])
+            self.__setLength(attrs["index"], attrs["value"])
         #: (:obj:`str`) index attribute
         self.__index = None
         #: (:class:`nxswriter.DataSources.DataSource`) data source
@@ -191,8 +213,22 @@ class EDim(Element):
             if dt and isinstance(dt, dict):
                 dh = DataHolder(streams=self._streams, **dt)
                 if dh:
-                    self._beforeLast().setLength(self.__index,
-                                                 str(dh.cast("string")))
+                    self.__setLength(self.__index, str(dh.cast("string")))
+
+    def __setLength(self, index, value):
+        """ sets the dimension length of the field or of its chunk
+
+        :param index: dimension index
+        :type index: :obj:`str`
+        :param value: dimension length
+        :type value: :obj:`str`
+        """
+        field = self._beforeLast()
+        if self.__chunk:
+            if hasattr(field, "setChunkLength"):
+                field.setChunkLength(index, value)
+        else:
+            field.setLength(index, value)
 
 
 class ESlab(Element):

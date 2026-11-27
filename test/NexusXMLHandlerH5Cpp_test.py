@@ -34,7 +34,7 @@ from nxswriter.EStrategy import EStrategy
 from nxswriter.FElement import FElement
 from nxswriter.H5Elements import (
     EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
-    ESelection)
+    ESelection, EChunk)
 from nxswriter.EVirtualField import (
     EVirtualField, EVirtualDataMap, EVirtualSourceView)
 from nxswriter.DataSourceFactory import DataSourceFactory
@@ -569,7 +569,7 @@ class NexusXMLHandlerH5CppTest(unittest.TestCase):
                 'group': EGroup, 'field': EField,
                 'attribute': EAttribute, 'link': ELink,
                 'symbols': Element, 'symbol': ESymbol,
-                'dimensions': EDimensions, 'dim': EDim,
+                'dimensions': EDimensions, 'dim': EDim, 'chunk': EChunk,
                 'enumeration': Element, 'item': Element,
                 'strategy': EStrategy, 'filter': EFilter,
                 'vds': EVirtualField, 'map': EVirtualDataMap,
