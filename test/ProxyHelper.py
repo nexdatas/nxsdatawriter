@@ -37,14 +37,28 @@ class ProxyHelper(object):
     # \proxy counts number of counts
     # \proxy sec time interval between two counts
 
+    #: (:obj:`int`) maximal number of consecutive connection errors
+    maxerrors = 1000
+
     @classmethod
     def wait(cls, proxy, counts=-1, sec=0.01):
         found = False
         cnt = 0
+        errors = 0
         while not found and cnt != counts:
             try:
                 if proxy.state() != tango.DevState.RUNNING:
                     found = True
+                errors = 0
+            except tango.DevFailed as e:
+                # e.g. TRANSIENT_ConnectFailed of a server still starting
+                # or busy, retry until the counts are exhausted
+                found = False
+                errors += 1
+                if (counts > 0 and cnt + 1 >= counts) or \
+                   errors >= cls.maxerrors:
+                    print(e)
+                    raise
             except Exception as e:
                 print(e)
                 found = False

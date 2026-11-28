@@ -87,6 +87,10 @@ class ServerSetUp(object):
                 found = False
             cnt += 1
         print("")
+        if not found:
+            raise RuntimeError(
+                "NXSDataWriter %s (%s) is not running"
+                % (self.instance, dvname))
 
     # test closer
     # \brief Common tear down oif Tango Server
