@@ -92,7 +92,7 @@ class DBFieldTagWriterH5CppTest(unittest.TestCase):
         print("\nsetting up...")
         try:
             args = {}
-            args["db"] = 'tango'
+            args["database"] = 'tango'
             # args["host"] = 'localhost'
             args["read_default_file"] = '/etc/my.cnf'
             self._mydb = MySQLdb.connect(**args)

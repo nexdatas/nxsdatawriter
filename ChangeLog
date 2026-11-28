@@ -1,4 +1,5 @@
-2026-11-27 Jan Kotanski <jankotan@gmail.com>
+2026-11-28 Jan Kotanski <jankotan@gmail.com>
+	* use database and password keywords of MySQL connections, deprecated db and passwd are used for old MySQLdb versions
 	* accept type names of the pninexus xml builder, e.g. float64, f64, ui32, bool_t, str
 	* add the chunk tag of the pninexus xml builder defining chunks of fields
 	* tagged as 3.27.0

@@ -161,17 +161,27 @@ class DBaseSource(DataSource):
         if self.mycnf:
             args["read_default_file"] = self.mycnf
         if self.dbname:
-            args["db"] = self.dbname
+            args["database"] = self.dbname
         if self.user:
             args["user"] = self.user
         if self.passwd:
-            args["passwd"] = self.passwd
+            args["password"] = self.passwd
         if self.hostname:
             args["host"] = self.hostname
 
         if self.port:
             args["port"] = int(self.port)
-        return MySQLdb.connect(**args)
+        try:
+            return MySQLdb.connect(**args)
+        except TypeError:
+            # old MySQLdb versions without the database and password keywords
+            if "database" not in args and "password" not in args:
+                raise
+            if "database" in args:
+                args["db"] = args.pop("database")
+            if "password" in args:
+                args["passwd"] = args.pop("password")
+            return MySQLdb.connect(**args)
 
     def __connectPGSQL(self):
         """ connects to PGSQL database

@@ -143,7 +143,7 @@ try:
         MySQLdb.install_as_MySQLdb()
     # connection arguments to MYSQL DB
     args = {}
-    args["db"] = 'tango'
+    args["database"] = 'tango'
     # args["host"] = 'localhost'
     args["read_default_file"] = '/etc/my.cnf'
     # inscance of MySQLdb
