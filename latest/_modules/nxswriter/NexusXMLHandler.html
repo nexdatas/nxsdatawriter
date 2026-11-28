@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.NexusXMLHandler &#8212; nxswriter 3.26.0 documentation</title>
+    <title>nxswriter.NexusXMLHandler &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="../../_static/documentation_options.js?v=30146115"></script>
+    <script src="../../_static/documentation_options.js?v=41c12b4c"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +34,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,6 +132,7 @@
       <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="../../index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -180,7 +181,7 @@
 <span class="kn">from</span> <span class="nn">.ELink</span> <span class="kn">import</span> <span class="n">ELink</span>
 <span class="kn">from</span> <span class="nn">.H5Elements</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">EDoc</span><span class="p">,</span> <span class="n">ESymbol</span><span class="p">,</span> <span class="n">EDimensions</span><span class="p">,</span> <span class="n">EDim</span><span class="p">,</span> <span class="n">EFile</span><span class="p">,</span> <span class="n">EFilter</span><span class="p">,</span> <span class="n">ESlab</span><span class="p">,</span> <span class="n">ESlice</span><span class="p">,</span>
-    <span class="n">ESelection</span><span class="p">)</span>
+    <span class="n">ESelection</span><span class="p">,</span> <span class="n">EChunk</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.DataSourceFactory</span> <span class="kn">import</span> <span class="n">DataSourceFactory</span>
 <span class="kn">from</span> <span class="nn">.ThreadPool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
 <span class="kn">from</span> <span class="nn">.InnerXMLParser</span> <span class="kn">import</span> <span class="n">InnerXMLHandler</span>
@@ -269,7 +270,7 @@
             <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">EGroup</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="n">EField</span><span class="p">,</span>
             <span class="s1">&#39;attribute&#39;</span><span class="p">:</span> <span class="n">EAttribute</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="n">ELink</span><span class="p">,</span>
             <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">ESymbol</span><span class="p">,</span>
-            <span class="s1">&#39;dimensions&#39;</span><span class="p">:</span> <span class="n">EDimensions</span><span class="p">,</span> <span class="s1">&#39;dim&#39;</span><span class="p">:</span> <span class="n">EDim</span><span class="p">,</span>
+            <span class="s1">&#39;dimensions&#39;</span><span class="p">:</span> <span class="n">EDimensions</span><span class="p">,</span> <span class="s1">&#39;dim&#39;</span><span class="p">:</span> <span class="n">EDim</span><span class="p">,</span> <span class="s1">&#39;chunk&#39;</span><span class="p">:</span> <span class="n">EChunk</span><span class="p">,</span>
             <span class="s1">&#39;enumeration&#39;</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span>
             <span class="s1">&#39;strategy&#39;</span><span class="p">:</span> <span class="n">EStrategy</span><span class="p">,</span> <span class="s1">&#39;filter&#39;</span><span class="p">:</span> <span class="n">EFilter</span><span class="p">,</span>
             <span class="s1">&#39;vds&#39;</span><span class="p">:</span> <span class="n">EVirtualField</span><span class="p">,</span> <span class="s1">&#39;map&#39;</span><span class="p">:</span> <span class="n">EVirtualDataMap</span><span class="p">,</span>

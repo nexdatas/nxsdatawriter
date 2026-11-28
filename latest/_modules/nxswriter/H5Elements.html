@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.H5Elements &#8212; nxswriter 3.26.0 documentation</title>
+    <title>nxswriter.H5Elements &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="../../_static/documentation_options.js?v=30146115"></script>
+    <script src="../../_static/documentation_options.js?v=41c12b4c"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +34,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,6 +132,7 @@
       <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="../../index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -317,6 +318,29 @@
 
 
 
+<div class="viewcode-block" id="EChunk">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EChunk">[docs]</a>
+<span class="k">class</span> <span class="nc">EChunk</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; chunk tag element, i.e. chunk shape of a field</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
+
+<span class="sd">        :param attrs: dictionary of the tag attributes</span>
+<span class="sd">        :type attrs: :obj:`dict` &lt;:obj:`str`, :obj:`str`&gt;</span>
+<span class="sd">        :param last: the last element from the stack</span>
+<span class="sd">        :type last: :class:`nxswriter.Element.Element`</span>
+<span class="sd">        :param streams: tango-like steamset class</span>
+<span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Element</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;chunk&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="n">streams</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;rank&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s2">&quot;setChunkRank&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">setChunkRank</span><span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">])</span></div>
+
+
+
 <div class="viewcode-block" id="EDim">
 <a class="viewcode-back" href="../../nxswriter.html#nxswriter.H5Elements.EDim">[docs]</a>
 <span class="k">class</span> <span class="nc">EDim</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
@@ -335,8 +359,10 @@
 <span class="sd">        :type streams: :class:`StreamSet` or :class:`tango.LatestDeviceImpl`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Element</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;dim&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="n">streams</span><span class="p">)</span>
+        <span class="c1">#: (:obj:`bool`) dimension of a chunk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__chunk</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s2">&quot;tagName&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;chunk&quot;</span>
         <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;value&quot;</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setLength</span><span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__setLength</span><span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
         <span class="c1">#: (:obj:`str`) index attribute</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1">#: (:class:`nxswriter.DataSources.DataSource`) data source</span>
@@ -362,9 +388,23 @@
             <span class="k">if</span> <span class="n">dt</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
                 <span class="n">dh</span> <span class="o">=</span> <span class="n">DataHolder</span><span class="p">(</span><span class="n">streams</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">,</span> <span class="o">**</span><span class="n">dt</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">dh</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span><span class="o">.</span><span class="n">setLength</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span>
-                                                 <span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span></div>
-</div>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__setLength</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">dh</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)))</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__setLength</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the dimension length of the field or of its chunk</span>
+
+<span class="sd">        :param index: dimension index</span>
+<span class="sd">        :type index: :obj:`str`</span>
+<span class="sd">        :param value: dimension length</span>
+<span class="sd">        :type value: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beforeLast</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__chunk</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s2">&quot;setChunkLength&quot;</span><span class="p">):</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">setChunkLength</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">setLength</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 
 

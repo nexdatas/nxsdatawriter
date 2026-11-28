@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.Types &#8212; nxswriter 3.26.0 documentation</title>
+    <title>nxswriter.Types &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="../../_static/documentation_options.js?v=30146115"></script>
+    <script src="../../_static/documentation_options.js?v=41c12b4c"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +34,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,6 +132,7 @@
       <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="../../index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -253,7 +254,25 @@
             <span class="s2">&quot;NX_UINT16&quot;</span><span class="p">:</span> <span class="s2">&quot;uint16&quot;</span><span class="p">,</span>
             <span class="s2">&quot;NX_UINT8&quot;</span><span class="p">:</span> <span class="s2">&quot;uint8&quot;</span><span class="p">,</span> <span class="s2">&quot;NX_UINT&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span> <span class="s2">&quot;NX_POSINT&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span>
             <span class="s2">&quot;NX_DATE_TIME&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;ISO8601&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;NX_CHAR&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;NX_BOOLEAN&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">}</span>
+            <span class="s2">&quot;NX_BOOLEAN&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">,</span>
+            <span class="c1"># type names of the pninexus xml builder</span>
+            <span class="s2">&quot;uint8&quot;</span><span class="p">:</span> <span class="s2">&quot;uint8&quot;</span><span class="p">,</span> <span class="s2">&quot;ui8&quot;</span><span class="p">:</span> <span class="s2">&quot;uint8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int8&quot;</span><span class="p">:</span> <span class="s2">&quot;int8&quot;</span><span class="p">,</span> <span class="s2">&quot;i8&quot;</span><span class="p">:</span> <span class="s2">&quot;int8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uint16&quot;</span><span class="p">:</span> <span class="s2">&quot;uint16&quot;</span><span class="p">,</span> <span class="s2">&quot;ui16&quot;</span><span class="p">:</span> <span class="s2">&quot;uint16&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int16&quot;</span><span class="p">:</span> <span class="s2">&quot;int16&quot;</span><span class="p">,</span> <span class="s2">&quot;i16&quot;</span><span class="p">:</span> <span class="s2">&quot;int16&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uint32&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span><span class="p">,</span> <span class="s2">&quot;ui32&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int32&quot;</span><span class="p">:</span> <span class="s2">&quot;int32&quot;</span><span class="p">,</span> <span class="s2">&quot;i32&quot;</span><span class="p">:</span> <span class="s2">&quot;int32&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uint64&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span> <span class="s2">&quot;ui64&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int64&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span><span class="p">,</span> <span class="s2">&quot;i64&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;float32&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span> <span class="s2">&quot;f32&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;float64&quot;</span><span class="p">:</span> <span class="s2">&quot;float64&quot;</span><span class="p">,</span> <span class="s2">&quot;f64&quot;</span><span class="p">:</span> <span class="s2">&quot;float64&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;str&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;ascii&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bool&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="s2">&quot;bool_t&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="s2">&quot;ebool&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ibool&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">}</span>
+
+    <span class="c1">#: (:obj:`list` &lt;:obj:`str`&gt;) string type names of xml fields and</span>
+    <span class="c1">#:    attributes stored without extending their shapes</span>
+    <span class="n">charTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NX_CHAR&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;ascii&quot;</span><span class="p">]</span>
 
     <span class="c1">#: (:obj:`dict` &lt;:obj:`str` , :obj:`type` or :obj:`types.MethodType` &gt;) \</span>
     <span class="c1">#:      map of type : converting function</span>

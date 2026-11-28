@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to NXSDataWriter’s documentation! &#8212; nxswriter 3.26.0 documentation</title>
+    <title>Welcome to NXSDataWriter’s documentation! &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="_static/documentation_options.js?v=30146115"></script>
+    <script src="_static/documentation_options.js?v=41c12b4c"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -36,7 +36,7 @@
         </button>
         <a class="navbar-brand" href="#">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -170,6 +170,7 @@
       <li><a class="reference external" href="index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -532,6 +533,8 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rank"><code class="docutils literal notranslate"><span class="pre">EField.rank</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.rate"><code class="docutils literal notranslate"><span class="pre">EField.rate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.run"><code class="docutils literal notranslate"><span class="pre">EField.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setChunkLength"><code class="docutils literal notranslate"><span class="pre">EField.setChunkLength()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setChunkRank"><code class="docutils literal notranslate"><span class="pre">EField.setChunkRank()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setLength"><code class="docutils literal notranslate"><span class="pre">EField.setLength()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.setRank"><code class="docutils literal notranslate"><span class="pre">EField.setRank()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.EField.EField.shuffle"><code class="docutils literal notranslate"><span class="pre">EField.shuffle</span></code></a></li>
@@ -637,6 +640,7 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nxswriter.html#module-nxswriter.H5Elements">nxswriter.H5Elements module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EChunk"><code class="docutils literal notranslate"><span class="pre">EChunk</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim"><code class="docutils literal notranslate"><span class="pre">EDim</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim.content"><code class="docutils literal notranslate"><span class="pre">EDim.content</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.H5Elements.EDim.source"><code class="docutils literal notranslate"><span class="pre">EDim.source</span></code></a></li>
@@ -908,6 +912,7 @@ was created by XMLFile class defined in XMLCreator/simpleXML.py.</p>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRank"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRank()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRankRShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankRShape()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.arrayRankShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankShape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.charTypes"><code class="docutils literal notranslate"><span class="pre">NTP.charTypes</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.convert"><code class="docutils literal notranslate"><span class="pre">NTP.convert</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.createArray"><code class="docutils literal notranslate"><span class="pre">NTP.createArray()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nxswriter.html#nxswriter.Types.NTP.nTnp"><code class="docutils literal notranslate"><span class="pre">NTP.nTnp</span></code></a></li>

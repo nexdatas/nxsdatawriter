@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxswriter.EField &#8212; nxswriter 3.26.0 documentation</title>
+    <title>nxswriter.EField &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="../../_static/documentation_options.js?v=30146115"></script>
+    <script src="../../_static/documentation_options.js?v=41c12b4c"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +34,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,6 +132,7 @@
       <li><a class="reference external" href="../../index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="../../index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="../../index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="../../index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -209,6 +210,11 @@
         <span class="c1">#:        index filter lists, i.e. \</span>
         <span class="c1">#:        {index: (filter_id, name, id, cd_values, availability)}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#: (:obj:`str`) chunk rank given by the chunk tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__chunkrank</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: (:obj:`dict` &lt;:obj:`str`, :obj:`str`&gt;) chunk dimensions</span>
+        <span class="c1">#:     given by the chunk tag, i.e. {index: length}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__chunklengths</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="c1">#: (:obj:`bool`) True if field is stored in STEP mode</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__extraD</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="c1">#: (:obj:`str`) strategy, i.e. INIT, STEP, FINAL, POSTRUN</span>
@@ -287,6 +293,59 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">lengths</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
+<div class="viewcode-block" id="EField.setChunkRank">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.setChunkRank">[docs]</a>
+    <span class="k">def</span> <span class="nf">setChunkRank</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets the chunk rank</span>
+
+<span class="sd">        :param rank: chunk rank</span>
+<span class="sd">        :type rank: :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__chunkrank</span> <span class="o">=</span> <span class="n">rank</span></div>
+
+
+<div class="viewcode-block" id="EField.setChunkLength">
+<a class="viewcode-back" href="../../nxswriter.html#nxswriter.EField.EField.setChunkLength">[docs]</a>
+    <span class="k">def</span> <span class="nf">setChunkLength</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets a chunk dimension</span>
+
+<span class="sd">        :param index: chunk dimension index</span>
+<span class="sd">        :type index: :obj:`str`</span>
+<span class="sd">        :param value: chunk dimension length</span>
+<span class="sd">        :type value: :obj:`int` or :obj:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__chunklengths</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__userChunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides the chunk shape given by the chunk tag</span>
+
+<span class="sd">        The chunk can omit the growing dimension of STEP fields.</span>
+
+<span class="sd">        :param shape: field shape</span>
+<span class="sd">        :type shape: :obj:`list` &lt;:obj:`int` &gt;</span>
+<span class="sd">        :returns: chunk shape or None</span>
+<span class="sd">        :rtype: :obj:`list` &lt;:obj:`int` &gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__chunklengths</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">shape</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">vl</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">vl</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__chunklengths</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">it</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">chunk</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">chunk</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;EField::__userChunk() - chunk </span><span class="si">%s</span><span class="s2"> does not fit &quot;</span>
+                    <span class="s2">&quot;the shape </span><span class="si">%s</span><span class="s2"> of </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__chunklengths</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_tagAttrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">chunk</span>
+
     <span class="k">def</span> <span class="nf">__getShape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; provides shape</span>
 
@@ -326,7 +385,7 @@
                 <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastObject</span><span class="p">()</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">f</span>
 
-        <span class="n">chunk</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">]</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__userChunk</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[</span><span class="n">s</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">]</span>
         <span class="n">minshape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">]</span>
         <span class="n">datafilter</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># create Filter</span>

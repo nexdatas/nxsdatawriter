@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>nxswriter package &#8212; nxswriter 3.26.0 documentation</title>
+    <title>nxswriter package &#8212; nxswriter 3.27.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
-    <script src="_static/documentation_options.js?v=30146115"></script>
+    <script src="_static/documentation_options.js?v=41c12b4c"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -36,7 +36,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           nxswriter</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.27</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -254,6 +254,8 @@
 <li><a class="reference internal" href="#nxswriter.EField.EField.rank"><code class="docutils literal notranslate"><span class="pre">EField.rank</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.rate"><code class="docutils literal notranslate"><span class="pre">EField.rate</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.run"><code class="docutils literal notranslate"><span class="pre">EField.run()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.EField.EField.setChunkLength"><code class="docutils literal notranslate"><span class="pre">EField.setChunkLength()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.EField.EField.setChunkRank"><code class="docutils literal notranslate"><span class="pre">EField.setChunkRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.setLength"><code class="docutils literal notranslate"><span class="pre">EField.setLength()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.setRank"><code class="docutils literal notranslate"><span class="pre">EField.setRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.shuffle"><code class="docutils literal notranslate"><span class="pre">EField.shuffle</span></code></a></li>
@@ -359,6 +361,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-nxswriter.H5Elements">nxswriter.H5Elements module</a><ul>
+<li><a class="reference internal" href="#nxswriter.H5Elements.EChunk"><code class="docutils literal notranslate"><span class="pre">EChunk</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim"><code class="docutils literal notranslate"><span class="pre">EDim</span></code></a><ul>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim.content"><code class="docutils literal notranslate"><span class="pre">EDim.content</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim.source"><code class="docutils literal notranslate"><span class="pre">EDim.source</span></code></a></li>
@@ -630,6 +633,7 @@
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRank"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRankRShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankRShape()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRankShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankShape()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.Types.NTP.charTypes"><code class="docutils literal notranslate"><span class="pre">NTP.charTypes</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.convert"><code class="docutils literal notranslate"><span class="pre">NTP.convert</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.createArray"><code class="docutils literal notranslate"><span class="pre">NTP.createArray()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.nTnp"><code class="docutils literal notranslate"><span class="pre">NTP.nTnp</span></code></a></li>
@@ -842,6 +846,8 @@
 <li><a class="reference internal" href="#nxswriter.EField.EField.rank"><code class="docutils literal notranslate"><span class="pre">EField.rank</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.rate"><code class="docutils literal notranslate"><span class="pre">EField.rate</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.run"><code class="docutils literal notranslate"><span class="pre">EField.run()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.EField.EField.setChunkLength"><code class="docutils literal notranslate"><span class="pre">EField.setChunkLength()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.EField.EField.setChunkRank"><code class="docutils literal notranslate"><span class="pre">EField.setChunkRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.setLength"><code class="docutils literal notranslate"><span class="pre">EField.setLength()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.setRank"><code class="docutils literal notranslate"><span class="pre">EField.setRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.EField.EField.shuffle"><code class="docutils literal notranslate"><span class="pre">EField.shuffle</span></code></a></li>
@@ -947,6 +953,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-nxswriter.H5Elements">nxswriter.H5Elements module</a><ul>
+<li><a class="reference internal" href="#nxswriter.H5Elements.EChunk"><code class="docutils literal notranslate"><span class="pre">EChunk</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim"><code class="docutils literal notranslate"><span class="pre">EDim</span></code></a><ul>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim.content"><code class="docutils literal notranslate"><span class="pre">EDim.content</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.H5Elements.EDim.source"><code class="docutils literal notranslate"><span class="pre">EDim.source</span></code></a></li>
@@ -1218,6 +1225,7 @@
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRank"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRank()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRankRShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankRShape()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.arrayRankShape"><code class="docutils literal notranslate"><span class="pre">NTP.arrayRankShape()</span></code></a></li>
+<li><a class="reference internal" href="#nxswriter.Types.NTP.charTypes"><code class="docutils literal notranslate"><span class="pre">NTP.charTypes</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.convert"><code class="docutils literal notranslate"><span class="pre">NTP.convert</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.createArray"><code class="docutils literal notranslate"><span class="pre">NTP.createArray()</span></code></a></li>
 <li><a class="reference internal" href="#nxswriter.Types.NTP.nTnp"><code class="docutils literal notranslate"><span class="pre">NTP.nTnp</span></code></a></li>
@@ -1244,6 +1252,7 @@
       <li><a class="reference external" href="index/../../latest/index.html">v:latest</a></li>
       <li><a class="reference external" href="index/../../stable/index.html">v:stable</a></li>
       
+      <li><a class="reference external" href="index/../../v3.27.0/index.html">v3.27.0</a></li>
       <li><a class="reference external" href="index/../../v3.26.0/index.html">v3.26.0</a></li>
       <li><a class="reference external" href="index/../../v3.25.0/index.html">v3.25.0</a></li>
       <li><a class="reference external" href="index/../../v3.24.0/index.html">v3.24.0</a></li>
@@ -2396,6 +2405,31 @@ is registered</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="nxswriter.EField.EField.setChunkLength">
+<span class="sig-name descname"><span class="pre">setChunkLength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nxswriter/EField.html#EField.setChunkLength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nxswriter.EField.EField.setChunkLength" title="Link to this definition">¶</a></dt>
+<dd><p>sets a chunk dimension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – chunk dimension index</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – chunk dimension length</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nxswriter.EField.EField.setChunkRank">
+<span class="sig-name descname"><span class="pre">setChunkRank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nxswriter/EField.html#EField.setChunkRank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nxswriter.EField.EField.setChunkRank" title="Link to this definition">¶</a></dt>
+<dd><p>sets the chunk rank</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rank</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – chunk rank</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nxswriter.EField.EField.setLength">
 <span class="sig-name descname"><span class="pre">setLength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nxswriter/EField.html#EField.setLength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nxswriter.EField.EField.setLength" title="Link to this definition">¶</a></dt>
 <dd><p>sets lengths dict element</p>
@@ -3047,6 +3081,23 @@ written as (name, value, shape)</p>
 <section id="module-nxswriter.H5Elements">
 <span id="nxswriter-h5elements-module"></span><h2>nxswriter.H5Elements module<a class="headerlink" href="#module-nxswriter.H5Elements" title="Link to this heading">¶</a></h2>
 <p>Definitions of tag evaluation classes</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nxswriter.H5Elements.EChunk">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nxswriter.H5Elements.</span></span><span class="sig-name descname"><span class="pre">EChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nxswriter/H5Elements.html#EChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nxswriter.H5Elements.EChunk" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nxswriter.Element.Element" title="nxswriter.Element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>chunk tag element, i.e. chunk shape of a field</p>
+<p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attrs</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> &lt;<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>&gt;) – dictionary of the tag attributes</p></li>
+<li><p><strong>last</strong> (<a class="reference internal" href="#nxswriter.Element.Element" title="nxswriter.Element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">nxswriter.Element.Element</span></code></a>) – the last element from the stack</p></li>
+<li><p><strong>streams</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StreamSet</span></code> or <a class="reference external" href="https://tango-controls.readthedocs.io/projects/pytango/en/stable/api/server_api/device.html#tango.LatestDeviceImpl" title="(in PyTango v10.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tango.LatestDeviceImpl</span></code></a>) – tango-like steamset class</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="nxswriter.H5Elements.EDim">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nxswriter.H5Elements.</span></span><span class="sig-name descname"><span class="pre">EDim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nxswriter/H5Elements.html#EDim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nxswriter.H5Elements.EDim" title="Link to this definition">¶</a></dt>
@@ -5274,6 +5325,13 @@ the first element of the list array</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="nxswriter.Types.NTP.charTypes">
+<span class="sig-name descname"><span class="pre">charTypes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['NX_CHAR',</span> <span class="pre">'string',</span> <span class="pre">'str',</span> <span class="pre">'ascii']</span></em><a class="headerlink" href="#nxswriter.Types.NTP.charTypes" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> &lt;<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>&gt;) string type names of xml fields and
+attributes stored without extending their shapes</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="nxswriter.Types.NTP.convert">
 <span class="sig-name descname"><span class="pre">convert</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'bool':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">Converters.toBool</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'nxswriter.Types.Converters'&gt;&gt;,</span> <span class="pre">'float':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'float16':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'float32':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'float64':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'int':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'int16':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'int32':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'int64':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'int8':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'str':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">'string':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">'uint':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'uint16':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'uint32':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'uint64':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'uint8':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;}</span></em><a class="headerlink" href="#nxswriter.Types.NTP.convert" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> &lt;<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> , <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#type" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a> or <a class="reference external" href="https://docs.python.org/3.5/library/types.html#types.MethodType" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">types.MethodType</span></code></a> &gt;) map of type : converting function</p>
@@ -5304,7 +5362,7 @@ the first element of the list array</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nxswriter.Types.NTP.nTnp">
-<span class="sig-name descname"><span class="pre">nTnp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ISO8601':</span> <span class="pre">'string',</span> <span class="pre">'NX_BOOLEAN':</span> <span class="pre">'bool',</span> <span class="pre">'NX_CHAR':</span> <span class="pre">'string',</span> <span class="pre">'NX_DATE_TIME':</span> <span class="pre">'string',</span> <span class="pre">'NX_FLOAT':</span> <span class="pre">'float64',</span> <span class="pre">'NX_FLOAT32':</span> <span class="pre">'float32',</span> <span class="pre">'NX_FLOAT64':</span> <span class="pre">'float64',</span> <span class="pre">'NX_INT':</span> <span class="pre">'int64',</span> <span class="pre">'NX_INT16':</span> <span class="pre">'int16',</span> <span class="pre">'NX_INT32':</span> <span class="pre">'int32',</span> <span class="pre">'NX_INT64':</span> <span class="pre">'int64',</span> <span class="pre">'NX_INT8':</span> <span class="pre">'int8',</span> <span class="pre">'NX_NUMBER':</span> <span class="pre">'float64',</span> <span class="pre">'NX_POSINT':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT16':</span> <span class="pre">'uint16',</span> <span class="pre">'NX_UINT32':</span> <span class="pre">'uint32',</span> <span class="pre">'NX_UINT64':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT8':</span> <span class="pre">'uint8'}</span></em><a class="headerlink" href="#nxswriter.Types.NTP.nTnp" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">nTnp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ISO8601':</span> <span class="pre">'string',</span> <span class="pre">'NX_BOOLEAN':</span> <span class="pre">'bool',</span> <span class="pre">'NX_CHAR':</span> <span class="pre">'string',</span> <span class="pre">'NX_DATE_TIME':</span> <span class="pre">'string',</span> <span class="pre">'NX_FLOAT':</span> <span class="pre">'float64',</span> <span class="pre">'NX_FLOAT32':</span> <span class="pre">'float32',</span> <span class="pre">'NX_FLOAT64':</span> <span class="pre">'float64',</span> <span class="pre">'NX_INT':</span> <span class="pre">'int64',</span> <span class="pre">'NX_INT16':</span> <span class="pre">'int16',</span> <span class="pre">'NX_INT32':</span> <span class="pre">'int32',</span> <span class="pre">'NX_INT64':</span> <span class="pre">'int64',</span> <span class="pre">'NX_INT8':</span> <span class="pre">'int8',</span> <span class="pre">'NX_NUMBER':</span> <span class="pre">'float64',</span> <span class="pre">'NX_POSINT':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT16':</span> <span class="pre">'uint16',</span> <span class="pre">'NX_UINT32':</span> <span class="pre">'uint32',</span> <span class="pre">'NX_UINT64':</span> <span class="pre">'uint64',</span> <span class="pre">'NX_UINT8':</span> <span class="pre">'uint8',</span> <span class="pre">'ascii':</span> <span class="pre">'string',</span> <span class="pre">'bool':</span> <span class="pre">'bool',</span> <span class="pre">'bool_t':</span> <span class="pre">'bool',</span> <span class="pre">'ebool':</span> <span class="pre">'bool',</span> <span class="pre">'f32':</span> <span class="pre">'float32',</span> <span class="pre">'f64':</span> <span class="pre">'float64',</span> <span class="pre">'float32':</span> <span class="pre">'float32',</span> <span class="pre">'float64':</span> <span class="pre">'float64',</span> <span class="pre">'i16':</span> <span class="pre">'int16',</span> <span class="pre">'i32':</span> <span class="pre">'int32',</span> <span class="pre">'i64':</span> <span class="pre">'int64',</span> <span class="pre">'i8':</span> <span class="pre">'int8',</span> <span class="pre">'ibool':</span> <span class="pre">'bool',</span> <span class="pre">'int16':</span> <span class="pre">'int16',</span> <span class="pre">'int32':</span> <span class="pre">'int32',</span> <span class="pre">'int64':</span> <span class="pre">'int64',</span> <span class="pre">'int8':</span> <span class="pre">'int8',</span> <span class="pre">'str':</span> <span class="pre">'string',</span> <span class="pre">'string':</span> <span class="pre">'string',</span> <span class="pre">'ui16':</span> <span class="pre">'uint16',</span> <span class="pre">'ui32':</span> <span class="pre">'uint32',</span> <span class="pre">'ui64':</span> <span class="pre">'uint64',</span> <span class="pre">'ui8':</span> <span class="pre">'uint8',</span> <span class="pre">'uint16':</span> <span class="pre">'uint16',</span> <span class="pre">'uint32':</span> <span class="pre">'uint32',</span> <span class="pre">'uint64':</span> <span class="pre">'uint64',</span> <span class="pre">'uint8':</span> <span class="pre">'uint8'}</span></em><a class="headerlink" href="#nxswriter.Types.NTP.nTnp" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> &lt;<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> , <a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> &gt;) map of NEXUS :  numpy types</p>
 </dd></dl>
 
