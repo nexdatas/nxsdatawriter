@@ -94,7 +94,7 @@ class EAttribute(FElement):
                 tp = "NX_CHAR"
 
             try:
-                if tp == "NX_CHAR":
+                if tp in NTP.charTypes:
                     shape = self._findShape(self.rank, self.lengths)
                 else:
                     shape = self._findShape(self.rank, self.lengths,

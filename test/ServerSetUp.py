@@ -30,6 +30,14 @@ except Exception:
     import PyTango as tango
 
 
+try:
+    from TangoDbUtils import (
+        add_device, add_server, database, delete_server)
+except ImportError:
+    from .TangoDbUtils import (
+        add_device, add_server, database, delete_server)
+
+
 # test fixture
 class ServerSetUp(object):
 
@@ -51,10 +59,11 @@ class ServerSetUp(object):
     # \brief Common set up of Tango Server
     def setUp(self):
         print("tearing down ...")
-        db = tango.Database()
-        db.add_device(self.new_device_info_writer)
-        db.add_server(
-            self.new_device_info_writer.server, self.new_device_info_writer)
+        db = database()
+        add_device(self.new_device_info_writer, db)
+        add_server(
+            self.new_device_info_writer.server, self.new_device_info_writer,
+            db)
 
         if os.path.isfile("../NXSDataWriter"):
             self._psub = subprocess.call(
@@ -87,13 +96,16 @@ class ServerSetUp(object):
                 found = False
             cnt += 1
         print("")
+        if not found:
+            raise RuntimeError(
+                "NXSDataWriter %s (%s) is not running"
+                % (self.instance, dvname))
 
     # test closer
     # \brief Common tear down oif Tango Server
     def tearDown(self):
         print("tearing down ...")
-        db = tango.Database()
-        db.delete_server(self.new_device_info_writer.server)
+        delete_server(self.new_device_info_writer.server)
 
         with subprocess.Popen(
                 "ps -ef | grep 'NXSDataWriter %s' | grep -v grep" %

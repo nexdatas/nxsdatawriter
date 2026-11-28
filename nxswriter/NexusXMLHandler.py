@@ -34,7 +34,7 @@ from .EStrategy import EStrategy
 from .ELink import ELink
 from .H5Elements import (
     EDoc, ESymbol, EDimensions, EDim, EFile, EFilter, ESlab, ESlice,
-    ESelection)
+    ESelection, EChunk)
 from .DataSourceFactory import DataSourceFactory
 from .ThreadPool import ThreadPool
 from .InnerXMLParser import InnerXMLHandler
@@ -121,7 +121,7 @@ class NexusXMLHandler(sax.ContentHandler):
             'group': EGroup, 'field': EField,
             'attribute': EAttribute, 'link': ELink,
             'symbols': Element, 'symbol': ESymbol,
-            'dimensions': EDimensions, 'dim': EDim,
+            'dimensions': EDimensions, 'dim': EDim, 'chunk': EChunk,
             'enumeration': Element, 'item': Element,
             'strategy': EStrategy, 'filter': EFilter,
             'vds': EVirtualField, 'map': EVirtualDataMap,

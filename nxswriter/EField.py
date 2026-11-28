@@ -61,6 +61,11 @@ class EField(FElementWithAttr):
         #:        index filter lists, i.e. \
         #:        {index: (filter_id, name, id, cd_values, availability)}
         self.filters = {}
+        #: (:obj:`str`) chunk rank given by the chunk tag
+        self.__chunkrank = None
+        #: (:obj:`dict` <:obj:`str`, :obj:`str`>) chunk dimensions
+        #:     given by the chunk tag, i.e. {index: length}
+        self.__chunklengths = {}
         #: (:obj:`bool`) True if field is stored in STEP mode
         self.__extraD = False
         #: (:obj:`str`) strategy, i.e. INIT, STEP, FINAL, POSTRUN
@@ -133,6 +138,53 @@ class EField(FElementWithAttr):
         """
         self.lengths[index] = value
 
+    def setChunkRank(self, rank):
+        """ sets the chunk rank
+
+        :param rank: chunk rank
+        :type rank: :obj:`str`
+        """
+        self.__chunkrank = rank
+
+    def setChunkLength(self, index, value):
+        """ sets a chunk dimension
+
+        :param index: chunk dimension index
+        :type index: :obj:`str`
+        :param value: chunk dimension length
+        :type value: :obj:`int` or :obj:`str`
+        """
+        self.__chunklengths[index] = value
+
+    def __userChunk(self, shape):
+        """ provides the chunk shape given by the chunk tag
+
+        The chunk can omit the growing dimension of STEP fields.
+
+        :param shape: field shape
+        :type shape: :obj:`list` <:obj:`int` >
+        :returns: chunk shape or None
+        :rtype: :obj:`list` <:obj:`int` >
+        """
+        if not self.__chunklengths or not shape:
+            return None
+        try:
+            chunk = [int(vl) for _, vl in sorted(
+                self.__chunklengths.items(), key=lambda it: int(it[0]))]
+        except Exception:
+            chunk = []
+        if len(chunk) == len(shape) - 1:
+            chunk = [1] + chunk
+        if len(chunk) != len(shape) or any(ch < 1 for ch in chunk):
+            if self._streams:
+                self._streams.warn(
+                    "EField::__userChunk() - chunk %s does not fit "
+                    "the shape %s of %s" % (
+                        self.__chunklengths, shape,
+                        self._tagAttrs.get("name")))
+            return None
+        return chunk
+
     def __getShape(self):
         """ provides shape
 
@@ -172,7 +224,7 @@ class EField(FElementWithAttr):
                 f = self._lastObject().open(name)
                 return f
 
-        chunk = [s if s > 0 else 1 for s in shape]
+        chunk = self.__userChunk(shape) or [s if s > 0 else 1 for s in shape]
         minshape = [1 if s > 0 else 0 for s in shape]
         datafilter = None
         # create Filter

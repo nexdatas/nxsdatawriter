@@ -96,7 +96,25 @@ class NTP(object):
             "NX_UINT16": "uint16",
             "NX_UINT8": "uint8", "NX_UINT": "uint64", "NX_POSINT": "uint64",
             "NX_DATE_TIME": "string", "ISO8601": "string", "NX_CHAR": "string",
-            "NX_BOOLEAN": "bool"}
+            "NX_BOOLEAN": "bool",
+            # type names of the pninexus xml builder
+            "uint8": "uint8", "ui8": "uint8",
+            "int8": "int8", "i8": "int8",
+            "uint16": "uint16", "ui16": "uint16",
+            "int16": "int16", "i16": "int16",
+            "uint32": "uint32", "ui32": "uint32",
+            "int32": "int32", "i32": "int32",
+            "uint64": "uint64", "ui64": "uint64",
+            "int64": "int64", "i64": "int64",
+            "float32": "float32", "f32": "float32",
+            "float64": "float64", "f64": "float64",
+            "string": "string", "str": "string", "ascii": "string",
+            "bool": "bool", "bool_t": "bool", "ebool": "bool",
+            "ibool": "bool"}
+
+    #: (:obj:`list` <:obj:`str`>) string type names of xml fields and
+    #:    attributes stored without extending their shapes
+    charTypes = ["NX_CHAR", "string", "str", "ascii"]
 
     #: (:obj:`dict` <:obj:`str` , :obj:`type` or :obj:`types.MethodType` >) \
     #:      map of type : converting function
