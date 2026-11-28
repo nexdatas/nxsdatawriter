@@ -32,6 +32,14 @@ except Exception:
 
 
 try:
+    from TangoDbUtils import (
+        add_device, add_server, database, delete_server)
+except ImportError:
+    from .TangoDbUtils import (
+        add_device, add_server, database, delete_server)
+
+
+try:
     import SimpleServer
 except Exception:
     from . import SimpleServer
@@ -86,10 +94,11 @@ class SimpleServerSetUp(object):
     # \brief Common set up of Tango Server
     def setUp(self):
         print("\nsetting up...")
-        db = tango.Database()
-        db.add_device(self.new_device_info_writer)
-        db.add_server(
-            self.new_device_info_writer.server, self.new_device_info_writer)
+        db = database()
+        add_device(self.new_device_info_writer, db)
+        add_server(
+            self.new_device_info_writer.server, self.new_device_info_writer,
+            db)
         db.put_device_property(
             self.new_device_info_writer.name, self.device_prop)
         db.put_class_property(
@@ -128,8 +137,7 @@ class SimpleServerSetUp(object):
     # \brief Common tear down oif Tango Server
     def tearDown(self):
         print("tearing down ...")
-        db = tango.Database()
-        db.delete_server(self.new_device_info_writer.server)
+        delete_server(self.new_device_info_writer.server)
         with subprocess.Popen(
                 "ps -ef | grep 'SimpleServer.py %s' | grep -v grep" %
                 self.instance,
